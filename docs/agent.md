@@ -34,7 +34,9 @@ engine, severities and notifications.
   container declared **without** an agent, the root filesystem is read from Proxmox, with the
   same key `guest_disk:<host>:/`, the same thresholds, and "per Proxmox" in the detail. Never for
   a VM: Proxmox cannot see its disk.
-- `container_unhealthy`.
+- `container_unhealthy`: a running container whose Docker health check reports `unhealthy` for 2
+  minutes. A stopped container is never `unhealthy`, even though Docker keeps its last health
+  status after the stop.
 - `container_restarting`: a restart loop, or 3 restarts within 15 minutes.
 - `container_down`: a container declared by `services[].container` (container name or compose
   service) is missing from the agent's report, or has not been `running` for 2 minutes. It takes
@@ -45,6 +47,8 @@ engine, severities and notifications.
 - `systemd_failed`: a failed unit, or a tracked unit that is inactive. **Warning**, or
   **critical** when one of them is listed in `alerts.criticalUnits`; critical units are listed
   first in the detail.
+  A oneshot service is inactive between two runs: track its timer in `/etc/dash-report.units`, not
+  the service (a failed run still shows up as a failed unit).
 - `apt_stale`: package lists older than `alerts.aptMaxAgeDays` (7 days).
 - `security_updates` and `reboot_required`: info, digest only. `security_updates` changes meaning
   when automatic updates are on (see below).
@@ -151,6 +155,10 @@ Info: a port listening on a non-local address that has never been seen on the ho
 v8 report. Ports present in that first report are known from the start, so there is no flood.
 
 - Ports on `127.0.0.0/8`, `::1` or `::ffff:127.x.y.z` are shown and never alert.
+- The Tailscale peerapi is shown and never alerts: a TCP port of the `tailscaled` process whose
+  addresses are all in the tailnet (`100.64.0.0/10`, `fd7a:115c:a1e0::/48`). Its port is drawn at
+  random at each start of `tailscaled`. The same port on any other address, the WireGuard UDP port
+  (41641 by default) or another process on a tailnet address alert as usual.
 - **Known** (admin, with a reason, audited) resolves the alert.
 - A port that stops listening resolves on its own as soon as a fresh v8 slow report (less than 3
   hours old) no longer shows it. Without fresh data (agent unreachable, stale report, agent older

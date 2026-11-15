@@ -362,6 +362,25 @@ test('host removed from the config, never bootstrapped (posture only): its postu
   assert.equal(b.store.db.prepare("SELECT count(*) AS n FROM host_posture WHERE host = 'g1'").get().n, 0)
 })
 
+test('Tailscale peerapi (tailscaled, TCP, tailnet addresses only): shown, never exposed', () => {
+  const ts = (addr, extra = {}) => ({ proto: 'tcp', addr, port: 40005, process: 'tailscaled', ...extra })
+  // tailnet only, IPv4 (100.64.0.0/10 bounds) and IPv6 (fd7a:115c:a1e0::/48, any case, brackets)
+  for (const addr of ['100.114.161.86', '100.64.0.1', '100.127.255.254', 'fd7a:115c:a1e0::7928:a157', '[FD7A:115C:A1E0:AB12::1]']) {
+    assert.deepEqual([...exposedPorts([ts(addr)]).keys()], [], addr)
+  }
+  // outside the tailnet ranges: exposed
+  for (const addr of ['100.63.255.1', '100.128.0.1', '0.0.0.0', '::', 'fd7a:115c:a1e1::1', '192.0.2.5']) {
+    assert.deepEqual([...exposedPorts([ts(addr)]).keys()], ['tcp/40005'], addr)
+  }
+  // UDP (WireGuard 41641) or another process on a tailnet address: exposed
+  assert.deepEqual([...exposedPorts([ts('100.114.161.86', { proto: 'udp' })]).keys()], ['udp/40005'])
+  assert.deepEqual([...exposedPorts([ts('100.114.161.86', { process: 'nginx' })]).keys()], ['tcp/40005'])
+  assert.deepEqual([...exposedPorts([ts('100.114.161.86', { process: null })]).keys()], ['tcp/40005'])
+  // same port also on another address: exposed, every address listed
+  const both = exposedPorts([ts('100.114.161.86'), ts('0.0.0.0')])
+  assert.deepEqual(both.get('tcp/40005').addrs, ['100.114.161.86', '0.0.0.0'])
+})
+
 test('IPv4-mapped loopback (::ffff:127.0.0.0/104) = local: shown, never an alert or memory', t => {
   const b = bench(t)
   const mapped = [

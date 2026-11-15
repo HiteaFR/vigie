@@ -83,6 +83,17 @@ test('rules: disk, container, apt, reboot', () => {
   assert.ok(by('agent_unreachable:d1').parents.includes('guest_stopped:d1'))
 })
 
+test('rules: container_unhealthy only while running (Docker keeps the last health after a stop)', () => {
+  const now = Date.now()
+  const cond = state => {
+    const fast = cleanFast({ ...hostile, ts: now / 1000 })
+    fast.docker.containers[0].state = state
+    return rulesWith({ ok: true, at: now, fast }).evaluate({}, now).find(s => s.key === 'container_unhealthy:d1/api').cond
+  }
+  assert.equal(cond('running'), true)
+  for (const state of ['exited', 'paused', 'created', 'dead', 'restarting', null]) assert.equal(cond(state), false, String(state))
+})
+
 test('rules: agent unreachable → the other signals go quiet', () => {
   const now = Date.now()
   const sigs = rulesWith({ ok: false, at: now - 10 * 60_000, error: 'clé refusée', errorKind: 'auth', fast: cleanFast(hostile) }).evaluate({}, now)
