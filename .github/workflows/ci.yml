@@ -1,0 +1,70 @@
+name: CI
+
+# Lint, tests (no test may be skipped), production build and Docker image build.
+# The image is built to prove the Dockerfile, never pushed (no registry credentials here).
+# Actions are pinned by commit SHA (the version is in the comment); Dependabot proposes updates
+# after a 14-day cooldown (.github/dependabot.yml).
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Node 22
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      # the client is installed BEFORE the server tests: they render real client components
+      - name: Install the client
+        working-directory: client
+        run: npm ci
+
+      - name: Lint the client
+        working-directory: client
+        run: npm run lint
+
+      - name: Example config and server tests
+        working-directory: server
+        run: |
+          npm ci --omit=dev
+          node scripts/check-config.js ../config.example.json
+          log=$(mktemp)
+          npm test > "$log" 2>&1 || { cat "$log"; rm -f "$log"; exit 1; }
+          cat "$log"
+          grep -qx '# skipped 0' "$log" || { echo "✗ skipped tests in CI: $(grep -x '# skipped [0-9]*' "$log")"; rm -f "$log"; exit 1; }
+          rm -f "$log"
+
+      - name: Build the client
+        working-directory: client
+        run: npm run build
+
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # built, never pushed: publishing to ghcr.io/hiteafr/vigie comes later
+      - name: Build the Docker image
+        run: docker build --pull --build-arg REVISION="$GITHUB_SHA" -t vigie:ci .

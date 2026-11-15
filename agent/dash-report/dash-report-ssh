@@ -1,0 +1,11 @@
+#!/bin/sh
+# Forced command of the dashboard key (authorized_keys of dashreport): only the requested mode
+# gets through, from an allow list; everything else is refused.
+case "${SSH_ORIGINAL_COMMAND:-fast}" in
+  fast) exec sudo -n /usr/local/sbin/dash-report fast ;;
+  slow) exec sudo -n /usr/local/sbin/dash-report slow ;;
+  *)
+    printf '{"schema":1,"error":"command refused"}\n'
+    exit 1
+    ;;
+esac

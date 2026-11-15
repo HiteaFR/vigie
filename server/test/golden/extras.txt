@@ -1,0 +1,140 @@
+# /status
+🔴 <b>Infra</b> — 2 critique(s), 1 avertissement(s), 3 masquée(s)
+🌐 Services : 4/5 en ligne · 1 en panne
+🖥️ Invités : 6/8 en marche · arrêtés : ct-&lt;a&gt;, vm-b
+💾 Sauvegardes : n1 3/4 · n&lt;2&gt; illisible
+📦 MAJ : 7 en attente, dont 2 de sécurité
+🔕 Silences : 1
+⚠️ Sources : pve, pihole
+🟢 <b>Infra</b> — 0 critique(s), 0 avertissement(s)
+🌐 Services : 5/5 en ligne
+🖥️ Invités : 8/8 en marche
+💾 Sauvegardes : 
+📦 MAJ : 0 en attente
+🔕 Silences : 0
+
+# acquittements depuis le dashboard
+✅ <b>Disque / · &lt;web&gt;</b> acquittée depuis le dashboard : motif &lt;b&gt;
+✅ <b>6 alertes acquittées</b> depuis le dashboard : lot
+• a
+• b
+• c
+• d
+• e
+… et 1 autre
+✅ <b>8 alertes acquittées</b> depuis le dashboard : lot
+• a
+• b
+• c
+• d
+• e
+… et 3 autres
+
+# boutons
+[{"text":"✅ Connu · titre","callback_data":"n:12"}]
+[{"text":"✅ Même appareil · titre","callback_data":"c:00005e005301"},{"text":"✂️ Détacher","callback_data":"d:00005e005301"}]
+[{"text":"🔕 1 h · titre","callback_data":"s:7"},{"text":"✅ Ack","callback_data":"a:7"}]
+
+# plugin_error
+plugin_error:demo · Plugin demo en erreur · signals : boom <x>
+plugin_error:refused/backups · Plugin backups refusé · chargement : id backups réservé au cœur (source ou module du cœur), plugin non chargé
+
+# bot
+## /refresh
+⏳ Relevés relancés (agent, sondes, Proxmox, versions)…
+## /refresh
+⏳ Un passage est déjà en cours…
+## fin du passage
+🔄 Relevés terminés en 12 s.
+✅ Aucune alerte en cours
+🔄 Relevés terminés en 12 s.
+✅ Aucune alerte en cours
+## /connu
+Usage : <code>/known 12 téléphone d'un invité</code>
+## /connu 12 x
+Motif obligatoire (3 caractères au moins).
+## /connu 12 téléphone prêté
+✅ Appareil #12 validé : téléphone prêté
+## /connu 13 déjà vu
+Déjà traité.
+## /unack 999
+Alerte introuvable ou non acquittée.
+## /mute vps 2h migration
+🔕 Silence n° 1 sur hôte vps jusqu'à 12:00 : migration
+## /silences
+🔕 <b>Silences actifs</b>
+n° 1 · hôte vps — migration (jusqu'à 12:00, tg:u7)
+## /unmute 1
+🔔 Silence n° 1 levé (hôte vps).
+
+# menu des commandes
+/status — État global
+/down — Alertes en cours
+/ack — Acquitter : /ack #n° motif
+/mute — Silence : /mute cible durée motif
+/unmute — Lever un silence : /unmute n°
+/silences — Silences actifs
+/digest — Digest maintenant
+/refresh — Relancer les relevés
+/network — Appareils du LAN
+/device — Chercher un appareil : /device texte
+/known — Valider : /known id motif
+/help — Aide
+## /down
+🚨 <b>1 alerte en cours</b>
+#3 🔴 Service X — HTTP 502
+     ✅ acquittée : je regarde
+## /silences
+🔕 <b>Silences actifs</b>
+n° 1 · règle apt_stale — listes gelées (sans fin, admin)
+## /reseau
+🌐 <b>Réseau</b> — 30 appareils · 20 actifs · 12 nouveaux · 2 à revoir · sources OK
+<b>Nouveaux</b>
+#100 appareil 100 · vu il y a 3 h
+#101 appareil-1 · actif
+#102 appareil-2 · vu par DHCP
+#103 appareil-3 · périmé
+#104 appareil-4 · ?
+#105 appareil-5 · vu il y a 3 h
+#106 appareil-6 · actif
+#107 appareil-7 · vu par DHCP
+#108 appareil-8 · périmé
+#109 appareil-9 · ?
+… et 2 autres
+<b>MAC à confirmer</b>
+#101 appareil-1 : 2 MAC
+## /appareil poste
+2 appareils :
+#7 poste-7 · ‹ip› · actif
+#8 poste-8 · — · actif
+## /appareil unique
+<b>#7 poste-7</b> — à revoir
+actif · IP ‹ip›
+MAC 00:00:5e:00:54:07 (+2) · 2 à confirmer
+Constructeur : Fabricant &lt;SA&gt;
+Hôte : vps
+## /mute vps 2
+Durée invalide : 30m, 2h, 3j (30 jours au plus).
+## /mute vps 2h
+Motif obligatoire : <code>/mute web-1 2h migration</code>
+## bouton n:12
+✅ Valider l'appareil « poste &lt;7&gt; » : quel motif ? (réponds à ce message)
+## motif pour n:12
+✅ validé (connu) : connu de longue date
+## bouton c:00005e005407
+✅ Confirmer la MAC « poste &lt;7&gt; » : quel motif ? (réponds à ce message)
+## motif pour c:00005e005407
+✅ confirmée (même appareil) : même téléphone
+## bouton d:00005e005407
+✂️ Détacher la MAC « poste &lt;7&gt; » : quel motif ? (réponds à ce message)
+## motif pour d:00005e005407
+✂️ détachée dans une nouvelle fiche : autre appareil
+## bouton a:3
+✅ Acquitter « Service X » : quel motif ? (réponds à ce message)
+## motif pour a:3
+L'alerte est déjà rétablie.
+## /reseau (sonde ARP)
+🌐 <b>Réseau</b> — 30 appareils · 1 en ligne · 1 hors ligne · 12 nouveaux · 2 à revoir · sources OK
+<b>Nouveaux</b>
+#1 a · hors ligne (vu il y a 2 h)
+#2 b · présence inconnue

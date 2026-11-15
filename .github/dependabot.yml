@@ -1,0 +1,52 @@
+# Dependency updates, with a 14-day cooldown: a release is proposed only once it is at least two
+# weeks old (supply-chain safety). Security updates are not delayed by the cooldown (GitHub
+# behaviour); they still go through review and CI like any other pull request. Major versions are
+# not proposed for npm packages and base images: they change APIs and are migrated by hand, as a
+# change of their own (security alerts still show them).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /client
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    open-pull-requests-limit: 5
+    groups:
+      client-minor:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: npm
+    directory: /server
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    open-pull-requests-limit: 5
+    groups:
+      server-minor:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+
+  # base images pinned by digest in Dockerfile and docker/net-scan/Dockerfile
+  - package-ecosystem: docker
+    directories: [/, /docker/net-scan]
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]

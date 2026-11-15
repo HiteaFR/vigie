@@ -1,0 +1,15 @@
+{
+ "deploy.ahead": "{branch} en avance sur le dernier run réussi",
+ "deploy.failed": "dernier run de {branch} en échec",
+ "digest.failing": "en échec : {list}",
+ "digest.line": "⚙️ CI : {parts}",
+ "digest.no_failure": "aucun échec",
+ "digest.not_configured": "non configurée",
+ "digest.runners": "runners {online}/{total} en ligne",
+ "label.ci_failed": "CI en échec",
+ "label.runner_offline": "Runner hors ligne",
+ "not_configured": "Gitea non configuré",
+ "runner.state": "état : {status}",
+ "source.gitea": "Lecture de Gitea",
+ "source.runners": "Lecture des runners Gitea"
+}

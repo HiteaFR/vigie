@@ -1,0 +1,10 @@
+#!/bin/sh
+# fake systemctl of the dash-report bench: no failed unit, watched units active; earlyoom.service
+# known only with FAKE_EARLYOOM set (v9); FAKE_SYSTEMCTL_LOG: each call is written there, one
+# argument per bracket pair (proof of the "--")
+if [ -n "${FAKE_SYSTEMCTL_LOG:-}" ]; then { for a in "$@"; do printf '[%s]' "$a"; done; echo; } >>"$FAKE_SYSTEMCTL_LOG"; fi
+case "$*" in
+  *--state=failed*) exit 0 ;;
+  "list-unit-files --no-legend --no-pager earlyoom.service") [ -z "${FAKE_EARLYOOM:-}" ] || echo 'earlyoom.service enabled enabled' ;;
+  *) for last; do :; done; printf '%s loaded active running test\n' "$last" ;;
+esac

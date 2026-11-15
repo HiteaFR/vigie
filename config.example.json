@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "title": "Vigie",
+  "locale": "en",
+  "subtitle": "Local example",
+  "listenHost": "127.0.0.1",
+  "security": { "anonymousRead": false, "httpLogin": false, "adminCidrs": ["127.0.0.1/32"] },
+
+  "proxmox": [],
+
+  "hosts": [
+    { "id": "local", "name": "this machine", "kind": "appliance", "ip": "127.0.0.1", "env": "prod", "desc": "machine that runs Vigie" }
+  ],
+
+  "groups": [
+    { "id": "local", "name": "This machine" }
+  ],
+
+  "services": [
+    {
+      "id": "vigie", "name": "Vigie", "group": "local", "host": "local", "url": "http://127.0.0.1:8088/",
+      "desc": "this dashboard (default port 8088)",
+      "checks": [
+        { "type": "http", "url": "http://127.0.0.1:8088/api/healthz", "expect": { "status": 200, "body": "\"ok\":true" }, "label": "liveness" },
+        { "type": "tcp", "target": "127.0.0.1:8088", "label": "port" }
+      ]
+    }
+  ],
+
+  "alerts": {}
+}

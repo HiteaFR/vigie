@@ -1,0 +1,6 @@
+#!/bin/sh
+# fake sshd of the dash-report bench (v8): effective configuration, Debian alias
+# without-password, password off but keyboard-interactive + PAM open
+[ "$*" = "-T" ] || exit 2
+[ "${FAKE_SSHD:-}" != failing ] || { echo "sshd: no hostkeys available" >&2; exit 255; }
+printf '%s\n' 'port 22' 'permitrootlogin without-password' 'passwordauthentication no' 'kbdinteractiveauthentication yes' 'usepam yes'

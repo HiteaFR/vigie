@@ -1,0 +1,2 @@
+# /etc/sudoers.d/dashreport: root only for the report, two fixed modes
+dashreport ALL=(root) NOPASSWD: /usr/local/sbin/dash-report fast, /usr/local/sbin/dash-report slow

@@ -1,0 +1,40 @@
+# describe (libellé · affichage)
+{"type":"http","url":"http://192.0.2.10/"} → 192.0.2.10 · http://192.0.2.10/
+{"type":"http","url":"https://app.example.test:8443/sante?x=1","label":"santé"} → santé · https://app.example.test:8443/sante?x=1
+{"type":"tcp","target":"192.0.2.10:5432"} → TCP 5432 · tcp://192.0.2.10:5432
+{"type":"tcp","target":"192.0.2.10:22","name":"ssh"} → ssh · tcp://192.0.2.10:22
+{"type":"tcp","target":"db.example.test:3306","label":"base"} → base · tcp://db.example.test:3306
+{"type":"tls","host":"site.example.test"} → certificat · site.example.test:443
+{"type":"tls","host":"192.0.2.10","port":8443,"servername":"interne.example.test","label":"cert interne"} → cert interne · interne.example.test:8443
+{"type":"dns","server":"192.0.2.53","name":"example.test"} → DNS example.test · dns://192.0.2.53/example.test
+{"type":"dns","server":"192.0.2.53","name":"example.test","label":"résolveur"} → résolveur · dns://192.0.2.53/example.test
+
+# runCheck (serveurs locaux ; latence retirée)
+http 200 → {"code":200,"state":"ok"}
+http 200 + mot-clé présent → {"code":200,"state":"ok"}
+http 200 + mot-clé absent → {"code":200,"error":"mot-clé « absent » absent","state":"crit"}
+http 500 → {"code":500,"error":"HTTP 500","state":"crit"}
+http 404 sans expect → {"code":404,"state":"ok"}
+http 404 attendu → {"code":404,"state":"ok"}
+http 404, attendus [200, 204] → {"code":404,"error":"HTTP 404","state":"crit"}
+http 302 non suivie → {"code":302,"state":"ok"}
+http délai → {"code":0,"error":"timeout","state":"crit"}
+http port fermé → {"code":0,"error":"ECONNREFUSED","state":"crit"}
+tcp ouvert → {"code":"tcp","state":"ok"}
+tcp fermé → {"code":0,"error":"ECONNREFUSED","state":"crit"}
+dns deux adresses → {"code":"dns","state":"ok"}
+dns adresse attendue présente → {"code":"dns","state":"ok"}
+dns adresse attendue absente → {"code":"dns","error":"réponse 192.0.2.7, 192.0.2.8, attendu 192.0.2.9","state":"crit"}
+dns aucune adresse → {"code":0,"error":"ENODATA","state":"crit"}
+tls J-10 (défauts 21/7) → {"code":"tls","state":"warn","tls":{"daysLeft":10,"issuer":"vigie tests","validTo":"date"}}
+tls J-10, warnDays 7 → {"code":"tls","state":"ok","tls":{"daysLeft":10,"issuer":"vigie tests","validTo":"date"}}
+tls J-10, critDays 14 → {"code":"tls","state":"crit","tls":{"daysLeft":10,"issuer":"vigie tests","validTo":"date"}}
+tls expiré → {"code":"tls","error":"certificat expiré","state":"crit","tls":{"daysLeft":-2,"issuer":"vigie tests","validTo":"date"}}
+tls port fermé → {"code":0,"error":"ECONNREFUSED","state":"crit"}
+
+# période (monitor : par défaut selon le type, sinon interval)
+http : 60 s
+tcp : 60 s
+tls : 21600 s
+dns : 60 s
+tcp (interval 5m) : 300 s

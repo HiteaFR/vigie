@@ -1,0 +1,12 @@
+#!/bin/sh
+# fake journalctl of the dash-report bench (v9): journal of earlyoom.service only, exact options
+# required; FAKE_JOURNAL: nominal (test/journal-earlyoom.txt) | empty (nothing) | failing (exit 1)
+case "$*" in
+  "-q --no-pager -o short-unix -u earlyoom.service --since @"[0-9]*) ;;
+  *) echo "fake journalctl: unexpected options: $*" >&2; exit 2 ;;
+esac
+case "${FAKE_JOURNAL:-nominal}" in
+  empty) exit 0 ;;
+  failing) echo "Failed to open the journal" >&2; exit 1 ;;
+esac
+cat "$FAKE_DIR/journal-earlyoom.txt"

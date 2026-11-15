@@ -1,0 +1,57 @@
+GET   /api/cluster  garde=session  sans-session=401 session=200
+GET   /api/gitea  garde=session  sans-session=401 session=200
+GET   /api/runners  garde=session  sans-session=401 session=200
+GET   /api/backups  garde=session  sans-session=401 session=200
+GET   /api/proxmox  garde=session  sans-session=401 session=200
+GET   /api/agents  garde=session  sans-session=401 session=200
+GET   /api/updates  garde=session  sans-session=401 session=200
+GET   /api/alerts  garde=session  sans-session=401 session=200
+GET   /api/session  garde=publique  sans-session=200 session=200
+POST  /api/login  garde=publique  sans-origine=403
+POST  /api/logout  garde=aucune  sans-session=200 origine=200 admin=200
+POST  /api/alerts/ack  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/agents/posture/accept  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/agents/posture/unaccept  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/agents/ports/known  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/alerts/ack/bulk  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/agents/ports/known/bulk  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/alerts/unack  garde=admin  sans-session=403 origine=401 admin=404
+GET   /api/silences  garde=session  sans-session=401 session=200
+POST  /api/silences  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/silences/end  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/updates/decisions  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/updates/decisions/remove  garde=admin  sans-session=403 origine=401 admin=404
+POST  /api/refresh  garde=admin  sans-session=403 origine=401 admin=202
+GET   /api/refresh  garde=session  sans-session=401 session=200
+GET   /api/plugins  garde=session  sans-session=401 session=200
+GET   /api/audit  garde=session  sans-session=401 session=200
+GET   /api/services  garde=session  sans-session=401 session=200
+GET   /api/summary  garde=session  sans-session=401 session=200
+GET   /api/network  garde=session  sans-session=401 session=200
+GET   /api/network/history  garde=session  sans-session=401 session=200
+GET   /api/network/topology  garde=session  sans-session=401 session=200
+GET   /api/network/topology.mmd  garde=session  sans-session=401 session=200
+GET   /api/network/devices/:id  garde=session  sans-session=401 session=400
+POST  /api/network/devices/edit  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/devices/ack  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/devices/delete  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/links  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/links/remove  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/devices/merge  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/macs/confirm  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/macs/detach  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/mac-rules  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/mac-rules/remove  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/suggestions/dismiss  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/devices/probe  garde=admin  sans-session=403 origine=401 admin=400
+POST  /api/network/probe/all  garde=admin  sans-session=403 origine=401 admin=409
+GET   /api/history/service/:id  garde=session  sans-session=401 session=404
+GET   /api/history/bands  garde=session  sans-session=401 session=200
+GET   /api/rrd/:cluster/:node  garde=session  sans-session=401 session=404
+GET   /api/rrd/:cluster/guest/:vmid  garde=session  sans-session=401 session=400
+GET   /api/health  garde=session  sans-session=401 session=200
+GET   /api/healthz  garde=publique  sans-session=200 session=200
+GET   /api/config  garde=publique  sans-session=200 session=200
+ALL   /api/*  garde=-
+GET   /icons/:file  garde=-
+GET   *  garde=-

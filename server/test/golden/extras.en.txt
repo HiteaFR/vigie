@@ -1,0 +1,140 @@
+# /status
+🔴 <b>Infra</b> — 2 critical, 1 warning(s), 3 masked
+🌐 Services: 4/5 up · 1 down
+🖥️ Guests: 6/8 running · stopped: ct-&lt;a&gt;, vm-b
+💾 Backups: n1 3/4 · n&lt;2&gt; unreadable
+📦 Updates: 7 pending, 2 of them security
+🔕 Silences: 1
+⚠️ Sources: pve, pihole
+🟢 <b>Infra</b> — 0 critical, 0 warning(s)
+🌐 Services: 5/5 up
+🖥️ Guests: 8/8 running
+💾 Backups: 
+📦 Updates: 0 pending
+🔕 Silences: 0
+
+# acquittements depuis le dashboard
+✅ <b>Disque / · &lt;web&gt;</b> acknowledged from the dashboard: motif &lt;b&gt;
+✅ <b>6 alerts acknowledged</b> from the dashboard: lot
+• a
+• b
+• c
+• d
+• e
+… and 1 more
+✅ <b>8 alerts acknowledged</b> from the dashboard: lot
+• a
+• b
+• c
+• d
+• e
+… and 3 more
+
+# boutons
+[{"text":"✅ Known · titre","callback_data":"n:12"}]
+[{"text":"✅ Same device · titre","callback_data":"c:00005e005301"},{"text":"✂️ Detach","callback_data":"d:00005e005301"}]
+[{"text":"🔕 1 h · titre","callback_data":"s:7"},{"text":"✅ Ack","callback_data":"a:7"}]
+
+# plugin_error
+plugin_error:demo · Plugin demo error · signals: boom <x>
+plugin_error:refused/backups · Plugin backups refused · loading: id backups reserved for the core (core source or module), plugin not loaded
+
+# bot
+## /refresh
+⏳ Checks started (agents, probes, Proxmox, versions)…
+## /refresh
+⏳ A run is already in progress…
+## fin du passage
+🔄 Checks done in 12 s.
+✅ No ongoing alerts
+🔄 Checks done in 12 s.
+✅ No ongoing alerts
+## /connu
+Usage: <code>/known 12 guest phone</code>
+## /connu 12 x
+Reason required (at least 3 characters).
+## /connu 12 téléphone prêté
+✅ Device #12 confirmed: téléphone prêté
+## /connu 13 déjà vu
+Already handled.
+## /unack 999
+Alert not found or not acknowledged.
+## /mute vps 2h migration
+🔕 Silence no. 1 on host vps until 12:00: migration
+## /silences
+🔕 <b>Active silences</b>
+no. 1 · host vps — migration (until 12:00, tg:u7)
+## /unmute 1
+🔔 Silence no. 1 lifted (host vps).
+
+# menu des commandes
+/status — Global status
+/down — Ongoing alerts
+/ack — Acknowledge: /ack #number reason
+/mute — Silence: /mute target duration reason
+/unmute — Lift a silence: /unmute number
+/silences — Active silences
+/digest — Digest now
+/refresh — Run all checks again
+/network — LAN devices
+/device — Find a device: /device text
+/known — Confirm: /known id reason
+/help — Help
+## /down
+🚨 <b>1 ongoing alert</b>
+#3 🔴 Service X — HTTP 502
+     ✅ acknowledged: je regarde
+## /silences
+🔕 <b>Active silences</b>
+no. 1 · rule apt_stale — listes gelées (no end, admin)
+## /reseau
+🌐 <b>Network</b> — 30 devices · 20 active · 12 new · 2 to review · sources OK
+<b>New</b>
+#100 device 100 · seen 3 h ago
+#101 appareil-1 · active
+#102 appareil-2 · seen by DHCP
+#103 appareil-3 · stale
+#104 appareil-4 · ?
+#105 appareil-5 · seen 3 h ago
+#106 appareil-6 · active
+#107 appareil-7 · seen by DHCP
+#108 appareil-8 · stale
+#109 appareil-9 · ?
+… and 2 more
+<b>MACs to confirm</b>
+#101 appareil-1: 2 MAC
+## /appareil poste
+2 devices:
+#7 poste-7 · ‹ip› · active
+#8 poste-8 · — · active
+## /appareil unique
+<b>#7 poste-7</b> — to review
+active · IP ‹ip›
+MAC 00:00:5e:00:54:07 (+2) · 2 to confirm
+Vendor: Fabricant &lt;SA&gt;
+Host: vps
+## /mute vps 2
+Invalid duration: 30m, 2h, 3d (30 days at most).
+## /mute vps 2h
+Reason required: <code>/mute web-1 2h migration</code>
+## bouton n:12
+✅ Confirm the device “poste &lt;7&gt;”: what reason? (reply to this message)
+## motif pour n:12
+✅ confirmed (known): connu de longue date
+## bouton c:00005e005407
+✅ Confirm the MAC “poste &lt;7&gt;”: what reason? (reply to this message)
+## motif pour c:00005e005407
+✅ confirmed (same device): même téléphone
+## bouton d:00005e005407
+✂️ Detach the MAC “poste &lt;7&gt;”: what reason? (reply to this message)
+## motif pour d:00005e005407
+✂️ detached into a new device: autre appareil
+## bouton a:3
+✅ Acknowledge “Service X”: what reason? (reply to this message)
+## motif pour a:3
+The alert has already recovered.
+## /reseau (sonde ARP)
+🌐 <b>Network</b> — 30 devices · 1 online · 1 offline · 12 new · 2 to review · sources OK
+<b>New</b>
+#1 a · offline (seen 2 h ago)
+#2 b · presence unknown

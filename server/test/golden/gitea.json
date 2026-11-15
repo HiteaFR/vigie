@@ -1,0 +1,159 @@
+{
+  "configuredOff": {
+    "gitea": false,
+    "runners": false
+  },
+  "gitea": [
+    {
+      "defaultBranch": "main",
+      "htmlUrl": "http://gitea.example.net/example/app",
+      "lastCommit": {
+        "author": "dev",
+        "date": "2026-11-10T08:00:00Z",
+        "message": "app : correctif",
+        "sha": "aaaaaaa",
+        "url": "http://gitea.example.net/example/x/commit/aaaaaaa1111"
+      },
+      "lastRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 12,
+        "sha": "aaaaaaa",
+        "status": "failure",
+        "title": "app : correctif",
+        "url": "http://gitea.example.net/example/app/actions/runs/12"
+      },
+      "lastSuccess": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 11,
+        "sha": "bbbbbbb",
+        "status": "success",
+        "title": "app : avant",
+        "url": "http://gitea.example.net/example/app/actions/runs/11"
+      },
+      "mainRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 12,
+        "sha": "aaaaaaa",
+        "status": "failure",
+        "title": "app : correctif",
+        "url": "http://gitea.example.net/example/app/actions/runs/12"
+      },
+      "name": "app",
+      "openPRs": 2
+    },
+    {
+      "defaultBranch": "main",
+      "htmlUrl": "http://gitea.example.net/example/site",
+      "lastCommit": {
+        "author": "dev",
+        "date": "2026-11-10T08:00:00Z",
+        "message": "site : texte",
+        "sha": "ccccccc",
+        "url": "http://gitea.example.net/example/x/commit/ccccccc3333"
+      },
+      "lastRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 7,
+        "sha": "ccccccc",
+        "status": "success",
+        "title": "site : texte",
+        "url": "http://gitea.example.net/example/site/actions/runs/7"
+      },
+      "lastSuccess": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 7,
+        "sha": "ccccccc",
+        "status": "success",
+        "title": "site : texte",
+        "url": "http://gitea.example.net/example/site/actions/runs/7"
+      },
+      "mainRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 7,
+        "sha": "ccccccc",
+        "status": "success",
+        "title": "site : texte",
+        "url": "http://gitea.example.net/example/site/actions/runs/7"
+      },
+      "name": "site",
+      "openPRs": 0
+    },
+    {
+      "defaultBranch": "main",
+      "htmlUrl": "http://gitea.example.net/example/infra",
+      "lastCommit": {
+        "author": "dev",
+        "date": "2026-11-10T08:00:00Z",
+        "message": "infra : en cours",
+        "sha": "ddddddd",
+        "url": "http://gitea.example.net/example/x/commit/ddddddd4444"
+      },
+      "lastRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 31,
+        "sha": "ddddddd",
+        "status": "running",
+        "title": "infra : en cours",
+        "url": "http://gitea.example.net/example/infra/actions/runs/31"
+      },
+      "lastSuccess": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 30,
+        "sha": "eeeeeee",
+        "status": "success",
+        "title": "infra : avant",
+        "url": "http://gitea.example.net/example/infra/actions/runs/30"
+      },
+      "mainRun": {
+        "branch": "main",
+        "date": "2026-11-10T08:30:00Z",
+        "number": 31,
+        "sha": "ddddddd",
+        "status": "running",
+        "title": "infra : en cours",
+        "url": "http://gitea.example.net/example/infra/actions/runs/31"
+      },
+      "name": "infra",
+      "openPRs": 1
+    },
+    {
+      "defaultBranch": "main",
+      "htmlUrl": "http://gitea.example.net/example/casse",
+      "lastCommit": null,
+      "lastRun": null,
+      "lastSuccess": null,
+      "mainRun": null,
+      "name": "casse",
+      "openPRs": 0
+    }
+  ],
+  "runners": [
+    {
+      "busy": true,
+      "id": 1,
+      "labels": [
+        "ubuntu-latest",
+        "banc"
+      ],
+      "name": "runner-a",
+      "status": "online"
+    },
+    {
+      "busy": false,
+      "id": 2,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "name": "runner-b",
+      "status": "offline"
+    }
+  ]
+}

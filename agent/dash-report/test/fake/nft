@@ -1,0 +1,13 @@
+#!/bin/sh
+# fake nft of the dash-report bench (v8): an input chain with a drop policy; FAKE_NFT=failing:
+# reading the rules is refused (unknown firewall → null)
+[ "$*" = "list ruleset" ] || exit 2
+[ "${FAKE_NFT:-}" != failing ] || { echo "Operation not permitted" >&2; exit 1; }
+cat <<'X'
+table inet filter {
+	chain input {
+		type filter hook input priority filter; policy drop;
+		ct state established,related accept
+	}
+}
+X

@@ -1,0 +1,13 @@
+#!/bin/sh
+# fake df of the dash-report bench: two fixed file systems, one without inodes (vfat);
+# -i: inode table (v8); FAKE_DF=hostile adds a mount point with control characters, " and \ (v9)
+case " $* " in
+  *" -i "*) printf '%s\n' 'Filesystem Type Inodes IUsed IFree IUse% Mounted on' '/dev/sda1 ext4 65536 1200 64336 2% /' '/dev/sda15 vfat 0 0 0 - /boot/efi' ;;
+  *) printf '%s\n' 'Filesystem Type 1-blocks Used Available Capacity Mounted on' '/dev/sda1 ext4 1000 400 600 40% /' '/dev/sda15 vfat 100 10 90 10% /boot/efi' ;;
+esac
+if [ "${FAKE_DF:-}" = hostile ]; then
+  case " $* " in
+    *" -i "*) printf '/dev/sdb1 ext4 100 1 99 1%% /mnt/a\001b\033c"d\\e\177f\n' ;;
+    *) printf '/dev/sdb1 ext4 10 1 9 10%% /mnt/a\001b\033c"d\\e\177f\n' ;;
+  esac
+fi

@@ -1,0 +1,4174 @@
+### cadre : accueil, session admin (navigation, en-tête, cockpit, pied)
+Banc
+Cockpit
+Services
+Infra
+Network 3
+Updates 10
+Backups
+CI
+Alerts 4
+Integrations
+pied de page
+Banc
+tableau de bord de démonstration
+Down
+1 down, 1 degraded
+4
+All
+Prod
+Dev
+Search… Ctrl K
+admin
+10:00:00
+Down
+1 down, 1 degraded
+Down
+Degraded — 2 critical, 3 warnings
+2/5 services up · 2/3 guests running
+updated just now Wall
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Down
+1/2
+failing: app
+Network
+Degraded
+9/12
+online · 2 new
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+Updates
+just now
+security nginx 1.24.0 → 1.24.1
+▲ major forge 1.22.0 → 2.0.0
+◆ minor wiki 3.4.0 → 3.5.0
+end of life debian 11 → 12
+◆ image photos sha256:abc
+▲ not deployed app abc1234 → def5678
++ 1 more · All updates
+Backups
+pve-a 1/3 up to date last 8 h ago · next Wed 01:00
+failed: nas late: lab
+Details per guest
+CI and runners
+Info
+runner-a
+Down
+runner-b
+failure
+app #12 2 h ago
+success
+site #12 2 h ago
+Pinned
+WI Wiki
+Up
+Cockpit
+Services
+Infra
+3 Network
+10 Upd.
+Backups
+CI
+4 Alerts
+@aria-label Main navigation
+@aria-label 3 devices or MACs to handle
+@aria-label 10 updates to handle
+@aria-label 4 active alerts
+@aria-label Down
+@aria-label Alerts: 4 active
+@aria-label Environment
+@aria-label Refresh all data
+@title Refresh all data (agents, probes, Proxmox, versions)
+@aria-label Search (Ctrl K)
+@aria-label Theme: Auto (change)
+@title Theme: Auto
+@title Admin session until 22:00 — log out
+@title 10/11/2026, 10:00:00
+@title Wall mode (dedicated screen)
+@aria-label Weather in Paris
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@title failing: app
+@title online · 2 new
+@title Refresh
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Unknown
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026, 02:00:00
+@aria-label 1 up to date, 1 late, 1 failed
+@title busy
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026, 08:00:00
+@aria-label success
+@title Up
+@aria-label Mobile navigation
+@aria-label Admin login
+
+### cadre : accueil, lecture anonyme
+Banc
+Cockpit
+Services
+Infra
+Network 3
+Updates 10
+Backups
+CI
+Alerts 4
+Integrations
+pied de page
+Banc
+tableau de bord de démonstration
+Down
+1 down, 1 degraded
+4
+All
+Prod
+Dev
+Search… Ctrl K
+10:00:00
+Down
+1 down, 1 degraded
+Down
+Degraded — 2 critical, 3 warnings
+2/5 services up · 2/3 guests running
+updated just now Wall
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Down
+1/2
+failing: app
+Network
+Degraded
+9/12
+online · 2 new
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+Updates
+just now
+security nginx 1.24.0 → 1.24.1
+▲ major forge 1.22.0 → 2.0.0
+◆ minor wiki 3.4.0 → 3.5.0
+end of life debian 11 → 12
+◆ image photos sha256:abc
+▲ not deployed app abc1234 → def5678
++ 1 more · All updates
+Backups
+pve-a 1/3 up to date last 8 h ago · next Wed 01:00
+failed: nas late: lab
+Details per guest
+CI and runners
+Info
+runner-a
+Down
+runner-b
+failure
+app #12 2 h ago
+success
+site #12 2 h ago
+Pinned
+WI Wiki
+Up
+Cockpit
+Services
+Infra
+3 Network
+10 Upd.
+Backups
+CI
+4 Alerts
+@aria-label Main navigation
+@aria-label 3 devices or MACs to handle
+@aria-label 10 updates to handle
+@aria-label 4 active alerts
+@aria-label Down
+@aria-label Alerts: 4 active
+@aria-label Environment
+@aria-label Refresh all data
+@title Refresh all data (agents, probes, Proxmox, versions)
+@aria-label Search (Ctrl K)
+@aria-label Theme: Auto (change)
+@title Theme: Auto
+@aria-label Admin login
+@title Admin login
+@title 10/11/2026, 10:00:00
+@title Wall mode (dedicated screen)
+@aria-label Weather in Paris
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@title failing: app
+@title online · 2 new
+@title Refresh
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Unknown
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026, 02:00:00
+@aria-label 1 up to date, 1 late, 1 failed
+@title busy
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026, 08:00:00
+@aria-label success
+@title Up
+@aria-label Mobile navigation
+
+### cadre : session en cours de lecture
+Loading…
+@aria-label Admin login
+
+### cadre : écran de connexion (lecture réservée)
+Banc
+Login required to view this dashboard. 12 h session.
+Log in
+@placeholder Password
+@aria-label Password
+@aria-label Admin login
+
+### cadre : connexion impossible (réseau non autorisé)
+Banc
+Login required to view this dashboard. 12 h session.
+Network not allowed for the admin login (security.adminCidrs).
+@aria-label Admin login
+
+### cadre : instance à configurer
+Vigie: setup needed
+No configuration file was found: nothing is read or probed.
+Run the wizard: cd server && npm run init (config, admin password, Proxmox and Gitea optional).
+Restart the service.
+By hand: copy config.example.json to config.json and generate the password with node server/scripts/admin-password.js .
+Details: docs/installation.md.
+@aria-label Admin login
+
+### cadre : page introuvable
+Banc
+Cockpit
+Services
+Infra
+Network 3
+Updates 10
+Backups
+CI
+Alerts 4
+Integrations
+pied de page
+Banc
+tableau de bord de démonstration
+Down
+1 down, 1 degraded
+4
+All
+Prod
+Dev
+Search… Ctrl K
+admin
+10:00:00
+Down
+1 down, 1 degraded
+Page not found
+This view does not exist (yet).
+Cockpit
+Services
+Infra
+3 Network
+10 Upd.
+Backups
+CI
+4 Alerts
+@aria-label Main navigation
+@aria-label 3 devices or MACs to handle
+@aria-label 10 updates to handle
+@aria-label 4 active alerts
+@aria-label Down
+@aria-label Alerts: 4 active
+@aria-label Environment
+@aria-label Refresh all data
+@title Refresh all data (agents, probes, Proxmox, versions)
+@aria-label Search (Ctrl K)
+@aria-label Theme: Auto (change)
+@title Theme: Auto
+@title Admin session until 22:00 — log out
+@aria-label Mobile navigation
+@aria-label Admin login
+
+### cadre : route /mural (vue paresseuse : attente de son chunk)
+Loading the view…
+@aria-label Admin login
+
+### cadre : cloche des alertes (bouton et liste)
+Down
+Mail injoignable
+smtp : connexion refusée
+4 h
+Down
+Disque presque plein sur web
+/ à 96 %
+2 h
+Degraded
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Degraded
+Agent injoignable sur lab
+pas de réponse en 10 s
+3 min
+@aria-label Down
+@aria-label Degraded
+@aria-label Info
+@aria-label Admin login
+
+### cadre : bouton de la cloche
+3
+@aria-label Alerts: 3 active
+@aria-label Admin login
+
+### routes : /alerts (vue seule)
+Notifications
+Up
+Telegram connected
+Up
+healthchecks.io pinged
+Quiet hours 22:00–07:00 · digest 08:00
+last sent 20 min ago · 1 queued
+Active alerts
+just now
+Select all (5)
+critical
+Mail injoignable Service down
+smtp : connexion refusée
+nas notified
+Acknowledge
+Silence…
+prod
+for 4 h
+critical
+Disque presque plein sur web disk_full
+/ à 96 %
+web notified
+acknowledged by admin 1 h ago : nettoyage prévu ce soir
+Remove the ack
+Silence…
+prod
+for 2 h
+warning
+Certificat de forge Certificate
+expire dans 12 j
+web notified
+Acknowledge
+Silence…
+prod
+for 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web not notified
+Acknowledge
+Silence…
+prod
+for 2 h
+pending
+Agent injoignable sur lab Agent unreachable
+Unknown
+pending
+Degraded
+flapping
+pas de réponse en 10 s
+lab
+Silence…
+dev
+for 3 min
+Silences
+New
+just now
+règle updates_pending mises à jour le mercredi until 12/11, 10:00 by admin (dashboard)
+Lift
+hôte lab lab en travaux no end by admin (Telegram)
+Lift
+History (7 days)
+Start
+Alert
+Type
+Duration
+10/11, 06:00
+ongoing
+Mail injoignable
+Service down
+ongoing
+09/11, 08:00
+resolved
+Wiki injoignable acknowledged
+rétabli après 1 h
+Service down
+1 h
+07/11, 10:00
+resolved
+Nœud pve-a hors ligne hidden
+coupure de courant
+node_down
+10 min
+@aria-label Up
+@title 10/11/2026, 09:40:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label Select “Mail injoignable”
+@aria-label critical
+@aria-label Acknowledge “Mail injoignable”
+@aria-label Silence on “Mail injoignable”
+@title 10/11/2026, 06:00:00
+@aria-label Select “Disque presque plein sur web”
+@title 10/11/2026, 09:00:00
+@aria-label Acknowledge “Disque presque plein sur web”
+@aria-label Silence on “Disque presque plein sur web”
+@title 10/11/2026, 08:00:00
+@aria-label Select “Certificat de forge”
+@aria-label warning
+@aria-label Acknowledge “Certificat de forge”
+@aria-label Silence on “Certificat de forge”
+@aria-label Select “Mises à jour en attente sur web”
+@aria-label info
+@aria-label Acknowledge “Mises à jour en attente sur web”
+@aria-label Silence on “Mises à jour en attente sur web”
+@aria-label Select “Agent injoignable sur lab”
+@aria-label pending
+@aria-label Unknown
+@aria-label Degraded
+@aria-label Acknowledge “Agent injoignable sur lab”
+@aria-label Silence on “Agent injoignable sur lab”
+@title 10/11/2026, 09:57:00
+@aria-label Acknowledge 0 alerts
+@aria-label Mark as known: 0 ports
+@aria-label New silence
+@aria-label New silence: target
+@aria-label ongoing
+@aria-label resolved
+@title admin: redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+
+### routes : /alertes (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /network (vue seule)
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+Devices
+Devices
+6
+Online
+Online
+4
+Offline
+Offline
+1
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+MAC family “tablette”: 3 MACs fe:fd:fc:* on 2 devices. A single device, and the next MACs attached without an alert?
+⚠ noms saisis différents : tablette, telephone
+Confirm…
+Dismiss…
+2 devices “telephone” with private MACs: the same device?
+Merge…
+Dismiss…
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Online
+Offline
+Presence unknown
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+6 / 6
+State
+Device
+IP
+Vendor
+24 h
+Seen
+online
+box
+Router · online
+192.0.2.1
+Exemple
+1 min ago
+online
+web
+Server · online
+192.0.2.21
+Exemple
+1 min ago
+new
+Fabricant new
+online
+192.0.2.103
+Fabricant
+1 min ago
+new
+telephone new
+Phone · offline, seen 3 h ago
+192.0.2.104
+Exemple
+3 h ago
+offline, seen 9 d ago
+imprimante to review
+Printer · offline, seen 9 d ago
+192.0.2.105
+Exemple
+9 d ago
+online
+tablette MAC to confirm
+Phone · online · 2 MAC
+192.0.2.106
+Exemple
+1 min ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices
+@aria-label Online
+@aria-label Offline
+@aria-label New
+@aria-label To review
+@aria-label Grouping suggestions
+@aria-label Warnings
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label Select all
+@aria-label Select box
+@aria-label online
+@aria-label Router
+@title Exemple
+@aria-label Presence 24 h: 24 slots ok, 0 degraded, 0 unavailable
+@title available
+@aria-label Select web
+@aria-label Server
+@aria-label linked to host web
+@aria-label Select Fabricant
+@aria-label new
+@aria-label Unknown
+@title Fabricant
+@aria-label Select telephone
+@aria-label Phone
+@aria-label random or local MAC
+@aria-label Presence 24 h: 21 slots ok, 0 degraded, 3 unavailable
+@title unavailable
+@title 10/11/2026, 07:00:00
+@aria-label Select imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Printer
+@title imported from NetAlertX or seen during bootstrap: to check
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 01/11/2026, 10:00:00
+@aria-label Select tablette
+@title MAC attached automatically, to confirm
+@aria-label Presence 24 h: 22 slots ok, 2 degraded, 0 unavailable
+@title degraded / partial failures
+
+### routes : /reseau (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /backups (vue seule)
+Backups
+just now
+Cluster principal
+source: storage content + vzdump logs
+02:00 all guests except lab → sauvegardes · snapshot next run tomorrow 01:00
+Not backed up: lab (103) excluded
+Guest
+W4
+T5
+F6
+S7
+S8
+M9
+today
+Last
+web CT 101
+backed up at 02:00
+backed up at 02:00
+8 h ago · 7
+nas VM 102
+backed up at 02:00
+failed at 02:00
+last run failed · 3
+lab CT 103 excluded
+no backup
+1 removed guest still has backups on sauvegardes : 4.7 GB
+Never pruned by the job retention (VMID gone): delete them by hand when no longer needed.
+199 no name 2 archives · 4.7 GB · last 40 d ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title Wednesday 4 November
+@title Thursday 5 November
+@title Friday 6 November
+@title Saturday 7 November
+@title Sunday 8 November
+@title Monday 9 November
+@title Tuesday 10 November
+@title no backup this day
+@aria-label no backup this day
+@aria-label backed up at 02:00
+@title archives on the storage
+@aria-label failed at 02:00
+
+### routes : /sauvegardes (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /updates (vue seule)
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 3
+Major 2
+Minor 3
+Patches 2
+Images 1
+Repositories 1
+Auto-update 1
+Ignored 1
+Up to date 1
+Errors 1
+Failing sources (last data kept): registre — HTTP 503
+Automatic security updates: failing
+nas
+active
+web
+Component Where Installed → latest Gap
+nginx
+OS
+web
+1.24.0 → 1.24.1
+security 5 d ago
+forge
+Image
+web
+1.22.0 → 2.0.0
+▲ major 5 d ago
+wiki
+Image
+web
+3.4.0 → 3.5.0
+◆ minor 5 d ago
+debian
+OS
+nas
+11 → 12
+end of life since 31 Aug 2026
+end of life 5 d ago
+photos
+Image
+web
+sha256:abc → sha256:def
+◆ image 5 d ago
+app
+Repository
+web
+run abc1234 → HEAD def5678
+3 versions
+▲ not deployed 5 d ago
+dns
+App · dev
+lab
+5.0
+! error 5 d ago
+wiki-db
+App
+web
+16.2 → 16.4
+pinned (major 17.0 hidden)
+◆ minor 5 d ago
+paquets de web
+Packages
+web
+3 paquets
+Auto updates active auto-update
+security 5 d ago
+paquets de nas
+Packages
+nas
+12 paquets
+Auto updates failing
+◆ minor 5 d ago
+Information only: nothing is applied from the dashboard. 12 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Details of nginx
+@title nginx
+@title Host details
+@title 1.24.0
+@title notes for 1.24.1
+@title 05/11/2026, 10:00:00
+@aria-label Details of forge
+@title forge
+@title 1.22.0
+@title notes for 2.0.0
+@aria-label Details of wiki
+@title wiki
+@title 3.4.0
+@title notes for 3.5.0
+@aria-label Details of debian
+@title debian
+@title 11
+@title notes for 12
+@aria-label Details of photos
+@title photos
+@title sha256:abc
+@title notes for sha256:def
+@aria-label Details of app
+@title app
+@title abc1234
+@title notes for def5678
+@aria-label Details of dns
+@title dns
+@title 5.0
+@aria-label Details of wiki-db
+@title wiki-db
+@title 16.2
+@title notes for 16.4
+@title majeure figée
+@aria-label Details of paquets de web
+@title paquets de web
+@title updates itself automatically (config or Home Assistant)
+@aria-label Details of paquets de nas
+@title paquets de nas
+
+### routes : /maj (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /wall (vue seule)
+Banc
+10:00 Tuesday 10 November
+Down
+Degraded — 2 critical, 3 warnings
+2/5 services up · 2/3 guests running
+updated just now
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Down
+1/2
+failing: app
+Network
+Degraded
+9/12
+online · 2 new
+Active alerts
+just now
+Down
+Mail injoignable
+smtp : connexion refusée
+4 h
+Down
+Disque presque plein sur web
+/ à 96 %
+2 h
+Degraded
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+@aria-label Leave wall mode
+@aria-label Down
+@title 10/11/2026, 10:00:00
+@aria-label Weather in Paris
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@title failing: app
+@title online · 2 new
+@title Refresh
+@aria-label Info
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Unknown
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@aria-label Admin login
+
+### routes : /mural (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### cadre : écran de connexion seul
+Banc
+Login required to view this dashboard. 12 h session.
+Login refused over HTTP: open the HTTPS address of the dashboard.
+@aria-label Admin login
+
+### cadre : page « à configurer » seule
+Vigie: setup needed
+No configuration file was found: nothing is read or probed.
+Run the wizard: cd server && npm run init (config, admin password, Proxmox and Gitea optional).
+Restart the service.
+By hand: copy config.example.json to config.json and generate the password with node server/scripts/admin-password.js .
+Details: docs/installation.md.
+@aria-label Admin login
+
+### cockpit : toutes les sources
+Down
+Degraded — 2 critical, 3 warnings
+2/5 services up · 2/3 guests running
+updated just now Wall
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Down
+1/2
+failing: app
+Network
+Degraded
+9/12
+online · 2 new
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+Updates
+just now
+security nginx 1.24.0 → 1.24.1
+▲ major forge 1.22.0 → 2.0.0
+◆ minor wiki 3.4.0 → 3.5.0
+end of life debian 11 → 12
+◆ image photos sha256:abc
+▲ not deployed app abc1234 → def5678
++ 1 more · All updates
+Backups
+pve-a 1/3 up to date last 8 h ago · next Wed 01:00
+failed: nas late: lab
+Details per guest
+CI and runners
+Info
+runner-a
+Down
+runner-b
+failure
+app #12 2 h ago
+success
+site #12 2 h ago
+Pinned
+WI Wiki
+Up
+@aria-label Down
+@title 10/11/2026, 10:00:00
+@title Wall mode (dedicated screen)
+@aria-label Weather in Paris
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@title failing: app
+@title online · 2 new
+@title Refresh
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Unknown
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026, 02:00:00
+@aria-label 1 up to date, 1 late, 1 failed
+@title busy
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026, 08:00:00
+@aria-label success
+@title Up
+@aria-label Admin login
+
+### cockpit : environnement prod
+Up
+Operational
+2/5 services up · 2/3 guests running
+updated just now Wall
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 4 other 3 · 2 · 4
+sec · maj. · other
+Certificates
+Unknown
+—
+no certificate tracked
+Backups
+Up
+—
+CI
+Down
+1/2
+failing: app
+Network
+Up
+9/12
+devices online
+Hypervisors
+just now
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+Updates
+just now
+security nginx 1.24.0 → 1.24.1
+▲ major forge 1.22.0 → 2.0.0
+◆ minor wiki 3.4.0 → 3.5.0
+end of life debian 11 → 12
+◆ image photos sha256:abc
+▲ not deployed app abc1234 → def5678
++ 1 more · All updates
+Backups
+Details per guest
+CI and runners
+Info
+runner-a
+Down
+runner-b
+failure
+app #12 2 h ago
+success
+site #12 2 h ago
+Pinned
+WI Wiki
+Up
+@aria-label Up
+@title 10/11/2026, 10:00:00
+@title Wall mode (dedicated screen)
+@aria-label Weather in Paris
+@aria-label Down
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@aria-label Unknown
+@title no certificate tracked
+@title failing: app
+@title devices online
+@title Refresh
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title busy
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026, 08:00:00
+@aria-label success
+@title Up
+@aria-label Admin login
+
+### cockpit : aucune donnée encore
+Unknown
+Collecting…
+Wall
+Hypervisors
+Service health · 24 h
+Updates
+Backups
+Details per guest
+CI and runners
+Pinned
+No favorites
+Pin a service with ☆ in the Services view.
+@aria-label Unknown
+@title Wall mode (dedicated screen)
+@title Refresh
+@aria-label Admin login
+
+### cockpit : sources en panne
+Unknown
+Partial data
+source unreachable: proxmox · agents
+updated just now Wall
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Unknown
+2/3
+Proxmox injoignable
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Link
+—
+not configured
+Network
+Unknown
+9/12
+source down: pihole
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+Updates
+just now
+security nginx 1.24.0 → 1.24.1
+▲ major forge 1.22.0 → 2.0.0
+◆ minor wiki 3.4.0 → 3.5.0
+end of life debian 11 → 12
+◆ image photos sha256:abc
+▲ not deployed app abc1234 → def5678
++ 1 more · All updates
+Backups
+pve-a 1/3 up to date last 8 h ago · next Wed 01:00
+failed: nas late: lab
+Details per guest
+CI and runners
+Info
+runner-a
+Down
+runner-b
+failure
+app #12 2 h ago
+success
+site #12 2 h ago
+Pinned
+WI Wiki
+Up
+@aria-label Unknown
+@title 10/11/2026, 10:00:00
+@title Wall mode (dedicated screen)
+@aria-label Down
+@title 1 down · 1 degraded
+@title Proxmox injoignable
+@title crit · warn · info
+@title sec · maj. · other
+@aria-label Degraded
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@aria-label Link
+@title not configured
+@title source down: pihole
+@title Refresh
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026, 02:00:00
+@aria-label 1 up to date, 1 late, 1 failed
+@title busy
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026, 08:00:00
+@aria-label success
+@title Up
+@aria-label Admin login
+
+### services : liste
+Services
+just now
+Filter the services
+Down
+Down 1
+Degraded
+Degraded 1
+Unknown
+Unknown 1
+Up
+Up 2
+Pinned
+WI Wiki
+Up
+Applications · 3
+WI
+Wiki
+Up
+service wiki
+Pages
+128
+Utilisateurs
+4
+Up
+wiki-http HTTP 200 · 42 ms
+100 %
+CT 101 · main · 192.0.2.21 prod
+FO
+Forge
+Degraded
+Degraded
+service forge
+Degraded
+forge-http HTTP 200 · 820 ms
+Up
+certificat cert. 12 d
+97.9 %
+CT 101 · main · 192.0.2.21 prod
+PH
+Photos
+Up
+service photos
+Up
+photos-http HTTP 200 · 42 ms
+100 %
+CT 101 · main · 192.0.2.21 prod
+Infrastructure · 2
+MA
+Mail
+Down
+Down
+service mail
+Down
+smtp connexion refusée
+75.0 %
+VM 102 · main · 192.0.2.22 prod
+DN
+Dns
+Unknown
+Unknown
+service dns
+Unknown
+résolution pending
+—
+CT 103 · main · 192.0.2.23 dev
+Web bookmarks
+Liens
+DO Documentation
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, IP, host, tag…
+@aria-label Filter by state
+@aria-label Down
+@aria-label Degraded
+@aria-label Unknown
+@aria-label Up
+@title Up
+@aria-label Wiki is pinned in the config
+@title Pinned in config.json
+@title 128
+@title 4
+@aria-label probes
+@title https://wiki-http.example.net
+@title History (24 h)
+@aria-label History of Wiki: 24 h availability 100 %
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@title available
+@aria-label Add Forge to favorites
+@title Add to favorites
+@title https://forge-http.example.net
+@title https://forge-tls.example.net · expires on 22/11/2026 · Exemple CA
+@aria-label History of Forge: 24 h availability 97.9 %
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Add Photos to favorites
+@title https://photos-http.example.net
+@aria-label History of Photos: 24 h availability 100 %
+@aria-label Add Mail to favorites
+@title 192.0.2.22:25 · connexion refusée
+@aria-label History of Mail: 24 h availability 75.0 %
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title unavailable
+@title container mailserver
+@aria-label Add Dns to favorites
+@title example.net
+@aria-label History of Dns: 24 h availability —
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Admin login
+
+### services : filtre « en panne » et recherche
+Services
+just now
+Filter the services
+Down
+Down 1
+Degraded
+Degraded 1
+Unknown
+Unknown 1
+Up
+Up 2
+Infrastructure · 1
+MA
+Mail
+Down
+Down
+service mail
+Down
+smtp connexion refusée
+75.0 %
+VM 102 · main · 192.0.2.22 prod
+Web bookmarks
+Liens
+DO Documentation
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, IP, host, tag…
+@aria-label Clear the filter
+@aria-label Filter by state
+@aria-label Down
+@aria-label Degraded
+@aria-label Unknown
+@aria-label Up
+@aria-label Add Mail to favorites
+@title Add to favorites
+@aria-label probes
+@title 192.0.2.22:25 · connexion refusée
+@title History (24 h)
+@aria-label History of Mail: 24 h availability 75.0 %
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@title container mailserver
+@aria-label Admin login
+
+### services : recherche sans résultat
+Services
+just now
+Filter the services
+Down
+Down 1
+Degraded
+Degraded 1
+Unknown
+Unknown 1
+Up
+Up 2
+No service matches the filters
+Broaden the search or remove a state filter.
+Web bookmarks
+Liens
+DO Documentation
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, IP, host, tag…
+@aria-label Clear the filter
+@aria-label Filter by state
+@aria-label Down
+@aria-label Degraded
+@aria-label Unknown
+@aria-label Up
+@aria-label Admin login
+
+### services : chargement
+Services
+@title Refresh
+@aria-label Admin login
+
+### infra : Proxmox, agents et nœuds
+Infrastructure (VM / LXC)
+just now
+Cluster principal
+pve-a PVE 8.3.2 · kernel 6.8.12-5-pve uptime 20d 0h
+CPU · 8 cores · load 0.5 0.4 0.3 12%
+RAM excluding cache · 13 GB / 30 GB 44%
+Swap · 0 / 7.5 GB 0%
+System (/) · 37 GB / 93 GB 40%
+Processeur exemple · I/O wait 1 %
+Physical disks
+SMART PASSED
+SSD Exemple
+/dev/sda · SSD · 466 GB · LVM · 12,000 h
+wear · life left 92 % 8%
+SMART FAILED
+HDD Exemple
+/dev/sdb · HDD · 3.6 TB · ZFS · 12 reallocated
+hard disk: no wear
+1 task failed or with warnings over 7 d (1 errors) show
+Proxmox notifications: mail-admin (sendmail) — by mail to the root@pam address: check that it is set and that the node can relay mail.
+running
+web CT 101
+CPU · 2 vCPU 5%
+RAM · 954 MB / 1.9 GB 50%
+Disk · 4.7 GB / 9.3 GB 50%
+uptime 3d 0h · pve-a
+1/2 1 unit 3 · 1 sec reboot
+running
+nas VM 102
+CPU · 2 vCPU 5%
+RAM · 5.6 GB / 7.5 GB 75%
+Disk · 4.7 GB / 9.3 GB 50%
+uptime 3d 0h · pve-a
+agent: pas de réponse en 10 s
+stopped
+lab CT 103
+stopped · pve-a
+Proxmox storages
+local-lvm 56 GB / 186 GB · 30%
+sauvegardes 279 GB / 931 GB · 30%
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label CPU · 8 cores · load 0.5 0.4 0.3
+@aria-label RAM excluding cache · 13 GB / 30 GB
+@aria-label Swap · 0 / 7.5 GB
+@aria-label System (/) · 37 GB / 93 GB
+@aria-label SMART PASSED
+@title SSD Exemple
+@aria-label wear · life left 92 %
+@aria-label SMART FAILED
+@title HDD Exemple
+@aria-label Details of web
+@aria-label running
+@aria-label CPU · 2 vCPU
+@aria-label RAM · 954 MB / 1.9 GB
+@aria-label Disk · 4.7 GB / 9.3 GB
+@title running containers / total
+@title backup.timer
+@title apt updates
+@title yes
+@aria-label Details of nas
+@aria-label RAM · 5.6 GB / 7.5 GB
+@title pas de réponse en 10 s
+@aria-label stopped
+@aria-label usage
+@aria-label Admin login
+
+### infra : Proxmox injoignable
+Infrastructure (VM / LXC)
+just now
+Cluster principal
+Proxmox unreachable: connect ECONNREFUSED
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label Admin login
+
+### infra : chargement
+Infrastructure (VM / LXC)
+@title Refresh
+@aria-label Admin login
+
+### réseau : inventaire
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+Devices
+Devices
+6
+Online
+Online
+4
+Offline
+Offline
+1
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+MAC family “tablette”: 3 MACs fe:fd:fc:* on 2 devices. A single device, and the next MACs attached without an alert?
+⚠ noms saisis différents : tablette, telephone
+Confirm…
+Dismiss…
+2 devices “telephone” with private MACs: the same device?
+Merge…
+Dismiss…
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Online
+Offline
+Presence unknown
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+6 / 6
+State
+Device
+IP
+Vendor
+24 h
+Seen
+online
+box
+Router · online
+192.0.2.1
+Exemple
+1 min ago
+online
+web
+Server · online
+192.0.2.21
+Exemple
+1 min ago
+new
+Fabricant new
+online
+192.0.2.103
+Fabricant
+1 min ago
+new
+telephone new
+Phone · offline, seen 3 h ago
+192.0.2.104
+Exemple
+3 h ago
+offline, seen 9 d ago
+imprimante to review
+Printer · offline, seen 9 d ago
+192.0.2.105
+Exemple
+9 d ago
+online
+tablette MAC to confirm
+Phone · online · 2 MAC
+192.0.2.106
+Exemple
+1 min ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices
+@aria-label Online
+@aria-label Offline
+@aria-label New
+@aria-label To review
+@aria-label Grouping suggestions
+@aria-label Warnings
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label Select all
+@aria-label Select box
+@aria-label online
+@aria-label Router
+@title Exemple
+@aria-label Presence 24 h: 24 slots ok, 0 degraded, 0 unavailable
+@title available
+@aria-label Select web
+@aria-label Server
+@aria-label linked to host web
+@aria-label Select Fabricant
+@aria-label new
+@aria-label Unknown
+@title Fabricant
+@aria-label Select telephone
+@aria-label Phone
+@aria-label random or local MAC
+@aria-label Presence 24 h: 21 slots ok, 0 degraded, 3 unavailable
+@title unavailable
+@title 10/11/2026, 07:00:00
+@aria-label Select imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Printer
+@title imported from NetAlertX or seen during bootstrap: to check
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 01/11/2026, 10:00:00
+@aria-label Select tablette
+@title MAC attached automatically, to confirm
+@aria-label Presence 24 h: 22 slots ok, 2 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Admin login
+
+### réseau : filtre « nouveaux », tri par nom
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+Devices
+Devices
+6
+Online
+Online
+4
+Offline
+Offline
+1
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+MAC family “tablette”: 3 MACs fe:fd:fc:* on 2 devices. A single device, and the next MACs attached without an alert?
+⚠ noms saisis différents : tablette, telephone
+Confirm…
+Dismiss…
+2 devices “telephone” with private MACs: the same device?
+Merge…
+Dismiss…
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Online
+Offline
+Presence unknown
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+2 / 6
+State
+Device
+IP
+Vendor
+24 h
+Seen
+new
+Fabricant new
+online
+192.0.2.103
+Fabricant
+1 min ago
+new
+telephone new
+Phone · offline, seen 3 h ago
+192.0.2.104
+Exemple
+3 h ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices
+@aria-label Online
+@aria-label Offline
+@aria-label New
+@aria-label To review
+@aria-label Grouping suggestions
+@aria-label Warnings
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label Select all
+@aria-label Select Fabricant
+@aria-label new
+@aria-label Unknown
+@title Fabricant
+@aria-label Presence 24 h: 24 slots ok, 0 degraded, 0 unavailable
+@title available
+@aria-label Select telephone
+@aria-label Phone
+@aria-label random or local MAC
+@title Exemple
+@aria-label Presence 24 h: 21 slots ok, 0 degraded, 3 unavailable
+@title unavailable
+@title 10/11/2026, 07:00:00
+@aria-label Admin login
+
+### réseau : onglet historique
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+Period
+7 d
+30 d
+90 d
+Devices online (per hour) ● online avg 9 · peak 10
+Tue 10:00 Mon 10:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices online (per hour) : online moyenne 9
+@aria-label Admin login
+
+### réseau : onglet carte (la carte, paresseuse, attend son chunk)
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Admin login
+
+### réseau : carte (admin)
+SVG
+Mermaid
+Edit the links
+1 lien saisi ignoré : cycle
+ok
+Internet
+box — default (gateway)
+ok
+box
+192.0.2.1
+pve-a — config
+ok
+pve-a
+192.0.2.10
+imprimante — typed link
+crit
+imprimante
+192.0.2.105
+link
+web — Proxmox
+warn
+web
+192.0.2.21
+crit
+2 invités ▸
+tablette — by the service wiki
+ok
+tablette
+192.0.2.106
+@placeholder Center on a name or an IP
+@aria-label Search the map
+@aria-label Network map
+@aria-label Internet
+@aria-label ok
+@aria-label box, 192.0.2.1
+@aria-label pve-a, 192.0.2.10
+@aria-label imprimante, 192.0.2.105
+@aria-label crit
+@aria-label web, 192.0.2.21
+@aria-label warn
+@aria-label 2 invités
+@aria-label tablette, 192.0.2.106
+@aria-label Link on the map
+@aria-label Remove the typed link
+@aria-label Admin login
+
+### réseau : carte (lecture anonyme)
+SVG
+Mermaid
+1 lien saisi ignoré : cycle
+ok
+Internet
+box — default (gateway)
+ok
+box
+192.0.2.1
+pve-a — config
+ok
+pve-a
+192.0.2.10
+imprimante — typed link
+crit
+imprimante
+192.0.2.105
+link
+web — Proxmox
+warn
+web
+192.0.2.21
+crit
+2 invités ▸
+tablette — by the service wiki
+ok
+tablette
+192.0.2.106
+@placeholder Center on a name or an IP
+@aria-label Search the map
+@aria-label Network map
+@aria-label Internet
+@aria-label ok
+@aria-label box, 192.0.2.1
+@aria-label pve-a, 192.0.2.10
+@aria-label imprimante, 192.0.2.105
+@aria-label crit
+@aria-label web, 192.0.2.21
+@aria-label warn
+@aria-label 2 invités
+@aria-label tablette, 192.0.2.106
+@aria-label Link on the map
+@aria-label Remove the typed link
+@aria-label Admin login
+
+### réseau : filtre par type et recherche
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Probe all
+Devices
+Devices
+6
+Online
+Online
+4
+Offline
+Offline
+1
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+MAC family “tablette”: 3 MACs fe:fd:fc:* on 2 devices. A single device, and the next MACs attached without an alert?
+⚠ noms saisis différents : tablette, telephone
+Confirm…
+Dismiss…
+2 devices “telephone” with private MACs: the same device?
+Merge…
+Dismiss…
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Online
+Offline
+Presence unknown
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+1 / 6
+State
+Device
+IP
+Vendor
+24 h
+Seen
+offline, seen 9 d ago
+imprimante to review
+Printer · offline, seen 9 d ago
+192.0.2.105
+Exemple
+9 d ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices
+@aria-label Online
+@aria-label Offline
+@aria-label New
+@aria-label To review
+@aria-label Grouping suggestions
+@aria-label Warnings
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label Select all
+@aria-label Select imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Printer
+@title imported from NetAlertX or seen during bootstrap: to check
+@title Exemple
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title unavailable
+@title 01/11/2026, 10:00:00
+@aria-label Admin login
+
+### réseau : présence passive (sans sonde ARP)
+LAN devices
+just now
+Passive presence: “active” = seen in the last 15 minutes (Pi-hole, container neighbors). A silent device is not necessarily off, and a device that left can stay active for a few hours.
+failed
+ARP scan 0
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+Probe all
+Devices
+Devices
+6
+Active (< 15 min)
+Active (< 15 min)
+4
+Seen by DHCP
+Seen by DHCP
+2
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+MAC family “tablette”: 3 MACs fe:fd:fc:* on 2 devices. A single device, and the next MACs attached without an alert?
+⚠ noms saisis différents : tablette, telephone
+Confirm…
+Dismiss…
+2 devices “telephone” with private MACs: the same device?
+Merge…
+Dismiss…
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Active
+Seen a while ago
+Seen by DHCP
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+6 / 6
+State
+Device
+IP
+Vendor
+Seen
+active
+box
+Router · active
+192.0.2.1
+Exemple
+1 min ago
+active
+web
+Server · active
+192.0.2.21
+Exemple
+1 min ago
+new
+Fabricant new
+active
+192.0.2.103
+Fabricant
+1 min ago
+new
+telephone new
+Phone · seen 3 h ago
+192.0.2.104
+Exemple
+3 h ago
+unknown
+imprimante to review
+Printer · unknown
+192.0.2.105
+Exemple
+9 d ago
+active
+tablette MAC to confirm
+Phone · active · 2 MAC
+192.0.2.106
+Exemple
+1 min ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title no reading yet
+@aria-label failed
+@title last reading 10/11/2026, 09:55:00
+@aria-label reading OK
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@title 10/11/2026, 08:00:00
+@title last reading 10/11/2026, 09:59:00
+@title 10/11/2026, 09:59:00
+@aria-label Network views
+@aria-label Probe all
+@title Probe all infrastructure hosts now (same rules as the Sunday run)
+@aria-label Devices
+@aria-label Active (< 15 min)
+@aria-label Seen by DHCP
+@aria-label New
+@aria-label To review
+@aria-label Grouping suggestions
+@aria-label Warnings
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label Select all
+@aria-label Select box
+@aria-label active
+@aria-label Router
+@title Exemple
+@aria-label Select web
+@aria-label Server
+@aria-label linked to host web
+@aria-label Select Fabricant
+@aria-label new
+@aria-label Unknown
+@title Fabricant
+@aria-label Select telephone
+@aria-label Phone
+@aria-label random or local MAC
+@title 10/11/2026, 07:00:00
+@aria-label Select imprimante
+@aria-label unknown
+@aria-label Printer
+@title imported from NetAlertX or seen during bootstrap: to check
+@title 01/11/2026, 10:00:00
+@aria-label Select tablette
+@title MAC attached automatically, to confirm
+@aria-label Admin login
+
+### réseau : lecture anonyme
+LAN devices
+just now
+Reliable presence by ARP scan every 2 min: “online” = answered; a device never seen stays “unknown” for its delay. Pi-hole freshness stays visible in the device page. Anchor: gateway 192.0.2.1 (default route).
+reading OK
+ARP scan 6 1 min ago
+reading OK
+Proxmox 3 5 min ago
+failed
+DHCP lease 0 2 h ago
+reading OK
+Pi-hole (ARP) 4 5 min ago
+reading OK
+agent 1 1 min ago
+reading OK
+container neighbors 2 1 min ago
+reading OK
+mDNS 1 min ago
+reading OK
+probe
+Devices
+Map
+History
+Devices
+Devices
+6
+Online
+Online
+4
+Offline
+Offline
+1
+New
+New
+2
+To review
+To review
+1
+2 new devices have appeared since setup.
+Show
+1 MAC attached automatically (same name or same IP), to confirm: another device can spoof a name.
+Show
+1 device imported or seen at bootstrap, to review.
+Display
+All
+Online
+Offline
+Presence unknown
+New
+To review
+MAC to confirm
+All types
+Phone
+Printer
+Router
+Server
+6 / 6
+State
+Device
+IP
+Vendor
+24 h
+Seen
+online
+box
+Router · online
+192.0.2.1
+Exemple
+1 min ago
+online
+web
+Server · online
+192.0.2.21
+Exemple
+1 min ago
+new
+Fabricant new
+online
+192.0.2.103
+Fabricant
+1 min ago
+new
+telephone new
+Phone · offline, seen 3 h ago
+192.0.2.104
+Exemple
+3 h ago
+offline, seen 9 d ago
+imprimante to review
+Printer · offline, seen 9 d ago
+192.0.2.105
+Exemple
+9 d ago
+online
+tablette MAC to confirm
+Phone · online · 2 MAC
+192.0.2.106
+Exemple
+1 min ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title last reading 10/11/2026, 09:59:00
+@aria-label reading OK
+@title 10/11/2026, 09:59:00
+@title last reading 10/11/2026, 09:55:00
+@title 10/11/2026, 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label failed
+@title 10/11/2026, 08:00:00
+@title no reading yet
+@aria-label Network views
+@aria-label Devices
+@aria-label Online
+@aria-label Offline
+@aria-label New
+@aria-label To review
+@placeholder Name, IP, MAC, vendor…
+@aria-label Search for a device
+@aria-label Filter by state
+@aria-label Filter by type
+@aria-label online
+@aria-label Router
+@title Exemple
+@aria-label Presence 24 h: 24 slots ok, 0 degraded, 0 unavailable
+@title available
+@aria-label Server
+@aria-label linked to host web
+@aria-label new
+@aria-label Unknown
+@title Fabricant
+@aria-label Phone
+@aria-label random or local MAC
+@aria-label Presence 24 h: 21 slots ok, 0 degraded, 3 unavailable
+@title unavailable
+@title 10/11/2026, 07:00:00
+@aria-label offline, seen 9 d ago
+@aria-label Printer
+@title imported from NetAlertX or seen during bootstrap: to check
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 01/11/2026, 10:00:00
+@title MAC attached automatically, to confirm
+@aria-label Presence 24 h: 22 slots ok, 2 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Admin login
+
+### réseau : module désactivé
+Network module not configured
+Add the “network” block to config.json (see docs/network.md).
+@aria-label Admin login
+
+### mises à jour : à traiter
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 3
+Major 2
+Minor 3
+Patches 2
+Images 1
+Repositories 1
+Auto-update 1
+Ignored 1
+Up to date 1
+Errors 1
+Failing sources (last data kept): registre — HTTP 503
+Automatic security updates: failing
+nas
+active
+web
+Component Where Installed → latest Gap
+nginx
+OS
+web
+1.24.0 → 1.24.1
+security 5 d ago
+forge
+Image
+web
+1.22.0 → 2.0.0
+▲ major 5 d ago
+wiki
+Image
+web
+3.4.0 → 3.5.0
+◆ minor 5 d ago
+debian
+OS
+nas
+11 → 12
+end of life since 31 Aug 2026
+end of life 5 d ago
+photos
+Image
+web
+sha256:abc → sha256:def
+◆ image 5 d ago
+app
+Repository
+web
+run abc1234 → HEAD def5678
+3 versions
+▲ not deployed 5 d ago
+dns
+App · dev
+lab
+5.0
+! error 5 d ago
+wiki-db
+App
+web
+16.2 → 16.4
+pinned (major 17.0 hidden)
+◆ minor 5 d ago
+paquets de web
+Packages
+web
+3 paquets
+Auto updates active auto-update
+security 5 d ago
+paquets de nas
+Packages
+nas
+12 paquets
+Auto updates failing
+◆ minor 5 d ago
+Information only: nothing is applied from the dashboard. 12 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Details of nginx
+@title nginx
+@title Host details
+@title 1.24.0
+@title notes for 1.24.1
+@title 05/11/2026, 10:00:00
+@aria-label Details of forge
+@title forge
+@title 1.22.0
+@title notes for 2.0.0
+@aria-label Details of wiki
+@title wiki
+@title 3.4.0
+@title notes for 3.5.0
+@aria-label Details of debian
+@title debian
+@title 11
+@title notes for 12
+@aria-label Details of photos
+@title photos
+@title sha256:abc
+@title notes for sha256:def
+@aria-label Details of app
+@title app
+@title abc1234
+@title notes for def5678
+@aria-label Details of dns
+@title dns
+@title 5.0
+@aria-label Details of wiki-db
+@title wiki-db
+@title 16.2
+@title notes for 16.4
+@title majeure figée
+@aria-label Details of paquets de web
+@title paquets de web
+@title updates itself automatically (config or Home Assistant)
+@aria-label Details of paquets de nas
+@title paquets de nas
+@aria-label Admin login
+
+### mises à jour : filtre « à jour »
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 3
+Major 2
+Minor 3
+Patches 2
+Images 1
+Repositories 1
+Auto-update 1
+Ignored 1
+Up to date 1
+Errors 1
+Failing sources (last data kept): registre — HTTP 503
+Automatic security updates: failing
+nas
+active
+web
+Component Where Installed → latest Gap
+cache
+App
+web
+7.2
+✓ up to date
+Information only: nothing is applied from the dashboard. 12 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Details of cache
+@title cache
+@title Host details
+@title 7.2
+@aria-label Admin login
+
+### mises à jour : filtre « ignorées »
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 3
+Major 2
+Minor 3
+Patches 2
+Images 1
+Repositories 1
+Auto-update 1
+Ignored 1
+Up to date 1
+Errors 1
+Failing sources (last data kept): registre — HTTP 503
+Automatic security updates: failing
+nas
+active
+web
+Component Where Installed → latest Gap
+mail
+App
+web
+2.0.0 → 2.1.0
+ignored until 1 Dec 2026 · attendre la 2.1.1
+– ignored 5 d ago
+Information only: nothing is applied from the dashboard. 12 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Details of mail
+@title mail
+@title Host details
+@title 2.0.0
+@title notes for 2.1.0
+@title attendre la 2.1.1
+@title 05/11/2026, 10:00:00
+@aria-label Admin login
+
+### mises à jour : filtre « erreurs » et recherche
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 3
+Major 2
+Minor 3
+Patches 2
+Images 1
+Repositories 1
+Auto-update 1
+Ignored 1
+Up to date 1
+Errors 1
+Failing sources (last data kept): registre — HTTP 503
+Automatic security updates: failing
+nas
+active
+web
+Component Where Installed → latest Gap
+dns
+App · dev
+lab
+5.0
+! error 5 d ago
+Information only: nothing is applied from the dashboard. 12 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Clear the filter
+@aria-label Filter by gap
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Details of dns
+@title dns
+@title 5.0
+@title 05/11/2026, 10:00:00
+@aria-label Admin login
+
+### mises à jour : tout est à jour
+Updates
+checked 10 min ago
+just now
+Filter the components
+Security / EOL 0
+Major 0
+Minor 0
+Patches 0
+Up to date 1
+Everything is up to date
+1 components tracked
+Information only: nothing is applied from the dashboard. 1 components tracked · 12 upstream requests since start (8 not modified) · GitHub without token (60 req/h)
+@title 10/11/2026, 09:50:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@aria-label Admin login
+
+### mises à jour : première vérification
+Updates
+just now
+Filter the components
+Security / EOL 0
+Major 0
+Minor 0
+Patches 0
+Everything is up to date
+First check in progress…
+@title Refresh
+@title 10/11/2026, 10:00:00
+@placeholder Filter: name, host, version…
+@aria-label Filter by gap
+@aria-label Admin login
+
+### sauvegardes : stockage, jobs, couverture, orphelines
+Backups
+just now
+Cluster principal
+source: storage content + vzdump logs
+02:00 all guests except lab → sauvegardes · snapshot next run tomorrow 01:00
+Not backed up: lab (103) excluded
+Guest
+W4
+T5
+F6
+S7
+S8
+M9
+today
+Last
+web CT 101
+backed up at 02:00
+backed up at 02:00
+8 h ago · 7
+nas VM 102
+backed up at 02:00
+failed at 02:00
+last run failed · 3
+lab CT 103 excluded
+no backup
+1 removed guest still has backups on sauvegardes : 4.7 GB
+Never pruned by the job retention (VMID gone): delete them by hand when no longer needed.
+199 no name 2 archives · 4.7 GB · last 40 d ago
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title Wednesday 4 November
+@title Thursday 5 November
+@title Friday 6 November
+@title Saturday 7 November
+@title Sunday 8 November
+@title Monday 9 November
+@title Tuesday 10 November
+@title no backup this day
+@aria-label no backup this day
+@aria-label backed up at 02:00
+@title archives on the storage
+@aria-label failed at 02:00
+@aria-label Admin login
+
+### sauvegardes : non configurées
+Backups
+just now
+Cluster principal
+No backup job scheduled.
+Guest
+W4
+T5
+F6
+S7
+S8
+M9
+today
+Last
+web CT 101
+no backup
+nas VM 102
+no backup
+lab CT 103
+no backup
+@title Refresh
+@title 10/11/2026, 10:00:00
+@title Wednesday 4 November
+@title Thursday 5 November
+@title Friday 6 November
+@title Saturday 7 November
+@title Sunday 8 November
+@title Monday 9 November
+@title Tuesday 10 November
+@title no backup this day
+@aria-label no backup this day
+@aria-label Admin login
+
+### alertes : actives, incidents, silences (admin)
+Notifications
+Up
+Telegram connected
+Up
+healthchecks.io pinged
+Quiet hours 22:00–07:00 · digest 08:00
+last sent 20 min ago · 1 queued
+Active alerts
+just now
+Select all (5)
+critical
+Mail injoignable Service down
+smtp : connexion refusée
+nas notified
+Acknowledge
+Silence…
+prod
+for 4 h
+critical
+Disque presque plein sur web disk_full
+/ à 96 %
+web notified
+acknowledged by admin 1 h ago : nettoyage prévu ce soir
+Remove the ack
+Silence…
+prod
+for 2 h
+warning
+Certificat de forge Certificate
+expire dans 12 j
+web notified
+Acknowledge
+Silence…
+prod
+for 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web not notified
+Acknowledge
+Silence…
+prod
+for 2 h
+pending
+Agent injoignable sur lab Agent unreachable
+Unknown
+pending
+Degraded
+flapping
+pas de réponse en 10 s
+lab
+Silence…
+dev
+for 3 min
+Silences
+New
+just now
+règle updates_pending mises à jour le mercredi until 12/11, 10:00 by admin (dashboard)
+Lift
+hôte lab lab en travaux no end by admin (Telegram)
+Lift
+History (7 days)
+Start
+Alert
+Type
+Duration
+10/11, 06:00
+ongoing
+Mail injoignable
+Service down
+ongoing
+09/11, 08:00
+resolved
+Wiki injoignable acknowledged
+rétabli après 1 h
+Service down
+1 h
+07/11, 10:00
+resolved
+Nœud pve-a hors ligne hidden
+coupure de courant
+node_down
+10 min
+@aria-label Up
+@title 10/11/2026, 09:40:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label Select “Mail injoignable”
+@aria-label critical
+@aria-label Acknowledge “Mail injoignable”
+@aria-label Silence on “Mail injoignable”
+@title 10/11/2026, 06:00:00
+@aria-label Select “Disque presque plein sur web”
+@title 10/11/2026, 09:00:00
+@aria-label Acknowledge “Disque presque plein sur web”
+@aria-label Silence on “Disque presque plein sur web”
+@title 10/11/2026, 08:00:00
+@aria-label Select “Certificat de forge”
+@aria-label warning
+@aria-label Acknowledge “Certificat de forge”
+@aria-label Silence on “Certificat de forge”
+@aria-label Select “Mises à jour en attente sur web”
+@aria-label info
+@aria-label Acknowledge “Mises à jour en attente sur web”
+@aria-label Silence on “Mises à jour en attente sur web”
+@aria-label Select “Agent injoignable sur lab”
+@aria-label pending
+@aria-label Unknown
+@aria-label Degraded
+@aria-label Acknowledge “Agent injoignable sur lab”
+@aria-label Silence on “Agent injoignable sur lab”
+@title 10/11/2026, 09:57:00
+@aria-label Acknowledge 0 alerts
+@aria-label Mark as known: 0 ports
+@aria-label New silence
+@aria-label New silence: target
+@aria-label ongoing
+@aria-label resolved
+@title admin: redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+@aria-label Admin login
+
+### alertes : lecture anonyme
+Notifications
+Up
+Telegram connected
+Up
+healthchecks.io pinged
+Quiet hours 22:00–07:00 · digest 08:00
+last sent 20 min ago · 1 queued
+Active alerts
+just now
+critical
+Mail injoignable Service down
+smtp : connexion refusée
+nas notified
+Acknowledge
+Silence…
+prod
+for 4 h
+critical
+Disque presque plein sur web disk_full
+/ à 96 %
+web notified
+acknowledged by admin 1 h ago : nettoyage prévu ce soir
+Remove the ack
+Silence…
+prod
+for 2 h
+warning
+Certificat de forge Certificate
+expire dans 12 j
+web notified
+Acknowledge
+Silence…
+prod
+for 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web not notified
+Acknowledge
+Silence…
+prod
+for 2 h
+pending
+Agent injoignable sur lab Agent unreachable
+Unknown
+pending
+Degraded
+flapping
+pas de réponse en 10 s
+lab
+Silence…
+dev
+for 3 min
+Silences
+New
+just now
+règle updates_pending mises à jour le mercredi until 12/11, 10:00 by admin (dashboard)
+Lift
+hôte lab lab en travaux no end by admin (Telegram)
+Lift
+History (7 days)
+Start
+Alert
+Type
+Duration
+10/11, 06:00
+ongoing
+Mail injoignable
+Service down
+ongoing
+09/11, 08:00
+resolved
+Wiki injoignable acknowledged
+rétabli après 1 h
+Service down
+1 h
+07/11, 10:00
+resolved
+Nœud pve-a hors ligne hidden
+coupure de courant
+node_down
+10 min
+@aria-label Up
+@title 10/11/2026, 09:40:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label critical
+@aria-label Acknowledge “Mail injoignable”
+@aria-label Silence on “Mail injoignable”
+@title 10/11/2026, 06:00:00
+@title 10/11/2026, 09:00:00
+@aria-label Acknowledge “Disque presque plein sur web”
+@aria-label Silence on “Disque presque plein sur web”
+@title 10/11/2026, 08:00:00
+@aria-label warning
+@aria-label Acknowledge “Certificat de forge”
+@aria-label Silence on “Certificat de forge”
+@aria-label info
+@aria-label Acknowledge “Mises à jour en attente sur web”
+@aria-label Silence on “Mises à jour en attente sur web”
+@aria-label pending
+@aria-label Unknown
+@aria-label Degraded
+@aria-label Acknowledge “Agent injoignable sur lab”
+@aria-label Silence on “Agent injoignable sur lab”
+@title 10/11/2026, 09:57:00
+@aria-label New silence
+@aria-label New silence: target
+@aria-label ongoing
+@aria-label resolved
+@title admin: redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+@aria-label Admin login
+
+### alertes : environnement dev
+Notifications
+Up
+Telegram connected
+Up
+healthchecks.io pinged
+Quiet hours 22:00–07:00 · digest 08:00
+last sent 20 min ago · 1 queued
+Active alerts
+just now
+Select all (1)
+pending
+Agent injoignable sur lab Agent unreachable
+Unknown
+pending
+Degraded
+flapping
+pas de réponse en 10 s
+lab
+Silence…
+dev
+for 3 min
+Silences
+New
+just now
+règle updates_pending mises à jour le mercredi until 12/11, 10:00 by admin (dashboard)
+Lift
+hôte lab lab en travaux no end by admin (Telegram)
+Lift
+History (7 days)
+No incidents in 7 days
+@aria-label Up
+@title 10/11/2026, 09:40:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label Select “Agent injoignable sur lab”
+@aria-label pending
+@aria-label Unknown
+@aria-label Degraded
+@aria-label Acknowledge “Agent injoignable sur lab”
+@aria-label Silence on “Agent injoignable sur lab”
+@title 10/11/2026, 09:57:00
+@aria-label Acknowledge 0 alerts
+@aria-label Mark as known: 0 ports
+@aria-label New silence
+@aria-label New silence: target
+@aria-label Admin login
+
+### alertes : aucune alerte
+Notifications
+Up
+Telegram connected
+Up
+healthchecks.io pinged
+Quiet hours 22:00–07:00 · digest 08:00
+last sent 20 min ago · 1 queued
+Active alerts
+just now
+No active alerts
+Services, Proxmox, backups, storages, certificates and CI are monitored.
+Silences
+New
+just now
+No active silences. Set one from an alert, Telegram ( /mute ) or “New”.
+History (7 days)
+No incidents in 7 days
+@aria-label Up
+@title 10/11/2026, 09:40:00
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label New silence
+@aria-label New silence: target
+@aria-label Admin login
+
+### intégrations
+Integrations
+plugin interface v0 (unstable)
+just now
+active
+versions core module · active
+active
+Gitea plugin · active
+failing
+Cassé plugin · failing
+signals: boum ( 5 min ago )
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label active
+@aria-label failing
+@title 10/11/2026, 09:55:00
+@aria-label Admin login
+
+### CI (plugin gitea) : en échec
+CI runners
+just now
+online
+runner-a busy online
+docker
+offline
+runner-b offline
+Gitea activity
+just now
+app
+CI failure
+CI #12 2 PR
+commit de app
+def5678 · auteur · 3 h ago
+site
+CI success
+CI #12
+commit de site
+def5678 · auteur · 3 h ago
+casse
+unavailable
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label online
+@aria-label offline
+@title CI run #12 · failure · run de app · 2 h ago
+@aria-label CI failure
+@title CI run #12 · success · run de site · 2 h ago
+@aria-label CI success
+@aria-label Admin login
+
+### CI (plugin gitea) : non configurée
+Gitea not configured
+Add the “plugins.gitea” block to the config and GITEA_URL (and GITEA_TOKEN) to the environment, then restart (see docs/configuration.md).
+@aria-label Admin login
+
+### plugin d'exemple : vue
+Example queue
+just now
+12 jobs waiting (alert above 10)
+@title Refresh
+@title 10/11/2026, 10:00:00
+@aria-label Admin login
+
+### plugin d'exemple : tuile du cockpit
+Queue
+Degraded
+12
+alert above 10
+@aria-label Degraded
+@title alert above 10
+@aria-label Admin login
+
+### plugin d'exemple : tuile sans donnée
+Queue
+Unknown
+—
+unknown
+@aria-label Unknown
+@title unknown
+@aria-label Admin login
+
+### mural : vue seule
+Banc
+10:00 Tuesday 10 November
+Down
+Degraded — 2 critical, 3 warnings
+2/5 services up · 2/3 guests running
+updated just now
+12°
+Paris
+Ciel dégagé
+6° / 15° · feels like 10°
+wind 18 km/h · rain 20 %
+Weather: Open-Meteo
+Services
+Down
+2/5
+1 down · 1 degraded
+Guests
+Degraded
+2/3
+stopped: lab
+Alerts
+Down
+2 critical, 1 warning, 1 info 2 · 1 · 1
+crit · warn · info
+Updates
+Down
+3 security or end of life, 2 major, 5 other 3 · 2 · 5
+sec · maj. · other
+Certificates
+Degraded
+12 d
+next: forge · 3 tracked
+Backups
+Down
+1/3
+pve-a 1/3
+CI
+Down
+1/2
+failing: app
+Network
+Degraded
+9/12
+online · 2 new
+Active alerts
+just now
+Down
+Mail injoignable
+smtp : connexion refusée
+4 h
+Down
+Disque presque plein sur web
+/ à 96 %
+2 h
+Degraded
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Hypervisors
+just now
+Up
+pve-a Cluster principal uptime 20d 0h
+CPU · 8 12%
+RAM · 30 GB 38%
+local-lvm 30%
+CPU 24 h
+CPU over 24 h
+RAM 24 h
+RAM over 24 h
+2/3 guests running · 1 VM · 2 CT
+Service health · 24 h
+just now
+MA Mail
+75.0 % 42 ms
+Down
+FO Forge
+97.9 % 820 ms
+Degraded
+DN Dns
+— 42 ms
+Unknown
+WI Wiki
+100 % 42 ms
+Up
+PH Photos
+100 % 42 ms
+Up
+@aria-label Leave wall mode
+@aria-label Down
+@title 10/11/2026, 10:00:00
+@aria-label Weather in Paris
+@title 1 down · 1 degraded
+@aria-label Degraded
+@title stopped: lab
+@title crit · warn · info
+@title sec · maj. · other
+@title next: forge · 3 tracked
+@title pve-a 1/3
+@title failing: app
+@title online · 2 new
+@title Refresh
+@aria-label Info
+@aria-label Up
+@aria-label CPU · 8
+@aria-label RAM · 30 GB
+@aria-label local-lvm
+@aria-label CPU over 24 h
+@aria-label RAM over 24 h
+@aria-label Availability: 36 slots ok, 0 degraded, 12 unavailable
+@title available
+@title unavailable
+@aria-label Availability: 47 slots ok, 1 degraded, 0 unavailable
+@title degraded / partial failures
+@aria-label Availability: 0 slots ok, 0 degraded, 0 unavailable
+@title no measurement
+@aria-label Unknown
+@aria-label Availability: 48 slots ok, 0 degraded, 0 unavailable
+@aria-label Admin login
+
+### tiroir de service : mail (en panne, sondes, historique)
+MA
+Mail
+service mail
+Down
+Down Open prod
+24 h
+7 d
+30 d
+90 d
+History recorded since 10/11, 00:00: the period is not complete yet.
+Down
+smtp tcp 75.00 %
+192.0.2.22:25
+latency of smtp
+avg latency
+46 ms
+10/11, 07:00 connexion refusée
+10/11, 06:00 code 503
+Up
+TLS tls 100 %
+mail.example.net:465
+expires on 15/01/2027 (66 d) · Exemple CA
+Incidents
+ongoing
+10/11, 06:00 ongoing
+resolved
+09/11, 14:00 smtp : connexion refusée 40 min
+@aria-label Close
+@aria-label Details of Mail
+@aria-label Down
+@aria-label Close the details
+@aria-label Period
+@title availability over the period
+@title 192.0.2.22:25
+@aria-label Availability: 20 slots ok, 0 degraded, 4 unavailable
+@title 10:00 — available
+@title 11:00 — available
+@title 12:00 — available
+@title 13:00 — available
+@title 14:00 — available
+@title 15:00 — available
+@title 16:00 — available
+@title 17:00 — available
+@title 18:00 — available
+@title 19:00 — available
+@title 20:00 — available
+@title 21:00 — available
+@title 22:00 — available
+@title 23:00 — available
+@title 00:00 — available
+@title 01:00 — available
+@title 02:00 — available
+@title 03:00 — available
+@title 04:00 — available
+@title 05:00 — available
+@title 06:00 — unavailable
+@title 07:00 — unavailable
+@title 08:00 — unavailable
+@title 09:00 — unavailable
+@aria-label latency of smtp
+@aria-label Up
+@title mail.example.net:465
+@aria-label ongoing
+@aria-label resolved
+@title smtp : connexion refusée
+@aria-label Admin login
+
+### tiroir de service : forge (certificat, 7 jours)
+FO
+Forge
+service forge
+Degraded
+Degraded Open prod
+24 h
+7 d
+30 d
+90 d
+Degraded
+forge-http http 100 %
+https://forge.example.net
+latency of forge-http
+avg latency
+714 ms
+Incidents
+No incidents in this period.
+@aria-label Close
+@aria-label Details of Forge
+@aria-label Degraded
+@aria-label Close the details
+@aria-label Period
+@title availability over the period
+@title https://forge.example.net
+@aria-label Availability: 23 slots ok, 0 degraded, 1 unavailable
+@title 10:00 — available
+@title 16:00 — available
+@title 22:00 — available
+@title 04:00 — unavailable
+@title 04:00 — available
+@aria-label latency of forge-http
+@aria-label Admin login
+
+### tiroir d'hôte : web (agent complet, admin)
+Down
+web
+CT 101 · PVE main · prod
+Debian GNU/Linux 12 · kernel 6.1.0-30-amd64 · uptime 12d 0h
+Network
+device page
+00:00:5e:00:53:02 192.0.2.21 active · seen 1 min ago
+Proxmox history
+24 h
+7 d
+CPU · 2 vCPU ● avg 11.9 % · peak 14 %
+Mon 10:00 Tue 09:00
+RAM · 1.9 GB ● avg 42.8 % · peak 46 %
+Mon 10:00 Tue 09:00
+Network ● in avg 11 KB/s · peak 22 KB/s ● out avg 5.6 KB/s · peak 11 KB/s
+Mon 10:00 Tue 09:00
+Disk ● read avg 0/s · peak 0/s ● write avg 0/s · peak 0/s
+Mon 10:00 Tue 09:00
+report 1 min ago · RAM 1.4 GB / 3.7 GB · load 0.42 0.35 0.3 · clock not synchronized
+Reboot required: yes
+Services to restart: nginx.service
+File systems
+/ · 18 GB / 19 GB · ext4 96%
+/data · 37 GB / 93 GB · zfs 40%
+inodes: / 30 %
+Containers Docker 27.3.1 · 1/2 running
+running
+wiki
+wiki:3.4.0
+for 3 d
+health: healthy
+exited
+wiki-db
+postgres:16.2
+exited (code 1)
+4 restarts
+systemd units
+Up
+nginx.service active (running)
+Degraded
+backup.timer inactive (dead)
+apt packages lists from 10/11/2026
+3 pending update(s), 1 of them security. 1 package(s) held by apt-mark hold, on purpose.
+Auto updates active : sécurité seulement.
+Last run 20 h ago , succeeded : openssl.
+See the packages
+openssl 3.0.14-1 → 3.0.15-1
+curl 7.88.1-10 → 7.88.1-11
+SSH and firewall posture
+Root login compliant
+SSH password deviation regression (compliant until 05/11/2026)
+Accept the deviation…
+Firewall accepted
+Remove the acceptance…
+Listening ports
+tcp/22 sshd · 192.0.2.21 known
+tcp/443 nginx · 192.0.2.21, :: known
+tcp/8080 java · 192.0.2.21 new
+Known…
+udp/323 — · 127.0.0.1 local
+@aria-label Close
+@aria-label Details of host web
+@aria-label Down
+@aria-label Close the details
+@title 10/11/2026, 09:59:00
+@aria-label Period
+@aria-label CPU · 2 vCPU : moyenne 11.9 %
+@aria-label RAM · 1.9 GB : moyenne 42.8 %
+@aria-label Network : in moyenne 11 KB/s, out moyenne 5.6 KB/s
+@aria-label Disk : read moyenne 0/s, write moyenne 0/s
+@aria-label / · 18 GB / 19 GB · ext4
+@aria-label /data · 37 GB / 93 GB · zfs
+@aria-label running
+@title wiki:3.4.0
+@aria-label exited
+@title postgres:16.2
+@aria-label Up
+@aria-label Degraded
+@title 09/11/2026, 14:00:00
+@title standard: PermitRootLogin no, prohibit-password or forced-commands-only
+@title standard: PasswordAuthentication no
+@title accepted by admin on 07/11/2026: couvert par le pare-feu de Proxmox
+@title 192.0.2.21
+@title 192.0.2.21, ::
+@title known, admin: site public
+@title 127.0.0.1
+@aria-label Admin login
+
+### tiroir d'hôte : web (lecture anonyme)
+Down
+web
+CT 101 · PVE main · prod
+Debian GNU/Linux 12 · kernel 6.1.0-30-amd64 · uptime 12d 0h
+Network
+device page
+00:00:5e:00:53:02 192.0.2.21 active · seen 1 min ago
+Proxmox history
+24 h
+7 d
+CPU · 2 vCPU ● avg 11.9 % · peak 14 %
+Mon 10:00 Tue 09:00
+RAM · 1.9 GB ● avg 42.8 % · peak 46 %
+Mon 10:00 Tue 09:00
+Network ● in avg 11 KB/s · peak 22 KB/s ● out avg 5.6 KB/s · peak 11 KB/s
+Mon 10:00 Tue 09:00
+Disk ● read avg 0/s · peak 0/s ● write avg 0/s · peak 0/s
+Mon 10:00 Tue 09:00
+report 1 min ago · RAM 1.4 GB / 3.7 GB · load 0.42 0.35 0.3 · clock not synchronized
+Reboot required: yes
+Services to restart: nginx.service
+File systems
+/ · 18 GB / 19 GB · ext4 96%
+/data · 37 GB / 93 GB · zfs 40%
+inodes: / 30 %
+Containers Docker 27.3.1 · 1/2 running
+running
+wiki
+wiki:3.4.0
+for 3 d
+health: healthy
+exited
+wiki-db
+postgres:16.2
+exited (code 1)
+4 restarts
+systemd units
+Up
+nginx.service active (running)
+Degraded
+backup.timer inactive (dead)
+apt packages lists from 10/11/2026
+3 pending update(s), 1 of them security. 1 package(s) held by apt-mark hold, on purpose.
+Auto updates active : sécurité seulement.
+Last run 20 h ago , succeeded : openssl.
+See the packages
+openssl 3.0.14-1 → 3.0.15-1
+curl 7.88.1-10 → 7.88.1-11
+SSH and firewall posture
+SSH and firewall posture: admin only (login required).
+Listening ports
+Listening ports: admin only (login required).
+@aria-label Close
+@aria-label Details of host web
+@aria-label Down
+@aria-label Close the details
+@title 10/11/2026, 09:59:00
+@aria-label Period
+@aria-label CPU · 2 vCPU : moyenne 11.9 %
+@aria-label RAM · 1.9 GB : moyenne 42.8 %
+@aria-label Network : in moyenne 11 KB/s, out moyenne 5.6 KB/s
+@aria-label Disk : read moyenne 0/s, write moyenne 0/s
+@aria-label / · 18 GB / 19 GB · ext4
+@aria-label /data · 37 GB / 93 GB · zfs
+@aria-label running
+@title wiki:3.4.0
+@aria-label exited
+@title postgres:16.2
+@aria-label Up
+@aria-label Degraded
+@title 09/11/2026, 14:00:00
+@aria-label Admin login
+
+### tiroir d'hôte : nas (agent injoignable)
+Unknown
+nas
+VM 102 · PVE main · prod
+Agent unreachable: pas de réponse en 10 s · last report 3 h ago
+Proxmox history
+24 h
+7 d
+@aria-label Close
+@aria-label Details of host nas
+@aria-label Unknown
+@aria-label Close the details
+@title 10/11/2026, 07:00:00
+@aria-label Period
+@aria-label Admin login
+
+### tiroir d'appareil : imprimante (admin)
+offline, seen 9 d ago
+imprimante
+Printer · 192.0.2.105 · 00:00:5e:00:53:05
+offline, seen 9 d ago · to review
+Edit
+✅ Known…
+Merge with…
+Delete…
+See on the map
+Parent on the map
+box 192.0.2.1 (typed link) · wifi · répéteur du salon
+Change parent…
+Remove the typed link…
+Presence
+offline, seen 9 d ago · last answer 01/11/26, 10:00 offline alert
+24 h
+29/10/26, 10:00 → 01/11/26, 10:00 72 h 00
+Freshness (Pi-hole, neighbors)
+State unknown
+Last seen 01/11/26, 10:00 ( 9 d ago )
+First seen 11/10/26, 11:00
+ARP scan 9 d ago 192.0.2.105
+Secondary information: Pi-hole also “sees” stale ARP entries; only the probe decides presence.
+Identity and origin
+Name (typed) imprimante
+Location (typed) bureau
+expectedIp (typed) 192.0.2.105
+alertDown (typed) true
+alertSeverity (typed) warning
+Notes (typed) au fond du couloir
+Name PRN-01 DHCP lease
+mdns_name imprimante.local mDNS · chosen
+Vendor Exemple vendor · chosen
+Location bureau
+MACs and addresses 1 MAC
+00:00:5e:00:53:05 local (may change) 192.0.2.105
+192.0.2.105 11/10/26, 11:00 → 01/11/26, 10:00 ARP scan
+Hosted services
+PH Photos
+Up
+Ports and services last run 31/10, 10:00 · Sunday probe
+Impression (IPP) tcp/631 sure
+Page web tcp/80 possible config service
+tcp/631 · ipp tcp/9100
+Unattributed ports: tcp/9100
+Closed: tcp/22
+Probe
+Events
+01/11/26, 10:00 Port closed tcp/9100
+31/10/26, 10:00 Probed (services) 2 services admin
+21/10/26, 11:00 Edited nom : imprimante admin
+11/10/26, 11:00 New device
+@aria-label Close
+@aria-label Details of device imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Close the details
+@aria-label Actions on the device
+@aria-label Edit “imprimante”
+@aria-label Confirm “imprimante”
+@aria-label Delete “imprimante”
+@aria-label Merge into “imprimante”
+@aria-label Remove the typed link
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 11:00 — unavailable
+@title 12:00 — unavailable
+@title 13:00 — unavailable
+@title 14:00 — unavailable
+@title 15:00 — unavailable
+@title 16:00 — unavailable
+@title 17:00 — unavailable
+@title 18:00 — unavailable
+@title 19:00 — unavailable
+@title 20:00 — unavailable
+@title 21:00 — unavailable
+@title 22:00 — unavailable
+@title 23:00 — unavailable
+@title 00:00 — unavailable
+@title 01:00 — unavailable
+@title 02:00 — unavailable
+@title 03:00 — unavailable
+@title 04:00 — unavailable
+@title 05:00 — unavailable
+@title 06:00 — unavailable
+@title 07:00 — unavailable
+@title 08:00 — unavailable
+@title 09:00 — unavailable
+@title 10:00 — unavailable
+@aria-label Sessions (30 days)
+@title 01/11/2026, 10:00:00
+@aria-label Confirm 00:00:5e:00:53:05
+@aria-label Detach 00:00:5e:00:53:05
+@aria-label Up
+@title seen since 11/10, 11:00, last 31/10, 10:00
+@aria-label Probe an IoT device, a camera or a sleeping device
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Admin login
+
+### tiroir d'appareil : imprimante (lecture anonyme)
+offline, seen 9 d ago
+imprimante
+Printer · 192.0.2.105 · 00:00:5e:00:53:05
+offline, seen 9 d ago · to review
+See on the map
+Parent on the map
+box 192.0.2.1 (typed link) · wifi · répéteur du salon
+Presence
+offline, seen 9 d ago · last answer 01/11/26, 10:00 offline alert
+24 h
+29/10/26, 10:00 → 01/11/26, 10:00 72 h 00
+Freshness (Pi-hole, neighbors)
+State unknown
+Last seen 01/11/26, 10:00 ( 9 d ago )
+First seen 11/10/26, 11:00
+ARP scan 9 d ago 192.0.2.105
+Secondary information: Pi-hole also “sees” stale ARP entries; only the probe decides presence.
+Identity and origin
+Name (typed) imprimante
+Location (typed) bureau
+expectedIp (typed) 192.0.2.105
+alertDown (typed) true
+alertSeverity (typed) warning
+Notes (typed) au fond du couloir
+Name PRN-01 DHCP lease
+mdns_name imprimante.local mDNS · chosen
+Vendor Exemple vendor · chosen
+Location bureau
+MACs and addresses 1 MAC
+00:00:5e:00:53:05 local (may change) 192.0.2.105
+192.0.2.105 11/10/26, 11:00 → 01/11/26, 10:00 ARP scan
+Hosted services
+PH Photos
+Up
+Ports and services last run 31/10, 10:00 · Sunday probe
+Impression (IPP) sure
+Page web possible config service
+Events
+01/11/26, 10:00 Port closed tcp/9100
+31/10/26, 10:00 Probed (services) 2 services admin
+21/10/26, 11:00 Edited nom : imprimante admin
+11/10/26, 11:00 New device
+@aria-label Close
+@aria-label Details of device imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Close the details
+@aria-label Remove the typed link
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 11:00 — unavailable
+@title 12:00 — unavailable
+@title 13:00 — unavailable
+@title 14:00 — unavailable
+@title 15:00 — unavailable
+@title 16:00 — unavailable
+@title 17:00 — unavailable
+@title 18:00 — unavailable
+@title 19:00 — unavailable
+@title 20:00 — unavailable
+@title 21:00 — unavailable
+@title 22:00 — unavailable
+@title 23:00 — unavailable
+@title 00:00 — unavailable
+@title 01:00 — unavailable
+@title 02:00 — unavailable
+@title 03:00 — unavailable
+@title 04:00 — unavailable
+@title 05:00 — unavailable
+@title 06:00 — unavailable
+@title 07:00 — unavailable
+@title 08:00 — unavailable
+@title 09:00 — unavailable
+@title 10:00 — unavailable
+@aria-label Sessions (30 days)
+@title 01/11/2026, 10:00:00
+@aria-label Up
+@aria-label Probe an IoT device, a camera or a sleeping device
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Admin login
+
+### tiroir d'appareil : suppression impossible
+offline, seen 9 d ago
+imprimante
+Printer · 192.0.2.105 · 00:00:5e:00:53:05
+offline, seen 9 d ago · to review
+Edit
+✅ Known…
+Merge with…
+Cannot delete: MAC d'identité de l'hôte « web » (Proxmox)
+See on the map
+Parent on the map
+box 192.0.2.1 (typed link) · wifi · répéteur du salon
+Change parent…
+Remove the typed link…
+Presence
+offline, seen 9 d ago · last answer 01/11/26, 10:00 offline alert
+24 h
+29/10/26, 10:00 → 01/11/26, 10:00 72 h 00
+Freshness (Pi-hole, neighbors)
+State unknown
+Last seen 01/11/26, 10:00 ( 9 d ago )
+First seen 11/10/26, 11:00
+ARP scan 9 d ago 192.0.2.105
+Secondary information: Pi-hole also “sees” stale ARP entries; only the probe decides presence.
+Identity and origin
+Name (typed) imprimante
+Location (typed) bureau
+expectedIp (typed) 192.0.2.105
+alertDown (typed) true
+alertSeverity (typed) warning
+Notes (typed) au fond du couloir
+Name PRN-01 DHCP lease
+mdns_name imprimante.local mDNS · chosen
+Vendor Exemple vendor · chosen
+Location bureau
+MACs and addresses 1 MAC
+00:00:5e:00:53:05 local (may change) 192.0.2.105
+192.0.2.105 11/10/26, 11:00 → 01/11/26, 10:00 ARP scan
+Hosted services
+PH Photos
+Up
+Ports and services last run 31/10, 10:00 · Sunday probe
+Impression (IPP) tcp/631 sure
+Page web tcp/80 possible config service
+tcp/631 · ipp tcp/9100
+Unattributed ports: tcp/9100
+Closed: tcp/22
+Probe
+Listening ports (agent)
+tcp/22 sshd · 192.0.2.21 known
+tcp/443 nginx · 192.0.2.21, :: known
+tcp/8080 java · 192.0.2.21 new
+udp/323 — · 127.0.0.1 local
+Events
+01/11/26, 10:00 Port closed tcp/9100
+31/10/26, 10:00 Probed (services) 2 services admin
+21/10/26, 11:00 Edited nom : imprimante admin
+11/10/26, 11:00 New device
+@aria-label Close
+@aria-label Details of device imprimante
+@aria-label offline, seen 9 d ago
+@aria-label Close the details
+@aria-label Actions on the device
+@aria-label Edit “imprimante”
+@aria-label Confirm “imprimante”
+@aria-label Delete “imprimante”
+@aria-label Merge into “imprimante”
+@aria-label Remove the typed link
+@aria-label Presence 24 h: 0 slots ok, 0 degraded, 24 unavailable
+@title 11:00 — unavailable
+@title 12:00 — unavailable
+@title 13:00 — unavailable
+@title 14:00 — unavailable
+@title 15:00 — unavailable
+@title 16:00 — unavailable
+@title 17:00 — unavailable
+@title 18:00 — unavailable
+@title 19:00 — unavailable
+@title 20:00 — unavailable
+@title 21:00 — unavailable
+@title 22:00 — unavailable
+@title 23:00 — unavailable
+@title 00:00 — unavailable
+@title 01:00 — unavailable
+@title 02:00 — unavailable
+@title 03:00 — unavailable
+@title 04:00 — unavailable
+@title 05:00 — unavailable
+@title 06:00 — unavailable
+@title 07:00 — unavailable
+@title 08:00 — unavailable
+@title 09:00 — unavailable
+@title 10:00 — unavailable
+@aria-label Sessions (30 days)
+@title 01/11/2026, 10:00:00
+@aria-label Confirm 00:00:5e:00:53:05
+@aria-label Detach 00:00:5e:00:53:05
+@aria-label Up
+@title seen since 11/10, 11:00, last 31/10, 10:00
+@aria-label Probe an IoT device, a camera or a sleeping device
+@title 192.0.2.21
+@title 192.0.2.21, ::
+@title known, admin: site public
+@title 127.0.0.1
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Admin login
+
+### formulaire d'appareil
+Edit “imprimante”
+Name
+Type
+— guessed: Printer —
+Computer
+Phone
+TV
+NAS
+Printer
+Router
+Location
+Notes
+au fond du couloir
+This device is the host… (identity)
+— none —
+pve-a (pve-a)
+web (web) — already: device 2 (web)
+nas (nas)
+lab (lab)
+Choose only if this device is the machine itself (its network card). To place the device under a host on the map, use “Parent on the map”.
+Presence
+Profile (delay before “offline”)
+— guessed —
+fixed: 5 min
+normal: 10 min
+sleepy: 45 min (phone, IoT)
+Expected IP (“IP changed” alert)
+Alert when the device goes offline
+Severity
+— warning (default) —
+information
+warning
+critical
+Cancel
+Save
+@aria-label Edit “imprimante”
+@aria-label Close
+@placeholder imprimante
+@placeholder 192.0.2.105
+@aria-label Admin login

@@ -1,0 +1,30 @@
+# Build context of the images (Dockerfile, docker/net-scan/Dockerfile): no secret, no instance
+# config or data, no installed module (npm ci in the image). Checked by server/test/docker.test.js
+.git
+.gitea
+**/.env
+**/.env.*
+**/*.env
+config.json
+/config.json
+**/config.json.*
+data/
+**/data/
+**/node_modules
+client/dist
+server/pki
+server/test
+REVISION
+**/*.local
+**/*.pem
+**/*.key
+**/id_ed25519*
+**/*.db
+**/*.db-*
+**/.DS_Store
+# notes de travail, brouillons
+scratch/
+**/scratchpad/
+tmp/
+docs/
+net-scan.conf

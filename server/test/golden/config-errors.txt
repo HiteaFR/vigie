@@ -1,0 +1,40 @@
+# sonde de type inconnu
+- services.0.checks.0.type: Invalid discriminator value. Expected 'http' | 'tcp' | 'tls' | 'dns'
+# sonde sans type
+- services.0.checks.0.type: Invalid discriminator value. Expected 'http' | 'tcp' | 'tls' | 'dns'
+# http sans url
+- services.0.checks.0.url: Invalid input: expected string, received undefined
+# http url invalide
+- services.0.checks.0.url: Invalid URL
+# http champ inconnu
+- services.0.checks.0: Unrecognized key: "inconnu"
+# tcp cible sans port
+- services.0.checks.0.target: target: host:port
+# tls port texte
+- services.0.checks.0.port: Invalid input: expected number, received string
+# dns attendu non IPv4
+- services.0.checks.0.expect.address: IPv4 expected
+# intervalle invalide
+- services.0.checks.0.interval: duration: 30s, 5m, 6h
+# widget auth inconnue
+- services.0.widget.auth.type: Invalid discriminator value. Expected 'header' | 'bearer' | 'query' | 'pihole' | 'qbittorrent'
+# widget header sans name
+- services.0.widget.auth.name: Invalid input: expected string, received undefined
+# widget secretEnv invalide
+- services.0.widget.auth.secretEnv: environment variable name
+# widget format inconnu
+- services.0.widget.fields.0.format: Invalid option: expected one of "number"|"int"|"percent"|"mbps"|"ms"|"rate"|"until"|"ago"|"bool"|"text"
+# widget json et prom
+- services.0.widget.fields.0: json or prom, not both
+# widget sans champ
+- services.0.widget.fields: Too small: expected array to have >=1 items
+# version source inconnue
+- services.0.version: Invalid input
+# version github repo invalide
+- services.0.version.latest.repo: Invalid string: must match pattern /^[\w.-]+\/[\w.-]+$/
+# version installée inconnue
+- services.0.version: Invalid input
+# version http-regex sans regex
+- services.0.version: Invalid input
+# version ha sans secretEnv
+- services.0.version: Invalid input

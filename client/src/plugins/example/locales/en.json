@@ -1,0 +1,11 @@
+{
+ "nav.label": "Example",
+ "tile.label": "Queue",
+ "tile.max": "alert above {max}",
+ "tile.unknown": "unknown",
+ "view.title": "Example queue",
+ "view.waiting": {
+  "one": "job waiting (alert above {max})",
+  "other": "jobs waiting (alert above {max})"
+ }
+}

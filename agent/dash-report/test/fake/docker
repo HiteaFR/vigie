@@ -1,0 +1,54 @@
+#!/bin/sh
+# fake docker of the dash-report bench: fixed outputs, documentation IPs and MACs
+# (RFC 5737, RFC 7042). Each --format must be EXACTLY the reference template
+# ($FAKE_DIR/format-*.txt), otherwise it exits with an error. FAKE_NETS: nominal | empty | failing.
+set -u
+need() { # $1: expected template; $2: received
+  [ "$2" = "$(cat "$FAKE_DIR/format-$1.txt")" ] || { echo "fake docker: unexpected $1 template" >&2; exit 2; }
+}
+case "${1:-}" in
+  info) exit 0 ;;
+  version)
+    [ "${2:-}" = --format ] || exit 2
+    need version "${3:-}"
+    echo "${FAKE_DOCKER_VERSION:-29.9.1}"
+    ;;
+  network)
+    [ "${2:-} ${3:-}" = "ls --format" ] || exit 2
+    need network "${4:-}"
+    case "${FAKE_NETS:-nominal}" in
+      empty) exit 0 ;;
+      failing) exit 1 ;;
+    esac
+    # hostile name (quote, ",]", escaped control character, tag), as {{json}} renders it
+    printf '%s\n' '{"name":"h\"o,]st\u0000<img src=x onerror=alert(1)>","driver":"bridge"}' '{"name":"local","driver":"macvlan"}'
+    i=2
+    while [ $i -lt 70 ]; do
+      printf '{"name":"net-%d","driver":"bridge"}\n' $i
+      i=$((i + 1))
+    done
+    ;;
+  ps)
+    [ "$*" = "ps -aq --no-trunc" ] || exit 2
+    i=0
+    while [ $i -lt 210 ]; do
+      printf 'c%063d\n' $i
+      i=$((i + 1))
+    done
+    ;;
+  inspect)
+    [ "${2:-}" = --format ] || exit 2
+    need inspect "${3:-}"
+    shift 3
+    n=0
+    for id in "$@"; do
+      case $n in
+        0) name='"/h\"o,]st\u0007<img onerror=alert(1)>"'; nets='{"network":"local","ip":"192.0.2.193","mac":"0a:00:00:00:53:f1"},{"network":"bridge","ip":"172.17.0.2","mac":"02:42:ac:11:00:02"},' ;;
+        *) name="\"/ctr-$n\""; nets='{"network":"bridge","ip":"172.17.0.3","mac":"02:42:ac:11:00:03"},' ;;
+      esac
+      printf '{"name":%s,"image":"img:1","imageId":"sha256:%s","created":"2026-10-01T00:00:00Z","state":"running","health":null,"exitCode":0,"oomKilled":false,"startedAt":"2026-10-01T00:00:00Z","finishedAt":"0001-01-01T00:00:00Z","restarts":0,"restartPolicy":"unless-stopped","compose":null,"service":null,"networks":[%snull]}\n' "$name" "$id" "$nets"
+      n=$((n + 1))
+    done
+    ;;
+  *) exit 2 ;;
+esac

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+*.local
+.DS_Store
+data/
+client/public/icons/
+# local config and pinned CAs of an instance: never committed (they live outside the repository)
+/config.json
+/server/pki/
+# deployed commit, written by the deployment pipeline (read by /api/healthz)
+/REVISION
+# local conf of the ARP companion (docker/net-scan.conf.example), next to docker-compose.yml
+/net-scan.conf

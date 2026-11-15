@@ -1,0 +1,11 @@
+[Unit]
+Description=Local dash-report report for Vigie (dashboard machine)
+
+[Service]
+Type=oneshot
+# atomic write: the dashboard never reads a half-written file
+ExecStart=/bin/sh -c '/usr/local/sbin/dash-report fast > /run/dash-report/fast.json.tmp && mv /run/dash-report/fast.json.tmp /run/dash-report/fast.json'
+ExecStart=/bin/sh -c 'f=/run/dash-report/slow.json; [ -n "$(find $f -mmin -60 2>/dev/null)" ] || { /usr/local/sbin/dash-report slow > $f.tmp && mv $f.tmp $f; }'
+RuntimeDirectory=dash-report
+RuntimeDirectoryMode=0755
+RuntimeDirectoryPreserve=yes

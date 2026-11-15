@@ -1,0 +1,117 @@
+--- message 1 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Service A","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}]]})
+🔴 <b>Service A</b> — service hors ligne
+TCP 22 : &lt;refusé&gt;
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 2 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Disque / · cycle-b","callback_data":"s:2"},{"text":"✅ Ack","callback_data":"a:2"}]]})
+🟠 <b>Disque / · cycle-b</b> — disque
+plein
+Depuis 08:10 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 3 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Conteneur c","callback_data":"s:3"},{"text":"✅ Ack","callback_data":"a:3"}],[{"text":"🔕 1 h · Conteneur d","callback_data":"s:4"},{"text":"✅ Ack","callback_data":"a:4"}]]})
+🟠 <b>Conteneur c</b> — conteneur instable
+Depuis 08:30 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟠 <b>Conteneur d</b> — conteneur instable
+redémarre
+Depuis 08:30 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟢 <b>Conteneur c</b> — rétabli après 2 min (08:30 → 08:32)
+
+🟢 <b>Conteneur d</b> — rétabli après 2 min (08:30 → 08:32)
+
+--- message 4 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Conteneur c","callback_data":"s:5"},{"text":"✅ Ack","callback_data":"a:5"}],[{"text":"🔕 1 h · Conteneur d","callback_data":"s:6"},{"text":"✅ Ack","callback_data":"a:6"}]]})
+🟠 <b>Conteneur c</b> — conteneur instable
+Depuis 08:34 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟠 <b>Conteneur d</b> — conteneur instable
+redémarre
+Depuis 08:34 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟢 <b>Conteneur c</b> — rétabli après 2 min (08:34 → 08:36)
+
+🟢 <b>Conteneur d</b> — rétabli après 2 min (08:34 → 08:36)
+
+--- message 5 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Conteneur c","callback_data":"s:7"},{"text":"✅ Ack","callback_data":"a:7"}],[{"text":"🔕 1 h · Conteneur d","callback_data":"s:8"},{"text":"✅ Ack","callback_data":"a:8"}]]})
+🟠 <b>Conteneur c</b> — conteneur instable
+Depuis 08:38 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟠 <b>Conteneur d</b> — conteneur instable
+redémarre
+Depuis 08:38 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟢 <b>Conteneur c</b> — rétabli après 2 min (08:38 → 08:40)
+
+🟢 <b>Conteneur d</b> — rétabli après 2 min (08:38 → 08:40)
+
+--- message 6 (silencieux : true)
+🔀 <b>Conteneur c</b> — instable
+Conteneur instable : plusieurs bascules en 30 min, notifications suspendues jusqu'à stabilisation.
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🔀 <b>Conteneur d</b> — instable
+Conteneur instable : plusieurs bascules en 30 min, notifications suspendues jusqu'à stabilisation.
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 7 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Service A","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}],[{"text":"🔕 1 h · Disque / · cycle-b","callback_data":"s:2"},{"text":"✅ Ack","callback_data":"a:2"}]]})
+⏰ <b>Service A</b> — toujours en panne depuis 1 h
+TCP 22 : &lt;refusé&gt;
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🔴 <b>Disque / · cycle-b</b> — aggravation
+plein
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 8 (silencieux : true)
+🟢 <b>Conteneur c</b> — stabilisé, rétabli
+
+--- message 9 (silencieux : true)
+🟠 <b>Conteneur d</b> — stabilisé, toujours en panne
+redémarre
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 10 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Proxmox pve-a","callback_data":"s:14"},{"text":"✅ Ack","callback_data":"a:14"}],[{"text":"🔕 1 h · Service A","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}],[{"text":"🔕 1 h · Disque / · cycle-b","callback_data":"s:2"},{"text":"✅ Ack","callback_data":"a:2"}]]})
+🔴 <b>Proxmox pve-a</b> — proxmox injoignable
+API en erreur : Proxmox 500
+3 invités, 2 services impactés (alertes individuelles suspendues)
+DNS, Site public
+Depuis 10:00 · <a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+⏰ <b>Service A</b> — toujours en panne depuis 2 h
+TCP 22 : &lt;refusé&gt;
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+⏰ <b>Disque / · cycle-b</b> — toujours en panne depuis 1 h 50
+plein
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 11 (silencieux : true)
+🟢 <b>Proxmox pve-a</b> — rétabli après 30 min (10:00 → 10:30)
+
+--- message 12 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Service A","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}]]})
+⏰ <b>Service A</b> — toujours en panne depuis 3 h
+TCP 22 : &lt;refusé&gt;
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+🟢 <b>Disque / · cycle-b</b> — rétabli après 2 h 50 (08:10 → 11:00)
+
+--- message 13 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Conteneur d","callback_data":"s:13"},{"text":"✅ Ack","callback_data":"a:13"}]]})
+⏰ <b>Conteneur d</b> — toujours en panne depuis 2 h 30
+redémarre
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 14 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Service A","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}]]})
+⏰ <b>Service A</b> — toujours en panne depuis 4 h
+TCP 22 : &lt;refusé&gt;
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+--- message 15 (silencieux : true)
+🟢 <b>Service A</b> — rétabli après 5 h (08:00 → 13:00)
+
+--- message 16 (silencieux : true, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Conteneur d","callback_data":"s:13"},{"text":"✅ Ack","callback_data":"a:13"}]]})
+⏰ <b>Conteneur d</b> — toujours en panne depuis 4 h 30
+redémarre
+<a href="https://vigie.example.net/alerts">Ouvrir</a>
+
+# canaux : channel_error:telegram · Canal Telegram en échec · false

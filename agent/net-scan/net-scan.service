@@ -1,0 +1,41 @@
+[Unit]
+Description=ARP scan of the local network for Vigie
+
+[Service]
+Type=oneshot
+# fixed system user (created by install.sh) with CAP_NET_RAW only: the dashboard's web
+# process has no network capability at all (it only reads the file). No DynamicUser:
+# with RuntimeDirectory, it turns /run/net-scan into a link to
+# /run/private/net-scan (0700 root), unreadable by the dashboard (R3c)
+User=net-scan
+Group=net-scan
+AmbientCapabilities=CAP_NET_RAW
+# baseline, never removed (even in the User=root fallback, README)
+CapabilityBoundingSet=CAP_NET_RAW
+NoNewPrivileges=yes
+RestrictAddressFamilies=AF_PACKET AF_UNIX AF_NETLINK AF_INET
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+# extras, if the LXC accepts them (any removal is noted in the README)
+RestrictSUIDSGID=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+RestrictNamespaces=yes
+MemoryDenyWriteExecute=yes
+# /run/net-scan keeps the file between two runs (otherwise removed at the end of the
+# oneshot); 0755 and a 0644 file: readable by the dashboard's account
+RuntimeDirectory=net-scan
+RuntimeDirectoryMode=0755
+RuntimeDirectoryPreserve=yes
+UMask=0022
+# what DynamicUser implied: the account's IPC objects removed on stop
+RemoveIPC=yes
+TimeoutStartSec=60
+# atomic write: the dashboard never reads a half-written file
+ExecStart=/bin/sh -c '/usr/local/sbin/net-scan > /run/net-scan/arp.json.tmp && mv /run/net-scan/arp.json.tmp /run/net-scan/arp.json'

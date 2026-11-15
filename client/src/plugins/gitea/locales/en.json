@@ -1,0 +1,23 @@
+{
+ "activity_title": "Gitea activity",
+ "busy": "busy",
+ "card_title": "CI and runners",
+ "no_commit": "no commits",
+ "no_runner": "no runners",
+ "off": "Gitea not configured",
+ "off_hint": "Add the “plugins.gitea” block to the config and GITEA_URL (and GITEA_TOKEN) to the environment, then restart (see docs/configuration.md).",
+ "offline": "offline",
+ "online": "online",
+ "runner_status.offline": "offline",
+ "runner_status.online": "online",
+ "runners_title": "CI runners",
+ "runners_unreadable": "runners unreadable",
+ "tile_failing": "failing: {list}",
+ "tile_off": "not configured",
+ "tile_ok": "runners online · no failures",
+ "tile_running": {
+  "one": "{count} run in progress",
+  "other": "{count} runs in progress"
+ },
+ "unavailable": "unavailable"
+}

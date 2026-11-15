@@ -1,0 +1,227 @@
+# API Proxmox en erreur
+service_down:dns · true · DNS · résolution locale: NXDOMAIN
+cert_expiry:site#0 · true · Site public — certificat · expires in 9 d (19/11/2026)
+service_down:fail-3 · true · fail-3 · TCP 22: refusé
+cert_expiry:cert-20#0 · true · cert-20 — certificat · expires in 20 d (30/11/2026)
+cert_expiry:cert-21#0 · false · cert-21 — certificat · expires in 21 d (01/12/2026)
+cert_expiry:cert-6#0 · true · cert-6 — certificat · expires in 6 d (16/11/2026)
+cert_expiry:cert-7#0 · true · cert-7 — certificat · expires in 7 d (17/11/2026)
+pve_unreachable:main · true · Proxmox pve-a · API error: Proxmox 401
+smart_failed:main/pve-a/dev/sda · false · SMART SSD de banc (/dev/sda · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/sda · false · Wear SSD de banc (/dev/sda · pve-a) · 15 % life left
+smart_failed:main/pve-a/dev/sdb · true · SMART HDD de banc (/dev/sdb · pve-a) · SMART state: FAILED
+smart_failed:main/pve-a/dev/nvme0n1 · false · SMART SSD borne (/dev/nvme0n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme0n1 · true · Wear SSD borne (/dev/nvme0n1 · pve-a) · 9 % life left
+smart_failed:main/pve-a/dev/nvme1n1 · false · SMART SSD borne (/dev/nvme1n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme1n1 · true · Wear SSD borne (/dev/nvme1n1 · pve-a) · 10 % life left
+smart_failed:main/pve-a/dev/nvme2n1 · false · SMART SSD borne (/dev/nvme2n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme2n1 · false · Wear SSD borne (/dev/nvme2n1 · pve-a) · 11 % life left
+smart_failed:main/pve-a/dev/nvme3n1 · false · SMART SSD borne (/dev/nvme3n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme3n1 · false · Wear SSD borne (/dev/nvme3n1 · pve-a) · 50 % life left
+smart_failed:main/pve-a/dev/nvme4n1 · false · SMART SSD borne (/dev/nvme4n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme4n1 · false · Wear SSD borne (/dev/nvme4n1 · pve-a) · 50 % life left
+smart_failed:main/pve-a/dev/nvme5n1 · false · SMART SSD borne (/dev/nvme5n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme5n1 · false · Wear SSD borne (/dev/nvme5n1 · pve-a) · 50 % life left
+not_backed_up:docker-a · false · Backup VM 211 docker-a · in no active backup job
+not_backed_up:dns-a · false · Backup CT 212 dns-a · in no active backup job
+not_backed_up:lab · true · Backup VM 200 lab · in no active backup job
+not_backed_up:ct-d829 · null · Backup CT 231 ct-disque-82.9 · in no active backup job
+not_backed_up:ct-d83 · null · Backup CT 232 ct-disque-83 · in no active backup job
+not_backed_up:ct-d849 · null · Backup CT 233 ct-disque-84.9 · in no active backup job
+not_backed_up:ct-d85 · null · Backup CT 234 ct-disque-85 · in no active backup job
+not_backed_up:ct-d949 · null · Backup CT 235 ct-disque-94.9 · in no active backup job
+not_backed_up:ct-d95 · null · Backup CT 236 ct-disque-95 · in no active backup job
+apt_stale:lab · false · apt lists · lab · last apt update 7 d ago
+apt_stale:vps · true · apt lists · vps · last apt update 7 d ago
+security_updates:vps · false · Security updates · vps · 0 security updates out of 0 pending
+disk_free:ws:/ · false · Free space / · poste-dev · 20 GB free (threshold: 12 GB)
+
+# invité absent, sauvegardes, disques
+service_down:dns · true · DNS · résolution locale: NXDOMAIN
+cert_expiry:site#0 · true · Site public — certificat · expires in 9 d (19/11/2026)
+service_down:fail-3 · true · fail-3 · TCP 22: refusé
+cert_expiry:cert-20#0 · true · cert-20 — certificat · expires in 20 d (30/11/2026)
+cert_expiry:cert-21#0 · false · cert-21 — certificat · expires in 21 d (01/12/2026)
+cert_expiry:cert-6#0 · true · cert-6 — certificat · expires in 6 d (16/11/2026)
+cert_expiry:cert-7#0 · true · cert-7 — certificat · expires in 7 d (17/11/2026)
+guest_stopped:docker-a · false · VM 211 docker-a · Proxmox state: running
+guest_stopped:dns-a · true · CT 212 dns-a · missing from Proxmox
+guest_stopped:lab · true · VM 200 lab · Proxmox state: stopped
+guest_stopped:ct-d829 · false · CT 231 ct-disque-82.9 · Proxmox state: running
+guest_stopped:ct-d83 · false · CT 232 ct-disque-83 · Proxmox state: running
+guest_stopped:ct-d849 · false · CT 233 ct-disque-84.9 · Proxmox state: running
+guest_stopped:ct-d85 · false · CT 234 ct-disque-85 · Proxmox state: running
+guest_stopped:ct-d949 · false · CT 235 ct-disque-94.9 · Proxmox state: running
+guest_stopped:ct-d95 · false · CT 236 ct-disque-95 · Proxmox state: running
+smart_failed:main/pve-a/dev/sda · false · SMART SSD de banc (/dev/sda · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/sda · false · Wear SSD de banc (/dev/sda · pve-a) · 15 % life left
+smart_failed:main/pve-a/dev/sdb · true · SMART disk (/dev/sdb · pve-a) · SMART state: FAILED · 5 reallocated sectors · 2 pending sectors · 1 media errors
+smart_failed:main/pve-a/dev/nvme0n1 · false · SMART SSD borne (/dev/nvme0n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme0n1 · true · Wear SSD borne (/dev/nvme0n1 · pve-a) · 8 % life left (92 % used)
+smart_failed:main/pve-a/dev/nvme1n1 · false · SMART SSD borne (/dev/nvme1n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme1n1 · true · Wear SSD borne (/dev/nvme1n1 · pve-a) · 10 % life left
+smart_failed:main/pve-a/dev/nvme2n1 · false · SMART SSD borne (/dev/nvme2n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme2n1 · false · Wear SSD borne (/dev/nvme2n1 · pve-a) · 11 % life left
+smart_failed:main/pve-a/dev/nvme3n1 · false · SMART SSD borne (/dev/nvme3n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme3n1 · false · Wear SSD borne (/dev/nvme3n1 · pve-a) · 50 % life left
+smart_failed:main/pve-a/dev/nvme4n1 · false · SMART SSD borne (/dev/nvme4n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme4n1 · false · Wear SSD borne (/dev/nvme4n1 · pve-a) · 50 % life left
+smart_failed:main/pve-a/dev/nvme5n1 · false · SMART SSD borne (/dev/nvme5n1 · pve-a) · SMART state: PASSED
+disk_wear:main/pve-a/dev/nvme5n1 · false · Wear SSD borne (/dev/nvme5n1 · pve-a) · 50 % life left
+backup_failed:docker-a · [object Object] · Backup VM 211 docker-a · the last backup failed
+not_backed_up:docker-a · false · Backup VM 211 docker-a · in no active backup job
+not_backed_up:dns-a · false · Backup CT 212 dns-a · in no active backup job
+not_backed_up:lab · true · Backup VM 200 lab · excluded from the backup job
+not_backed_up:ct-d829 · null · Backup CT 231 ct-disque-82.9 · in no active backup job
+not_backed_up:ct-d83 · null · Backup CT 232 ct-disque-83 · in no active backup job
+not_backed_up:ct-d849 · null · Backup CT 233 ct-disque-84.9 · in no active backup job
+not_backed_up:ct-d85 · null · Backup CT 234 ct-disque-85 · in no active backup job
+not_backed_up:ct-d949 · null · Backup CT 235 ct-disque-94.9 · in no active backup job
+not_backed_up:ct-d95 · null · Backup CT 236 ct-disque-95 · in no active backup job
+apt_stale:lab · false · apt lists · lab · last apt update 7 d ago
+apt_stale:vps · true · apt lists · vps · last apt update 7 d ago
+security_updates:vps · false · Security updates · vps · 0 security updates out of 0 pending
+disk_free:ws:/ · false · Free space / · poste-dev · 20 GB free (threshold: 12 GB)
+
+# agents v8 et v9, sondes, VPN
+service_down:dns · true · DNS · résolution locale: NXDOMAIN
+service_down:app · true · Application · santé: failed
+cert_expiry:site#0 · true · Site public — certificat · expires in 9 d (19/11/2026)
+service_down:fail-3 · true · fail-3 · TCP 22: refusé
+cert_expiry:cert-20#0 · true · cert-20 — certificat · expires in 20 d (30/11/2026)
+cert_expiry:cert-21#0 · false · cert-21 — certificat · expires in 21 d (01/12/2026)
+cert_expiry:cert-6#0 · true · cert-6 — certificat · certificate expired
+cert_expiry:cert-7#0 · true · cert-7 — certificat · expires in 7 d (17/11/2026)
+vpn_down:vpn-fai · false · VPN vpn-fai · tunnel: running
+vpn_leak:vpn-fai · true · VPN leak vpn-fai · public IP at “FAI-Maison SA” (home ISP)
+vpn_down:vpn-pays · false · VPN vpn-pays · tunnel: running
+vpn_leak:vpn-pays · true · VPN leak vpn-pays · exit country Pays-Bas (expected: Suisse, Suède)
+vpn_down:vpn-err · true · VPN vpn-err · widget error (tunnel monitoring impossible): HTTP 401 <clé>
+vpn_down:vpn-vide · false · VPN vpn-vide · tunnel: running
+vpn_noinfo:vpn-vide · true · VPN IP vpn-vide · neither country nor organization for the public IP: leak detection is blind
+vpn_down:vpn-arret · true · VPN vpn-arret · tunnel: stopped
+container_down:docker-a/absent-c · true · Container absent-c · docker-a · missing from the agent report
+container_down:docker-a/arrete · true · Container arrete · docker-a · state: exited
+time_unsynced:docker-a · true · Clock · docker-a · clock not synchronized by NTP
+apt_stale:docker-a · false · apt lists · docker-a · last apt update 1 min ago
+security_updates:docker-a · true · Security updates · docker-a · blocked for 4 d: openssl, libssl3
+posture_regression:docker-a · true · Security posture · docker-a · root login allowed (PermitRootLogin yes) (compliant until 07/11) · SSH password accepted (compliant until 07/11) · firewall nftables inactive (compliant until 07/11)
+port_new:docker-a:tcp/8080 · true · Port tcp/8080 · docker-a · new listening port (node) on 192.0.2.156
+autoupdate_failed:docker-a · true · Automatic updates · docker-a · last run failed
+oom_kill:dns-a · true · Out of memory · dns-a · earlyoom killed 2 processes in the last hour (last: stress-ng)
+apt_stale:dns-a · false · apt lists · dns-a · last apt update 1 min ago
+security_updates:dns-a · false · Security updates · dns-a · 0 security updates out of 0 pending
+autoupdate_off:dns-a · true · Automatic updates · dns-a · unattended-upgrades missing
+apt_stale:lab · true · apt lists · lab · apt lists not found
+security_updates:lab · false · Security updates · lab · 0 security updates out of 0 pending
+autoupdate_off:lab · true · Automatic updates · lab · automatic updates disabled
+apt_stale:vps · false · apt lists · vps · last apt update 1 min ago
+security_updates:vps · false · Security updates · vps · 0 security updates out of 0 pending
+autoupdate_off:vps · true · Automatic updates · vps · automatic updates not limited to security
+apt_stale:vieux · false · apt lists · vieux · last apt update 1 min ago
+autoupdate_failed:vieux · true · Automatic updates · vieux · last run 5 d ago
+apt_stale:jamais · false · apt lists · jamais · last apt update 1 min ago
+posture_regression:jamais · true · Security posture · jamais · no firewall (compliant until 07/11)
+autoupdate_failed:jamais · true · Automatic updates · jamais · no run recorded
+disk_free:libre-sous:/ · true · Free space / · libre-sous · 11.9 GB free (threshold: 12 GB)
+disk_free:libre-pile:/ · null · Free space / · libre-pile · 12 GB free (threshold: 12 GB)
+disk_free:libre-marge:/ · null · Free space / · libre-marge · 12.9 GB free (threshold: 12 GB)
+disk_free:libre-ok:/ · false · Free space / · libre-ok · 13 GB free (threshold: 12 GB)
+
+# libellés des règles
+🟠 <b>x</b> — service down
+Since 10:00 · 
+🟠 <b>x</b> — certificate
+Since 10:00 · 
+🟠 <b>x</b> — proxmox unreachable
+Since 10:00 · 
+🟠 <b>x</b> — guest stopped
+Since 10:00 · 
+🟠 <b>x</b> — storage
+Since 10:00 · 
+🟠 <b>x</b> — backup late
+Since 10:00 · 
+🟠 <b>x</b> — backup failed
+Since 10:00 · 
+🟠 <b>x</b> — source unreachable
+Since 10:00 · 
+🟠 <b>x</b> — agent unreachable
+Since 10:00 · 
+🟠 <b>x</b> — disk
+Since 10:00 · 
+🟠 <b>x</b> — vpn down
+Since 10:00 · 
+🟠 <b>x</b> — vpn leak
+Since 10:00 · 
+🟠 <b>x</b> — vpn ip unknown
+Since 10:00 · 
+🟠 <b>x</b> — undeclared guest
+Since 10:00 · 
+🟠 <b>x</b> — container unhealthy
+Since 10:00 · 
+🟠 <b>x</b> — container restarting
+Since 10:00 · 
+🟠 <b>x</b> — container missing or stopped
+Since 10:00 · 
+🟠 <b>x</b> — systemd unit
+Since 10:00 · 
+🟠 <b>x</b> — reboot required
+Since 10:00 · 
+🟠 <b>x</b> — services to restart
+Since 10:00 · 
+🟠 <b>x</b> — inodes
+Since 10:00 · 
+🟠 <b>x</b> — free disk space
+Since 10:00 · 
+🟠 <b>x</b> — posture regression
+Since 10:00 · 
+🟠 <b>x</b> — new listening port
+Since 10:00 · 
+🟠 <b>x</b> — clock not synchronized
+Since 10:00 · 
+🟠 <b>x</b> — process killed (out of memory)
+Since 10:00 · 
+🟠 <b>x</b> — stale apt lists
+Since 10:00 · 
+🟠 <b>x</b> — security updates
+Since 10:00 · 
+🟠 <b>x</b> — automatic updates off
+Since 10:00 · 
+🟠 <b>x</b> — automatic updates failing
+Since 10:00 · 
+🟠 <b>x</b> — end of life
+Since 10:00 · 
+🟠 <b>x</b> — security fix released
+Since 10:00 · 
+🟠 <b>x</b> — guest not backed up
+Since 10:00 · 
+🟠 <b>x</b> — node memory
+Since 10:00 · 
+🟠 <b>x</b> — node swap
+Since 10:00 · 
+🟠 <b>x</b> — smart failing
+Since 10:00 · 
+🟠 <b>x</b> — disk wear
+Since 10:00 · 
+🟠 <b>x</b> — disk temperature
+Since 10:00 · 
+🟠 <b>x</b> — new device
+Since 10:00 · 
+🟠 <b>x</b> — mac added
+Since 10:00 · 
+🟠 <b>x</b> — device flood
+Since 10:00 · 
+🟠 <b>x</b> — device offline
+Since 10:00 · 
+🟠 <b>x</b> — ip changed
+Since 10:00 · 
+🟠 <b>x</b> — container identity conflict
+Since 10:00 · 
+🟠 <b>x</b> — plugin error
+Since 10:00 · 
+🟠 <b>x</b> — notification channel failing
+Since 10:00 · 
+🟠 <b>x</b> — ci failing
+Since 10:00 · 
+🟠 <b>x</b> — runner offline
+Since 10:00 · 

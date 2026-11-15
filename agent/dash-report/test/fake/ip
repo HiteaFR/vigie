@@ -1,0 +1,48 @@
+#!/bin/sh
+# fake ip of the dash-report bench: fixed interfaces, addresses and neighbours (RFC 5737,
+# RFC 7042), with what must be filtered out (lo, veth*, docker0, br-*, no IPv4, name too long,
+# lines without lladdr or with an invalid MAC) and enough to exceed the limits (40 interfaces,
+# 9 addresses, 600 neighbours)
+set -u
+case "$*" in
+  "-o link show")
+    printf '%s\n' '1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000\    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00'
+    printf '%s\n' '2: ens18: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000\    link/ether 00:00:5e:00:53:10 brd ff:ff:ff:ff:ff:ff'
+    printf '%s\n' '3: veth12ab@if4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default\    link/ether 02:42:ac:11:00:09 brd ff:ff:ff:ff:ff:ff link-netnsid 0'
+    printf '%s\n' '4: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default\    link/ether 02:42:ac:11:00:01 brd ff:ff:ff:ff:ff:ff'
+    printf '%s\n' '5: br-0123456789ab: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default\    link/ether 02:42:ac:12:00:01 brd ff:ff:ff:ff:ff:ff'
+    printf '%s\n' '6: ens19: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000\    link/ether 00:00:5e:00:53:11 brd ff:ff:ff:ff:ff:ff'
+    printf '%s\n' '7: interfacetroplongue: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000\    link/ether 00:00:5e:00:53:12 brd ff:ff:ff:ff:ff:ff'
+    i=0
+    while [ $i -lt 40 ]; do
+      printf '%d: e%d: <BROADCAST,UP> mtu 1500 qdisc noop state UP mode DEFAULT group default\    link/ether 00:00:5e:00:53:%02x brd ff:ff:ff:ff:ff:ff\n' $((i + 10)) $i $((i + 32))
+      i=$((i + 1))
+    done
+    ;;
+  "-o -4 addr show")
+    printf '%s\n' '1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever'
+    i=10
+    while [ $i -lt 19 ]; do
+      printf '2: ens18    inet 192.0.2.%d/24 brd 192.0.2.255 scope global ens18\       valid_lft forever preferred_lft forever\n' $i
+      i=$((i + 1))
+    done
+    printf '%s\n' '3: veth12ab    inet 172.17.0.9/16 scope global veth12ab\       valid_lft forever preferred_lft forever'
+    printf '%s\n' '4: docker0    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0\       valid_lft forever preferred_lft forever'
+    printf '%s\n' '5: br-0123456789ab    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-0123456789ab\       valid_lft forever preferred_lft forever'
+    printf '%s\n' '7: interfacetroplongue    inet 198.51.100.200/24 scope global interfacetroplongue\       valid_lft forever preferred_lft forever'
+    i=0
+    while [ $i -lt 40 ]; do
+      printf '%d: e%d    inet 198.51.100.%d/32 scope global e%d\       valid_lft forever preferred_lft forever\n' $((i + 10)) $i $((i + 1)) $i
+      i=$((i + 1))
+    done
+    ;;
+  "-4 neigh show")
+    printf '%s\n' '192.0.2.9 dev ens18 FAILED' '192.0.2.8 dev ens18 lladdr zz:00:5e:00:53:01 STALE' '192.0.2.7 dev ens18"x lladdr 00:00:5e:00:53:02 REACHABLE'
+    i=0
+    while [ $i -lt 600 ]; do
+      printf '192.0.2.%d dev ens18 lladdr 00:00:5e:00:53:%02x REACHABLE \n' $((i % 200 + 20)) $((i % 256))
+      i=$((i + 1))
+    done
+    ;;
+  *) exit 2 ;;
+esac

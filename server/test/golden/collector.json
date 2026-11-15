@@ -1,0 +1,44 @@
+{
+  "periods": {
+    "backups": {
+      "periodMs": 600000,
+      "startMs": 3000
+    },
+    "cluster": {
+      "periodMs": 60000,
+      "startMs": 3000
+    },
+    "disks": {
+      "periodMs": 1800000,
+      "startMs": 3000
+    },
+    "gitea": {
+      "periodMs": 120000,
+      "startMs": 3000
+    },
+    "nodes": {
+      "periodMs": 60000,
+      "startMs": 3000
+    },
+    "runners": {
+      "periodMs": 60000,
+      "startMs": 3000
+    }
+  },
+  "snapErrors": {
+    "backups": null,
+    "cluster": null,
+    "disks": null,
+    "gitea": null,
+    "nodes": null,
+    "runners": null
+  },
+  "snapNames": [
+    "cluster",
+    "backups",
+    "nodes",
+    "disks",
+    "runners",
+    "gitea"
+  ]
+}

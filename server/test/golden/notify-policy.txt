@@ -1,0 +1,42 @@
+# voie (now, digest, skip) et son, par type × gravité × environnement × moment
+mardi 10:00 · prod · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 10:00 · prod · warning : open=now escalate=now remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 10:00 · prod · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 10:00 · dev · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 10:00 · dev · warning : open=now escalate=now remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 10:00 · dev · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · prod · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · prod · warning : open=now escalate=now remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · prod · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · dev · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · dev · warning : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 20:00 · dev · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · prod · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · prod · warning : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · prod · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · dev · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · dev · warning : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+mardi 02:00 · dev · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · prod · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · prod · warning : open=now escalate=now remind=now resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · prod · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · dev · critical : open=now+son escalate=now+son remind=now resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · dev · warning : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+samedi 11:00 · dev · info : open=digest escalate=digest remind=skip resolve(now)=now resolve(digest)=digest stable=now
+
+# différés : 48
+r:77 · resolve · critical · 🟢 <b>Alerte 77</b> — rétabli après NaN j (01:00 → 02:00)
+r:79 · open · warning · 🟠 <b>Alerte 79</b> — r
+r:80 · escalate · warning · 🔴 <b>Alerte 80</b> — aggravation
+r:83 · resolve · warning · 🟢 <b>Alerte 83</b> — rétabli après NaN j (01:00 → 02:00)
+r:85 · open · info · ℹ️ <b>Alerte 85</b> — r
+r:86 · escalate · info · 🔴 <b>Alerte 86</b> — aggravation
+r:89 · resolve · info · 🟢 <b>Alerte 89</b> — rétabli après NaN j (01:00 → 02:00)
+r:95 · resolve · critical · 🟢 <b>Alerte 95</b> — rétabli après NaN j (01:00 → 02:00) <i>(dev)</i>
+r:97 · open · warning · 🟠 <b>Alerte 97</b> — r <i>(dev)</i>
+r:98 · escalate · warning · 🔴 <b>Alerte 98</b> — aggravation <i>(dev)</i>
+r:101 · resolve · warning · 🟢 <b>Alerte 101</b> — rétabli après NaN j (01:00 → 02:00) <i>(dev)</i>
+r:103 · open · info · ℹ️ <b>Alerte 103</b> — r <i>(dev)</i>
+
+# digest : 07:59=false 08:00=true 08:01=false 13:00=false ; différés restants 12 ; file 85 ; ligne du digest : digest/now/1/☀️ digest de banc
+# heures calmes : mardi 10:00=false mardi 20:00=false mardi 02:00=true samedi 11:00=false

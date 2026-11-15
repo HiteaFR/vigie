@@ -1,0 +1,36 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For a security problem, do not use this form: see SECURITY.md.
+        Remove any secret (tokens, passwords, private addresses) from what you paste.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release, image tag or commit (shown by `GET /api/healthz`).
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: Installation
+      options: [Docker compose, Manual (systemd), Other]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant server log lines (journalctl, docker compose logs), without secrets.
+      render: text

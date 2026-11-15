@@ -1,0 +1,13 @@
+{
+ "digest.line": "🧪 Example queue: {depth}",
+ "digest.unknown": "unknown",
+ "label.queue": "Queue too long",
+ "queue.detail": {
+  "one": "{count} job waiting",
+  "other": "{count} jobs waiting"
+ },
+ "queue.title": "Example queue",
+ "source.http": "queue: HTTP {status}",
+ "source.no_depth": "queue: no depth in the answer",
+ "source.title": "Example queue unreadable"
+}

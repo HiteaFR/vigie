@@ -1,0 +1,155 @@
+## net_new:1 · cond false · warning
+🟠 <b>New device: unnamed device (device 1)</b> — new device
+00:00:5e:00:53:01 (private) · already seen by Pi-hole on 07/11/2026
+Since 09:50 · <a href="https://vigie.example.net/network?d=1">Open</a>
+
+## net_new:2 · cond false · warning
+🟠 <b>New device: poste &lt;b&gt;</b> — new device
+00:00:5e:00:53:0c
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_new:3 · cond false · warning
+🟠 <b>New device: Fabricant SA (device 3)</b> — new device
+00:00:5e:00:53:0b · Fabricant SA
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## net_mac_added:00:00:5e:00:53:09 · cond true · warning
+🟠 <b>poste &lt;b&gt;: new MAC</b> — mac added
+00:00:5e:00:53:09 attached by same name “poste &lt;b&gt;”
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_mac_added:00:00:5e:00:53:0a · cond true · info
+ℹ️ <b>Fabricant SA (device 3): new MAC</b> — mac added
+00:00:5e:00:53:0a attached by same IP (macvlan range)
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## net_mac_added:00:00:5e:00:53:0b · cond true · info
+ℹ️ <b>Fabricant SA (device 3): new MAC</b> — mac added
+00:00:5e:00:53:0b attached by validated MAC family
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## net_mac_added:00:00:5e:00:53:0c · cond true · info
+ℹ️ <b>poste &lt;b&gt;: new MAC</b> — mac added
+00:00:5e:00:53:0c attached by container (agent)
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_agent_conflict:2 · cond true · warning
+🟠 <b>poste &lt;b&gt;: container identity conflict</b> — container identity conflict
+container docker-a/web/lan: already linked to device 1
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_agent_conflict:3 · cond true · warning
+🟠 <b>Fabricant SA (device 3): container identity conflict</b> — container identity conflict
+container docker-a/db/lan: device already linked to docker-b/db/lan
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## net_new_flood:lan · cond true · warning
+🟠 <b>Device flood on the LAN</b> — device flood
+3 MACs refused, creations suspended until 11:00
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## net_down:1 · cond true · warning
+🟠 <b>unnamed device (device 1) offline</b> — device offline
+last seen 2 h ago
+Since 09:50 · <a href="https://vigie.example.net/network?d=1">Open</a>
+
+## net_ip_changed:1 · cond false · warning
+🟠 <b>unnamed device (device 1): IP changed</b> — ip changed
+expected IP differs from the IP seen
+Since 09:50 · <a href="https://vigie.example.net/network?d=1">Open</a>
+
+## net_down:2 · cond false · warning
+🟠 <b>poste &lt;b&gt; offline</b> — device offline
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_ip_changed:2 · cond true · warning
+🟠 <b>poste &lt;b&gt;: IP changed</b> — ip changed
+expected IP differs from the IP seen
+Since 09:50 · <a href="https://vigie.example.net/network?d=2">Open</a>
+
+## net_down:3 · cond false · warning
+🟠 <b>Fabricant SA (device 3) offline</b> — device offline
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## net_ip_changed:3 · cond false · warning
+🟠 <b>Fabricant SA (device 3): IP changed</b> — ip changed
+expected IP differs from the IP seen
+Since 09:50 · <a href="https://vigie.example.net/network?d=3">Open</a>
+
+## source_error:network/pihole · cond true · warning
+🟠 <b>Network source: Pi-hole</b> — source unreachable
+Pi-hole 401
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## source_error:network/dhcp · cond true · warning
+🟠 <b>Network source: DHCP leases</b> — source unreachable
+no recent successful read
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## source_error:network/neigh · cond false · warning
+🟠 <b>Network source: container neighbors</b> — source unreachable
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## source_error:network/pve · cond false · warning
+🟠 <b>Network source: Proxmox</b> — source unreachable
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## source_error:network/arp · cond false · warning
+🟠 <b>Network source: ARP probe</b> — source unreachable
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+## net_new:9 · cond false · info
+ℹ️ <b>device removed</b> — new device
+Since 09:50 · <a href="https://vigie.example.net/network">Open</a>
+
+# section Réseau du digest
+🌐 Network: 45 devices, 43 online, 2 offline · 22 to review · sources OK
+   MAC added by rule (24 h): fe:00:00:00:53:77 to poste-4
+   3 archived devices deleted (legacy states purge)
+   linked to a container afterwards (24 h, to confirm): poste-1 → docker-a/web/lan
+   Ports (24 h): invite-g1: +tcp/22 (ssh), −tcp/80 (http)
+   Names (mDNS): 2 devices named: poste-1, poste-2
+   1 device deleted (24 h)
+   3 devices seen by the ARP probe, 2 to review (poste-3, poste-4)
+   ARP conflicts (24 h): 00:00:5e:00:53:01: Ethernet header 00:00:5e:00:53:02 ; IP 192.0.2.9: 2 MACs (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP 192.0.2.193: 2 MACs (speedtest, speedtest)
+   returned after deletion (24 h): poste-2
+
+# section Réseau sans sonde ARP
+🌐 Network: 42 devices, 0 active · 1 MAC to confirm (poste-1) · 22 to review · sources: pihole failing for 6 h, dhcp failing for 6 h
+
+# bot
+## /reseau
+🌐 <b>Network</b> — 45 devices · 43 online · 2 offline · 3 new · 22 to review · sources with errors
+<b>New</b>
+#43 Invite-R1-1 · offline
+#44 Invite-R1-2 · offline
+#45 00:00:5e:00:53:e7 · online
+⚠️ mdns: stale
+
+## /appareil
+Usage: <code>/device galaxy</code> (name, MAC, vendor or exact IP)
+
+## /appareil zzzz-aucun
+No devices found.
+
+## /appareil invite
+18 devices (first 10):
+#1 invite-g1 · ‹ip› · online
+#2 invite-g2 · ‹ip› · online
+#3 invite-g3 · ‹ip› · online
+#4 invite-g4 · ‹ip› · online
+#5 invite-g5 · ‹ip› · online
+#6 invite-g6 · ‹ip› · online
+#7 invite-g7 · ‹ip› · online
+#8 invite-g8 · ‹ip› · online
+#9 invite-g9 · ‹ip› · online
+#10 invite-g10 · ‹ip› · online
+
+## /appareil 00:00:5e:00:53:e7
+<b>#45 00:00:5e:00:53:e7</b> — new
+online · IP ‹ip›
+MAC 00:00:5e:00:53:e7
+
+## /reseau
+🌐 <b>Network</b> — 45 devices · 43 online · 2 offline · 0 new · 22 to review · sources with errors
+⚠️ mdns: stale

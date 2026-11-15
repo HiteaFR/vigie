@@ -1,0 +1,68 @@
+# appels à Telegram (heure · réponse · son · HTML · boutons · première ligne · éléments)
+10:00 · réseau · son · html · [s:1+a:1 s:3+a:3 s:5+a:5 s:10+a:10 s:11+a:11 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 <b>DNS</b> — service down · 12
+10:01 · 429 · son · html · [s:1+a:1 s:3+a:3 s:5+a:5 s:10+a:10 s:11+a:11 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 <b>DNS</b> — service down · 12
+10:02 · 400 · son · html · [s:1+a:1 s:3+a:3 s:5+a:5 s:10+a:10 s:11+a:11 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 <b>DNS</b> — service down · 12
+10:02 · ok · son · html · [s:1+a:1] · 🔴 <b>DNS</b> — service down · 1
+10:02 · 400 · son · html · [s:3+a:3] · 🔴 <b>fail-3</b> — service down · 1
+10:02 · 500 · son · html · [s:5+a:5] · 🔴 <b>cert-6 — certificat</b> — certificate · 1
+10:03 · html · son · html · [s:5+a:5 s:10+a:10 s:11+a:11 s:14+a:14 s:15+a:15 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 <b>cert-6 — certificat</b> — certificate · 12
+10:03 · ok · son · brut · [s:5+a:5 s:10+a:10 s:11+a:11 s:14+a:14 s:15+a:15 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 cert-6 — certificat — certificate · 12
+10:04 · ok · son · html · [s:20+a:20 s:16+a:16 s:17+a:17 s:18+a:18 s:19+a:19 s:21+a:21 s:22+a:22 s:23+a:23] · 🔴 <b>Temperature SSD borne (/dev/nvme5n1 · pve-a)</b> — disk temperature · 12
+10:05 · ok · son · html · [s:32+a:32 s:35+a:35 s:36+a:36 s:40+a:40 s:28+a:28 s:29+a:29 s:30+a:30 s:31+a:31] · 🔴 <b>Disk /disque-95 · docker-a</b> — disk · 12
+10:06 · ok · son · html · [s:43+a:43 s:44+a:44 s:41+a:41 s:42+a:42 s:45+a:45 s:46+a:46 s:47+a:47 s:48+a:48] · 🔴 <b>Memory mem-95</b> — node memory · 12
+
+# file (id · clé · type · gravité · voie · muet · envoyé · essais · prochain essai · abandon · erreur)
+1 · service_down:dns · open · critical · now · 0 · 10:02 · 3 · 10:01 · — · —
+2 · cert_expiry:site#0 · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+3 · service_down:fail-3 · open · critical · now · 0 · — · 2 · 10:01 · rejected · Bad Request: message is too long
+4 · cert_expiry:cert-20#0 · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+5 · cert_expiry:cert-6#0 · open · critical · now · 0 · 10:03 · 4 · 10:02 · — · —
+6 · cert_expiry:cert-7#0 · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+7 · guest_undeclared:main:300 · open · info · digest · 1 · — · 0 · — · — · —
+8 · guest_disk:ct-d85:/ · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+9 · guest_disk:ct-d949:/ · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+10 · guest_disk:ct-d95:/ · open · critical · now · 0 · 10:03 · 4 · 10:02 · — · —
+11 · storage_usage:main/local · open · critical · now · 0 · 10:03 · 4 · 10:02 · — · —
+12 · storage_usage:main/st-80 · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+13 · storage_usage:main/st-89.9 · open · warning · now · 1 · 10:03 · 4 · 10:02 · — · —
+14 · storage_usage:main/st-90 · open · critical · now · 0 · 10:03 · 1 · — · — · —
+15 · smart_failed:main/pve-a/dev/sdb · open · critical · now · 0 · 10:03 · 1 · — · — · —
+16 · disk_wear:main/pve-a/dev/nvme0n1 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+17 · disk_wear:main/pve-a/dev/nvme1n1 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+18 · disk_temp:main/pve-a/dev/nvme3n1 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+19 · disk_temp:main/pve-a/dev/nvme4n1 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+20 · disk_temp:main/pve-a/dev/nvme5n1 · open · critical · now · 0 · 10:04 · 1 · — · — · —
+21 · not_backed_up:lab · open · warning · now · 1 · 10:04 · 1 · — · — · —
+22 · backup_late:ct-d829 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+23 · backup_late:ct-d83 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+24 · backup_late:ct-d849 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+25 · backup_late:ct-d85 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+26 · backup_late:ct-d949 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+27 · backup_late:ct-d95 · open · warning · now · 1 · 10:04 · 1 · — · — · —
+28 · ci_failed:app · open · warning · now · 1 · 10:05 · 1 · — · — · —
+29 · guest_disk:docker-a:/ · open · warning · now · 1 · 10:05 · 1 · — · — · —
+30 · guest_disk:docker-a:/disque-85 · open · warning · now · 1 · 10:05 · 1 · — · — · —
+31 · guest_disk:docker-a:/disque-94.9 · open · warning · now · 1 · 10:05 · 1 · — · — · —
+32 · guest_disk:docker-a:/disque-95 · open · critical · now · 0 · 10:05 · 1 · — · — · —
+33 · guest_inodes:docker-a:/inodes-85 · open · warning · now · 1 · 10:05 · 1 · — · — · —
+34 · guest_inodes:docker-a:/inodes-94.9 · open · warning · now · 1 · 10:05 · 1 · — · — · —
+35 · guest_inodes:docker-a:/inodes-95 · open · critical · now · 0 · 10:05 · 1 · — · — · —
+36 · container_restarting:docker-a/worker · open · critical · now · 0 · 10:05 · 1 · — · — · —
+37 · reboot_required:docker-a · open · info · digest · 1 · — · 0 · — · — · —
+38 · net_new:dev-1 · open · warning · now · 1 · 10:05 · 1 · — · — · —
+39 · guest_stopped:lab · open · warning · now · 1 · 10:05 · 1 · — · — · —
+40 · node_mem:main/pve-a · open · critical · now · 0 · 10:05 · 1 · — · — · —
+41 · node_mem:main/mem-90 · open · warning · now · 1 · 10:06 · 1 · — · — · —
+42 · node_mem:main/mem-94.9 · open · warning · now · 1 · 10:06 · 1 · — · — · —
+43 · node_mem:main/mem-95 · open · critical · now · 0 · 10:06 · 1 · — · — · —
+44 · container_unhealthy:docker-a/web · open · critical · now · 0 · 10:06 · 1 · — · — · —
+45 · systemd_failed:docker-a · open · warning · now · 1 · 10:06 · 1 · — · — · —
+46 · agent_unreachable:dns-a · open · warning · now · 1 · 10:06 · 1 · — · — · —
+47 · node_swap:main/pve-a · open · warning · now · 1 · 10:06 · 1 · — · — · —
+48 · node_swap:main/mem-90 · open · warning · now · 1 · 10:06 · 1 · — · — · —
+49 · runner_offline:runner-b · open · warning · now · 1 · 10:06 · 1 · — · — · —
+50 · backup_late:dns-a · open · warning · now · 1 · 10:06 · 1 · — · — · —
+51 · apt_stale:vps · open · warning · now · 1 · 10:06 · 1 · — · — · —
+52 · — · test · — · now · 1 · 10:06 · 1 · — · — · —
+
+# état : {"telegram":true,"dryRun":false,"quietNow":false,"queued":0,"deferred":2,"lastSentAt":"10:06","lastError":null,"channels":[{"id":"telegram","label":"Telegram","configured":true,"queued":0,"lastSentAt":1794301560000,"lastError":null}]}

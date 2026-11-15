@@ -1,0 +1,5 @@
+{
+ "error": "ntfy: {why}",
+ "error.network": "network",
+ "error.timeout": "timed out"
+}

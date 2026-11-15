@@ -1,0 +1,23 @@
+{
+  "name": "vigie-server",
+  "version": "1.1.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning index.js",
+    "check-config": "node scripts/check-config.js",
+    "test": "node --disable-warning=ExperimentalWarning --import ./test/setup-locale.mjs --test test/*.test.js",
+    "notify-test": "node scripts/notify-test.js",
+    "telegram-chatid": "node scripts/telegram-chatid.js",
+    "init": "node --disable-warning=ExperimentalWarning scripts/init.js",
+    "golden:update": "node --disable-warning=ExperimentalWarning test/golden/update.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "undici": "^7.10.0",
+    "zod": "^4.6.7"
+  }
+}

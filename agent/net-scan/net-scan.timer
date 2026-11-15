@@ -1,0 +1,10 @@
+[Unit]
+Description=ARP scan of the local network every 120 s
+
+[Timer]
+OnBootSec=60s
+OnUnitActiveSec=120s
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target

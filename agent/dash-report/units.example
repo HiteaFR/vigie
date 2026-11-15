@@ -1,0 +1,4 @@
+# /etc/dash-report.units: systemd units watched by the dashboard, one per line (glob allowed;
+# letters, digits, @ . _ : * -). A missing or inactive unit raises systemd_failed.
+docker.service
+docker-housekeeping.timer

@@ -1,0 +1,88 @@
+{
+  "version": 2,
+  "title": "Vigie",
+  "subtitle": "Exemple",
+  "allowedHosts": ["192.0.2.148", "vigie.example.net"],
+  "trustedProxies": ["192.0.2.153"],
+  "security": { "anonymousRead": false, "httpLogin": false, "adminCidrs": ["127.0.0.1/32"] },
+  "footer": "config.example.json · données fictives",
+
+  "proxmox": [
+    { "id": "main", "label": "Proxmox (exemple)", "host": "http://192.0.2.10:8006", "env": "PVE" }
+  ],
+
+  "hosts": [
+    { "id": "pve-a", "name": "pve-a", "kind": "pve-node", "pve": "main", "ip": "192.0.2.10", "mac": "02:00:00:00:00:10", "env": "prod" },
+    { "id": "docker-a", "name": "docker-a", "kind": "vm", "pve": "main", "vmid": 101, "ip": "192.0.2.20", "parent": "pve-a", "env": "prod" },
+    { "id": "dns-a", "name": "dns-a", "kind": "lxc", "pve": "main", "vmid": 102, "ip": "192.0.2.53", "parent": "pve-a", "env": "prod" },
+    { "id": "lab", "name": "lab", "kind": "vm", "pve": "main", "vmid": 200, "ip": "192.0.2.30", "parent": "pve-a", "env": "dev" },
+    { "id": "router", "name": "router", "kind": "appliance", "ip": "192.0.2.1", "mac": "02:00:00:00:00:01", "env": "prod" },
+    { "id": "vps", "name": "vps", "kind": "external", "ip": "203.0.113.10", "env": "prod", "desc": "serveur loué" }
+  ],
+
+  "groups": [
+    { "id": "infra", "name": "Infrastructure", "icon": "server" },
+    { "id": "apps", "name": "Applications", "icon": "code" },
+    { "id": "web", "name": "Sites", "icon": "globe" }
+  ],
+
+  "services": [
+    {
+      "id": "proxmox", "name": "Proxmox VE", "group": "infra", "host": "pve-a", "url": "http://192.0.2.10:8006/",
+      "desc": "hyperviseur"
+    },
+    {
+      "id": "dns", "name": "DNS", "group": "infra", "host": "dns-a",
+      "checks": [
+        { "type": "dns", "server": "192.0.2.53", "name": "vigie.example.net", "label": "résolution locale", "expect": { "address": "192.0.2.40" } },
+        { "type": "tcp", "target": "192.0.2.53:53", "label": "DNS TCP" }
+      ]
+    },
+    {
+      "id": "router", "name": "Routeur", "group": "infra", "host": "router", "url": "http://192.0.2.1/"
+    },
+    {
+      "id": "app", "name": "Application", "group": "apps", "host": "docker-a", "url": "http://192.0.2.20:8080/", "pinned": true,
+      "tags": ["docker"],
+      "checks": [
+        { "type": "http", "url": "http://192.0.2.20:8080/health", "expect": { "status": 200, "body": "ok" }, "label": "santé" }
+      ],
+      "widget": {
+        "url": "http://192.0.2.20:8080",
+        "auth": { "type": "header", "name": "X-API-Key", "secretEnv": "APP_API_KEY" },
+        "fields": [
+          { "label": "Utilisateurs", "path": "/api/stats", "json": "users", "format": "int" },
+          { "label": "Latence", "path": "/api/stats", "json": "latencyMs", "format": "ms" }
+        ]
+      }
+    },
+    {
+      "id": "app-staging", "name": "Application (staging)", "group": "apps", "host": "lab", "url": "http://192.0.2.30:8080/"
+    },
+    {
+      "id": "site", "name": "Site public", "group": "web", "host": "vps", "url": "https://www.example.net/",
+      "checks": [
+        { "type": "tls", "host": "203.0.113.10", "servername": "www.example.net", "label": "certificat" }
+      ]
+    }
+  ],
+
+  "bookmarks": [
+    { "group": "Documentation", "items": [ { "name": "Doc interne", "url": "https://docs.example.net/" } ] }
+  ],
+
+  "gitea": { "owner": "example" },
+
+  "alerts": {
+    "timezone": "Europe/Paris",
+    "dashboardUrl": "https://vigie.example.net",
+    "criticalUnits": ["ssh", "docker"]
+  },
+
+  "network": {
+    "subnets": [{ "cidr": "192.0.2.0/24", "name": "LAN" }],
+    "sources": { "pve": false },
+    "probe": { "enabled": false, "exclude": [] },
+    "mdns": { "enabled": false }
+  }
+}

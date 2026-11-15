@@ -1,0 +1,533 @@
+{
+ "attribution": "Format and approach inspired by Scanopy (AGPL-3.0). No code was copied.",
+ "defs": [
+  {
+   "id": "ssh",
+   "name": "SSH",
+   "category": "generic",
+   "match": {
+    "port": 22
+   }
+  },
+  {
+   "id": "dns",
+   "name": "DNS",
+   "category": "generic",
+   "match": {
+    "port": 53
+   }
+  },
+  {
+   "id": "http",
+   "name": "HTTP",
+   "category": "generic",
+   "match": {
+    "port": 80
+   }
+  },
+  {
+   "id": "https",
+   "name": "HTTPS",
+   "category": "generic",
+   "match": {
+    "port": 443
+   }
+  },
+  {
+   "id": "proxmox-ve",
+   "name": "Proxmox VE",
+   "category": "hypervisor",
+   "match": {
+    "port": 8006
+   }
+  },
+  {
+   "id": "gitea",
+   "name": "Gitea",
+   "category": "dev",
+   "match": {
+    "allOf": [
+     {
+      "port": 3000
+     },
+     {
+      "http": {
+       "port": 3000,
+       "path": "/api/healthz",
+       "contains": "pass"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "homepage",
+   "name": "Homepage",
+   "category": "dashboard",
+   "match": {
+    "allOf": [
+     {
+      "port": 3000
+     },
+     {
+      "http": {
+       "port": 3000,
+       "path": "/",
+       "contains": "homepage"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "grafana",
+   "name": "Grafana",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 3000
+     },
+     {
+      "http": {
+       "port": 3000,
+       "path": "/api/health",
+       "contains": "database"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "portainer",
+   "name": "Portainer",
+   "category": "containers",
+   "match": {
+    "port": 9443
+   }
+  },
+  {
+   "id": "synology-dsm",
+   "name": "Synology DSM",
+   "category": "nas",
+   "match": {
+    "allOf": [
+     {
+      "port": 5001
+     },
+     {
+      "macVendor": "synology"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pihole",
+   "name": "Pi-hole",
+   "category": "dns",
+   "match": {
+    "allOf": [
+     {
+      "port": 53
+     },
+     {
+      "http": {
+       "port": 80,
+       "path": "/admin/",
+       "contains": "pi-hole"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "bunkerweb",
+   "name": "BunkerWeb",
+   "category": "security",
+   "match": {
+    "allOf": [
+     {
+      "port": 443
+     },
+     {
+      "port": 80
+     },
+     {
+      "port": 9113
+     }
+    ]
+   }
+  },
+  {
+   "id": "bunkerweb-metrics",
+   "name": "BunkerWeb (metrics)",
+   "category": "monitoring",
+   "match": {
+    "port": 9113
+   }
+  },
+  {
+   "id": "speedtest-tracker",
+   "name": "Speedtest Tracker",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 80
+     },
+     {
+      "http": {
+       "port": 80,
+       "path": "/api/healthcheck",
+       "status": 200,
+       "contains": "speedtest tracker is running"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "bbox",
+   "name": "Bbox",
+   "category": "network",
+   "match": {
+    "allOf": [
+     {
+      "port": 80
+     },
+     {
+      "http": {
+       "port": 80,
+       "path": "/",
+       "contains": "bbox"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "home-assistant",
+   "name": "Home Assistant",
+   "category": "home",
+   "match": {
+    "allOf": [
+     {
+      "port": 8123
+     },
+     {
+      "http": {
+       "port": 8123,
+       "path": "/manifest.json",
+       "contains": "home assistant"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "n8n",
+   "name": "n8n",
+   "category": "automation",
+   "match": {
+    "allOf": [
+     {
+      "port": 5678
+     },
+     {
+      "http": {
+       "port": 5678,
+       "path": "/healthz",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "plex",
+   "name": "Plex",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 32400
+     },
+     {
+      "http": {
+       "port": 32400,
+       "path": "/identity",
+       "contains": "mediacontainer"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "seerr",
+   "name": "Seerr",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 5055
+     },
+     {
+      "http": {
+       "port": 5055,
+       "path": "/api/v1/status",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "sonarr",
+   "name": "Sonarr",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 8989
+     },
+     {
+      "http": {
+       "port": 8989,
+       "path": "/ping",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "radarr",
+   "name": "Radarr",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 7878
+     },
+     {
+      "http": {
+       "port": 7878,
+       "path": "/ping",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prowlarr",
+   "name": "Prowlarr",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 9696
+     },
+     {
+      "http": {
+       "port": 9696,
+       "path": "/ping",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "qbittorrent",
+   "name": "qBittorrent",
+   "category": "media",
+   "match": {
+    "allOf": [
+     {
+      "port": 8080
+     },
+     {
+      "http": {
+       "port": 8080,
+       "path": "/",
+       "contains": "qbittorrent"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "gluetun",
+   "name": "Gluetun",
+   "category": "network",
+   "match": {
+    "allOf": [
+     {
+      "port": 8000
+     },
+     {
+      "http": {
+       "port": 8000,
+       "path": "/v1/publicip/ip",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "flaresolverr",
+   "name": "FlareSolverr",
+   "category": "web",
+   "match": {
+    "allOf": [
+     {
+      "port": 8191
+     },
+     {
+      "http": {
+       "port": 8191,
+       "path": "/",
+       "contains": "flaresolverr"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "prometheus",
+   "name": "Prometheus",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 9090
+     },
+     {
+      "http": {
+       "port": 9090,
+       "path": "/-/healthy",
+       "contains": "prometheus"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "influxdb",
+   "name": "InfluxDB",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 8086
+     },
+     {
+      "http": {
+       "port": 8086,
+       "path": "/health",
+       "contains": "influxdb"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "blackbox",
+   "name": "Blackbox exporter",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 9115
+     },
+     {
+      "http": {
+       "port": 9115,
+       "path": "/-/healthy",
+       "status": 200
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "snmp-exporter",
+   "name": "SNMP exporter",
+   "category": "monitoring",
+   "match": {
+    "allOf": [
+     {
+      "port": 9116
+     },
+     {
+      "http": {
+       "port": 9116,
+       "path": "/",
+       "contains": "snmp"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "node-exporter",
+   "name": "Node exporter",
+   "category": "monitoring",
+   "match": {
+    "port": 9100
+   }
+  },
+  {
+   "id": "watchtower",
+   "name": "Watchtower",
+   "category": "containers",
+   "match": {
+    "allOf": [
+     {
+      "port": 8080
+     },
+     {
+      "http": {
+       "port": 8080,
+       "path": "/v1/metrics",
+       "status": 401,
+       "empty": true
+      }
+     },
+     {
+      "http": {
+       "port": 8080,
+       "path": "/",
+       "status": 404,
+       "contains": "404 page not found"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "mailpit",
+   "name": "Mailpit",
+   "category": "mail",
+   "match": {
+    "allOf": [
+     {
+      "port": 8025
+     },
+     {
+      "port": 1025
+     },
+     {
+      "http": {
+       "port": 8025,
+       "path": "/livez",
+       "status": 200
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,277 @@
+{
+  "all": {
+    "alerts": {
+      "critical": 14,
+      "incidents24h": 51,
+      "info": 2,
+      "masked": 0,
+      "pending": 0,
+      "warning": 35
+    },
+    "backups": [
+      {
+        "env": "prod",
+        "failed": [],
+        "id": "main",
+        "last": 1794211200000,
+        "late": [
+          "dns-a",
+          "ct-disque-82.9",
+          "ct-disque-83",
+          "ct-disque-84.9",
+          "ct-disque-85",
+          "ct-disque-94.9",
+          "ct-disque-95"
+        ],
+        "next": null,
+        "node": "pve-a",
+        "ok": 2,
+        "total": 9
+      }
+    ],
+    "certs": {
+      "minDays": 6,
+      "minName": "cert-6",
+      "soon": 4,
+      "total": 5
+    },
+    "ci": {
+      "configured": true,
+      "error": null,
+      "failing": [
+        {
+          "date": "2026-11-10T08:30:00Z",
+          "name": "app",
+          "number": 12
+        }
+      ],
+      "runnersOnline": 1,
+      "runnersTotal": 2,
+      "running": 1
+    },
+    "env": "all",
+    "generatedAt": "(NOW)",
+    "guests": {
+      "byEnv": {
+        "prod": {
+          "node": "pve-a",
+          "running": 9,
+          "total": 10
+        }
+      },
+      "errors": [],
+      "running": 9,
+      "stoppedDeclared": [
+        "lab"
+      ],
+      "total": 10
+    },
+    "network": {
+      "devices": 12,
+      "new": 1,
+      "online": 10
+    },
+    "services": {
+      "crit": 3,
+      "medianLatencyMs": null,
+      "ok": 7,
+      "total": 14,
+      "unknown": 3,
+      "warn": 1
+    },
+    "sourcesDown": [],
+    "state": "crit",
+    "updates": {
+      "auto": 0,
+      "checkedAt": "2026-11-10T09:00:00.000Z",
+      "deploy": 1,
+      "digest": 0,
+      "eol": 0,
+      "errors": 0,
+      "ignored": 0,
+      "major": 0,
+      "minor": 0,
+      "patch": 0,
+      "security": 0,
+      "total": 0
+    },
+    "weather": null
+  },
+  "ciGiteaOff": {
+    "configured": false,
+    "error": null,
+    "failing": [],
+    "runnersOnline": null,
+    "runnersTotal": null,
+    "running": 0
+  },
+  "ciRulesGiteaOff": [],
+  "dev": {
+    "alerts": {
+      "critical": 0,
+      "incidents24h": 2,
+      "info": 0,
+      "masked": 0,
+      "pending": 0,
+      "warning": 2
+    },
+    "backups": [],
+    "certs": {
+      "minDays": null,
+      "minName": null,
+      "soon": 0,
+      "total": 0
+    },
+    "ci": {
+      "configured": true,
+      "error": null,
+      "failing": [
+        {
+          "date": "2026-11-10T08:30:00Z",
+          "name": "app",
+          "number": 12
+        }
+      ],
+      "runnersOnline": 1,
+      "runnersTotal": 2,
+      "running": 1
+    },
+    "env": "dev",
+    "generatedAt": "(NOW)",
+    "guests": {
+      "byEnv": {},
+      "errors": [],
+      "running": 0,
+      "stoppedDeclared": [],
+      "total": 0
+    },
+    "network": {
+      "devices": 12,
+      "new": 1,
+      "online": 10
+    },
+    "services": {
+      "crit": 0,
+      "medianLatencyMs": null,
+      "ok": 0,
+      "total": 1,
+      "unknown": 1,
+      "warn": 0
+    },
+    "sourcesDown": [],
+    "state": "warn",
+    "updates": {
+      "auto": 0,
+      "checkedAt": "2026-11-10T09:00:00.000Z",
+      "deploy": 0,
+      "digest": 0,
+      "eol": 0,
+      "errors": 0,
+      "ignored": 0,
+      "major": 0,
+      "minor": 0,
+      "patch": 0,
+      "security": 0,
+      "total": 0
+    },
+    "weather": null
+  },
+  "prod": {
+    "alerts": {
+      "critical": 14,
+      "incidents24h": 49,
+      "info": 2,
+      "masked": 0,
+      "pending": 0,
+      "warning": 33
+    },
+    "backups": [
+      {
+        "env": "prod",
+        "failed": [],
+        "id": "main",
+        "last": 1794211200000,
+        "late": [
+          "dns-a",
+          "ct-disque-82.9",
+          "ct-disque-83",
+          "ct-disque-84.9",
+          "ct-disque-85",
+          "ct-disque-94.9",
+          "ct-disque-95"
+        ],
+        "next": null,
+        "node": "pve-a",
+        "ok": 2,
+        "total": 9
+      }
+    ],
+    "certs": {
+      "minDays": 6,
+      "minName": "cert-6",
+      "soon": 4,
+      "total": 5
+    },
+    "ci": {
+      "configured": true,
+      "error": null,
+      "failing": [
+        {
+          "date": "2026-11-10T08:30:00Z",
+          "name": "app",
+          "number": 12
+        }
+      ],
+      "runnersOnline": 1,
+      "runnersTotal": 2,
+      "running": 1
+    },
+    "env": "prod",
+    "generatedAt": "(NOW)",
+    "guests": {
+      "byEnv": {
+        "prod": {
+          "node": "pve-a",
+          "running": 9,
+          "total": 10
+        }
+      },
+      "errors": [],
+      "running": 9,
+      "stoppedDeclared": [
+        "lab"
+      ],
+      "total": 10
+    },
+    "network": {
+      "devices": 12,
+      "new": 1,
+      "online": 10
+    },
+    "services": {
+      "crit": 3,
+      "medianLatencyMs": null,
+      "ok": 7,
+      "total": 13,
+      "unknown": 2,
+      "warn": 1
+    },
+    "sourcesDown": [],
+    "state": "crit",
+    "updates": {
+      "auto": 0,
+      "checkedAt": "2026-11-10T09:00:00.000Z",
+      "deploy": 1,
+      "digest": 0,
+      "eol": 0,
+      "errors": 0,
+      "ignored": 0,
+      "major": 0,
+      "minor": 0,
+      "patch": 0,
+      "security": 0,
+      "total": 0
+    },
+    "weather": null
+  }
+}

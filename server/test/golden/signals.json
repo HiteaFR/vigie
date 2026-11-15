@@ -1,0 +1,3079 @@
+[
+  {
+    "cond": true,
+    "detail": "connexion refusée",
+    "entity": "dns-a",
+    "env": "prod",
+    "forSec": 300,
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "agent_unreachable:dns-a",
+    "link": "/infra?h=dns-a",
+    "muted": false,
+    "parents": [
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "agent_unreachable",
+    "severity": "warning",
+    "title": "Agent dns-a"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "docker-a",
+    "env": "prod",
+    "forSec": 300,
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "agent_unreachable:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "agent_unreachable",
+    "severity": "warning",
+    "title": "Agent docker-a"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "forSec": 300,
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "agent_unreachable:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "agent_unreachable",
+    "severity": "warning",
+    "title": "Agent lab"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "vps",
+    "env": "prod",
+    "forSec": 300,
+    "host": "vps",
+    "hostId": "vps",
+    "key": "agent_unreachable:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [],
+    "rule": "agent_unreachable",
+    "severity": "warning",
+    "title": "Agent vps"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "ws",
+    "env": "dev",
+    "forSec": 300,
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "agent_unreachable:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [],
+    "rule": "agent_unreachable",
+    "severity": "warning",
+    "title": "Agent poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": "dernier apt update il y a 7 j",
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "apt_stale:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "apt_stale",
+    "severity": "warning",
+    "title": "Listes apt · lab"
+  },
+  {
+    "cond": true,
+    "detail": "dernier apt update il y a 7 j",
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "apt_stale:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "apt_stale",
+    "severity": "warning",
+    "title": "Listes apt · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "autoupdate_failed:dns-a",
+    "link": "/infra?h=dns-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:dns-a",
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_failed",
+    "severity": "warning",
+    "title": "MAJ automatiques · dns-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "autoupdate_failed:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_failed",
+    "severity": "warning",
+    "title": "MAJ automatiques · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "autoupdate_failed:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_failed",
+    "severity": "warning",
+    "title": "MAJ automatiques · lab"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "autoupdate_failed:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "autoupdate_failed",
+    "severity": "warning",
+    "title": "MAJ automatiques · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "autoupdate_failed:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "autoupdate_failed",
+    "severity": "warning",
+    "title": "MAJ automatiques · poste-dev"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "autoupdate_off:dns-a",
+    "link": "/infra?h=dns-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:dns-a",
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_off",
+    "severity": "warning",
+    "title": "MAJ automatiques · dns-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "autoupdate_off:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_off",
+    "severity": "warning",
+    "title": "MAJ automatiques · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "autoupdate_off:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "autoupdate_off",
+    "severity": "warning",
+    "title": "MAJ automatiques · lab"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "autoupdate_off:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "autoupdate_off",
+    "severity": "warning",
+    "title": "MAJ automatiques · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "autoupdate_off:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "autoupdate_off",
+    "severity": "warning",
+    "title": "MAJ automatiques · poste-dev"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d829",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d829",
+    "key": "backup_late:ct-d829",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 231 ct-disque-82.9"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d83",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d83",
+    "key": "backup_late:ct-d83",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 232 ct-disque-83"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d849",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d849",
+    "key": "backup_late:ct-d849",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 233 ct-disque-84.9"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d85",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d85",
+    "key": "backup_late:ct-d85",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 234 ct-disque-85"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d949",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d949",
+    "key": "backup_late:ct-d949",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 235 ct-disque-94.9"
+  },
+  {
+    "cond": true,
+    "detail": "aucune sauvegarde trouvée",
+    "entity": "ct-d95",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d95",
+    "key": "backup_late:ct-d95",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 236 ct-disque-95"
+  },
+  {
+    "cond": true,
+    "detail": "dernière sauvegarde il y a 26 h",
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "dns-a",
+    "key": "backup_late:dns-a",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde CT 212 dns-a"
+  },
+  {
+    "cond": false,
+    "detail": "dernière sauvegarde il y a 26 h",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "docker-a",
+    "key": "backup_late:docker-a",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde VM 211 docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "dernière sauvegarde il y a 25 h",
+    "entity": "lab",
+    "env": "dev",
+    "host": "pve-a",
+    "hostId": "lab",
+    "key": "backup_late:lab",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "backup_late",
+    "severity": "warning",
+    "title": "Sauvegarde VM 200 lab"
+  },
+  {
+    "cond": true,
+    "detail": "expire dans 20 j (30/11/2026)",
+    "entity": "cert-20",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "cert_expiry:cert-20#0",
+    "link": "/services?q=cert-20",
+    "muted": false,
+    "parents": [],
+    "rule": "cert_expiry",
+    "severity": "warning",
+    "title": "cert-20 — certificat"
+  },
+  {
+    "cond": false,
+    "detail": "expire dans 21 j (01/12/2026)",
+    "entity": "cert-21",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "cert_expiry:cert-21#0",
+    "link": "/services?q=cert-21",
+    "muted": false,
+    "parents": [],
+    "rule": "cert_expiry",
+    "severity": "warning",
+    "title": "cert-21 — certificat"
+  },
+  {
+    "cond": true,
+    "detail": "expire dans 6 j (16/11/2026)",
+    "entity": "cert-6",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "cert_expiry:cert-6#0",
+    "link": "/services?q=cert-6",
+    "muted": false,
+    "parents": [],
+    "rule": "cert_expiry",
+    "severity": "critical",
+    "title": "cert-6 — certificat"
+  },
+  {
+    "cond": true,
+    "detail": "expire dans 7 j (17/11/2026)",
+    "entity": "cert-7",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "cert_expiry:cert-7#0",
+    "link": "/services?q=cert-7",
+    "muted": false,
+    "parents": [],
+    "rule": "cert_expiry",
+    "severity": "warning",
+    "title": "cert-7 — certificat"
+  },
+  {
+    "cond": true,
+    "detail": "expire dans 9 j (19/11/2026)",
+    "entity": "site",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "cert_expiry:site#0",
+    "link": "/services?q=Site%20public",
+    "muted": false,
+    "parents": [],
+    "rule": "cert_expiry",
+    "severity": "warning",
+    "title": "Site public — certificat"
+  },
+  {
+    "cond": true,
+    "detail": "main #12 app : correctif",
+    "entity": "app",
+    "env": "prod",
+    "key": "ci_failed:app",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "ci_failed",
+    "severity": "warning",
+    "title": "CI app"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "casse",
+    "env": "prod",
+    "key": "ci_failed:casse",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "ci_failed",
+    "severity": "warning",
+    "title": "CI casse"
+  },
+  {
+    "cond": null,
+    "detail": "main #31 infra : en cours",
+    "entity": "infra",
+    "env": "prod",
+    "key": "ci_failed:infra",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "ci_failed",
+    "severity": "warning",
+    "title": "CI infra"
+  },
+  {
+    "cond": false,
+    "detail": "main #7 site : texte",
+    "entity": "site",
+    "env": "prod",
+    "key": "ci_failed:site",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "ci_failed",
+    "severity": "warning",
+    "title": "CI site"
+  },
+  {
+    "cond": false,
+    "detail": "0 redémarrages en 15 min",
+    "entity": "docker-a/web",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "container_restarting:docker-a/web",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "container_restarting",
+    "severity": "critical",
+    "title": "Conteneur web · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "redémarre en boucle (9 redémarrages)",
+    "entity": "docker-a/worker",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "container_restarting:docker-a/worker",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "container_restarting",
+    "severity": "critical",
+    "title": "Conteneur worker · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "healthcheck Docker en échec",
+    "entity": "docker-a/web",
+    "env": "prod",
+    "forSec": 120,
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "container_unhealthy:docker-a/web",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "container_unhealthy",
+    "severity": "critical",
+    "title": "Conteneur web · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "healthcheck Docker en échec",
+    "entity": "docker-a/worker",
+    "env": "prod",
+    "forSec": 120,
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "container_unhealthy:docker-a/worker",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "container_unhealthy",
+    "severity": "critical",
+    "title": "Conteneur worker · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "20 Go libres (seuil : 12 Go)",
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "disk_free:ws:/",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "disk_free",
+    "severity": "warning",
+    "title": "Espace libre / · poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": "72 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme0n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme0n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD borne (/dev/nvme0n1 · pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": "73 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme1n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme1n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD borne (/dev/nvme1n1 · pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": "74 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme2n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme2n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD borne (/dev/nvme2n1 · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "75 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme3n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme3n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD borne (/dev/nvme3n1 · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "79 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme4n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme4n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD borne (/dev/nvme4n1 · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "80 °C (seuils 75 / 80 °C)",
+    "entity": "main/pve-a/dev/nvme5n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/nvme5n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "critical",
+    "title": "Température SSD borne (/dev/nvme5n1 · pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "main/pve-a/dev/sda",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/sda",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température SSD de banc (/dev/sda · pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "main/pve-a/dev/sdb",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_temp:main/pve-a/dev/sdb",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_temp",
+    "severity": "warning",
+    "title": "Température HDD de banc (/dev/sdb · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "vie restante 9 %",
+    "entity": "main/pve-a/dev/nvme0n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme0n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme0n1 · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "vie restante 10 %",
+    "entity": "main/pve-a/dev/nvme1n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme1n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme1n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "vie restante 11 %",
+    "entity": "main/pve-a/dev/nvme2n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme2n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme2n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "vie restante 50 %",
+    "entity": "main/pve-a/dev/nvme3n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme3n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme3n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "vie restante 50 %",
+    "entity": "main/pve-a/dev/nvme4n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme4n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme4n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "vie restante 50 %",
+    "entity": "main/pve-a/dev/nvme5n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/nvme5n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD borne (/dev/nvme5n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "vie restante 15 %",
+    "entity": "main/pve-a/dev/sda",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "disk_wear:main/pve-a/dev/sda",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "disk_wear",
+    "severity": "warning",
+    "title": "Usure SSD de banc (/dev/sda · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "83 % utilisés (d'après Proxmox)",
+    "entity": "ct-d829",
+    "env": "prod",
+    "host": "CT 231 ct-disque-82.9 · pve-a",
+    "hostId": "ct-d829",
+    "key": "guest_disk:ct-d829:/",
+    "link": "/infra?h=ct-d829",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d829",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · ct-disque-82.9"
+  },
+  {
+    "cond": null,
+    "detail": "83 % utilisés (d'après Proxmox)",
+    "entity": "ct-d83",
+    "env": "prod",
+    "host": "CT 232 ct-disque-83 · pve-a",
+    "hostId": "ct-d83",
+    "key": "guest_disk:ct-d83:/",
+    "link": "/infra?h=ct-d83",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d83",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · ct-disque-83"
+  },
+  {
+    "cond": null,
+    "detail": "85 % utilisés (d'après Proxmox)",
+    "entity": "ct-d849",
+    "env": "prod",
+    "host": "CT 233 ct-disque-84.9 · pve-a",
+    "hostId": "ct-d849",
+    "key": "guest_disk:ct-d849:/",
+    "link": "/infra?h=ct-d849",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d849",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · ct-disque-84.9"
+  },
+  {
+    "cond": true,
+    "detail": "85 % utilisés (d'après Proxmox)",
+    "entity": "ct-d85",
+    "env": "prod",
+    "host": "CT 234 ct-disque-85 · pve-a",
+    "hostId": "ct-d85",
+    "key": "guest_disk:ct-d85:/",
+    "link": "/infra?h=ct-d85",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d85",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · ct-disque-85"
+  },
+  {
+    "cond": true,
+    "detail": "95 % utilisés (d'après Proxmox)",
+    "entity": "ct-d949",
+    "env": "prod",
+    "host": "CT 235 ct-disque-94.9 · pve-a",
+    "hostId": "ct-d949",
+    "key": "guest_disk:ct-d949:/",
+    "link": "/infra?h=ct-d949",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d949",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · ct-disque-94.9"
+  },
+  {
+    "cond": true,
+    "detail": "95 % utilisés (d'après Proxmox)",
+    "entity": "ct-d95",
+    "env": "prod",
+    "host": "CT 236 ct-disque-95 · pve-a",
+    "hostId": "ct-d95",
+    "key": "guest_disk:ct-d95:/",
+    "link": "/infra?h=ct-d95",
+    "muted": false,
+    "parents": [
+      "guest_stopped:ct-d95",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "critical",
+    "title": "Disque / · ct-disque-95"
+  },
+  {
+    "cond": true,
+    "detail": "93 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "83 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-82.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque /disque-82.9 · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": "83 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-83",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque /disque-83 · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": "85 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-84.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque /disque-84.9 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "85 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-85",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque /disque-85 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "95 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-94.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque /disque-94.9 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "95 % utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_disk:docker-a:/disque-95",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_disk",
+    "severity": "critical",
+    "title": "Disque /disque-95 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "67 % utilisés",
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "guest_disk:ws:/",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "guest_disk",
+    "severity": "warning",
+    "title": "Disque / · poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": "40 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes / · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-82.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-82.9 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-83",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-83 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-84.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-84.9 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-85",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-85 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-94.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-94.9 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "1 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/disque-95",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /disque-95 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "83 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-82.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /inodes-82.9 · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": "83 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-83",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /inodes-83 · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": "85 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-84.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /inodes-84.9 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "85 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-85",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /inodes-85 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "95 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-94.9",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes /inodes-94.9 · docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "95 % des inodes utilisés",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "guest_inodes:docker-a:/inodes-95",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_inodes",
+    "severity": "critical",
+    "title": "Inodes /inodes-95 · docker-a"
+  },
+  {
+    "cond": false,
+    "detail": "10 % des inodes utilisés",
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "guest_inodes:ws:/",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "guest_inodes",
+    "severity": "warning",
+    "title": "Inodes / · poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d829",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d829",
+    "key": "guest_stopped:ct-d829",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 231 ct-disque-82.9"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d83",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d83",
+    "key": "guest_stopped:ct-d83",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 232 ct-disque-83"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d849",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d849",
+    "key": "guest_stopped:ct-d849",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 233 ct-disque-84.9"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d85",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d85",
+    "key": "guest_stopped:ct-d85",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 234 ct-disque-85"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d949",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d949",
+    "key": "guest_stopped:ct-d949",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 235 ct-disque-94.9"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "ct-d95",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "ct-d95",
+    "key": "guest_stopped:ct-d95",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 236 ct-disque-95"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "dns-a",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "dns-a",
+    "key": "guest_stopped:dns-a",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "CT 212 dns-a"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running",
+    "entity": "docker-a",
+    "env": "prod",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "docker-a",
+    "key": "guest_stopped:docker-a",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "critical",
+    "title": "VM 211 docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "état Proxmox : stopped",
+    "entity": "lab",
+    "env": "dev",
+    "forSec": 90,
+    "host": "pve-a",
+    "hostId": "lab",
+    "key": "guest_stopped:lab",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_stopped",
+    "severity": "warning",
+    "title": "VM 200 lab"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : stopped ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/200",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:200",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "VM 200 lab non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/211",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:211",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "VM 211 docker-a non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/212",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:212",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 212 dns-a non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/231",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:231",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 231 ct-disque-82.9 non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/232",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:232",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 232 ct-disque-83 non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/233",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:233",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 233 ct-disque-84.9 non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/234",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:234",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 234 ct-disque-85 non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/235",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:235",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 235 ct-disque-94.9 non déclaré"
+  },
+  {
+    "cond": false,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/236",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:236",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 236 ct-disque-95 non déclaré"
+  },
+  {
+    "cond": true,
+    "detail": "état Proxmox : running ; à déclarer dans hosts[], ou à ignorer (proxmox[].ignoreGuests)",
+    "entity": "main/300",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": null,
+    "key": "guest_undeclared:main:300",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "guest_undeclared",
+    "severity": "info",
+    "title": "CT 300 inconnu non déclaré"
+  },
+  {
+    "cond": true,
+    "detail": "192.0.2.99",
+    "entity": "dev-1",
+    "env": "prod",
+    "key": "net_new:dev-1",
+    "link": "/network?d=dev-1",
+    "muted": false,
+    "parents": [],
+    "rule": "net_new",
+    "severity": "warning",
+    "title": "Nouvel appareil 02:00:00:00:00:99"
+  },
+  {
+    "cond": false,
+    "detail": "88 % de la RAM prise (hors cache)",
+    "entity": "main/mem-87.9",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-87.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "warning",
+    "title": "Mémoire mem-87.9"
+  },
+  {
+    "cond": null,
+    "detail": "88 % de la RAM prise (hors cache)",
+    "entity": "main/mem-88",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-88",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "warning",
+    "title": "Mémoire mem-88"
+  },
+  {
+    "cond": null,
+    "detail": "90 % de la RAM prise (hors cache)",
+    "entity": "main/mem-89.9",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-89.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "warning",
+    "title": "Mémoire mem-89.9"
+  },
+  {
+    "cond": true,
+    "detail": "90 % de la RAM prise (hors cache)",
+    "entity": "main/mem-90",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-90",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "warning",
+    "title": "Mémoire mem-90"
+  },
+  {
+    "cond": true,
+    "detail": "95 % de la RAM prise (hors cache)",
+    "entity": "main/mem-94.9",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-94.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "warning",
+    "title": "Mémoire mem-94.9"
+  },
+  {
+    "cond": true,
+    "detail": "95 % de la RAM prise (hors cache)",
+    "entity": "main/mem-95",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/mem-95",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "critical",
+    "title": "Mémoire mem-95"
+  },
+  {
+    "cond": true,
+    "detail": "97 % de la RAM prise (hors cache)",
+    "entity": "main/pve-a",
+    "env": "prod",
+    "forSec": 300,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_mem:main/pve-a",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_mem",
+    "severity": "critical",
+    "title": "Mémoire pve-a"
+  },
+  {
+    "cond": false,
+    "detail": "45 % du swap utilisé",
+    "entity": "main/mem-87.9",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-87.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-87.9"
+  },
+  {
+    "cond": null,
+    "detail": "45 % du swap utilisé",
+    "entity": "main/mem-88",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-88",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-88"
+  },
+  {
+    "cond": null,
+    "detail": "50 % du swap utilisé",
+    "entity": "main/mem-89.9",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-89.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-89.9"
+  },
+  {
+    "cond": true,
+    "detail": "50 % du swap utilisé",
+    "entity": "main/mem-90",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-90",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-90"
+  },
+  {
+    "cond": false,
+    "detail": "0 % du swap utilisé",
+    "entity": "main/mem-94.9",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-94.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-94.9"
+  },
+  {
+    "cond": false,
+    "detail": "0 % du swap utilisé",
+    "entity": "main/mem-95",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/mem-95",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap mem-95"
+  },
+  {
+    "cond": true,
+    "detail": "75 % du swap utilisé",
+    "entity": "main/pve-a",
+    "env": "prod",
+    "forSec": 600,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "node_swap:main/pve-a",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "node_swap",
+    "severity": "warning",
+    "title": "Swap pve-a"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d829",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d829",
+    "key": "not_backed_up:ct-d829",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 231 ct-disque-82.9"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d83",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d83",
+    "key": "not_backed_up:ct-d83",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 232 ct-disque-83"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d849",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d849",
+    "key": "not_backed_up:ct-d849",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 233 ct-disque-84.9"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d85",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d85",
+    "key": "not_backed_up:ct-d85",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 234 ct-disque-85"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d949",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d949",
+    "key": "not_backed_up:ct-d949",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 235 ct-disque-94.9"
+  },
+  {
+    "cond": null,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "ct-d95",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "ct-d95",
+    "key": "not_backed_up:ct-d95",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 236 ct-disque-95"
+  },
+  {
+    "cond": false,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "dns-a",
+    "key": "not_backed_up:dns-a",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde CT 212 dns-a"
+  },
+  {
+    "cond": false,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "docker-a",
+    "key": "not_backed_up:docker-a",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde VM 211 docker-a"
+  },
+  {
+    "cond": true,
+    "detail": "pris par aucun job de sauvegarde actif",
+    "entity": "lab",
+    "env": "dev",
+    "host": "pve-a",
+    "hostId": "lab",
+    "key": "not_backed_up:lab",
+    "link": "/backups",
+    "muted": false,
+    "parents": [],
+    "rule": "not_backed_up",
+    "severity": "warning",
+    "title": "Sauvegarde VM 200 lab"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "gitea",
+    "env": "prod",
+    "forSec": 60,
+    "key": "plugin_error:gitea",
+    "link": "/alerts",
+    "muted": false,
+    "parents": [],
+    "rule": "plugin_error",
+    "severity": "warning",
+    "title": "Plugin Gitea en erreur"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "network",
+    "env": "prod",
+    "forSec": 60,
+    "key": "plugin_error:network",
+    "link": "/alerts",
+    "muted": false,
+    "parents": [],
+    "rule": "plugin_error",
+    "severity": "warning",
+    "title": "Module réseau en erreur"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "ntfy",
+    "env": "prod",
+    "forSec": 60,
+    "key": "plugin_error:ntfy",
+    "link": "/alerts",
+    "muted": false,
+    "parents": [],
+    "rule": "plugin_error",
+    "severity": "warning",
+    "title": "Plugin ntfy en erreur"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "temoin",
+    "env": "prod",
+    "forSec": 60,
+    "key": "plugin_error:temoin",
+    "link": "/alerts",
+    "muted": false,
+    "parents": [],
+    "rule": "plugin_error",
+    "severity": "warning",
+    "title": "Plugin temoin en erreur"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "updates",
+    "env": "prod",
+    "forSec": 60,
+    "key": "plugin_error:updates",
+    "link": "/alerts",
+    "muted": false,
+    "parents": [],
+    "rule": "plugin_error",
+    "severity": "warning",
+    "title": "Module versions en erreur"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "posture_regression:dns-a",
+    "link": "/infra?h=dns-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:dns-a",
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "posture_regression",
+    "severity": "warning",
+    "title": "Posture de sécurité · dns-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "posture_regression:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "posture_regression",
+    "severity": "warning",
+    "title": "Posture de sécurité · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "posture_regression:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "posture_regression",
+    "severity": "warning",
+    "title": "Posture de sécurité · lab"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "posture_regression:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "posture_regression",
+    "severity": "warning",
+    "title": "Posture de sécurité · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "posture_regression:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "posture_regression",
+    "severity": "warning",
+    "title": "Posture de sécurité · poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "main",
+    "env": "prod",
+    "forSec": 120,
+    "host": null,
+    "hostId": "pve-a",
+    "key": "pve_unreachable:main",
+    "link": "/infra",
+    "masksChildren": false,
+    "muted": false,
+    "parents": [],
+    "rule": "pve_unreachable",
+    "severity": "warning",
+    "title": "Proxmox pve-a"
+  },
+  {
+    "cond": true,
+    "detail": "noyau mis à jour",
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "reboot_required:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "reboot_required",
+    "severity": "info",
+    "title": "Redémarrage requis · docker-a"
+  },
+  {
+    "cond": false,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "reboot_required:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "reboot_required",
+    "severity": "info",
+    "title": "Redémarrage requis · lab"
+  },
+  {
+    "cond": false,
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "reboot_required:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "reboot_required",
+    "severity": "info",
+    "title": "Redémarrage requis · vps"
+  },
+  {
+    "cond": false,
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "reboot_required:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "reboot_required",
+    "severity": "info",
+    "title": "Redémarrage requis · poste-dev"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "dns-a",
+    "env": "prod",
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "restart_required:dns-a",
+    "link": "/infra?h=dns-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:dns-a",
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "restart_required",
+    "severity": "info",
+    "title": "Services à redémarrer · dns-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "docker-a",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "restart_required:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "restart_required",
+    "severity": "info",
+    "title": "Services à redémarrer · docker-a"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "restart_required:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "restart_required",
+    "severity": "info",
+    "title": "Services à redémarrer · lab"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "restart_required:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "restart_required",
+    "severity": "info",
+    "title": "Services à redémarrer · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "ws",
+    "env": "dev",
+    "host": "poste-dev",
+    "hostId": "ws",
+    "key": "restart_required:ws",
+    "link": "/infra?h=ws",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:ws"
+    ],
+    "rule": "restart_required",
+    "severity": "info",
+    "title": "Services à redémarrer · poste-dev"
+  },
+  {
+    "cond": false,
+    "detail": "état : online",
+    "entity": "runner-a",
+    "env": "prod",
+    "forSec": 600,
+    "key": "runner_offline:runner-a",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "runner_offline",
+    "severity": "warning",
+    "title": "Runner runner-a"
+  },
+  {
+    "cond": true,
+    "detail": "état : offline",
+    "entity": "runner-b",
+    "env": "prod",
+    "forSec": 600,
+    "key": "runner_offline:runner-b",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "runner_offline",
+    "severity": "warning",
+    "title": "Runner runner-b"
+  },
+  {
+    "cond": false,
+    "entity": "deploy:site",
+    "env": "prod",
+    "host": "Gitea",
+    "hostId": null,
+    "key": "security_release:deploy:site@ccccccc",
+    "link": "/updates?q=site",
+    "muted": false,
+    "noRepeat": true,
+    "parents": [],
+    "rule": "security_release"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "lab",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "security_updates:lab",
+    "link": "/infra?h=lab",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:lab",
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "security_updates",
+    "severity": "warning",
+    "title": "Mises à jour de sécurité · lab"
+  },
+  {
+    "cond": false,
+    "detail": "0 de sécurité sur 0 en attente",
+    "entity": "vps",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "security_updates:vps",
+    "link": "/infra?h=vps",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:vps"
+    ],
+    "rule": "security_updates",
+    "severity": "info",
+    "title": "Mises à jour de sécurité · vps"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "app",
+    "env": "prod",
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "service_down:app",
+    "link": "/services?q=Application",
+    "muted": false,
+    "parents": [
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "Application"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "app-staging",
+    "env": "dev",
+    "host": "VM 200 lab · pve-a",
+    "hostId": "lab",
+    "key": "service_down:app-staging",
+    "link": "/services?q=Application%20(staging)",
+    "muted": false,
+    "parents": [
+      "guest_stopped:lab",
+      "pve_unreachable:main"
+    ],
+    "rule": "service_down",
+    "severity": "warning",
+    "title": "Application (staging)"
+  },
+  {
+    "cond": true,
+    "detail": "résolution locale : NXDOMAIN",
+    "entity": "dns",
+    "env": "prod",
+    "host": "CT 212 dns-a · pve-a",
+    "hostId": "dns-a",
+    "key": "service_down:dns",
+    "link": "/services?q=DNS",
+    "muted": false,
+    "parents": [
+      "guest_stopped:dns-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "DNS"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "fail-2",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "service_down:fail-2",
+    "link": "/services?q=fail-2",
+    "muted": false,
+    "parents": [],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "fail-2"
+  },
+  {
+    "cond": true,
+    "detail": "TCP 22 : refusé",
+    "entity": "fail-3",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "service_down:fail-3",
+    "link": "/services?q=fail-3",
+    "muted": false,
+    "parents": [],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "fail-3"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "ok-1",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "service_down:ok-1",
+    "link": "/services?q=ok-1",
+    "muted": false,
+    "parents": [],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "ok-1"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "ok-2",
+    "env": "prod",
+    "host": "vps",
+    "hostId": "vps",
+    "key": "service_down:ok-2",
+    "link": "/services?q=ok-2",
+    "muted": false,
+    "parents": [],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "ok-2"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "proxmox",
+    "env": "prod",
+    "host": "pve-a",
+    "hostId": "pve-a",
+    "key": "service_down:proxmox",
+    "link": "/services?q=Proxmox%20VE",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "Proxmox VE"
+  },
+  {
+    "cond": null,
+    "detail": null,
+    "entity": "router",
+    "env": "prod",
+    "host": "router",
+    "hostId": "router",
+    "key": "service_down:router",
+    "link": "/services?q=Routeur",
+    "muted": false,
+    "parents": [],
+    "rule": "service_down",
+    "severity": "critical",
+    "title": "Routeur"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme0n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme0n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme0n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme1n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme1n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme1n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme2n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme2n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme2n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme3n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme3n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme3n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme4n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme4n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme4n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/nvme5n1",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/nvme5n1",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD borne (/dev/nvme5n1 · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "état SMART : PASSED",
+    "entity": "main/pve-a/dev/sda",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/sda",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART SSD de banc (/dev/sda · pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "état SMART : FAILED",
+    "entity": "main/pve-a/dev/sdb",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "smart_failed:main/pve-a/dev/sdb",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "smart_failed",
+    "severity": "critical",
+    "title": "SMART HDD de banc (/dev/sdb · pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "backups/main",
+    "env": "prod",
+    "forSec": 600,
+    "key": "source_error:backups/main",
+    "link": "/backups",
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "rule": "source_error",
+    "severity": "warning",
+    "title": "Lecture des sauvegardes (pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "gitea",
+    "env": "prod",
+    "forSec": 600,
+    "key": "source_error:gitea",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "source_error",
+    "severity": "warning",
+    "title": "Lecture de Gitea"
+  },
+  {
+    "cond": false,
+    "detail": null,
+    "entity": "runners",
+    "env": "prod",
+    "forSec": 600,
+    "key": "source_error:runners",
+    "link": "/ci",
+    "muted": false,
+    "parents": [],
+    "rule": "source_error",
+    "severity": "warning",
+    "title": "Lecture des runners Gitea"
+  },
+  {
+    "cond": true,
+    "detail": "95 % utilisés",
+    "entity": "main/local",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/local",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 95,
+    "rule": "storage_usage",
+    "severity": "critical",
+    "title": "Stockage local (pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "78 % utilisés",
+    "entity": "main/st-77.9",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-77.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 77.9,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage st-77.9 (pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": "78 % utilisés",
+    "entity": "main/st-78",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-78",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 78,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage st-78 (pve-a)"
+  },
+  {
+    "cond": null,
+    "detail": "80 % utilisés",
+    "entity": "main/st-79.9",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-79.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 79.9,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage st-79.9 (pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "80 % utilisés",
+    "entity": "main/st-80",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-80",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 80,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage st-80 (pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "90 % utilisés",
+    "entity": "main/st-89.9",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-89.9",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 89.9,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage st-89.9 (pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "90 % utilisés",
+    "entity": "main/st-90",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/st-90",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 90,
+    "rule": "storage_usage",
+    "severity": "critical",
+    "title": "Stockage st-90 (pve-a)"
+  },
+  {
+    "cond": false,
+    "detail": "10 % utilisés",
+    "entity": "main/tank",
+    "env": "prod",
+    "host": null,
+    "hostId": "pve-a",
+    "key": "storage_usage:main/tank",
+    "link": "/infra",
+    "muted": false,
+    "parents": [
+      "pve_unreachable:main"
+    ],
+    "pct": 10,
+    "rule": "storage_usage",
+    "severity": "warning",
+    "title": "Stockage tank (pve-a)"
+  },
+  {
+    "cond": true,
+    "detail": "backup.service",
+    "entity": "docker-a",
+    "env": "prod",
+    "forSec": 120,
+    "host": "VM 211 docker-a · pve-a",
+    "hostId": "docker-a",
+    "key": "systemd_failed:docker-a",
+    "link": "/infra?h=docker-a",
+    "muted": false,
+    "parents": [
+      "agent_unreachable:docker-a",
+      "guest_stopped:docker-a",
+      "pve_unreachable:main"
+    ],
+    "rule": "systemd_failed",
+    "severity": "warning",
+    "title": "Unités systemd · docker-a"
+  }
+]

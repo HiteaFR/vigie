@@ -1,0 +1,190 @@
+## compte non autorisé
+audit : refus · tg:9@u9 · chat 42
+
+## chat non autorisé
+audit : refus · tg:7@u7 · chat 43
+
+## bouton d'un compte non autorisé
+réponse au bouton cb104
+audit : refus · tg:9@u9 · chat 42
+
+## /help
+envoi : <b>Commands</b>
+/status — global status
+/down — ongoing alerts (with their number)
+/ack &lt;number|key&gt; &lt;reason&gt; — acknowledge (stops reminders)
+/mute &lt;target&gt; &lt;duration&gt; &lt;reason&gt; — silence, e.g. <code>/mute web-1 2h migration</code>
+   target: alert number (#12), host, service, rule or key; duration: 30m, 2h, 3d (30 d at most)
+/unmute &lt;number&gt; — lift a silence
+/silences — active silences
+/digest — digest now
+/refresh — run all checks again
+/network — LAN devices, new ones, MACs to confirm (to delete a device: on /network, with a reason)
+/device &lt;text&gt; — find a device (name, MAC, vendor, exact IP)
+/known &lt;id&gt; &lt;reason&gt; — confirm a new device or one to review
+(old names still accepted: /reseau, /appareil, /connu)
+
+## /start
+envoi : <b>Commands</b>
+/status — global status
+/down — ongoing alerts (with their number)
+/ack &lt;number|key&gt; &lt;reason&gt; — acknowledge (stops reminders)
+/mute &lt;target&gt; &lt;duration&gt; &lt;reason&gt; — silence, e.g. <code>/mute web-1 2h migration</code>
+   target: alert number (#12), host, service, rule or key; duration: 30m, 2h, 3d (30 d at most)
+/unmute &lt;number&gt; — lift a silence
+/silences — active silences
+/digest — digest now
+/refresh — run all checks again
+/network — LAN devices, new ones, MACs to confirm (to delete a device: on /network, with a reason)
+/device &lt;text&gt; — find a device (name, MAC, vendor, exact IP)
+/known &lt;id&gt; &lt;reason&gt; — confirm a new device or one to review
+(old names still accepted: /reseau, /appareil, /connu)
+
+## /status
+envoi : 🟢 état de banc
+
+## /down
+envoi : 🚨 <b>50 ongoing alerts</b>
+#1 🔴 DNS — résolution locale: NXDOMAIN
+#3 🔴 fail-3 — TCP 22: refusé
+#5 🔴 cert-6 — certificat — expires in 6 d (16/11/2026)
+#10 🔴 Disk / · ct-disque-95 — 95 % used (per Proxmox)
+#11 🔴 Storage local (pve-a) — 95 % used
+#14 🔴 Storage st-90 (pve-a) — 90 % used
+#40 🔴 Memory pve-a — 97 % of RAM used (excluding cache)
+#43 🔴 Memory mem-95 — 95 % of RAM used (excluding cache)
+#15 🔴 SMART HDD de banc (/dev/sdb · pve-a) — SMART state: FAILED
+#20 🔴 Temperature SSD borne (/dev/nvme5n1 · pve-a) — 80 °C (thresholds 75 / 80 °C)
+#32 🔴 Disk /disque-95 · docker-a — 95 % used
+#35 🔴 Inodes /inodes-95 · docker-a — 95 % of inodes used
+#44 🔴 Container web · docker-a — Docker healthcheck failing
+#36 🔴 Container worker · docker-a — restarting in a loop (9 restarts)
+#39 🟠 VM 200 lab — Proxmox state: stopped
+#2 🟠 Site public — certificat — expires in 9 d (19/11/2026)
+#4 🟠 cert-20 — certificat — expires in 20 d (30/11/2026)
+#6 🟠 cert-7 — certificat — expires in 7 d (17/11/2026)
+#8 🟠 Disk / · ct-disque-85 — 85 % used (per Proxmox)
+#9 🟠 Disk / · ct-disque-94.9 — 95 % used (per Proxmox)
+#12 🟠 Storage st-80 (pve-a) — 80 % used
+#13 🟠 Storage st-89.9 (pve-a) — 90 % used
+#47 🟠 Swap pve-a — 75 % of swap used
+#41 🟠 Memory mem-90 — 90 % of RAM used (excluding cache)
+#48 🟠 Swap mem-90 — 50 % of swap used
+
+## /silences
+envoi : 🔕 No active silences
+
+## /digest
+envoi : ☀️ digest de banc
+
+## /refresh
+envoi : Last run too recent: try again in 42 s.
+
+## /inconnue
+envoi : Unknown command. /help
+
+## bonjour
+envoi : Command expected. /help
+
+## /ack
+envoi : Alert not found: give its number (see /down) or its key.
+
+## /ack #1
+envoi : Reason required: <code>/ack #12 on it</code>
+
+## /ack #1 ok
+envoi : Reason required: <code>/ack #12 on it</code>
+
+## /ack #999999 je regarde
+envoi : Alert not found: give its number (see /down) or its key.
+
+## /ack #1 je m'en occupe
+envoi : ✅ <b>DNS</b> acknowledged: je m'en occupe
+No more reminders; recovery will be notified.
+audit : tg:u7 · ack · service_down:dns · je m'en occupe
+
+## /unack #1
+envoi : Ack removed: reminders resume.
+audit : tg:u7 · unack · service_down:dns
+
+## /unack #1
+envoi : Alert not found or not acknowledged.
+
+## /mute
+envoi : Unknown target: alert number (#12), host, service, rule or key.
+
+## /mute inconnu 2h motif
+envoi : Unknown target: alert number (#12), host, service, rule or key.
+
+## /mute web 99j motif
+envoi : Unknown target: alert number (#12), host, service, rule or key.
+
+## /mute web 2h
+envoi : Unknown target: alert number (#12), host, service, rule or key.
+
+## /mute web 2h migration de banc
+envoi : Unknown target: alert number (#12), host, service, rule or key.
+
+## /silences
+envoi : 🔕 No active silences
+
+## /unmute 999
+envoi : Silence not found or already lifted (see /silences).
+
+## /unmute 1
+envoi : Silence not found or already lifted (see /silences).
+
+## /connu 3 téléphone
+envoi : Network module not configured.
+
+## /reseau
+envoi : Network module not configured.
+
+## /appareil 3
+envoi : Network module not configured.
+
+## bouton ack de #1
+réponse au bouton cb186
+envoi {"force_reply":true,"selective":true,"input_field_placeholder":"reason"} : ✅ Acknowledge “DNS”: what reason? (reply to this message)
+
+## motif trop court
+envoi : Reason too short (at least 3 characters): start again from the button.
+
+## bouton ack de #1 (encore)
+réponse au bouton cb191
+envoi {"force_reply":true,"selective":true,"input_field_placeholder":"reason"} : ✅ Acknowledge “DNS”: what reason? (reply to this message)
+
+## motif donné
+envoi : ✅ <b>DNS</b> acknowledged: je regarde le banc
+No more reminders; recovery will be notified.
+audit : tg:u7 · ack · service_down:dns · je regarde le banc
+
+## bouton silence de #2
+réponse au bouton cb196
+envoi {"force_reply":true,"selective":true,"input_field_placeholder":"reason"} : 🔕 Silence for 1 h “Site public — certificat”: what reason? (reply to this message)
+
+## motif donné trop tard (demande expirée)
+envoi : Request expired: start again from the button or /down.
+
+## bouton silence de #2 (encore)
+réponse au bouton cb201
+envoi {"force_reply":true,"selective":true,"input_field_placeholder":"reason"} : 🔕 Silence for 1 h “Site public — certificat”: what reason? (reply to this message)
+
+## motif donné
+envoi : ⚠️ invalid end (in the future, 90 days at most)
+
+## bouton d'une alerte inconnue
+réponse au bouton cb206 : Alert already recovered or unknown
+
+## bouton retiré (i:)
+réponse au bouton cb207 : Action removed
+audit : tg:u7 · network: ignore · 3 · refus · action retired
+
+## bouton réseau sans module
+réponse au bouton cb208 : Already handled
+audit : tg:u7 · network: known · 3 · refus · already handled
+
+## donnée de bouton forgée
+réponse au bouton cb209 : Alert already recovered or unknown
+
+# état : {"running":false,"allowedUsers":2,"lastUpdateAt":null,"lastError":null}

@@ -1,0 +1,57 @@
+# premier passage
+dns-bloqueur : Requêtes=123 456 | Bloquées=6,4 % | Clients=17
+tunnel : Actif=oui | Vu=il y a 1 h | MAJ=non
+debit : Desc.=912,3 Mb/s | Mont.=48,6 Mb/s | Ping=7 ms | Mesure=il y a 3 j
+sonde-temp : CPU=51,3 °C | Disque=38 °C
+media : Sessions=3 | Total=1 234 567
+file-a : Total=42 | Attente=0 | Avert.=2
+file-b : Total=42 | Attente=0 | Avert.=2 avert.
+file-c : Total=42 | Attente=0 | Avert.=2 avert.
+file-d : Total=42 | Attente=0
+torrent : Desc.=1,5 Ko/s | Mont.=5 Mo/s | Nœuds=412
+statut : Version=1.2.3 | État=ok | Canal=stable | Note=12
+echeances : Jamais=jamais | Bientôt=10 j | Passé=expiré | Invalide=— | Invalide (ago)=—
+metriques : Charge=0,4 | Requêtes=98 765 | Absente=—
+divers : Texte=abc | Texte en nombre=— | Virgule=— | Nul=— | Longueur=3 | Premier=1 | Zéro=0 % | Faux=non | Ms=1 234,5 ms | Pct=100 % | Mbps=0 Mb/s | Absent=— | Objet=[object Object]
+introuvable : (aucun champ) ; erreur : /nulle-part → HTTP 404
+injoignable : (aucun champ) ; erreur : ECONNREFUSED
+sans-secret : (aucun champ) ; erreur : secret ABSENT absent de l'environnement
+instable : N=7
+
+# second passage (instable en 503)
+dns-bloqueur : Requêtes=123 456 | Bloquées=6,4 % | Clients=17
+tunnel : Actif=oui | Vu=il y a 1 h | MAJ=non
+debit : Desc.=912,3 Mb/s | Mont.=48,6 Mb/s | Ping=7 ms | Mesure=il y a 3 j
+sonde-temp : CPU=51,3 °C | Disque=38 °C
+media : Sessions=3 | Total=1 234 567
+file-a : Total=42 | Attente=0 | Avert.=2
+file-b : Total=42 | Attente=0 | Avert.=2 avert.
+file-c : Total=42 | Attente=0 | Avert.=2 avert.
+file-d : Total=42 | Attente=0
+torrent : Desc.=1,5 Ko/s | Mont.=5 Mo/s | Nœuds=412
+statut : Version=1.2.3 | État=ok | Canal=stable | Note=12
+echeances : Jamais=jamais | Bientôt=10 j | Passé=expiré | Invalide=— | Invalide (ago)=—
+metriques : Charge=0,4 | Requêtes=98 765 | Absente=—
+divers : Texte=abc | Texte en nombre=— | Virgule=— | Nul=— | Longueur=3 | Premier=1 | Zéro=0 % | Faux=non | Ms=1 234,5 ms | Pct=100 % | Mbps=0 Mb/s | Absent=— | Objet=[object Object]
+introuvable : (aucun champ) ; erreur : /nulle-part → HTTP 404
+injoignable : (aucun champ) ; erreur : ECONNREFUSED
+sans-secret : (aucun champ) ; erreur : secret ABSENT absent de l'environnement
+instable : N=7 ; erreur : /instable/val → HTTP 503 ; anciennes valeurs
+
+# requêtes reçues (deux passages, uniques, triées ; secrets masqués)
+GET /api/stats/summary [x-ftl-sid=sid-golden] ua=vigie
+GET /api/v2/transfer/info [cookie=SID=golden] ua=vigie
+GET /bearer/etat [authorization=Bearer <secret>] ua=vigie
+GET /bearer/temp [authorization=Bearer <secret>] ua=vigie
+GET /divers [] ua=vigie
+GET /header/file [x-api-key=<secret>] ua=vigie
+GET /header/file [x-api-key=Clé <secret>] ua=vigie
+GET /header/sessions [x-token=<secret>] ua=vigie
+GET /header/statut [x-api-key=<secret>] ua=vigie
+GET /instable/val [] ua=vigie
+GET /metrics [] ua=vigie
+GET /nulle-part [] ua=vigie
+GET /query/exp?apikey=<secret> [] ua=vigie
+GET /speed/dernier [] ua=vigie
+POST /api/auth [] corps={"password":"<secret>"} ua=vigie
+POST /api/v2/auth/login [] corps=username=<secret>&password=<secret> ua=vigie

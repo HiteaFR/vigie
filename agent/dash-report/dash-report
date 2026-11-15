@@ -1,0 +1,525 @@
+#!/bin/sh
+# dash-report: state report of a host for Vigie, as JSON on a single line. Run as root through
+# sudo, by the forced-command SSH key (dash-report-ssh), or by the local timer
+# (dash-report-local) on the machine that runs the dashboard.
+#
+#   dash-report fast   current state (60 s): system, file systems (v8: inodes), systemd, reboot,
+#                      containers, network (v6: interfaces, neighbours, container networks),
+#                      v9: processes killed by earlyoom in the last hour
+#   dash-report slow   slow inventory (1 h): apt packages, Docker images, versions, automatic
+#                      security updates (v7: autoUpdate), v8: services to restart, posture (SSH,
+#                      firewall), listening ports, clock synchronisation
+#
+# Takes no input other than the mode, and two optional files written by root:
+# /etc/dash-report.units (watched units) and /etc/dash-report.conf (settings, read with sed,
+# never executed). NEVER prints the environment, the mounts or the command of containers
+# (possible secrets): the docker inspect template below lists every field it emits.
+# v9: every string read from a command is capped (JS_MAX bytes, Docker strings by their template),
+# every list has a maximum length.
+# Identity test: sha256 of the body, from the first line that does not start with "#"
+# (agent/README.md).
+set -u
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+export PATH LC_ALL=C
+REPORT_VERSION=9
+UNITS_FILE=/etc/dash-report.units
+CONF_FILE=/etc/dash-report.conf
+# v9: maximum length (bytes) of a JSON string built from a command output
+JS_MAX=256
+
+# JSON string: control characters removed, capped at JS_MAX bytes (v9), \ and " escaped
+js() {
+  printf '"%s"' "$(printf '%s' "$1" | tr -d '\000-\037' | head -c "$JS_MAX" | sed 's/\\/\\\\/g; s/"/\\"/g')"
+}
+
+# lines → JSON array of strings
+js_lines() {
+  first=1
+  printf '['
+  while IFS= read -r l; do
+    [ -n "$l" ] || continue
+    [ $first -eq 1 ] || printf ','
+    first=0
+    js "$l"
+  done
+  printf ']'
+}
+
+num() { case "$1" in '' | *[!0-9]*) printf 0 ;; *) printf '%s' "$1" ;; esac; }
+
+has() { command -v "$1" >/dev/null 2>&1; }
+
+docker_ok() { has docker && timeout 10 docker info >/dev/null 2>&1; }
+
+sys() {
+  # shellcheck disable=SC1091 # file of the host
+  . /etc/os-release 2>/dev/null
+  read -r up _ </proc/uptime
+  read -r l1 l5 l15 _ </proc/loadavg
+  mt=$(awk '/^MemTotal:/ {printf "%.0f", $2 * 1024}' /proc/meminfo)
+  ma=$(awk '/^MemAvailable:/ {printf "%.0f", $2 * 1024}' /proc/meminfo)
+  st=$(awk '/^SwapTotal:/ {printf "%.0f", $2 * 1024}' /proc/meminfo)
+  sf=$(awk '/^SwapFree:/ {printf "%.0f", $2 * 1024}' /proc/meminfo)
+  virt=$(systemd-detect-virt 2>/dev/null)
+  printf '"hostname":%s,"os":%s,"osId":%s,"osVersion":%s,"kernel":%s,"virt":%s,' \
+    "$(js "$(hostname)")" "$(js "${PRETTY_NAME:-?}")" "$(js "${ID:-}")" "$(js "${VERSION_ID:-}")" \
+    "$(js "$(uname -r)")" "$(js "${virt:-none}")"
+  printf '"uptimeSec":%s,"load":[%s,%s,%s],"mem":{"total":%s,"available":%s},"swap":{"total":%s,"free":%s}' \
+    "$(num "${up%.*}")" "$l1" "$l5" "$l15" "$(num "$mt")" "$(num "$ma")" "$(num "$st")" "$(num "$sf")"
+}
+
+# local file systems (-l: a hung NFS mount does not block the report);
+# v8: inodes of the same mount (df -i), null when the file system does not count them (vfat,
+# btrfs: 0); v9: mount point without control characters, " or \ (like js()), capped at 256
+# characters, type at 32, 64 file systems at most
+FS_X='-x tmpfs -x devtmpfs -x overlay -x squashfs -x efivarfs -x fuse.lxcfs'
+fs() {
+  printf '"fs":['
+  {
+    # shellcheck disable=SC2086 # options wanted
+    timeout 10 df -P -T -i -l $FS_X 2>/dev/null | awk 'NR > 1 { print "I", $3, $4, $0 }'
+    # shellcheck disable=SC2086
+    timeout 10 df -P -T -B1 -l $FS_X 2>/dev/null | awk 'NR > 1 && $3 > 0 { print "S", $0 }'
+  } | awk '
+    function mnt(k) { m = $k; for (i = k + 1; i <= NF; i++) m = m " " $i; return m }
+    $1 == "I" { k = mnt(10); it[k] = $2; iu[k] = $3; next }
+    $1 == "S" {
+      if (n >= 64) next
+      k = mnt(8); m = k
+      gsub(/[\001-\037\177"\\]/, "", m)
+      m = substr(m, 1, 256); ty = substr($3, 1, 32)
+      gsub(/[^A-Za-z0-9._-]/, "", ty)
+      ino = "null"
+      if (it[k] ~ /^[0-9]+$/ && iu[k] ~ /^[0-9]+$/ && it[k] > 0) ino = "{\"total\":" it[k] ",\"used\":" iu[k] "}"
+      printf "%s{\"mount\":\"%s\",\"type\":\"%s\",\"size\":%s,\"used\":%s,\"avail\":%s,\"inodes\":%s}", (n++ ? "," : ""), m, ty, $4, $5, $6, ino
+    }'
+  printf ']'
+}
+
+# systemd: failed units (50 at most), and the units watched through /etc/dash-report.units: one
+# pattern per line (glob allowed: nginx*), # for a comment. v9: a pattern is used only if it is
+# made of the allowed characters (letters, digits, @ . _ : * -, 100 at most, the same rule as
+# install.sh); other lines are ignored. 64 patterns and 100 watched units at most.
+UNIT_PATTERN='^[A-Za-z0-9@._:*-]{1,100}$'
+units_info() {
+  has systemctl || { printf '"systemd":null'; return; }
+  printf '"systemd":{"failed":'
+  systemctl list-units --state=failed --no-legend --plain --no-pager 2>/dev/null | awk '{print $1}' | head -n 50 | js_lines
+  printf ',"watched":['
+  first=1
+  if [ -r "$UNITS_FILE" ]; then
+    grep -v '^[[:space:]]*\(#\|$\)' "$UNITS_FILE" | grep -E "$UNIT_PATTERN" | head -n 64 | while IFS= read -r pat; do
+      found=$(systemctl list-units --all --no-legend --plain --no-pager -- "$pat" 2>/dev/null | awk '{print $1, $3, $4}')
+      [ -n "$found" ] || found="$pat missing missing"
+      printf '%s\n' "$found"
+    done | head -n 100 | while read -r u a s; do
+      [ $first -eq 1 ] || printf ','
+      first=0
+      printf '{"unit":%s,"active":%s,"sub":%s}' "$(js "$u")" "$(js "$a")" "$(js "$s")"
+    done
+  fi
+  printf ']}'
+}
+
+# reboot required: Debian/Ubuntu marker, or a newer kernel installed (VM). v9: the kernel reason is
+# in English, "kernel <installed> installed, <running> running" (the server translates it)
+reboot_info() {
+  req=false
+  why=""
+  if [ -e /var/run/reboot-required ]; then
+    req=true
+    why=$(tr '\n' ' ' </var/run/reboot-required.pkgs 2>/dev/null)
+    [ -n "$why" ] || why="reboot-required"
+  fi
+  ct=$(systemd-detect-virt -c 2>/dev/null)
+  if [ "${ct:-none}" = none ] && [ -d /lib/modules ]; then
+    # shellcheck disable=SC2012 # kernel version names
+    newest=$(ls /lib/modules | sort -V | tail -n 1)
+    if [ -n "$newest" ] && [ "$newest" != "$(uname -r)" ]; then
+      req=true
+      why="kernel $newest installed, $(uname -r) running"
+    fi
+  fi
+  printf '"reboot":{"required":%s,"reason":%s}' "$req" "$(js "$why")"
+}
+
+# v6: network seen from inside, read only. awk emits a value only if its format is valid (dotted
+# IPv4, hexadecimal MAC, short interface name). Excluded: lo, veth*, docker0, br-*, interfaces
+# without IPv4. Hexadecimal MAC without {n} repetition (mawk, the Debian awk, does not know it)
+H2='[0-9a-f][0-9a-f]'
+MAC_RE="^$H2:$H2:$H2:$H2:$H2:$H2"'$'
+net_info() {
+  has ip || { printf '"net":null'; return; }
+  printf '"net":{"ifaces":['
+  {
+    timeout 5 ip -o link show 2>/dev/null | awk '{ n = $2; sub(/:$/, "", n); sub(/@.*/, "", n); m = ""; for (i = 3; i < NF; i++) if ($i == "link/ether") m = $(i + 1); print "L", n, m }'
+    timeout 5 ip -o -4 addr show 2>/dev/null | awk '{ for (i = 3; i < NF; i++) if ($i == "inet") print "A", $2, $(i + 1) }'
+  } | awk -v MAC="$MAC_RE" '
+    function okname(n) { return n ~ /^[A-Za-z0-9_.@-]+$/ && length(n) <= 15 && n != "lo" && n !~ /^veth/ && n != "docker0" && n !~ /^br-/ }
+    $1 == "L" && okname($2) { if (!($2 in mac)) { order[++k] = $2 }; mac[$2] = ($3 ~ MAC) ? $3 : "" }
+    $1 == "A" && okname($2) && $3 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\/[0-9]+$/ { if (cnt[$2] < 8) addr[$2, ++cnt[$2]] = $3 }
+    END {
+      out = 0
+      for (j = 1; j <= k && out < 32; j++) {
+        n = order[j]
+        if (!cnt[n]) continue
+        printf "%s{\"name\":\"%s\",\"mac\":%s,\"ipv4\":[", (out++ ? "," : ""), n, (mac[n] == "" ? "null" : "\"" mac[n] "\"")
+        for (a = 1; a <= cnt[n]; a++) printf "%s\"%s\"", (a > 1 ? "," : ""), addr[n, a]
+        printf "]}"
+      }
+    }'
+  printf '],"neigh":['
+  timeout 5 ip -4 neigh show 2>/dev/null | awk -v MAC="$MAC_RE" '
+    {
+      ip = $1; dev = ""; ll = ""
+      for (i = 2; i < NF; i++) { if ($i == "dev") dev = $(i + 1); if ($i == "lladdr") ll = $(i + 1) }
+      st = $NF
+      if (ll == "" || ip !~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ || ll !~ MAC) next
+      if (dev !~ /^[A-Za-z0-9_.@-]+$/ || length(dev) > 15 || st !~ /^[A-Z]+$/) next
+      if (++n > 512) exit
+      printf "%s{\"ip\":\"%s\",\"mac\":\"%s\",\"dev\":\"%s\",\"state\":\"%s\"}", (n > 1 ? "," : ""), ip, ll, dev, st
+    }'
+  printf ']}'
+}
+
+# containers: fields listed one by one (never .Config.Env, .Mounts, .Config.Cmd…);
+# v6: networks (name, driver) and, per container, network, IPv4 and MAC only (never Aliases,
+# DNSNames, DriverOpts, EndpointID, NetworkID, Gateway, IPAMConfig); the final null avoids
+# touching the commas (a network name can contain ",]"). v9: free strings capped by the template
+# (printf "%.Ns", counted in characters): names 128, image 256, labels 128, driver 64
+containers() {
+  docker_ok || { printf '"docker":null'; return; }
+  printf '"docker":{"version":%s,"networks":' "$(js "$(docker version --format '{{.Server.Version}}' 2>/dev/null)")"
+  nets=$(timeout 20 docker network ls --format '{"name":{{json (printf "%.128s" .Name)}},"driver":{{json (printf "%.64s" .Driver)}}}' 2>/dev/null) && ok=1 || ok=0
+  if [ $ok -eq 1 ] && [ -n "$nets" ]; then
+    printf '%s\n' "$nets" | head -n 64 | grep . | paste -sd, - | sed 's/^/[/; s/$/]/'
+  elif [ $ok -eq 1 ]; then
+    printf '[]' # succeeded but empty: a single empty array (valid JSON)
+  else
+    printf 'null'
+  fi
+  printf ',"containers":['
+  ids=$(docker ps -aq --no-trunc | head -n 200)
+  if [ -n "$ids" ]; then
+    # shellcheck disable=SC2086 # list of identifiers wanted
+    timeout 20 docker inspect --format '{"name":{{json (printf "%.128s" .Name)}},"image":{{json (printf "%.256s" .Config.Image)}},"imageId":{{json .Image}},"created":{{json .Created}},"state":{{json .State.Status}},"health":{{if .State.Health}}{{json .State.Health.Status}}{{else}}null{{end}},"exitCode":{{.State.ExitCode}},"oomKilled":{{.State.OOMKilled}},"startedAt":{{json .State.StartedAt}},"finishedAt":{{json .State.FinishedAt}},"restarts":{{.RestartCount}},"restartPolicy":{{json .HostConfig.RestartPolicy.Name}},"compose":{{json (printf "%.128s" (index .Config.Labels "com.docker.compose.project"))}},"service":{{json (printf "%.128s" (index .Config.Labels "com.docker.compose.service"))}},"networks":[{{range $k, $v := .NetworkSettings.Networks}}{"network":{{json (printf "%.128s" $k)}},"ip":{{json $v.IPAddress}},"mac":{{json $v.MacAddress}}},{{end}}null]}' $ids |
+      paste -sd, -
+  fi
+  printf ']}'
+}
+
+apt_info() {
+  has apt-get || { printf '"apt":null'; return; }
+  # last apt update: partial/ changes at each run, so does update-success-stamp (Ubuntu); the
+  # *Release files keep the publication date of the repository, frozen on an end-of-life release
+  # (last resort only)
+  lists=$(find /var/lib/apt/lists /var/lib/apt/periodic -maxdepth 1 \( -name partial -o -name update-success-stamp -o -name '*Release' \) -printf '%T@\n' 2>/dev/null | sort -n | tail -n 1)
+  up=$(apt list --upgradable 2>/dev/null | grep -v '^Listing' | grep .)
+  # v5: a held package (apt-mark hold) is a decision already made, not a pending update: counted
+  # apart (held) and flagged in the list
+  held=" $(apt-mark showhold 2>/dev/null | tr '\n' ' ') "
+  # shellcheck disable=SC2046 # splitting wanted: three numbers
+  set -- $(printf '%s\n' "$up" | awk -v held="$held" 'NF { n = $1; sub(/\/.*/, "", n); if (index(held, " " n " ")) h++; else { t++; if ($1 ~ /-security/) s++ } } END { printf "%d %d %d", t, s, h }')
+  printf '"apt":{"listsAt":%s,"upgradable":%s,"security":%s,"held":%s,"packages":' "$(num "${lists%.*}")" "$1" "$2" "$3"
+  # "name/suite version arch [upgradable from: old]" → name suite new old (200 packages at most)
+  printf '%s\n' "$up" | head -n 200 | sed -n 's|^\([^/]*\)/\([^ ]*\) \([^ ]*\) [^ ]* \[upgradable from: \([^]]*\)\]$|\1 \2 \3 \4|p' |
+    while read -r n s v o; do
+      case "$held" in *" $n "*) h=true ;; *) h=false ;; esac
+      printf '{"name":%s,"suite":%s,"version":%s,"from":%s,"held":%s}\n' "$(js "$n")" "$(js "$s")" "$(js "$v")" "$(js "$o")" "$h"
+    done | paste -sd, - | sed 's/^/[/; s/$/]/'
+  printf '}'
+}
+
+# setting of /etc/dash-report.conf (v9): value of the last "NAME=value" line, read with sed and
+# never executed; empty when the file or the line is missing
+conf() { sed -n "s/^$1=//p" "$CONF_FILE" 2>/dev/null | tail -n 1; }
+
+# v7: automatic security updates (unattended-upgrades). Last run read from the
+# unattended-upgrades log: a run is a "Starting unattended upgrades script" block that reaches a
+# conclusion (blocks without one come from the apt-daily download, --dry-run tries are left out).
+# Only the time, the outcome and validated package names leave the log; versions come from
+# dpkg-query.
+# v9: securityOnly comes from two optional settings of /etc/dash-report.conf, written by whoever
+# installs the security-only configuration: SECURITY_ONLY_FILE (absolute path of that apt
+# configuration file) and SECURITY_ONLY_MARK (fixed text this file must contain; when empty, the
+# file only has to exist). Without SECURITY_ONLY_FILE, or with a value out of form, securityOnly
+# is false. No default value.
+UU_LOG=/var/log/unattended-upgrades/unattended-upgrades.log
+security_only() {
+  f=$(conf SECURITY_ONLY_FILE)
+  m=$(conf SECURITY_ONLY_MARK)
+  printf '%s\n' "$f" | grep -Eqx '/[A-Za-z0-9._/-]{1,200}' || return 1
+  case "$f" in *..*) return 1 ;; esac
+  [ -f "$f" ] || return 1
+  [ -n "$m" ] || return 0
+  # printable ASCII only, 100 characters at most
+  printf '%s\n' "$m" | grep -Eqx '[ -~]{1,100}' || return 1
+  grep -qsF -- "$m" "$f"
+}
+auto_update() {
+  has apt-get || { printf '"autoUpdate":null'; return; }
+  st=$(dpkg-query -W -f '${db:Status-Abbrev}' unattended-upgrades 2>/dev/null)
+  case "$st" in [hi]i*) inst=true ;; *) inst=false ;; esac
+  v=$(apt-config dump APT::Periodic::Unattended-Upgrade 2>/dev/null | sed -n 's/^APT::Periodic::Unattended-Upgrade "\([^"]*\)";$/\1/p' | tail -n 1)
+  case "$v" in '' | 0 | false | no) en=false ;; *) en=true ;; esac
+  security_only && sec=true || sec=false
+  # "date time result packages…" of the last concluded run
+  last=$(cat "$UU_LOG.1" "$UU_LOG" 2>/dev/null | awk '
+    / INFO Starting unattended upgrades script$/ { dry = 0; pk = ""; next }
+    /dry-run/ { dry = 1 }
+    / INFO Packages that will be upgraded: / { pk = $0; sub(/.* INFO Packages that will be upgraded: /, "", pk) }
+    / INFO (All upgrades installed|No packages found that can be upgraded unattended)/ {
+      if (!dry) { r = $1 " " substr($2, 1, 8) " success " ($0 ~ /All upgrades/ ? pk : "") } next }
+    / (ERROR|CRITICAL) / { if (!dry) r = $1 " " substr($2, 1, 8) " failed" }
+    END { print r }')
+  at=null res=null
+  if [ -n "$last" ]; then
+    # shellcheck disable=SC2086 # splitting wanted: date time result packages
+    set -- $last
+    t=$(date -d "$1 $2" +%s 2>/dev/null) && at=$t
+    case "$3" in success | failed) res="\"$3\"" ;; esac
+    shift 3
+  else
+    set --
+  fi
+  printf '"autoUpdate":{"installed":%s,"enabled":%s,"securityOnly":%s,"lastRunAt":%s,"lastResult":%s,"applied":' \
+    "$inst" "$en" "$sec" "$at" "$res"
+  for n in "$@"; do printf '%s\n' "$n"; done | grep -E '^[a-z0-9][a-z0-9+.-]{0,99}$' | head -n 50 |
+    while read -r n; do
+      ver=$(dpkg-query -W -f '${Version}' "$n" 2>/dev/null | grep -E '^[A-Za-z0-9.+:~-]{1,100}$')
+      printf '{"name":%s,"version":%s}\n' "$(js "$n")" "$(js "$ver")"
+    done | paste -sd, - | sed 's/^/[/; s/$/]/'
+  printf '}'
+}
+
+# v8: services to restart after a fix. A process counts if it still runs a deleted library or
+# binary (executable "(deleted)" mapping under /, except memfd, SysV and /dev); its unit is the
+# last *.service of its cgroup. Docker containers (their files do not come from the host) and
+# sessions are left out of the units; only validated unit names leave, never a path or a command.
+restart_info() {
+  # without the right to read the processes of others (not root), the information is missing:
+  # null (tested by reading: the displayed permissions of maps do not tell the real access)
+  head -c 1 /proc/1/maps >/dev/null 2>&1 || { printf '"restart":null'; return; }
+  for m in $(grep -l ' (deleted)$' /proc/[0-9]*/maps 2>/dev/null); do
+    p=${m%/maps}
+    awk '$2 ~ /x/ && $6 ~ /^\// && $6 !~ /^\/(memfd:|SYSV|dev\/)/ && / \(deleted\)$/ { f = 1; exit } END { exit !f }' "$m" 2>/dev/null || continue
+    cg=$(sed -n 's|^0::||p; s|^1:name=systemd:||p' "$p/cgroup" 2>/dev/null | head -n 1)
+    case "$cg" in */docker-*.scope* | */docker/*) continue ;; esac
+    u=$(printf '%s\n' "$cg" | tr '/' '\n' | grep '\.service$' | tail -n 1)
+    printf '%s\n' "${u:--}"
+  done >"$TMP/restart"
+  printf '"restart":{"units":'
+  grep -Ex '[A-Za-z0-9@._:\\-]{1,100}\.service' "$TMP/restart" | sort -u | head -n 50 | js_lines
+  printf ',"processes":%s}' "$(num "$(wc -l <"$TMP/restart")")"
+}
+
+# v8: posture. SSH: effective configuration (sshd -T, default context, outside Match blocks); a
+# password also gets through keyboard-interactive with PAM. Firewall: the tool in charge (active
+# ufw, else the nftables service, else netfilter-persistent/iptables) and "active" if a chain hooked
+# on input filters (drop policy or at least one rule); Docker rules (nat, forward) do not count. In
+# an LXC, only the firewall of the container is visible.
+# 0: an input chain filters; 1: nothing filters (or no tool: no firewall possible); 2: tools
+# present but no reading of the rules succeeded (unknown)
+input_filtered() {
+  lu=0
+  if has nft && r=$(timeout 10 nft list ruleset 2>/dev/null); then
+    lu=1
+    printf '%s\n' "$r" | awk '
+      /^[[:space:]]*chain / { c = 1; h = 0; r = 0; next }
+      c && /hook input/ { h = 1; if (/policy drop/) f = 1; next }
+      c && /^[[:space:]]*}/ { if (h && r) f = 1; c = 0; next }
+      c && h && NF { r++ }
+      END { exit !f }' && return 0
+  elif ! has nft && has iptables && r=$(timeout 10 iptables -S INPUT 2>/dev/null); then
+    lu=1
+    printf '%s\n' "$r" | grep -q -e '^-P INPUT DROP' -e '^-A INPUT' && return 0
+  fi
+  # iptables-legacy rules: invisible to nft
+  if has iptables-legacy && r=$(timeout 10 iptables-legacy -S INPUT 2>/dev/null); then
+    lu=1
+    printf '%s\n' "$r" | grep -q -e '^-P INPUT DROP' -e '^-A INPUT' && return 0
+  fi
+  [ $lu = 1 ] && return 1
+  has nft || has iptables || has iptables-legacy || return 1
+  return 2
+}
+posture() {
+  printf '"posture":{"ssh":'
+  # sshd missing, or sshd -T failing (unreadable configuration): the information is missing, null
+  if has sshd && t=$(timeout 10 sshd -T 2>/dev/null) && [ -n "$t" ]; then
+    prl=$(printf '%s\n' "$t" | awk '$1 == "permitrootlogin" { print $2; exit }')
+    case "$prl" in without-password) prl=prohibit-password ;; esac
+    case "$prl" in no | prohibit-password | forced-commands-only | yes) prl="\"$prl\"" ;; *) prl=null ;; esac
+    pa=$(printf '%s\n' "$t" | awk '
+      { v[$1] = $2 }
+      END {
+        if (!("passwordauthentication" in v)) { print "null"; exit }
+        kbd = ("kbdinteractiveauthentication" in v) ? v["kbdinteractiveauthentication"] : v["challengeresponseauthentication"]
+        print (v["passwordauthentication"] == "yes" || (kbd == "yes" && v["usepam"] == "yes")) ? "true" : "false"
+      }')
+    printf '{"permitRootLogin":%s,"passwordAuth":%s}' "$prl" "$pa"
+  else
+    printf 'null'
+  fi
+  ft=""
+  if has ufw; then
+    # ufw present but unreadable: unknown type
+    if u=$(timeout 10 ufw status 2>/dev/null); then
+      printf '%s\n' "$u" | head -n 1 | grep -qx 'Status: active' && ft=ufw
+    else
+      ft=unknown
+    fi
+  fi
+  if [ -n "$ft" ]; then
+    :
+  elif systemctl -q is-active nftables >/dev/null 2>&1; then
+    ft=nftables
+  elif systemctl -q is-active netfilter-persistent >/dev/null 2>&1 || systemctl -q is-active iptables >/dev/null 2>&1; then
+    ft=iptables
+  else
+    ft=none
+  fi
+  input_filtered
+  case $? in
+    0)
+      act=true
+      # rules set without a service (by hand, by another tool)
+      if [ "$ft" = none ]; then if has nft; then ft=nftables; else ft=iptables; fi; fi
+      ;;
+    1) act=false ;;
+    *) act=unknown ;;
+  esac
+  if [ "$ft" = unknown ] || [ "$act" = unknown ]; then
+    printf ',"firewall":null}'
+  else
+    printf ',"firewall":{"type":"%s","active":%s}}' "$ft" "$act"
+  fi
+}
+
+# v8: listening ports (ss -lntu, -p for the process name only: neither PID nor command leaves).
+# Address without scope (%eth0) or brackets, "*" → "::"; each field validated, a process name out
+# of form → null; duplicates merged; 128 at most.
+listening() {
+  has ss || { printf '"listening":null'; return; }
+  timeout 10 ss -H -lntup >"$TMP/ss" 2>/dev/null || { printf '"listening":null'; return; }
+  printf '"listening":'
+  awk '{
+      pr = "-"
+      if (match($0, /users:\(\("[^"]*"/)) pr = substr($0, RSTART + 9, RLENGTH - 10)
+      gsub(/[^A-Za-z0-9._-]/, "?", pr)
+      if (pr == "") pr = "-"
+      l = $5; i = length(l)
+      while (i > 0 && substr(l, i, 1) != ":") i--
+      a = substr(l, 1, i - 1); port = substr(l, i + 1)
+      sub(/%.*/, "", a); gsub(/\[/, "", a); gsub(/\]/, "", a)
+      if (a == "*") a = "::"
+      if (length(a) <= 45 && length(pr) <= 64) print $1, a, port, pr
+    }' "$TMP/ss" | grep -E '^(tcp|udp) [0-9a-f.:]{2,45} [0-9]{1,5} [^ ]+$' | sort -u | sort -k3,3n -k1,1 -k2,2 |
+    while read -r p a port pr; do
+      if [ "$port" -lt 1 ] || [ "$port" -gt 65535 ]; then continue; fi
+      if printf '%s\n' "$pr" | grep -Eqx '[A-Za-z0-9._-]{1,32}'; then pr="\"$pr\""; else pr=null; fi
+      printf '{"proto":"%s","addr":"%s","port":%s,"process":%s}\n' "$p" "$a" "$port" "$pr"
+    done | head -n 128 | paste -sd, - | sed 's/^/[/; s/$/]/' | tr -d '\n'
+}
+
+# v8: synchronised clock (kernel flag, read by timedated; in an LXC, it is the clock of the
+# Proxmox host). In the slow report: each call starts systemd-timedated and writes three lines to
+# the journal.
+clock_info() {
+  s=$(timeout 10 timedatectl show -p NTPSynchronized --value 2>/dev/null)
+  case "$s" in yes) v=true ;; no) v=false ;; *) v=null ;; esac
+  printf '"time":{"ntpSynced":%s}' "$v"
+}
+
+# Docker images: 300 at most; v9: 20 tags and 20 digests per image at most, each capped at 256
+# characters by the template
+images() {
+  docker_ok || { printf '"images":null'; return; }
+  printf '"images":['
+  ids=$(docker image ls -q --no-trunc | sort -u | head -n 300)
+  if [ -n "$ids" ]; then
+    # shellcheck disable=SC2086
+    timeout 20 docker image inspect --format '{"id":{{json .Id}},"tags":[{{range $i, $t := .RepoTags}}{{if lt $i 20}}{{if $i}},{{end}}{{json (printf "%.256s" $t)}}{{end}}{{end}}],"digests":[{{range $i, $t := .RepoDigests}}{{if lt $i 20}}{{if $i}},{{end}}{{json (printf "%.256s" $t)}}{{end}}{{end}}],"created":{{json .Created}}}' $ids |
+      paste -sd, -
+  fi
+  printf ']'
+}
+
+# installed versions of a fixed list of packages (update tracking of the dashboard): no name comes
+# from the caller, nothing runs other than dpkg-query; 50 versions at most
+VERSION_PKGS='bunkerweb tailscale nodejs docker-ce mariadb-server nginx caddy'
+versions() {
+  {
+    if has dpkg-query; then
+      # shellcheck disable=SC2016,SC2086
+      dpkg-query -W -f '${db:Status-Abbrev} ${Package} ${Version}\n' $VERSION_PKGS 'php*-fpm' 'postgresql-[0-9]*' 2>/dev/null |
+        awk '$1 ~ /^[hi]i$/ { print $2, $3 }' # ii, or hi when held (apt-mark hold)
+    fi
+    # Pi-hole v6: installed versions (file kept by pihole updatechecker)
+    if [ -r /etc/pihole/versions ]; then
+      sed -n 's/^CORE_VERSION=\(.*\)$/pihole-core \1/p; s/^WEB_VERSION=\(.*\)$/pihole-web \1/p; s/^FTL_VERSION=\(.*\)$/pihole-ftl \1/p' /etc/pihole/versions
+    fi
+  } | head -n 50 | {
+    printf '"versions":{'
+    first=1
+    while read -r k v; do
+      [ -n "$v" ] || continue
+      [ $first -eq 1 ] || printf ','
+      first=0
+      printf '%s:%s' "$(js "$k")" "$(js "$v")"
+    done
+    printf '}'
+  }
+}
+
+# v9: processes killed by earlyoom over the last OOM_WINDOW_SEC seconds, from the journal of
+# earlyoom.service: number of distinct processes (PIDs) named by the "sending SIGTERM to process"
+# and "sending SIGKILL to process" lines (a TERM then a KILL of the same process count once), time
+# and name of the last one (the first quoted text after "to process", characters outside
+# [A-Za-z0-9._-] replaced by "?", 32 at most). A host without earlyoom (unit
+# unknown to systemd), without journalctl, or whose journal cannot be read: null, never an error.
+OOM_WINDOW_SEC=3600
+oom_info() {
+  has journalctl && has systemctl || { printf '"oom":null'; return; }
+  [ -n "$(systemctl list-unit-files --no-legend --no-pager earlyoom.service 2>/dev/null)" ] || { printf '"oom":null'; return; }
+  since=$(($(date +%s) - OOM_WINDOW_SEC))
+  j=$(timeout 10 journalctl -q --no-pager -o short-unix -u earlyoom.service --since "@$since" 2>/dev/null) || { printf '"oom":null'; return; }
+  printf '%s\n' "$j" | awk -v W="$OOM_WINDOW_SEC" '
+    / sending SIG(TERM|KILL) to process / {
+      t = $1; sub(/\..*/, "", t)
+      at = (t ~ /^[0-9]+$/) ? t : "null"
+      rest = $0; sub(/.* to process /, "", rest)
+      pid = rest; sub(/ .*/, "", pid)
+      if (pid !~ /^[0-9]+$/) pid = "line" NR
+      if (!(pid in seen)) { seen[pid] = 1; k++ }
+      p = ""
+      if (match(rest, /"[^"]*"/)) p = substr(rest, RSTART + 1, RLENGTH - 2)
+      gsub(/[^A-Za-z0-9._-]/, "?", p)
+      p = substr(p, 1, 32)
+    }
+    END {
+      printf "\"oom\":{\"windowSec\":%d,\"kills\":%d,\"lastAt\":%s,\"lastProcess\":%s}", W, k, (k ? at : "null"), (k && p != "" ? "\"" p "\"" : "null")
+    }'
+}
+
+mode=${1:-fast}
+case "$mode" in
+  fast)
+    printf '{"schema":1,"version":%s,"mode":"fast","ts":%s,' "$REPORT_VERSION" "$(date +%s)"
+    sys; printf ','; fs; printf ','; units_info; printf ','; reboot_info; printf ','; net_info; printf ','; containers
+    printf ','; oom_info
+    printf '}\n'
+    ;;
+  slow)
+    TMP=$(mktemp -d) || exit 1
+    trap 'rm -rf "$TMP"' EXIT
+    printf '{"schema":1,"version":%s,"mode":"slow","ts":%s,' "$REPORT_VERSION" "$(date +%s)"
+    apt_info; printf ','; auto_update; printf ','; images; printf ','; versions; printf ','
+    restart_info; printf ','; posture; printf ','; listening; printf ','; clock_info
+    printf '}\n'
+    ;;
+  *)
+    printf '{"schema":1,"error":"unknown mode"}\n'
+    exit 2
+    ;;
+esac

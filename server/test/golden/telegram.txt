@@ -1,0 +1,111 @@
+--- message 1 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · DNS","callback_data":"s:1"},{"text":"✅ Ack","callback_data":"a:1"}],[{"text":"🔕 1 h · fail-3","callback_data":"s:3"},{"text":"✅ Ack","callback_data":"a:3"}],[{"text":"🔕 1 h · cert-6","callback_data":"s:5"},{"text":"✅ Ack","callback_data":"a:5"}],[{"text":"🔕 1 h · Disque / · ct-disque-…","callback_data":"s:10"},{"text":"✅ Ack","callback_data":"a:10"}],[{"text":"🔕 1 h · Stockage local (pve-a)","callback_data":"s:11"},{"text":"✅ Ack","callback_data":"a:11"}],[{"text":"🔕 1 h · Site public","callback_data":"s:2"},{"text":"✅ Ack","callback_data":"a:2"}],[{"text":"🔕 1 h · cert-20","callback_data":"s:4"},{"text":"✅ Ack","callback_data":"a:4"}],[{"text":"🔕 1 h · cert-7","callback_data":"s:6"},{"text":"✅ Ack","callback_data":"a:6"}]]})
+🔴 <b>DNS</b> — service hors ligne
+résolution locale : NXDOMAIN
+Hôte : CT 212 dns-a · pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=DNS">Ouvrir</a>
+
+🔴 <b>fail-3</b> — service hors ligne
+TCP 22 : refusé
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=fail-3">Ouvrir</a>
+
+🔴 <b>cert-6 — certificat</b> — certificat
+expire dans 6 j (16/11/2026)
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-6">Ouvrir</a>
+
+🔴 <b>Disque / · ct-disque-95</b> — disque
+95 % utilisés (d'après Proxmox)
+Hôte : CT 236 ct-disque-95 · pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d95">Ouvrir</a>
+
+🔴 <b>Stockage local (pve-a)</b> — stockage
+95 % utilisés
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Site public — certificat</b> — certificat
+expire dans 9 j (19/11/2026)
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=Site%20public">Ouvrir</a>
+
+🟠 <b>cert-20 — certificat</b> — certificat
+expire dans 20 j (30/11/2026)
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-20">Ouvrir</a>
+
+🟠 <b>cert-7 — certificat</b> — certificat
+expire dans 7 j (17/11/2026)
+Hôte : vps
+Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-7">Ouvrir</a>
+
+🟠 <b>Disque / · ct-disque-85</b> — disque
+85 % utilisés (d'après Proxmox)
+Hôte : CT 234 ct-disque-85 · pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d85">Ouvrir</a>
+
+🟠 <b>Disque / · ct-disque-94.9</b> — disque
+95 % utilisés (d'après Proxmox)
+Hôte : CT 235 ct-disque-94.9 · pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d949">Ouvrir</a>
+
+🟠 <b>Stockage st-80 (pve-a)</b> — stockage
+80 % utilisés
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Stockage st-89.9 (pve-a)</b> — stockage
+90 % utilisés
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+--- message 2 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Stockage st-90 (pve-a)","callback_data":"s:14"},{"text":"✅ Ack","callback_data":"a:14"}],[{"text":"🔕 1 h · SMART HDD de banc (/d…","callback_data":"s:15"},{"text":"✅ Ack","callback_data":"a:15"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:20"},{"text":"✅ Ack","callback_data":"a:20"}],[{"text":"🔕 1 h · Usure SSD borne (/dev…","callback_data":"s:16"},{"text":"✅ Ack","callback_data":"a:16"}],[{"text":"🔕 1 h · Usure SSD borne (/dev…","callback_data":"s:17"},{"text":"✅ Ack","callback_data":"a:17"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:18"},{"text":"✅ Ack","callback_data":"a:18"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:19"},{"text":"✅ Ack","callback_data":"a:19"}],[{"text":"🔕 1 h · Sauvegarde VM 200 lab","callback_data":"s:21"},{"text":"✅ Ack","callback_data":"a:21"}]]})
+🔴 <b>Stockage st-90 (pve-a)</b> — stockage
+90 % utilisés
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🔴 <b>SMART HDD de banc (/dev/sdb · pve-a)</b> — smart en échec
+état SMART : FAILED
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🔴 <b>Température SSD borne (/dev/nvme5n1 · pve-a)</b> — température du disque
+80 °C (seuils 75 / 80 °C)
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Usure SSD borne (/dev/nvme0n1 · pve-a)</b> — usure du disque
+vie restante 9 %
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Usure SSD borne (/dev/nvme1n1 · pve-a)</b> — usure du disque
+vie restante 10 %
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Température SSD borne (/dev/nvme3n1 · pve-a)</b> — température du disque
+75 °C (seuils 75 / 80 °C)
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Température SSD borne (/dev/nvme4n1 · pve-a)</b> — température du disque
+79 °C (seuils 75 / 80 °C)
+Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
+
+🟠 <b>Sauvegarde VM 200 lab</b> — invité hors sauvegarde <i>(dev)</i>
+pris par aucun job de sauvegarde actif
+Hôte : pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/backups">Ouvrir</a>
+
+🟠 <b>Sauvegarde CT 231 ct-disque-82.9</b> — sauvegarde en retard
+aucune sauvegarde trouvée
+Hôte : pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/backups">Ouvrir</a>
+
+🟠 <b>Sauvegarde CT 232 ct-disque-83</b> — sauvegarde en retard
+aucune sauvegarde trouvée
+Hôte : pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/backups">Ouvrir</a>
+
+🟠 <b>Sauvegarde CT 233 ct-disque-84.9</b> — sauvegarde en retard
+aucune sauvegarde trouvée
+Hôte : pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/backups">Ouvrir</a>
+
+🟠 <b>Sauvegarde CT 234 ct-disque-85</b> — sauvegarde en retard
+aucune sauvegarde trouvée
+Hôte : pve-a
+Depuis 08:00 · <a href="https://vigie.example.net/backups">Ouvrir</a>

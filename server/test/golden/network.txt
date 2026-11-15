@@ -1,0 +1,155 @@
+## net_new:1 · cond false · warning
+🟠 <b>Nouvel appareil : appareil sans nom (fiche 1)</b> — nouvel appareil
+00:00:5e:00:53:01 (privée) · déjà vu par Pi-hole le 07/11/2026
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
+
+## net_new:2 · cond false · warning
+🟠 <b>Nouvel appareil : poste &lt;b&gt;</b> — nouvel appareil
+00:00:5e:00:53:0c
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_new:3 · cond false · warning
+🟠 <b>Nouvel appareil : Fabricant SA (fiche 3)</b> — nouvel appareil
+00:00:5e:00:53:0b · Fabricant SA
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## net_mac_added:00:00:5e:00:53:09 · cond true · warning
+🟠 <b>poste &lt;b&gt; : nouvelle MAC</b> — mac ajoutée
+00:00:5e:00:53:09 rattachée par même nom « poste &lt;b&gt; »
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_mac_added:00:00:5e:00:53:0a · cond true · info
+ℹ️ <b>Fabricant SA (fiche 3) : nouvelle MAC</b> — mac ajoutée
+00:00:5e:00:53:0a rattachée par même IP (plage macvlan)
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## net_mac_added:00:00:5e:00:53:0b · cond true · info
+ℹ️ <b>Fabricant SA (fiche 3) : nouvelle MAC</b> — mac ajoutée
+00:00:5e:00:53:0b rattachée par famille de MAC validée
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## net_mac_added:00:00:5e:00:53:0c · cond true · info
+ℹ️ <b>poste &lt;b&gt; : nouvelle MAC</b> — mac ajoutée
+00:00:5e:00:53:0c rattachée par conteneur (agent)
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_agent_conflict:2 · cond true · warning
+🟠 <b>poste &lt;b&gt; : conflit d'identité de conteneur</b> — conflit d'identité de conteneur
+conteneur docker-a/web/lan : déjà associé à la fiche 1
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_agent_conflict:3 · cond true · warning
+🟠 <b>Fabricant SA (fiche 3) : conflit d'identité de conteneur</b> — conflit d'identité de conteneur
+conteneur docker-a/db/lan : fiche déjà associée à docker-b/db/lan
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## net_new_flood:lan · cond true · warning
+🟠 <b>Afflux d'appareils sur le LAN</b> — afflux d'appareils
+3 MAC refusées, créations suspendues jusqu'à 11:00
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## net_down:1 · cond true · warning
+🟠 <b>appareil sans nom (fiche 1) hors ligne</b> — appareil hors ligne
+vu pour la dernière fois il y a 2 h
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
+
+## net_ip_changed:1 · cond false · warning
+🟠 <b>appareil sans nom (fiche 1) : IP changée</b> — ip changée
+IP attendue différente de l'IP vue
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
+
+## net_down:2 · cond false · warning
+🟠 <b>poste &lt;b&gt; hors ligne</b> — appareil hors ligne
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_ip_changed:2 · cond true · warning
+🟠 <b>poste &lt;b&gt; : IP changée</b> — ip changée
+IP attendue différente de l'IP vue
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
+
+## net_down:3 · cond false · warning
+🟠 <b>Fabricant SA (fiche 3) hors ligne</b> — appareil hors ligne
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## net_ip_changed:3 · cond false · warning
+🟠 <b>Fabricant SA (fiche 3) : IP changée</b> — ip changée
+IP attendue différente de l'IP vue
+Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
+
+## source_error:network/pihole · cond true · warning
+🟠 <b>Source réseau : Pi-hole</b> — source injoignable
+Pi-hole 401
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## source_error:network/dhcp · cond true · warning
+🟠 <b>Source réseau : baux DHCP</b> — source injoignable
+aucun relevé réussi récent
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## source_error:network/neigh · cond false · warning
+🟠 <b>Source réseau : voisins du CT</b> — source injoignable
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## source_error:network/pve · cond false · warning
+🟠 <b>Source réseau : Proxmox</b> — source injoignable
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## source_error:network/arp · cond false · warning
+🟠 <b>Source réseau : sonde ARP</b> — source injoignable
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+## net_new:9 · cond false · info
+ℹ️ <b>appareil retiré</b> — nouvel appareil
+Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
+
+# section Réseau du digest
+🌐 Réseau : 45 appareils, 43 en ligne, 2 hors ligne · 22 à revoir · sources OK
+   MAC ajoutée par règle (24 h) : fe:00:00:00:53:77 à poste-4
+   3 fiches archivées supprimées (purge R4)
+   associée à un conteneur après coup (24 h, à confirmer) : poste-1 → docker-a/web/lan
+   Ports (24 h) : invite-g1 : +tcp/22 (ssh), −tcp/80 (http)
+   Noms (mDNS) : 2 fiches nommées : poste-1, poste-2
+   1 fiche supprimée (24 h)
+   3 appareils vus par la sonde ARP, 2 à revoir (poste-3, poste-4)
+   conflits ARP (24 h) : 00:00:5e:00:53:01 : en-tête Ethernet 00:00:5e:00:53:02 ; IP 192.0.2.9 : 2 MAC (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP 192.0.2.193 : 2 MAC (speedtest, speedtest)
+   revenus après suppression (24 h) : poste-2
+
+# section Réseau sans sonde ARP
+🌐 Réseau : 42 appareils, 0 actifs · 1 MAC à confirmer (poste-1) · 22 à revoir · sources : pihole en erreur depuis 6 h, dhcp en erreur depuis 6 h
+
+# bot
+## /reseau
+🌐 <b>Réseau</b> — 45 appareils · 43 en ligne · 2 hors ligne · 3 nouveaux · 22 à revoir · sources en erreur
+<b>Nouveaux</b>
+#43 Invite-R1-1 · hors ligne
+#44 Invite-R1-2 · hors ligne
+#45 00:00:5e:00:53:e7 · en ligne
+⚠️ mdns : périmée
+
+## /appareil
+Usage : <code>/device galaxy</code> (nom, MAC, constructeur ou IP exacte)
+
+## /appareil zzzz-aucun
+Aucun appareil.
+
+## /appareil invite
+18 appareils (10 premiers) :
+#1 invite-g1 · ‹ip› · en ligne
+#2 invite-g2 · ‹ip› · en ligne
+#3 invite-g3 · ‹ip› · en ligne
+#4 invite-g4 · ‹ip› · en ligne
+#5 invite-g5 · ‹ip› · en ligne
+#6 invite-g6 · ‹ip› · en ligne
+#7 invite-g7 · ‹ip› · en ligne
+#8 invite-g8 · ‹ip› · en ligne
+#9 invite-g9 · ‹ip› · en ligne
+#10 invite-g10 · ‹ip› · en ligne
+
+## /appareil 00:00:5e:00:53:e7
+<b>#45 00:00:5e:00:53:e7</b> — nouveau
+en ligne · IP ‹ip›
+MAC 00:00:5e:00:53:e7
+
+## /reseau
+🌐 <b>Réseau</b> — 45 appareils · 43 en ligne · 2 hors ligne · 0 nouveau · 22 à revoir · sources en erreur
+⚠️ mdns : périmée

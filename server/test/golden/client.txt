@@ -1,0 +1,140 @@
+# navigation latérale (lien · libellé)
+/ · Cockpit
+/services · Services
+/infra · Infra
+/network · Réseau
+/updates · Mises à jour
+/backups · Sauvegardes
+/ci · CI
+/alerts · Alertes
+/integrations · Intégrations
+
+# navigation mobile (grille ; lien · libellé)
+grille : grid grid-cols-8
+/ · Cockpit
+/services · Services
+/infra · Infra
+/network · Réseau
+/updates · MAJ
+/backups · Sauveg.
+/ci · CI
+/alerts · Alertes
+
+# routes (chemin : servie / introuvable)
+/ : servie
+/services : servie
+/infra : servie
+/network : servie
+/updates : servie
+/backups : servie
+/ci : servie
+/alerts : servie
+/integrations : servie
+/wall : servie
+/reseau : servie
+/maj : servie
+/sauvegardes : servie
+/alertes : servie
+/mural : servie
+/inconnu : introuvable
+
+# tuiles du cockpit, avec le réseau
+grille : mb-6 grid gap-3 grid-cols-2 md:grid-cols-4 xl:grid-cols-8
+/services?state=crit,warn · Services Hors ligne 7/14 3 hors ligne · 1 dégradé(s)
+/infra · Invités Dégradé 9/10 arrêté : lab
+/alerts · Alertes Hors ligne 14 critiques, 35 avertissements, 2 infos 14 · 35 · 2 crit · warn · info
+/updates · Mises à jour Inconnu — mises à jour indisponibles
+/services · Certificats Hors ligne 6 j prochain : cert-6 · 5 suivis
+/backups · Sauvegardes Dégradé 2/9 pve-a 2/9
+/ci · CI Hors ligne 1/2 en échec : app
+/network?state=new · Réseau Dégradé 10/12 en ligne · 1 nouveau
+
+# tuiles du cockpit, sans le réseau
+grille : mb-6 grid gap-3 grid-cols-2 md:grid-cols-4 xl:grid-cols-7
+/services?state=crit,warn · Services Hors ligne 7/14 3 hors ligne · 1 dégradé(s)
+/infra · Invités Dégradé 9/10 arrêté : lab
+/alerts · Alertes Hors ligne 14 critiques, 35 avertissements, 2 infos 14 · 35 · 2 crit · warn · info
+/updates · Mises à jour Inconnu — mises à jour indisponibles
+/services · Certificats Hors ligne 6 j prochain : cert-6 · 5 suivis
+/backups · Sauvegardes Dégradé 2/9 pve-a 2/9
+/ci · CI Hors ligne 1/2 en échec : app · col-span-2 md:col-span-1
+
+# tuiles du cockpit, Gitea non configuré
+grille : mb-6 grid gap-3 grid-cols-2 md:grid-cols-4 xl:grid-cols-7
+/services?state=crit,warn · Services Hors ligne 7/14 3 hors ligne · 1 dégradé(s)
+/infra · Invités Dégradé 9/10 arrêté : lab
+/alerts · Alertes Hors ligne 14 critiques, 35 avertissements, 2 infos 14 · 35 · 2 crit · warn · info
+/updates · Mises à jour Inconnu — mises à jour indisponibles
+/services · Certificats Hors ligne 6 j prochain : cert-6 · 5 suivis
+/backups · Sauvegardes Dégradé 2/9 pve-a 2/9
+/ci · CI Lien — non configurée · col-span-2 md:col-span-1
+
+# panneaux du cockpit (titres)
+Hyperviseurs
+Santé des services · 24 h
+Mises à jour
+Sauvegardes
+CI et runners
+Épinglés
+
+# vue CI, en échec
+Runners CI à l'instant en ligne runner-a occupé online linux:host docker hors ligne runner-b offline linux:host docker Activité Gitea à l'instant app CI failure CI # 12 2 PR commit de app def5678 · auteur · il y a 3 h site CI success CI # 12 commit de site def5678 · auteur · il y a 3 h casse indisponible
+
+# vue CI, au vert
+Runners CI à l'instant en ligne runner-a online linux:host docker en ligne runner-b online linux:host docker Activité Gitea à l'instant app CI success CI # 12 commit de app def5678 · auteur · il y a 3 h site CI running CI # 12 commit de site def5678 · auteur · il y a 3 h
+
+# vue CI, non configurée
+Gitea non configuré Ajouter le bloc « plugins.gitea » à la config et GITEA_URL (et GITEA_TOKEN) à l'environnement, puis redémarrer (voir docs/configuration.md).
+
+# page Intégrations (actif, non configuré, en erreur, refusé au chargement)
+Intégrations interface des plugins v 0 (instable) à l'instant actif versions module du cœur · actif non configuré Gitea plugin · non configuré en erreur Cassé plugin · en erreur signals : boum ( il y a 5 min ) digest : digest cassé ( il y a 2 h ) en erreur backups plugin · en erreur load : id backups réservé au cœur (source ou module du cœur), plugin non chargé ( il y a 3 h )
+
+# libellés des règles (ordre compris)
+service_down : Service hors ligne
+cert_expiry : Certificat
+pve_unreachable : Proxmox injoignable
+guest_stopped : Invité arrêté
+storage_usage : Stockage
+backup_late : Sauvegarde en retard
+backup_failed : Sauvegarde en échec
+ci_failed : CI en échec
+runner_offline : Runner hors ligne
+source_error : Source injoignable
+agent_unreachable : Agent injoignable
+guest_disk : Disque
+container_unhealthy : Conteneur en échec
+container_restarting : Conteneur instable
+container_down : Conteneur absent ou arrêté
+systemd_failed : Unité systemd
+reboot_required : Redémarrage requis
+restart_required : Services à redémarrer
+guest_inodes : Inodes
+disk_free : Espace disque libre
+posture_regression : Régression de posture
+port_new : Nouveau port en écoute
+time_unsynced : Horloge non synchronisée
+oom_kill : Processus tué (mémoire saturée)
+apt_stale : Listes apt anciennes
+security_updates : Mises à jour de sécurité
+autoupdate_off : MAJ automatiques coupées
+autoupdate_failed : MAJ automatiques en échec
+eol : Fin de vie
+security_release : Correctif de sécurité publié
+not_backed_up : Invité hors sauvegarde
+node_mem : Mémoire du nœud
+node_swap : Swap du nœud
+smart_failed : SMART en échec
+disk_wear : Usure du disque
+disk_temp : Température du disque
+net_new : Nouvel appareil
+net_mac_added : MAC ajoutée
+net_new_flood : Afflux d'appareils
+net_down : Appareil hors ligne
+net_ip_changed : IP changée
+net_agent_conflict : Conflit d'identité de conteneur
+plugin_error : Plugin en erreur
+vpn_down : VPN arrêté
+vpn_leak : Fuite VPN
+vpn_noinfo : IP du VPN inconnue
+guest_undeclared : Invité non déclaré
+channel_error : Canal de notification en échec

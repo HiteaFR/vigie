@@ -1,0 +1,4 @@
+#!/bin/sh
+# fake timedatectl of the dash-report bench (v8)
+[ "$*" = "show -p NTPSynchronized --value" ] || exit 2
+echo yes

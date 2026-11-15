@@ -1,0 +1,4174 @@
+### cadre : accueil, session admin (navigation, en-tête, cockpit, pied)
+Banc
+Cockpit
+Services
+Infra
+Réseau 3
+Mises à jour 10
+Sauvegardes
+CI
+Alertes 4
+Intégrations
+pied de page
+Banc
+tableau de bord de démonstration
+Hors ligne
+1 hors ligne, 1 dégradé
+4
+Tout
+Prod
+Dev
+Rechercher… Ctrl K
+admin
+10:00:00
+Hors ligne
+1 hors ligne, 1 dégradé
+Hors ligne
+Dégradé — 2 critiques, 3 avertissements
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant Mural
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+Dégradé
+9/12
+en ligne · 2 nouveaux
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+Mises à jour
+à l'instant
+sécurité nginx 1.24.0 → 1.24.1
+▲ majeure forge 1.22.0 → 2.0.0
+◆ mineure wiki 3.4.0 → 3.5.0
+fin de vie debian 11 → 12
+◆ image photos sha256:abc
+▲ non déployé app abc1234 → def5678
++ 1 autres · Toutes les mises à jour
+Sauvegardes
+pve-a 1/3 à jour dernière il y a 8 h · prochaine mer. 01:00
+échec : nas en retard : lab
+Détail par invité
+CI et runners
+Info
+runner-a
+Hors ligne
+runner-b
+failure
+app #12 il y a 2 h
+success
+site #12 il y a 2 h
+Épinglés
+WI Wiki
+En ligne
+Cockpit
+Services
+Infra
+3 Réseau
+10 MAJ
+Sauveg.
+CI
+4 Alertes
+@aria-label Navigation principale
+@aria-label 3 appareils ou MAC à traiter
+@aria-label 10 mises à jour à traiter
+@aria-label 4 alertes actives
+@aria-label Hors ligne
+@aria-label Alertes : 4 actives
+@aria-label Environnement
+@aria-label Rafraîchir toutes les données
+@title Rafraîchir toutes les données (agent, sondes, Proxmox, versions)
+@aria-label Rechercher (Ctrl K)
+@aria-label Thème : Auto (changer)
+@title Thème : Auto
+@title Session admin jusqu'à 22:00 — se déconnecter
+@title 10/11/2026 10:00:00
+@title Mode mural (écran dédié)
+@aria-label Météo à Paris
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@title en échec : app
+@title en ligne · 2 nouveaux
+@title Rafraîchir
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Inconnu
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026 02:00:00
+@aria-label 1 à jour, 1 en retard, 1 en échec
+@title occupé
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026 08:00:00
+@aria-label success
+@title En ligne
+@aria-label Navigation mobile
+@aria-label Connexion admin
+
+### cadre : accueil, lecture anonyme
+Banc
+Cockpit
+Services
+Infra
+Réseau 3
+Mises à jour 10
+Sauvegardes
+CI
+Alertes 4
+Intégrations
+pied de page
+Banc
+tableau de bord de démonstration
+Hors ligne
+1 hors ligne, 1 dégradé
+4
+Tout
+Prod
+Dev
+Rechercher… Ctrl K
+10:00:00
+Hors ligne
+1 hors ligne, 1 dégradé
+Hors ligne
+Dégradé — 2 critiques, 3 avertissements
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant Mural
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+Dégradé
+9/12
+en ligne · 2 nouveaux
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+Mises à jour
+à l'instant
+sécurité nginx 1.24.0 → 1.24.1
+▲ majeure forge 1.22.0 → 2.0.0
+◆ mineure wiki 3.4.0 → 3.5.0
+fin de vie debian 11 → 12
+◆ image photos sha256:abc
+▲ non déployé app abc1234 → def5678
++ 1 autres · Toutes les mises à jour
+Sauvegardes
+pve-a 1/3 à jour dernière il y a 8 h · prochaine mer. 01:00
+échec : nas en retard : lab
+Détail par invité
+CI et runners
+Info
+runner-a
+Hors ligne
+runner-b
+failure
+app #12 il y a 2 h
+success
+site #12 il y a 2 h
+Épinglés
+WI Wiki
+En ligne
+Cockpit
+Services
+Infra
+3 Réseau
+10 MAJ
+Sauveg.
+CI
+4 Alertes
+@aria-label Navigation principale
+@aria-label 3 appareils ou MAC à traiter
+@aria-label 10 mises à jour à traiter
+@aria-label 4 alertes actives
+@aria-label Hors ligne
+@aria-label Alertes : 4 actives
+@aria-label Environnement
+@aria-label Rafraîchir toutes les données
+@title Rafraîchir toutes les données (agent, sondes, Proxmox, versions)
+@aria-label Rechercher (Ctrl K)
+@aria-label Thème : Auto (changer)
+@title Thème : Auto
+@aria-label Connexion admin
+@title Connexion admin
+@title 10/11/2026 10:00:00
+@title Mode mural (écran dédié)
+@aria-label Météo à Paris
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@title en échec : app
+@title en ligne · 2 nouveaux
+@title Rafraîchir
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Inconnu
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026 02:00:00
+@aria-label 1 à jour, 1 en retard, 1 en échec
+@title occupé
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026 08:00:00
+@aria-label success
+@title En ligne
+@aria-label Navigation mobile
+
+### cadre : session en cours de lecture
+Chargement…
+@aria-label Connexion admin
+
+### cadre : écran de connexion (lecture réservée)
+Banc
+Connexion requise pour consulter ce tableau de bord. Session de 12 h.
+Se connecter
+@placeholder Mot de passe
+@aria-label Mot de passe
+@aria-label Connexion admin
+
+### cadre : connexion impossible (réseau non autorisé)
+Banc
+Connexion requise pour consulter ce tableau de bord. Session de 12 h.
+Réseau non autorisé pour la connexion admin (security.adminCidrs).
+@aria-label Connexion admin
+
+### cadre : instance à configurer
+Vigie : à configurer
+Aucun fichier de configuration n'a été trouvé : rien n'est lu ni sondé.
+Lancer l'assistant : cd server && npm run init (config, mot de passe admin, Proxmox et Gitea en option).
+Redémarrer le service.
+À la main : copier config.example.json en config.json et générer le mot de passe par node server/scripts/admin-password.js .
+Détails : docs/installation.md.
+@aria-label Connexion admin
+
+### cadre : page introuvable
+Banc
+Cockpit
+Services
+Infra
+Réseau 3
+Mises à jour 10
+Sauvegardes
+CI
+Alertes 4
+Intégrations
+pied de page
+Banc
+tableau de bord de démonstration
+Hors ligne
+1 hors ligne, 1 dégradé
+4
+Tout
+Prod
+Dev
+Rechercher… Ctrl K
+admin
+10:00:00
+Hors ligne
+1 hors ligne, 1 dégradé
+Page introuvable
+Cette vue n'existe pas (encore).
+Cockpit
+Services
+Infra
+3 Réseau
+10 MAJ
+Sauveg.
+CI
+4 Alertes
+@aria-label Navigation principale
+@aria-label 3 appareils ou MAC à traiter
+@aria-label 10 mises à jour à traiter
+@aria-label 4 alertes actives
+@aria-label Hors ligne
+@aria-label Alertes : 4 actives
+@aria-label Environnement
+@aria-label Rafraîchir toutes les données
+@title Rafraîchir toutes les données (agent, sondes, Proxmox, versions)
+@aria-label Rechercher (Ctrl K)
+@aria-label Thème : Auto (changer)
+@title Thème : Auto
+@title Session admin jusqu'à 22:00 — se déconnecter
+@aria-label Navigation mobile
+@aria-label Connexion admin
+
+### cadre : route /mural (vue paresseuse : attente de son chunk)
+Chargement de la vue…
+@aria-label Connexion admin
+
+### cadre : cloche des alertes (bouton et liste)
+Hors ligne
+Mail injoignable
+smtp : connexion refusée
+4 h
+Hors ligne
+Disque presque plein sur web
+/ à 96 %
+2 h
+Dégradé
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Dégradé
+Agent injoignable sur lab
+pas de réponse en 10 s
+3 min
+@aria-label Hors ligne
+@aria-label Dégradé
+@aria-label Info
+@aria-label Connexion admin
+
+### cadre : bouton de la cloche
+3
+@aria-label Alertes : 3 actives
+@aria-label Connexion admin
+
+### routes : /alerts (vue seule)
+Notifications
+En ligne
+Telegram relié
+En ligne
+healthchecks.io pingué
+Heures calmes 22:00–07:00 · digest 08:00
+dernier envoi il y a 20 min · 1 en file
+Alertes actives
+à l'instant
+Tout sélectionner (5)
+critique
+Mail injoignable Service hors ligne
+smtp : connexion refusée
+nas notifiée
+Acquitter
+Silence…
+prod
+depuis 4 h
+critique
+Disque presque plein sur web disk_full
+/ à 96 %
+web notifiée
+acquittée par admin il y a 1 h : nettoyage prévu ce soir
+Retirer l'ack
+Silence…
+prod
+depuis 2 h
+avertissement
+Certificat de forge Certificat
+expire dans 12 j
+web notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web non notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+en attente
+Agent injoignable sur lab Agent injoignable
+Inconnu
+en attente
+Dégradé
+instable
+pas de réponse en 10 s
+lab
+Silence…
+dev
+depuis 3 min
+Silences
+Nouveau
+à l'instant
+règle updates_pending mises à jour le mercredi jusqu'au 12/11 10:00 par admin (dashboard)
+Lever
+hôte lab lab en travaux sans fin par admin (Telegram)
+Lever
+Historique (7 jours)
+Début
+Alerte
+Type
+Durée
+10/11 06:00
+en cours
+Mail injoignable
+Service hors ligne
+en cours
+09/11 08:00
+résolu
+Wiki injoignable acquittée
+rétabli après 1 h
+Service hors ligne
+1 h
+07/11 10:00
+résolu
+Nœud pve-a hors ligne masquée
+coupure de courant
+node_down
+10 min
+@aria-label En ligne
+@title 10/11/2026 09:40:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Sélectionner « Mail injoignable »
+@aria-label critique
+@aria-label Acquitter « Mail injoignable »
+@aria-label Silence sur « Mail injoignable »
+@title 10/11/2026 06:00:00
+@aria-label Sélectionner « Disque presque plein sur web »
+@title 10/11/2026 09:00:00
+@aria-label Acquitter « Disque presque plein sur web »
+@aria-label Silence sur « Disque presque plein sur web »
+@title 10/11/2026 08:00:00
+@aria-label Sélectionner « Certificat de forge »
+@aria-label avertissement
+@aria-label Acquitter « Certificat de forge »
+@aria-label Silence sur « Certificat de forge »
+@aria-label Sélectionner « Mises à jour en attente sur web »
+@aria-label info
+@aria-label Acquitter « Mises à jour en attente sur web »
+@aria-label Silence sur « Mises à jour en attente sur web »
+@aria-label Sélectionner « Agent injoignable sur lab »
+@aria-label en attente
+@aria-label Inconnu
+@aria-label Dégradé
+@aria-label Acquitter « Agent injoignable sur lab »
+@aria-label Silence sur « Agent injoignable sur lab »
+@title 10/11/2026 09:57:00
+@aria-label Acquitter 0 alerte
+@aria-label Marquer connus : 0 port
+@aria-label Nouveau silence
+@aria-label Nouveau silence : cible
+@aria-label en cours
+@aria-label résolu
+@title admin : redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+
+### routes : /alertes (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /network (vue seule)
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+Appareils
+Appareils
+6
+En ligne
+En ligne
+4
+Hors ligne
+Hors ligne
+1
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+Famille de MAC « tablette » : 3 MAC fe:fd:fc:* sur 2 fiches. Une seule fiche, et les prochaines MAC rattachées sans alerte ?
+⚠ noms saisis différents : tablette, telephone
+Valider…
+Écarter…
+2 fiches « telephone » à MAC privées : le même appareil ?
+Fusionner…
+Écarter…
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+En ligne
+Hors ligne
+Présence inconnue
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+6 / 6
+État
+Appareil
+IP
+Constructeur
+24 h
+Vu
+en ligne
+box
+Routeur · en ligne
+192.0.2.1
+Exemple
+il y a 1 min
+en ligne
+web
+Serveur · en ligne
+192.0.2.21
+Exemple
+il y a 1 min
+nouveau
+Fabricant nouveau
+en ligne
+192.0.2.103
+Fabricant
+il y a 1 min
+nouveau
+telephone nouveau
+Téléphone · hors ligne, vu il y a 3 h
+192.0.2.104
+Exemple
+il y a 3 h
+hors ligne, vu il y a 9 j
+imprimante à revoir
+Imprimante · hors ligne, vu il y a 9 j
+192.0.2.105
+Exemple
+il y a 9 j
+en ligne
+tablette MAC à confirmer
+Téléphone · en ligne · 2 MAC
+192.0.2.106
+Exemple
+il y a 1 min
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils
+@aria-label En ligne
+@aria-label Hors ligne
+@aria-label Nouveaux
+@aria-label À revoir
+@aria-label Suggestions de regroupement
+@aria-label Avertissements
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label Tout sélectionner
+@aria-label Sélectionner box
+@aria-label en ligne
+@aria-label Routeur
+@title Exemple
+@aria-label Présence 24 h : 24 tranches ok, 0 dégradées, 0 indisponibles
+@title disponible
+@aria-label Sélectionner web
+@aria-label Serveur
+@aria-label lié à l'hôte web
+@aria-label Sélectionner Fabricant
+@aria-label nouveau
+@aria-label Inconnu
+@title Fabricant
+@aria-label Sélectionner telephone
+@aria-label Téléphone
+@aria-label MAC aléatoire ou locale
+@aria-label Présence 24 h : 21 tranches ok, 0 dégradées, 3 indisponibles
+@title indisponible
+@title 10/11/2026 07:00:00
+@aria-label Sélectionner imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Imprimante
+@title importé de NetAlertX ou vu pendant l'amorçage : à vérifier
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 01/11/2026 10:00:00
+@aria-label Sélectionner tablette
+@title MAC rattachée automatiquement, à confirmer
+@aria-label Présence 24 h : 22 tranches ok, 2 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+
+### routes : /reseau (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /backups (vue seule)
+Sauvegardes
+à l'instant
+Cluster principal
+source : contenu du stockage + journaux vzdump
+02:00 tous les invités sauf lab → sauvegardes · snapshot prochain passage demain 01:00
+Hors sauvegarde : lab (103) exclu
+Invité
+M4
+J5
+V6
+S7
+D8
+L9
+auj.
+Dernière
+web CT 101
+sauvegardé à 02:00
+sauvegardé à 02:00
+il y a 8 h · 7
+nas VM 102
+sauvegardé à 02:00
+échec à 02:00
+dernier passage en échec · 3
+lab CT 103 exclu
+aucun backup
+1 invité disparu a encore des sauvegardes sur sauvegardes : 4.7 Go
+Jamais purgées par la rétention du job (VMID absent) : à supprimer à la main quand elles ne servent plus.
+199 sans nom 2 archives · 4.7 Go · dernière il y a 40 j
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title mercredi 4 novembre
+@title jeudi 5 novembre
+@title vendredi 6 novembre
+@title samedi 7 novembre
+@title dimanche 8 novembre
+@title lundi 9 novembre
+@title mardi 10 novembre
+@title pas de sauvegarde ce jour
+@aria-label pas de sauvegarde ce jour
+@aria-label sauvegardé à 02:00
+@title archives sur le stockage
+@aria-label échec à 02:00
+
+### routes : /sauvegardes (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /updates (vue seule)
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 3
+Majeures 2
+Mineures 3
+Patchs 2
+Images 1
+Dépôts 1
+Auto-MAJ 1
+Ignorées 1
+À jour 1
+Erreurs 1
+Sources en échec (dernières données gardées) : registre — HTTP 503
+MAJ de sécurité automatiques : en échec
+nas
+actives
+web
+Composant Où Installé → dernière Écart
+nginx
+OS
+web
+1.24.0 → 1.24.1
+sécurité il y a 5 j
+forge
+Image
+web
+1.22.0 → 2.0.0
+▲ majeure il y a 5 j
+wiki
+Image
+web
+3.4.0 → 3.5.0
+◆ mineure il y a 5 j
+debian
+OS
+nas
+11 → 12
+fin de vie depuis le 31 août 2026
+fin de vie il y a 5 j
+photos
+Image
+web
+sha256:abc → sha256:def
+◆ image il y a 5 j
+app
+Dépôt
+web
+run abc1234 → HEAD def5678
+3 versions
+▲ non déployé il y a 5 j
+dns
+App · dev
+lab
+5.0
+! erreur il y a 5 j
+wiki-db
+App
+web
+16.2 → 16.4
+épinglé (majeure 17.0 masquée)
+◆ mineure il y a 5 j
+paquets de web
+Paquets
+web
+3 paquets
+MAJ auto actives auto-MAJ
+sécurité il y a 5 j
+paquets de nas
+Paquets
+nas
+12 paquets
+MAJ auto en échec
+◆ mineure il y a 5 j
+Information seulement : rien n'est appliqué depuis le dashboard. 12 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Détail de nginx
+@title nginx
+@title Détail de l'hôte
+@title 1.24.0
+@title notes de 1.24.1
+@title 05/11/2026 10:00:00
+@aria-label Détail de forge
+@title forge
+@title 1.22.0
+@title notes de 2.0.0
+@aria-label Détail de wiki
+@title wiki
+@title 3.4.0
+@title notes de 3.5.0
+@aria-label Détail de debian
+@title debian
+@title 11
+@title notes de 12
+@aria-label Détail de photos
+@title photos
+@title sha256:abc
+@title notes de sha256:def
+@aria-label Détail de app
+@title app
+@title abc1234
+@title notes de def5678
+@aria-label Détail de dns
+@title dns
+@title 5.0
+@aria-label Détail de wiki-db
+@title wiki-db
+@title 16.2
+@title notes de 16.4
+@title majeure figée
+@aria-label Détail de paquets de web
+@title paquets de web
+@title se met à jour automatiquement (config ou Home Assistant)
+@aria-label Détail de paquets de nas
+@title paquets de nas
+
+### routes : /maj (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### routes : /wall (vue seule)
+Banc
+10:00 mardi 10 novembre
+Hors ligne
+Dégradé — 2 critiques, 3 avertissements
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+Dégradé
+9/12
+en ligne · 2 nouveaux
+Alertes actives
+à l'instant
+Hors ligne
+Mail injoignable
+smtp : connexion refusée
+4 h
+Hors ligne
+Disque presque plein sur web
+/ à 96 %
+2 h
+Dégradé
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+@aria-label Quitter le mode mural
+@aria-label Hors ligne
+@title 10/11/2026 10:00:00
+@aria-label Météo à Paris
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@title en échec : app
+@title en ligne · 2 nouveaux
+@title Rafraîchir
+@aria-label Info
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Inconnu
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@aria-label Connexion admin
+
+### routes : /mural (ancien nom, même vue)
+= même rendu que le cas précédent
+
+### cadre : écran de connexion seul
+Banc
+Connexion requise pour consulter ce tableau de bord. Session de 12 h.
+Connexion refusée en HTTP : ouvrir l'adresse HTTPS du tableau de bord.
+@aria-label Connexion admin
+
+### cadre : page « à configurer » seule
+Vigie : à configurer
+Aucun fichier de configuration n'a été trouvé : rien n'est lu ni sondé.
+Lancer l'assistant : cd server && npm run init (config, mot de passe admin, Proxmox et Gitea en option).
+Redémarrer le service.
+À la main : copier config.example.json en config.json et générer le mot de passe par node server/scripts/admin-password.js .
+Détails : docs/installation.md.
+@aria-label Connexion admin
+
+### cockpit : toutes les sources
+Hors ligne
+Dégradé — 2 critiques, 3 avertissements
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant Mural
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+Dégradé
+9/12
+en ligne · 2 nouveaux
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+Mises à jour
+à l'instant
+sécurité nginx 1.24.0 → 1.24.1
+▲ majeure forge 1.22.0 → 2.0.0
+◆ mineure wiki 3.4.0 → 3.5.0
+fin de vie debian 11 → 12
+◆ image photos sha256:abc
+▲ non déployé app abc1234 → def5678
++ 1 autres · Toutes les mises à jour
+Sauvegardes
+pve-a 1/3 à jour dernière il y a 8 h · prochaine mer. 01:00
+échec : nas en retard : lab
+Détail par invité
+CI et runners
+Info
+runner-a
+Hors ligne
+runner-b
+failure
+app #12 il y a 2 h
+success
+site #12 il y a 2 h
+Épinglés
+WI Wiki
+En ligne
+@aria-label Hors ligne
+@title 10/11/2026 10:00:00
+@title Mode mural (écran dédié)
+@aria-label Météo à Paris
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@title en échec : app
+@title en ligne · 2 nouveaux
+@title Rafraîchir
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Inconnu
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026 02:00:00
+@aria-label 1 à jour, 1 en retard, 1 en échec
+@title occupé
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026 08:00:00
+@aria-label success
+@title En ligne
+@aria-label Connexion admin
+
+### cockpit : environnement prod
+En ligne
+Opérationnel
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant Mural
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 4 autres 3 · 2 · 4
+sécu · maj. · autres
+Certificats
+Inconnu
+—
+aucun certificat suivi
+Sauvegardes
+En ligne
+—
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+En ligne
+9/12
+appareils en ligne
+Hyperviseurs
+à l'instant
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+Mises à jour
+à l'instant
+sécurité nginx 1.24.0 → 1.24.1
+▲ majeure forge 1.22.0 → 2.0.0
+◆ mineure wiki 3.4.0 → 3.5.0
+fin de vie debian 11 → 12
+◆ image photos sha256:abc
+▲ non déployé app abc1234 → def5678
++ 1 autres · Toutes les mises à jour
+Sauvegardes
+Détail par invité
+CI et runners
+Info
+runner-a
+Hors ligne
+runner-b
+failure
+app #12 il y a 2 h
+success
+site #12 il y a 2 h
+Épinglés
+WI Wiki
+En ligne
+@aria-label En ligne
+@title 10/11/2026 10:00:00
+@title Mode mural (écran dédié)
+@aria-label Météo à Paris
+@aria-label Hors ligne
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@aria-label Inconnu
+@title aucun certificat suivi
+@title en échec : app
+@title appareils en ligne
+@title Rafraîchir
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title occupé
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026 08:00:00
+@aria-label success
+@title En ligne
+@aria-label Connexion admin
+
+### cockpit : aucune donnée encore
+Inconnu
+Collecte en cours…
+Mural
+Hyperviseurs
+Santé des services · 24 h
+Mises à jour
+Sauvegardes
+Détail par invité
+CI et runners
+Épinglés
+Aucun favori
+Épingle un service avec ☆ dans la vue Services.
+@aria-label Inconnu
+@title Mode mural (écran dédié)
+@title Rafraîchir
+@aria-label Connexion admin
+
+### cockpit : sources en panne
+Inconnu
+Données partielles
+source injoignable : proxmox · agents
+màj à l'instant Mural
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Inconnu
+2/3
+Proxmox injoignable
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Lien
+—
+non configurée
+Réseau
+Inconnu
+9/12
+source en panne : pihole
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+Mises à jour
+à l'instant
+sécurité nginx 1.24.0 → 1.24.1
+▲ majeure forge 1.22.0 → 2.0.0
+◆ mineure wiki 3.4.0 → 3.5.0
+fin de vie debian 11 → 12
+◆ image photos sha256:abc
+▲ non déployé app abc1234 → def5678
++ 1 autres · Toutes les mises à jour
+Sauvegardes
+pve-a 1/3 à jour dernière il y a 8 h · prochaine mer. 01:00
+échec : nas en retard : lab
+Détail par invité
+CI et runners
+Info
+runner-a
+Hors ligne
+runner-b
+failure
+app #12 il y a 2 h
+success
+site #12 il y a 2 h
+Épinglés
+WI Wiki
+En ligne
+@aria-label Inconnu
+@title 10/11/2026 10:00:00
+@title Mode mural (écran dédié)
+@aria-label Hors ligne
+@title 1 hors ligne · 1 dégradé(s)
+@title Proxmox injoignable
+@title crit · warn · info
+@title sécu · maj. · autres
+@aria-label Dégradé
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@aria-label Lien
+@title non configurée
+@title source en panne : pihole
+@title Rafraîchir
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title nginx · web
+@title forge · web
+@title wiki · web
+@title debian · nas
+@title photos · web
+@title app · web
+@title 10/11/2026 02:00:00
+@aria-label 1 à jour, 1 en retard, 1 en échec
+@title occupé
+@aria-label Info
+@title offline
+@aria-label failure
+@title 10/11/2026 08:00:00
+@aria-label success
+@title En ligne
+@aria-label Connexion admin
+
+### services : liste
+Services
+à l'instant
+Filtrer les services
+Hors ligne
+Hors ligne 1
+Dégradé
+Dégradé 1
+Inconnu
+Inconnu 1
+En ligne
+En ligne 2
+Épinglés
+WI Wiki
+En ligne
+Applications · 3
+WI
+Wiki
+En ligne
+service wiki
+Pages
+128
+Utilisateurs
+4
+En ligne
+wiki-http HTTP 200 · 42 ms
+100 %
+CT 101 · main · 192.0.2.21 prod
+FO
+Forge
+Dégradé
+Dégradé
+service forge
+Dégradé
+forge-http HTTP 200 · 820 ms
+En ligne
+certificat cert. 12 j
+97.9 %
+CT 101 · main · 192.0.2.21 prod
+PH
+Photos
+En ligne
+service photos
+En ligne
+photos-http HTTP 200 · 42 ms
+100 %
+CT 101 · main · 192.0.2.21 prod
+Infrastructure · 2
+MA
+Mail
+Hors ligne
+Hors ligne
+service mail
+Hors ligne
+smtp connexion refusée
+75.0 %
+VM 102 · main · 192.0.2.22 prod
+DN
+Dns
+Inconnu
+Inconnu
+service dns
+Inconnu
+résolution en attente
+—
+CT 103 · main · 192.0.2.23 dev
+Favoris web
+Liens
+DO Documentation
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, IP, hôte, tag…
+@aria-label Filtrer par état
+@aria-label Hors ligne
+@aria-label Dégradé
+@aria-label Inconnu
+@aria-label En ligne
+@title En ligne
+@aria-label Wiki est épinglé dans la config
+@title Épinglé dans config.json
+@title 128
+@title 4
+@aria-label sondes
+@title https://wiki-http.example.net
+@title Historique (24 h)
+@aria-label Historique de Wiki : disponibilité 24 h 100 %
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@title disponible
+@aria-label Ajouter Forge aux favoris
+@title Ajouter aux favoris
+@title https://forge-http.example.net
+@title https://forge-tls.example.net · expire le 22/11/2026 · Exemple CA
+@aria-label Historique de Forge : disponibilité 24 h 97.9 %
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Ajouter Photos aux favoris
+@title https://photos-http.example.net
+@aria-label Historique de Photos : disponibilité 24 h 100 %
+@aria-label Ajouter Mail aux favoris
+@title 192.0.2.22:25 · connexion refusée
+@aria-label Historique de Mail : disponibilité 24 h 75.0 %
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title indisponible
+@title conteneur mailserver
+@aria-label Ajouter Dns aux favoris
+@title example.net
+@aria-label Historique de Dns : disponibilité 24 h —
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Connexion admin
+
+### services : filtre « en panne » et recherche
+Services
+à l'instant
+Filtrer les services
+Hors ligne
+Hors ligne 1
+Dégradé
+Dégradé 1
+Inconnu
+Inconnu 1
+En ligne
+En ligne 2
+Infrastructure · 1
+MA
+Mail
+Hors ligne
+Hors ligne
+service mail
+Hors ligne
+smtp connexion refusée
+75.0 %
+VM 102 · main · 192.0.2.22 prod
+Favoris web
+Liens
+DO Documentation
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, IP, hôte, tag…
+@aria-label Effacer le filtre
+@aria-label Filtrer par état
+@aria-label Hors ligne
+@aria-label Dégradé
+@aria-label Inconnu
+@aria-label En ligne
+@aria-label Ajouter Mail aux favoris
+@title Ajouter aux favoris
+@aria-label sondes
+@title 192.0.2.22:25 · connexion refusée
+@title Historique (24 h)
+@aria-label Historique de Mail : disponibilité 24 h 75.0 %
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@title conteneur mailserver
+@aria-label Connexion admin
+
+### services : recherche sans résultat
+Services
+à l'instant
+Filtrer les services
+Hors ligne
+Hors ligne 1
+Dégradé
+Dégradé 1
+Inconnu
+Inconnu 1
+En ligne
+En ligne 2
+Aucun service ne correspond aux filtres
+Élargis la recherche ou retire un filtre d’état.
+Favoris web
+Liens
+DO Documentation
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, IP, hôte, tag…
+@aria-label Effacer le filtre
+@aria-label Filtrer par état
+@aria-label Hors ligne
+@aria-label Dégradé
+@aria-label Inconnu
+@aria-label En ligne
+@aria-label Connexion admin
+
+### services : chargement
+Services
+@title Rafraîchir
+@aria-label Connexion admin
+
+### infra : Proxmox, agents et nœuds
+Infrastructure (VM / LXC)
+à l'instant
+Cluster principal
+pve-a PVE 8.3.2 · noyau 6.8.12-5-pve uptime 20j 0h
+CPU · 8 cœurs · charge 0,5 0,4 0,3 12%
+RAM hors cache · 13 Go / 30 Go 44%
+Swap · 0 / 7.5 Go 0%
+Système (/) · 37 Go / 93 Go 40%
+Processeur exemple · attente E/S 1 %
+Disques physiques
+SMART PASSED
+SSD Exemple
+/dev/sda · SSD · 466 Go · LVM · 12 000 h
+usure · vie restante 92 % 8%
+SMART FAILED
+HDD Exemple
+/dev/sdb · HDD · 3.6 To · ZFS · 12 réalloués
+disque dur : pas d'usure
+1 tâche en échec ou avertissement sur 7 j (1 en erreur) voir
+Notifications Proxmox : mail-admin (sendmail) — par mail à l'adresse de root@pam : vérifier qu'elle est renseignée et que le nœud sait relayer le courrier.
+en marche
+web CT 101
+CPU · 2 vCPU 5%
+RAM · 954 Mo / 1.9 Go 50%
+Disque · 4.7 Go / 9.3 Go 50%
+uptime 3j 0h · pve-a
+1/2 1 unité(s) 3 · 1 sécu reboot
+en marche
+nas VM 102
+CPU · 2 vCPU 5%
+RAM · 5.6 Go / 7.5 Go 75%
+Disque · 4.7 Go / 9.3 Go 50%
+uptime 3j 0h · pve-a
+agent : pas de réponse en 10 s
+arrêté
+lab CT 103
+arrêté · pve-a
+Stockages Proxmox
+local-lvm 56 Go / 186 Go · 30%
+sauvegardes 279 Go / 931 Go · 30%
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label CPU · 8 cœurs · charge 0,5 0,4 0,3
+@aria-label RAM hors cache · 13 Go / 30 Go
+@aria-label Swap · 0 / 7.5 Go
+@aria-label Système (/) · 37 Go / 93 Go
+@aria-label SMART PASSED
+@title SSD Exemple
+@aria-label usure · vie restante 92 %
+@aria-label SMART FAILED
+@title HDD Exemple
+@aria-label Détail de web
+@aria-label en marche
+@aria-label CPU · 2 vCPU
+@aria-label RAM · 954 Mo / 1.9 Go
+@aria-label Disque · 4.7 Go / 9.3 Go
+@title conteneurs en marche / total
+@title backup.timer
+@title mises à jour apt
+@title oui
+@aria-label Détail de nas
+@aria-label RAM · 5.6 Go / 7.5 Go
+@title pas de réponse en 10 s
+@aria-label arrêté
+@aria-label utilisation
+@aria-label Connexion admin
+
+### infra : Proxmox injoignable
+Infrastructure (VM / LXC)
+à l'instant
+Cluster principal
+Proxmox injoignable : connect ECONNREFUSED
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Connexion admin
+
+### infra : chargement
+Infrastructure (VM / LXC)
+@title Rafraîchir
+@aria-label Connexion admin
+
+### réseau : inventaire
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+Appareils
+Appareils
+6
+En ligne
+En ligne
+4
+Hors ligne
+Hors ligne
+1
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+Famille de MAC « tablette » : 3 MAC fe:fd:fc:* sur 2 fiches. Une seule fiche, et les prochaines MAC rattachées sans alerte ?
+⚠ noms saisis différents : tablette, telephone
+Valider…
+Écarter…
+2 fiches « telephone » à MAC privées : le même appareil ?
+Fusionner…
+Écarter…
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+En ligne
+Hors ligne
+Présence inconnue
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+6 / 6
+État
+Appareil
+IP
+Constructeur
+24 h
+Vu
+en ligne
+box
+Routeur · en ligne
+192.0.2.1
+Exemple
+il y a 1 min
+en ligne
+web
+Serveur · en ligne
+192.0.2.21
+Exemple
+il y a 1 min
+nouveau
+Fabricant nouveau
+en ligne
+192.0.2.103
+Fabricant
+il y a 1 min
+nouveau
+telephone nouveau
+Téléphone · hors ligne, vu il y a 3 h
+192.0.2.104
+Exemple
+il y a 3 h
+hors ligne, vu il y a 9 j
+imprimante à revoir
+Imprimante · hors ligne, vu il y a 9 j
+192.0.2.105
+Exemple
+il y a 9 j
+en ligne
+tablette MAC à confirmer
+Téléphone · en ligne · 2 MAC
+192.0.2.106
+Exemple
+il y a 1 min
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils
+@aria-label En ligne
+@aria-label Hors ligne
+@aria-label Nouveaux
+@aria-label À revoir
+@aria-label Suggestions de regroupement
+@aria-label Avertissements
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label Tout sélectionner
+@aria-label Sélectionner box
+@aria-label en ligne
+@aria-label Routeur
+@title Exemple
+@aria-label Présence 24 h : 24 tranches ok, 0 dégradées, 0 indisponibles
+@title disponible
+@aria-label Sélectionner web
+@aria-label Serveur
+@aria-label lié à l'hôte web
+@aria-label Sélectionner Fabricant
+@aria-label nouveau
+@aria-label Inconnu
+@title Fabricant
+@aria-label Sélectionner telephone
+@aria-label Téléphone
+@aria-label MAC aléatoire ou locale
+@aria-label Présence 24 h : 21 tranches ok, 0 dégradées, 3 indisponibles
+@title indisponible
+@title 10/11/2026 07:00:00
+@aria-label Sélectionner imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Imprimante
+@title importé de NetAlertX ou vu pendant l'amorçage : à vérifier
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 01/11/2026 10:00:00
+@aria-label Sélectionner tablette
+@title MAC rattachée automatiquement, à confirmer
+@aria-label Présence 24 h : 22 tranches ok, 2 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Connexion admin
+
+### réseau : filtre « nouveaux », tri par nom
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+Appareils
+Appareils
+6
+En ligne
+En ligne
+4
+Hors ligne
+Hors ligne
+1
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+Famille de MAC « tablette » : 3 MAC fe:fd:fc:* sur 2 fiches. Une seule fiche, et les prochaines MAC rattachées sans alerte ?
+⚠ noms saisis différents : tablette, telephone
+Valider…
+Écarter…
+2 fiches « telephone » à MAC privées : le même appareil ?
+Fusionner…
+Écarter…
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+En ligne
+Hors ligne
+Présence inconnue
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+2 / 6
+État
+Appareil
+IP
+Constructeur
+24 h
+Vu
+nouveau
+Fabricant nouveau
+en ligne
+192.0.2.103
+Fabricant
+il y a 1 min
+nouveau
+telephone nouveau
+Téléphone · hors ligne, vu il y a 3 h
+192.0.2.104
+Exemple
+il y a 3 h
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils
+@aria-label En ligne
+@aria-label Hors ligne
+@aria-label Nouveaux
+@aria-label À revoir
+@aria-label Suggestions de regroupement
+@aria-label Avertissements
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label Tout sélectionner
+@aria-label Sélectionner Fabricant
+@aria-label nouveau
+@aria-label Inconnu
+@title Fabricant
+@aria-label Présence 24 h : 24 tranches ok, 0 dégradées, 0 indisponibles
+@title disponible
+@aria-label Sélectionner telephone
+@aria-label Téléphone
+@aria-label MAC aléatoire ou locale
+@title Exemple
+@aria-label Présence 24 h : 21 tranches ok, 0 dégradées, 3 indisponibles
+@title indisponible
+@title 10/11/2026 07:00:00
+@aria-label Connexion admin
+
+### réseau : onglet historique
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+Période
+7 j
+30 j
+90 j
+Appareils en ligne (par heure) ● en ligne moy. 9 · pic 10
+mar. 10:00 lun. 10:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils en ligne (par heure) : en ligne moyenne 9
+@aria-label Connexion admin
+
+### réseau : onglet carte (la carte, paresseuse, attend son chunk)
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Connexion admin
+
+### réseau : carte (admin)
+SVG
+Mermaid
+Modifier les liens
+1 lien saisi ignoré : cycle
+ok
+Internet
+box — par défaut (passerelle)
+ok
+box
+192.0.2.1
+pve-a — config
+ok
+pve-a
+192.0.2.10
+imprimante — lien saisi
+crit
+imprimante
+192.0.2.105
+lien
+web — Proxmox
+warn
+web
+192.0.2.21
+crit
+2 invités ▸
+tablette — par le service wiki
+ok
+tablette
+192.0.2.106
+@placeholder Centrer sur un nom ou une IP
+@aria-label Chercher sur la carte
+@aria-label Carte du réseau
+@aria-label Internet
+@aria-label ok
+@aria-label box, 192.0.2.1
+@aria-label pve-a, 192.0.2.10
+@aria-label imprimante, 192.0.2.105
+@aria-label crit
+@aria-label web, 192.0.2.21
+@aria-label warn
+@aria-label 2 invités
+@aria-label tablette, 192.0.2.106
+@aria-label Relier sur la carte
+@aria-label Retirer le lien saisi
+@aria-label Connexion admin
+
+### réseau : carte (lecture anonyme)
+SVG
+Mermaid
+1 lien saisi ignoré : cycle
+ok
+Internet
+box — par défaut (passerelle)
+ok
+box
+192.0.2.1
+pve-a — config
+ok
+pve-a
+192.0.2.10
+imprimante — lien saisi
+crit
+imprimante
+192.0.2.105
+lien
+web — Proxmox
+warn
+web
+192.0.2.21
+crit
+2 invités ▸
+tablette — par le service wiki
+ok
+tablette
+192.0.2.106
+@placeholder Centrer sur un nom ou une IP
+@aria-label Chercher sur la carte
+@aria-label Carte du réseau
+@aria-label Internet
+@aria-label ok
+@aria-label box, 192.0.2.1
+@aria-label pve-a, 192.0.2.10
+@aria-label imprimante, 192.0.2.105
+@aria-label crit
+@aria-label web, 192.0.2.21
+@aria-label warn
+@aria-label 2 invités
+@aria-label tablette, 192.0.2.106
+@aria-label Relier sur la carte
+@aria-label Retirer le lien saisi
+@aria-label Connexion admin
+
+### réseau : filtre par type et recherche
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Sonder tout
+Appareils
+Appareils
+6
+En ligne
+En ligne
+4
+Hors ligne
+Hors ligne
+1
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+Famille de MAC « tablette » : 3 MAC fe:fd:fc:* sur 2 fiches. Une seule fiche, et les prochaines MAC rattachées sans alerte ?
+⚠ noms saisis différents : tablette, telephone
+Valider…
+Écarter…
+2 fiches « telephone » à MAC privées : le même appareil ?
+Fusionner…
+Écarter…
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+En ligne
+Hors ligne
+Présence inconnue
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+1 / 6
+État
+Appareil
+IP
+Constructeur
+24 h
+Vu
+hors ligne, vu il y a 9 j
+imprimante à revoir
+Imprimante · hors ligne, vu il y a 9 j
+192.0.2.105
+Exemple
+il y a 9 j
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils
+@aria-label En ligne
+@aria-label Hors ligne
+@aria-label Nouveaux
+@aria-label À revoir
+@aria-label Suggestions de regroupement
+@aria-label Avertissements
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label Tout sélectionner
+@aria-label Sélectionner imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Imprimante
+@title importé de NetAlertX ou vu pendant l'amorçage : à vérifier
+@title Exemple
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title indisponible
+@title 01/11/2026 10:00:00
+@aria-label Connexion admin
+
+### réseau : présence passive (sans sonde ARP)
+Appareils du LAN
+à l'instant
+Présence passive : « actif » = vu dans les 15 dernières minutes (Pi-hole, voisins du CT). Un appareil silencieux n'est pas forcément éteint, et un appareil parti peut rester actif quelques heures.
+en échec
+balayage ARP 0
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Sonder tout
+Appareils
+Appareils
+6
+Actifs (< 15 min)
+Actifs (< 15 min)
+4
+Vus par DHCP
+Vus par DHCP
+2
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+Famille de MAC « tablette » : 3 MAC fe:fd:fc:* sur 2 fiches. Une seule fiche, et les prochaines MAC rattachées sans alerte ?
+⚠ noms saisis différents : tablette, telephone
+Valider…
+Écarter…
+2 fiches « telephone » à MAC privées : le même appareil ?
+Fusionner…
+Écarter…
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+Actifs
+Vus il y a un moment
+Vus par DHCP
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+6 / 6
+État
+Appareil
+IP
+Constructeur
+Vu
+actif
+box
+Routeur · actif
+192.0.2.1
+Exemple
+il y a 1 min
+actif
+web
+Serveur · actif
+192.0.2.21
+Exemple
+il y a 1 min
+nouveau
+Fabricant nouveau
+actif
+192.0.2.103
+Fabricant
+il y a 1 min
+nouveau
+telephone nouveau
+Téléphone · vu il y a 3 h
+192.0.2.104
+Exemple
+il y a 3 h
+inconnu
+imprimante à revoir
+Imprimante · inconnu
+192.0.2.105
+Exemple
+il y a 9 j
+actif
+tablette MAC à confirmer
+Téléphone · actif · 2 MAC
+192.0.2.106
+Exemple
+il y a 1 min
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title pas encore de relevé
+@aria-label en échec
+@title dernier relevé 10/11/2026 09:55:00
+@aria-label relevé OK
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@title 10/11/2026 08:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@title 10/11/2026 09:59:00
+@aria-label Vues du réseau
+@aria-label Sonder tout
+@title Sonder tous les hôtes de l'infra maintenant (mêmes règles que le passage du dimanche)
+@aria-label Appareils
+@aria-label Actifs (< 15 min)
+@aria-label Vus par DHCP
+@aria-label Nouveaux
+@aria-label À revoir
+@aria-label Suggestions de regroupement
+@aria-label Avertissements
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label Tout sélectionner
+@aria-label Sélectionner box
+@aria-label actif
+@aria-label Routeur
+@title Exemple
+@aria-label Sélectionner web
+@aria-label Serveur
+@aria-label lié à l'hôte web
+@aria-label Sélectionner Fabricant
+@aria-label nouveau
+@aria-label Inconnu
+@title Fabricant
+@aria-label Sélectionner telephone
+@aria-label Téléphone
+@aria-label MAC aléatoire ou locale
+@title 10/11/2026 07:00:00
+@aria-label Sélectionner imprimante
+@aria-label inconnu
+@aria-label Imprimante
+@title importé de NetAlertX ou vu pendant l'amorçage : à vérifier
+@title 01/11/2026 10:00:00
+@aria-label Sélectionner tablette
+@title MAC rattachée automatiquement, à confirmer
+@aria-label Connexion admin
+
+### réseau : lecture anonyme
+Appareils du LAN
+à l'instant
+Présence fiable par balayage ARP toutes les 2 min : « en ligne » = a répondu ; un appareil jamais vu reste « inconnu » le temps de son délai. La fraîcheur Pi-hole reste visible dans la fiche. Ancre : passerelle 192.0.2.1 (route par défaut).
+relevé OK
+balayage ARP 6 il y a 1 min
+relevé OK
+Proxmox 3 il y a 5 min
+en échec
+bail DHCP 0 il y a 2 h
+relevé OK
+Pi-hole (ARP) 4 il y a 5 min
+relevé OK
+agent 1 il y a 1 min
+relevé OK
+voisins du CT 2 il y a 1 min
+relevé OK
+mDNS il y a 1 min
+relevé OK
+sonde
+Appareils
+Carte
+Historique
+Appareils
+Appareils
+6
+En ligne
+En ligne
+4
+Hors ligne
+Hors ligne
+1
+Nouveaux
+Nouveaux
+2
+À revoir
+À revoir
+1
+2 nouveaux appareils apparus depuis la mise en service.
+Voir
+1 MAC rattachée automatiquement (même nom ou même IP), à confirmer : un autre appareil peut usurper un nom.
+Voir
+1 appareil importé ou vu à l'amorçage, à revoir.
+Afficher
+Tous
+En ligne
+Hors ligne
+Présence inconnue
+Nouveaux
+À revoir
+MAC à confirmer
+Tous les types
+Téléphone
+Imprimante
+Routeur
+Serveur
+6 / 6
+État
+Appareil
+IP
+Constructeur
+24 h
+Vu
+en ligne
+box
+Routeur · en ligne
+192.0.2.1
+Exemple
+il y a 1 min
+en ligne
+web
+Serveur · en ligne
+192.0.2.21
+Exemple
+il y a 1 min
+nouveau
+Fabricant nouveau
+en ligne
+192.0.2.103
+Fabricant
+il y a 1 min
+nouveau
+telephone nouveau
+Téléphone · hors ligne, vu il y a 3 h
+192.0.2.104
+Exemple
+il y a 3 h
+hors ligne, vu il y a 9 j
+imprimante à revoir
+Imprimante · hors ligne, vu il y a 9 j
+192.0.2.105
+Exemple
+il y a 9 j
+en ligne
+tablette MAC à confirmer
+Téléphone · en ligne · 2 MAC
+192.0.2.106
+Exemple
+il y a 1 min
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title dernier relevé 10/11/2026 09:59:00
+@aria-label relevé OK
+@title 10/11/2026 09:59:00
+@title dernier relevé 10/11/2026 09:55:00
+@title 10/11/2026 09:55:00
+@title Pi-hole : réponse dhcp/leases inattendue
+@aria-label en échec
+@title 10/11/2026 08:00:00
+@title pas encore de relevé
+@aria-label Vues du réseau
+@aria-label Appareils
+@aria-label En ligne
+@aria-label Hors ligne
+@aria-label Nouveaux
+@aria-label À revoir
+@placeholder Nom, IP, MAC, constructeur…
+@aria-label Rechercher un appareil
+@aria-label Filtrer par état
+@aria-label Filtrer par type
+@aria-label en ligne
+@aria-label Routeur
+@title Exemple
+@aria-label Présence 24 h : 24 tranches ok, 0 dégradées, 0 indisponibles
+@title disponible
+@aria-label Serveur
+@aria-label lié à l'hôte web
+@aria-label nouveau
+@aria-label Inconnu
+@title Fabricant
+@aria-label Téléphone
+@aria-label MAC aléatoire ou locale
+@aria-label Présence 24 h : 21 tranches ok, 0 dégradées, 3 indisponibles
+@title indisponible
+@title 10/11/2026 07:00:00
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Imprimante
+@title importé de NetAlertX ou vu pendant l'amorçage : à vérifier
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 01/11/2026 10:00:00
+@title MAC rattachée automatiquement, à confirmer
+@aria-label Présence 24 h : 22 tranches ok, 2 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Connexion admin
+
+### réseau : module désactivé
+Module Réseau non configuré
+Ajouter le bloc « network » à config.json (voir docs/network.md).
+@aria-label Connexion admin
+
+### mises à jour : à traiter
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 3
+Majeures 2
+Mineures 3
+Patchs 2
+Images 1
+Dépôts 1
+Auto-MAJ 1
+Ignorées 1
+À jour 1
+Erreurs 1
+Sources en échec (dernières données gardées) : registre — HTTP 503
+MAJ de sécurité automatiques : en échec
+nas
+actives
+web
+Composant Où Installé → dernière Écart
+nginx
+OS
+web
+1.24.0 → 1.24.1
+sécurité il y a 5 j
+forge
+Image
+web
+1.22.0 → 2.0.0
+▲ majeure il y a 5 j
+wiki
+Image
+web
+3.4.0 → 3.5.0
+◆ mineure il y a 5 j
+debian
+OS
+nas
+11 → 12
+fin de vie depuis le 31 août 2026
+fin de vie il y a 5 j
+photos
+Image
+web
+sha256:abc → sha256:def
+◆ image il y a 5 j
+app
+Dépôt
+web
+run abc1234 → HEAD def5678
+3 versions
+▲ non déployé il y a 5 j
+dns
+App · dev
+lab
+5.0
+! erreur il y a 5 j
+wiki-db
+App
+web
+16.2 → 16.4
+épinglé (majeure 17.0 masquée)
+◆ mineure il y a 5 j
+paquets de web
+Paquets
+web
+3 paquets
+MAJ auto actives auto-MAJ
+sécurité il y a 5 j
+paquets de nas
+Paquets
+nas
+12 paquets
+MAJ auto en échec
+◆ mineure il y a 5 j
+Information seulement : rien n'est appliqué depuis le dashboard. 12 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Détail de nginx
+@title nginx
+@title Détail de l'hôte
+@title 1.24.0
+@title notes de 1.24.1
+@title 05/11/2026 10:00:00
+@aria-label Détail de forge
+@title forge
+@title 1.22.0
+@title notes de 2.0.0
+@aria-label Détail de wiki
+@title wiki
+@title 3.4.0
+@title notes de 3.5.0
+@aria-label Détail de debian
+@title debian
+@title 11
+@title notes de 12
+@aria-label Détail de photos
+@title photos
+@title sha256:abc
+@title notes de sha256:def
+@aria-label Détail de app
+@title app
+@title abc1234
+@title notes de def5678
+@aria-label Détail de dns
+@title dns
+@title 5.0
+@aria-label Détail de wiki-db
+@title wiki-db
+@title 16.2
+@title notes de 16.4
+@title majeure figée
+@aria-label Détail de paquets de web
+@title paquets de web
+@title se met à jour automatiquement (config ou Home Assistant)
+@aria-label Détail de paquets de nas
+@title paquets de nas
+@aria-label Connexion admin
+
+### mises à jour : filtre « à jour »
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 3
+Majeures 2
+Mineures 3
+Patchs 2
+Images 1
+Dépôts 1
+Auto-MAJ 1
+Ignorées 1
+À jour 1
+Erreurs 1
+Sources en échec (dernières données gardées) : registre — HTTP 503
+MAJ de sécurité automatiques : en échec
+nas
+actives
+web
+Composant Où Installé → dernière Écart
+cache
+App
+web
+7.2
+✓ à jour
+Information seulement : rien n'est appliqué depuis le dashboard. 12 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Détail de cache
+@title cache
+@title Détail de l'hôte
+@title 7.2
+@aria-label Connexion admin
+
+### mises à jour : filtre « ignorées »
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 3
+Majeures 2
+Mineures 3
+Patchs 2
+Images 1
+Dépôts 1
+Auto-MAJ 1
+Ignorées 1
+À jour 1
+Erreurs 1
+Sources en échec (dernières données gardées) : registre — HTTP 503
+MAJ de sécurité automatiques : en échec
+nas
+actives
+web
+Composant Où Installé → dernière Écart
+mail
+App
+web
+2.0.0 → 2.1.0
+ignorée jusqu'au 1 déc. 2026 · attendre la 2.1.1
+– ignorée il y a 5 j
+Information seulement : rien n'est appliqué depuis le dashboard. 12 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Détail de mail
+@title mail
+@title Détail de l'hôte
+@title 2.0.0
+@title notes de 2.1.0
+@title attendre la 2.1.1
+@title 05/11/2026 10:00:00
+@aria-label Connexion admin
+
+### mises à jour : filtre « erreurs » et recherche
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 3
+Majeures 2
+Mineures 3
+Patchs 2
+Images 1
+Dépôts 1
+Auto-MAJ 1
+Ignorées 1
+À jour 1
+Erreurs 1
+Sources en échec (dernières données gardées) : registre — HTTP 503
+MAJ de sécurité automatiques : en échec
+nas
+actives
+web
+Composant Où Installé → dernière Écart
+dns
+App · dev
+lab
+5.0
+! erreur il y a 5 j
+Information seulement : rien n'est appliqué depuis le dashboard. 12 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Effacer le filtre
+@aria-label Filtrer par écart
+@title dpkg interrompu
+@title sécurité seulement
+@aria-label Détail de dns
+@title dns
+@title 5.0
+@title 05/11/2026 10:00:00
+@aria-label Connexion admin
+
+### mises à jour : tout est à jour
+Mises à jour
+vérifié il y a 10 min
+à l'instant
+Filtrer les composants
+Sécurité / EOL 0
+Majeures 0
+Mineures 0
+Patchs 0
+À jour 1
+Tout est à jour
+1 composants suivis
+Information seulement : rien n'est appliqué depuis le dashboard. 1 composants suivis · 12 requêtes amont depuis le démarrage (8 non modifiées) · GitHub sans jeton (60 req/h)
+@title 10/11/2026 09:50:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@aria-label Connexion admin
+
+### mises à jour : première vérification
+Mises à jour
+à l'instant
+Filtrer les composants
+Sécurité / EOL 0
+Majeures 0
+Mineures 0
+Patchs 0
+Tout est à jour
+Première vérification en cours…
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@placeholder Filtrer : nom, hôte, version…
+@aria-label Filtrer par écart
+@aria-label Connexion admin
+
+### sauvegardes : stockage, jobs, couverture, orphelines
+Sauvegardes
+à l'instant
+Cluster principal
+source : contenu du stockage + journaux vzdump
+02:00 tous les invités sauf lab → sauvegardes · snapshot prochain passage demain 01:00
+Hors sauvegarde : lab (103) exclu
+Invité
+M4
+J5
+V6
+S7
+D8
+L9
+auj.
+Dernière
+web CT 101
+sauvegardé à 02:00
+sauvegardé à 02:00
+il y a 8 h · 7
+nas VM 102
+sauvegardé à 02:00
+échec à 02:00
+dernier passage en échec · 3
+lab CT 103 exclu
+aucun backup
+1 invité disparu a encore des sauvegardes sur sauvegardes : 4.7 Go
+Jamais purgées par la rétention du job (VMID absent) : à supprimer à la main quand elles ne servent plus.
+199 sans nom 2 archives · 4.7 Go · dernière il y a 40 j
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title mercredi 4 novembre
+@title jeudi 5 novembre
+@title vendredi 6 novembre
+@title samedi 7 novembre
+@title dimanche 8 novembre
+@title lundi 9 novembre
+@title mardi 10 novembre
+@title pas de sauvegarde ce jour
+@aria-label pas de sauvegarde ce jour
+@aria-label sauvegardé à 02:00
+@title archives sur le stockage
+@aria-label échec à 02:00
+@aria-label Connexion admin
+
+### sauvegardes : non configurées
+Sauvegardes
+à l'instant
+Cluster principal
+Aucun job de sauvegarde planifié.
+Invité
+M4
+J5
+V6
+S7
+D8
+L9
+auj.
+Dernière
+web CT 101
+aucun backup
+nas VM 102
+aucun backup
+lab CT 103
+aucun backup
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@title mercredi 4 novembre
+@title jeudi 5 novembre
+@title vendredi 6 novembre
+@title samedi 7 novembre
+@title dimanche 8 novembre
+@title lundi 9 novembre
+@title mardi 10 novembre
+@title pas de sauvegarde ce jour
+@aria-label pas de sauvegarde ce jour
+@aria-label Connexion admin
+
+### alertes : actives, incidents, silences (admin)
+Notifications
+En ligne
+Telegram relié
+En ligne
+healthchecks.io pingué
+Heures calmes 22:00–07:00 · digest 08:00
+dernier envoi il y a 20 min · 1 en file
+Alertes actives
+à l'instant
+Tout sélectionner (5)
+critique
+Mail injoignable Service hors ligne
+smtp : connexion refusée
+nas notifiée
+Acquitter
+Silence…
+prod
+depuis 4 h
+critique
+Disque presque plein sur web disk_full
+/ à 96 %
+web notifiée
+acquittée par admin il y a 1 h : nettoyage prévu ce soir
+Retirer l'ack
+Silence…
+prod
+depuis 2 h
+avertissement
+Certificat de forge Certificat
+expire dans 12 j
+web notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web non notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+en attente
+Agent injoignable sur lab Agent injoignable
+Inconnu
+en attente
+Dégradé
+instable
+pas de réponse en 10 s
+lab
+Silence…
+dev
+depuis 3 min
+Silences
+Nouveau
+à l'instant
+règle updates_pending mises à jour le mercredi jusqu'au 12/11 10:00 par admin (dashboard)
+Lever
+hôte lab lab en travaux sans fin par admin (Telegram)
+Lever
+Historique (7 jours)
+Début
+Alerte
+Type
+Durée
+10/11 06:00
+en cours
+Mail injoignable
+Service hors ligne
+en cours
+09/11 08:00
+résolu
+Wiki injoignable acquittée
+rétabli après 1 h
+Service hors ligne
+1 h
+07/11 10:00
+résolu
+Nœud pve-a hors ligne masquée
+coupure de courant
+node_down
+10 min
+@aria-label En ligne
+@title 10/11/2026 09:40:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Sélectionner « Mail injoignable »
+@aria-label critique
+@aria-label Acquitter « Mail injoignable »
+@aria-label Silence sur « Mail injoignable »
+@title 10/11/2026 06:00:00
+@aria-label Sélectionner « Disque presque plein sur web »
+@title 10/11/2026 09:00:00
+@aria-label Acquitter « Disque presque plein sur web »
+@aria-label Silence sur « Disque presque plein sur web »
+@title 10/11/2026 08:00:00
+@aria-label Sélectionner « Certificat de forge »
+@aria-label avertissement
+@aria-label Acquitter « Certificat de forge »
+@aria-label Silence sur « Certificat de forge »
+@aria-label Sélectionner « Mises à jour en attente sur web »
+@aria-label info
+@aria-label Acquitter « Mises à jour en attente sur web »
+@aria-label Silence sur « Mises à jour en attente sur web »
+@aria-label Sélectionner « Agent injoignable sur lab »
+@aria-label en attente
+@aria-label Inconnu
+@aria-label Dégradé
+@aria-label Acquitter « Agent injoignable sur lab »
+@aria-label Silence sur « Agent injoignable sur lab »
+@title 10/11/2026 09:57:00
+@aria-label Acquitter 0 alerte
+@aria-label Marquer connus : 0 port
+@aria-label Nouveau silence
+@aria-label Nouveau silence : cible
+@aria-label en cours
+@aria-label résolu
+@title admin : redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+@aria-label Connexion admin
+
+### alertes : lecture anonyme
+Notifications
+En ligne
+Telegram relié
+En ligne
+healthchecks.io pingué
+Heures calmes 22:00–07:00 · digest 08:00
+dernier envoi il y a 20 min · 1 en file
+Alertes actives
+à l'instant
+critique
+Mail injoignable Service hors ligne
+smtp : connexion refusée
+nas notifiée
+Acquitter
+Silence…
+prod
+depuis 4 h
+critique
+Disque presque plein sur web disk_full
+/ à 96 %
+web notifiée
+acquittée par admin il y a 1 h : nettoyage prévu ce soir
+Retirer l'ack
+Silence…
+prod
+depuis 2 h
+avertissement
+Certificat de forge Certificat
+expire dans 12 j
+web notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+info
+Mises à jour en attente sur web updates_pending
+3 paquets dont 1 de sécurité
+web non notifiée
+Acquitter
+Silence…
+prod
+depuis 2 h
+en attente
+Agent injoignable sur lab Agent injoignable
+Inconnu
+en attente
+Dégradé
+instable
+pas de réponse en 10 s
+lab
+Silence…
+dev
+depuis 3 min
+Silences
+Nouveau
+à l'instant
+règle updates_pending mises à jour le mercredi jusqu'au 12/11 10:00 par admin (dashboard)
+Lever
+hôte lab lab en travaux sans fin par admin (Telegram)
+Lever
+Historique (7 jours)
+Début
+Alerte
+Type
+Durée
+10/11 06:00
+en cours
+Mail injoignable
+Service hors ligne
+en cours
+09/11 08:00
+résolu
+Wiki injoignable acquittée
+rétabli après 1 h
+Service hors ligne
+1 h
+07/11 10:00
+résolu
+Nœud pve-a hors ligne masquée
+coupure de courant
+node_down
+10 min
+@aria-label En ligne
+@title 10/11/2026 09:40:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label critique
+@aria-label Acquitter « Mail injoignable »
+@aria-label Silence sur « Mail injoignable »
+@title 10/11/2026 06:00:00
+@title 10/11/2026 09:00:00
+@aria-label Acquitter « Disque presque plein sur web »
+@aria-label Silence sur « Disque presque plein sur web »
+@title 10/11/2026 08:00:00
+@aria-label avertissement
+@aria-label Acquitter « Certificat de forge »
+@aria-label Silence sur « Certificat de forge »
+@aria-label info
+@aria-label Acquitter « Mises à jour en attente sur web »
+@aria-label Silence sur « Mises à jour en attente sur web »
+@aria-label en attente
+@aria-label Inconnu
+@aria-label Dégradé
+@aria-label Acquitter « Agent injoignable sur lab »
+@aria-label Silence sur « Agent injoignable sur lab »
+@title 10/11/2026 09:57:00
+@aria-label Nouveau silence
+@aria-label Nouveau silence : cible
+@aria-label en cours
+@aria-label résolu
+@title admin : redémarrage
+@title rétabli après 1 h
+@title 08:00 → 09:00
+@title maintenance
+@title coupure de courant
+@title 10:00 → 10:10
+@aria-label Connexion admin
+
+### alertes : environnement dev
+Notifications
+En ligne
+Telegram relié
+En ligne
+healthchecks.io pingué
+Heures calmes 22:00–07:00 · digest 08:00
+dernier envoi il y a 20 min · 1 en file
+Alertes actives
+à l'instant
+Tout sélectionner (1)
+en attente
+Agent injoignable sur lab Agent injoignable
+Inconnu
+en attente
+Dégradé
+instable
+pas de réponse en 10 s
+lab
+Silence…
+dev
+depuis 3 min
+Silences
+Nouveau
+à l'instant
+règle updates_pending mises à jour le mercredi jusqu'au 12/11 10:00 par admin (dashboard)
+Lever
+hôte lab lab en travaux sans fin par admin (Telegram)
+Lever
+Historique (7 jours)
+Aucun incident sur 7 jours
+@aria-label En ligne
+@title 10/11/2026 09:40:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Sélectionner « Agent injoignable sur lab »
+@aria-label en attente
+@aria-label Inconnu
+@aria-label Dégradé
+@aria-label Acquitter « Agent injoignable sur lab »
+@aria-label Silence sur « Agent injoignable sur lab »
+@title 10/11/2026 09:57:00
+@aria-label Acquitter 0 alerte
+@aria-label Marquer connus : 0 port
+@aria-label Nouveau silence
+@aria-label Nouveau silence : cible
+@aria-label Connexion admin
+
+### alertes : aucune alerte
+Notifications
+En ligne
+Telegram relié
+En ligne
+healthchecks.io pingué
+Heures calmes 22:00–07:00 · digest 08:00
+dernier envoi il y a 20 min · 1 en file
+Alertes actives
+à l'instant
+Aucune alerte active
+Services, Proxmox, sauvegardes, stockages, certificats et CI sont surveillés.
+Silences
+Nouveau
+à l'instant
+Aucun silence actif. Depuis une alerte, Telegram ( /mute ) ou « Nouveau ».
+Historique (7 jours)
+Aucun incident sur 7 jours
+@aria-label En ligne
+@title 10/11/2026 09:40:00
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Nouveau silence
+@aria-label Nouveau silence : cible
+@aria-label Connexion admin
+
+### intégrations
+Intégrations
+interface des plugins v0 (instable)
+à l'instant
+actif
+versions module du cœur · actif
+actif
+Gitea plugin · actif
+en erreur
+Cassé plugin · en erreur
+signals : boum ( il y a 5 min )
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label actif
+@aria-label en erreur
+@title 10/11/2026 09:55:00
+@aria-label Connexion admin
+
+### CI (plugin gitea) : en échec
+Runners CI
+à l'instant
+en ligne
+runner-a occupé online
+docker
+hors ligne
+runner-b offline
+Activité Gitea
+à l'instant
+app
+CI failure
+CI #12 2 PR
+commit de app
+def5678 · auteur · il y a 3 h
+site
+CI success
+CI #12
+commit de site
+def5678 · auteur · il y a 3 h
+casse
+indisponible
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label en ligne
+@aria-label hors ligne
+@title CI run #12 · failure · run de app · il y a 2 h
+@aria-label CI failure
+@title CI run #12 · success · run de site · il y a 2 h
+@aria-label CI success
+@aria-label Connexion admin
+
+### CI (plugin gitea) : non configurée
+Gitea non configuré
+Ajouter le bloc « plugins.gitea » à la config et GITEA_URL (et GITEA_TOKEN) à l'environnement, puis redémarrer (voir docs/configuration.md).
+@aria-label Connexion admin
+
+### plugin d'exemple : vue
+File d'exemple
+à l'instant
+12 tâches en attente (alerte au-delà de 10)
+@title Rafraîchir
+@title 10/11/2026 10:00:00
+@aria-label Connexion admin
+
+### plugin d'exemple : tuile du cockpit
+File
+Dégradé
+12
+alerte au-delà de 10
+@aria-label Dégradé
+@title alerte au-delà de 10
+@aria-label Connexion admin
+
+### plugin d'exemple : tuile sans donnée
+File
+Inconnu
+—
+inconnue
+@aria-label Inconnu
+@title inconnue
+@aria-label Connexion admin
+
+### mural : vue seule
+Banc
+10:00 mardi 10 novembre
+Hors ligne
+Dégradé — 2 critiques, 3 avertissements
+2/5 services en ligne · 2/3 invités actifs
+màj à l'instant
+12°
+Paris
+Ciel dégagé
+6° / 15° · ressenti 10°
+vent 18 km/h · pluie 20 %
+Météo : Open-Meteo
+Services
+Hors ligne
+2/5
+1 hors ligne · 1 dégradé(s)
+Invités
+Dégradé
+2/3
+arrêté : lab
+Alertes
+Hors ligne
+2 critiques, 1 avertissement, 1 info 2 · 1 · 1
+crit · warn · info
+Mises à jour
+Hors ligne
+3 en sécurité ou fin de vie, 2 majeures, 5 autres 3 · 2 · 5
+sécu · maj. · autres
+Certificats
+Dégradé
+12 j
+prochain : forge · 3 suivis
+Sauvegardes
+Hors ligne
+1/3
+pve-a 1/3
+CI
+Hors ligne
+1/2
+en échec : app
+Réseau
+Dégradé
+9/12
+en ligne · 2 nouveaux
+Alertes actives
+à l'instant
+Hors ligne
+Mail injoignable
+smtp : connexion refusée
+4 h
+Hors ligne
+Disque presque plein sur web
+/ à 96 %
+2 h
+Dégradé
+Certificat de forge
+expire dans 12 j
+2 h
+Info
+Mises à jour en attente sur web
+3 paquets dont 1 de sécurité
+2 h
+Hyperviseurs
+à l'instant
+En ligne
+pve-a Cluster principal uptime 20j 0h
+CPU · 8 12%
+RAM · 30 Go 38%
+local-lvm 30%
+CPU 24 h
+CPU sur 24 h
+RAM 24 h
+RAM sur 24 h
+2/3 invités actifs · 1 VM · 2 CT
+Santé des services · 24 h
+à l'instant
+MA Mail
+75.0 % 42 ms
+Hors ligne
+FO Forge
+97.9 % 820 ms
+Dégradé
+DN Dns
+— 42 ms
+Inconnu
+WI Wiki
+100 % 42 ms
+En ligne
+PH Photos
+100 % 42 ms
+En ligne
+@aria-label Quitter le mode mural
+@aria-label Hors ligne
+@title 10/11/2026 10:00:00
+@aria-label Météo à Paris
+@title 1 hors ligne · 1 dégradé(s)
+@aria-label Dégradé
+@title arrêté : lab
+@title crit · warn · info
+@title sécu · maj. · autres
+@title prochain : forge · 3 suivis
+@title pve-a 1/3
+@title en échec : app
+@title en ligne · 2 nouveaux
+@title Rafraîchir
+@aria-label Info
+@aria-label En ligne
+@aria-label CPU · 8
+@aria-label RAM · 30 Go
+@aria-label local-lvm
+@aria-label CPU sur 24 h
+@aria-label RAM sur 24 h
+@aria-label Disponibilité : 36 tranches ok, 0 dégradées, 12 indisponibles
+@title disponible
+@title indisponible
+@aria-label Disponibilité : 47 tranches ok, 1 dégradées, 0 indisponibles
+@title dégradé / échecs partiels
+@aria-label Disponibilité : 0 tranches ok, 0 dégradées, 0 indisponibles
+@title pas de mesure
+@aria-label Inconnu
+@aria-label Disponibilité : 48 tranches ok, 0 dégradées, 0 indisponibles
+@aria-label Connexion admin
+
+### tiroir de service : mail (en panne, sondes, historique)
+MA
+Mail
+service mail
+Hors ligne
+Hors ligne Ouvrir prod
+24 h
+7 j
+30 j
+90 j
+Historique enregistré depuis le 10/11 00:00 : la période n'est pas encore complète.
+Hors ligne
+smtp tcp 75.00 %
+192.0.2.22:25
+latence de smtp
+latence moy.
+46 ms
+10/11 07:00 connexion refusée
+10/11 06:00 code 503
+En ligne
+TLS tls 100 %
+mail.example.net:465
+expire le 15/01/2027 (66 j) · Exemple CA
+Incidents
+en cours
+10/11 06:00 en cours
+résolu
+09/11 14:00 smtp : connexion refusée 40 min
+@aria-label Fermer
+@aria-label Détail de Mail
+@aria-label Hors ligne
+@aria-label Fermer le détail
+@aria-label Période
+@title disponibilité sur la période
+@title 192.0.2.22:25
+@aria-label Disponibilité : 20 tranches ok, 0 dégradées, 4 indisponibles
+@title 10:00 — disponible
+@title 11:00 — disponible
+@title 12:00 — disponible
+@title 13:00 — disponible
+@title 14:00 — disponible
+@title 15:00 — disponible
+@title 16:00 — disponible
+@title 17:00 — disponible
+@title 18:00 — disponible
+@title 19:00 — disponible
+@title 20:00 — disponible
+@title 21:00 — disponible
+@title 22:00 — disponible
+@title 23:00 — disponible
+@title 00:00 — disponible
+@title 01:00 — disponible
+@title 02:00 — disponible
+@title 03:00 — disponible
+@title 04:00 — disponible
+@title 05:00 — disponible
+@title 06:00 — indisponible
+@title 07:00 — indisponible
+@title 08:00 — indisponible
+@title 09:00 — indisponible
+@aria-label latence de smtp
+@aria-label En ligne
+@title mail.example.net:465
+@aria-label en cours
+@aria-label résolu
+@title smtp : connexion refusée
+@aria-label Connexion admin
+
+### tiroir de service : forge (certificat, 7 jours)
+FO
+Forge
+service forge
+Dégradé
+Dégradé Ouvrir prod
+24 h
+7 j
+30 j
+90 j
+Dégradé
+forge-http http 100 %
+https://forge.example.net
+latence de forge-http
+latence moy.
+714 ms
+Incidents
+Aucun incident sur la période.
+@aria-label Fermer
+@aria-label Détail de Forge
+@aria-label Dégradé
+@aria-label Fermer le détail
+@aria-label Période
+@title disponibilité sur la période
+@title https://forge.example.net
+@aria-label Disponibilité : 23 tranches ok, 0 dégradées, 1 indisponibles
+@title 10:00 — disponible
+@title 16:00 — disponible
+@title 22:00 — disponible
+@title 04:00 — indisponible
+@title 04:00 — disponible
+@aria-label latence de forge-http
+@aria-label Connexion admin
+
+### tiroir d'hôte : web (agent complet, admin)
+Hors ligne
+web
+CT 101 · PVE main · prod
+Debian GNU/Linux 12 · noyau 6.1.0-30-amd64 · uptime 12j 0h
+Réseau
+fiche de l'appareil
+00:00:5e:00:53:02 192.0.2.21 actif · vu il y a 1 min
+Historique Proxmox
+24 h
+7 j
+CPU · 2 vCPU ● moy. 11,9 % · pic 14 %
+lun. 10:00 mar. 09:00
+RAM · 1.9 Go ● moy. 42,8 % · pic 46 %
+lun. 10:00 mar. 09:00
+Réseau ● entrée moy. 11 Ko/s · pic 22 Ko/s ● sortie moy. 5.6 Ko/s · pic 11 Ko/s
+lun. 10:00 mar. 09:00
+Disque ● lecture moy. 0/s · pic 0/s ● écriture moy. 0/s · pic 0/s
+lun. 10:00 mar. 09:00
+rapport il y a 1 min · RAM 1.4 Go / 3.7 Go · charge 0.42 0.35 0.3 · horloge non synchronisée
+Redémarrage requis : oui
+Services à redémarrer : nginx.service
+Systèmes de fichiers
+/ · 18 Go / 19 Go · ext4 96%
+/data · 37 Go / 93 Go · zfs 40%
+inodes : / 30 %
+Conteneurs Docker 27.3.1 · 1/2 en marche
+en marche
+wiki
+wiki:3.4.0
+depuis 3 j
+santé : healthy
+arrêté
+wiki-db
+postgres:16.2
+arrêté (code 1)
+4 redém.
+Unités systemd
+En ligne
+nginx.service active (running)
+Dégradé
+backup.timer inactive (dead)
+Paquets apt listes du 10/11/2026
+3 mise(s) à jour en attente, dont 1 de sécurité. 1 paquet(s) bloqué(s) par apt-mark hold, volontairement.
+MAJ auto actives : sécurité seulement.
+Dernier passage il y a 20 h , réussi : openssl.
+Voir les paquets
+openssl 3.0.14-1 → 3.0.15-1
+curl 7.88.1-10 → 7.88.1-11
+Posture SSH et pare-feu
+Connexion root conforme
+Mot de passe SSH écart régression (conforme jusqu'au 05/11/2026)
+Accepter l'écart…
+Pare-feu accepté
+Retirer l'acceptation…
+Ports en écoute
+tcp/22 sshd · 192.0.2.21 connu
+tcp/443 nginx · 192.0.2.21, :: connu
+tcp/8080 java · 192.0.2.21 nouveau
+Connu…
+udp/323 — · 127.0.0.1 local
+@aria-label Fermer
+@aria-label Détail de l'hôte web
+@aria-label Hors ligne
+@aria-label Fermer le détail
+@title 10/11/2026 09:59:00
+@aria-label Période
+@aria-label CPU · 2 vCPU : moyenne 11,9 %
+@aria-label RAM · 1.9 Go : moyenne 42,8 %
+@aria-label Réseau : entrée moyenne 11 Ko/s, sortie moyenne 5.6 Ko/s
+@aria-label Disque : lecture moyenne 0/s, écriture moyenne 0/s
+@aria-label / · 18 Go / 19 Go · ext4
+@aria-label /data · 37 Go / 93 Go · zfs
+@aria-label en marche
+@title wiki:3.4.0
+@aria-label arrêté
+@title postgres:16.2
+@aria-label En ligne
+@aria-label Dégradé
+@title 09/11/2026 14:00:00
+@title standard : PermitRootLogin no, prohibit-password ou forced-commands-only
+@title standard : PasswordAuthentication no
+@title accepté par admin le 07/11/2026 : couvert par le pare-feu de Proxmox
+@title 192.0.2.21
+@title 192.0.2.21, ::
+@title connu, admin : site public
+@title 127.0.0.1
+@aria-label Connexion admin
+
+### tiroir d'hôte : web (lecture anonyme)
+Hors ligne
+web
+CT 101 · PVE main · prod
+Debian GNU/Linux 12 · noyau 6.1.0-30-amd64 · uptime 12j 0h
+Réseau
+fiche de l'appareil
+00:00:5e:00:53:02 192.0.2.21 actif · vu il y a 1 min
+Historique Proxmox
+24 h
+7 j
+CPU · 2 vCPU ● moy. 11,9 % · pic 14 %
+lun. 10:00 mar. 09:00
+RAM · 1.9 Go ● moy. 42,8 % · pic 46 %
+lun. 10:00 mar. 09:00
+Réseau ● entrée moy. 11 Ko/s · pic 22 Ko/s ● sortie moy. 5.6 Ko/s · pic 11 Ko/s
+lun. 10:00 mar. 09:00
+Disque ● lecture moy. 0/s · pic 0/s ● écriture moy. 0/s · pic 0/s
+lun. 10:00 mar. 09:00
+rapport il y a 1 min · RAM 1.4 Go / 3.7 Go · charge 0.42 0.35 0.3 · horloge non synchronisée
+Redémarrage requis : oui
+Services à redémarrer : nginx.service
+Systèmes de fichiers
+/ · 18 Go / 19 Go · ext4 96%
+/data · 37 Go / 93 Go · zfs 40%
+inodes : / 30 %
+Conteneurs Docker 27.3.1 · 1/2 en marche
+en marche
+wiki
+wiki:3.4.0
+depuis 3 j
+santé : healthy
+arrêté
+wiki-db
+postgres:16.2
+arrêté (code 1)
+4 redém.
+Unités systemd
+En ligne
+nginx.service active (running)
+Dégradé
+backup.timer inactive (dead)
+Paquets apt listes du 10/11/2026
+3 mise(s) à jour en attente, dont 1 de sécurité. 1 paquet(s) bloqué(s) par apt-mark hold, volontairement.
+MAJ auto actives : sécurité seulement.
+Dernier passage il y a 20 h , réussi : openssl.
+Voir les paquets
+openssl 3.0.14-1 → 3.0.15-1
+curl 7.88.1-10 → 7.88.1-11
+Posture SSH et pare-feu
+Posture SSH et pare-feu : réservée à l'admin (connexion requise).
+Ports en écoute
+Ports en écoute : réservés à l'admin (connexion requise).
+@aria-label Fermer
+@aria-label Détail de l'hôte web
+@aria-label Hors ligne
+@aria-label Fermer le détail
+@title 10/11/2026 09:59:00
+@aria-label Période
+@aria-label CPU · 2 vCPU : moyenne 11,9 %
+@aria-label RAM · 1.9 Go : moyenne 42,8 %
+@aria-label Réseau : entrée moyenne 11 Ko/s, sortie moyenne 5.6 Ko/s
+@aria-label Disque : lecture moyenne 0/s, écriture moyenne 0/s
+@aria-label / · 18 Go / 19 Go · ext4
+@aria-label /data · 37 Go / 93 Go · zfs
+@aria-label en marche
+@title wiki:3.4.0
+@aria-label arrêté
+@title postgres:16.2
+@aria-label En ligne
+@aria-label Dégradé
+@title 09/11/2026 14:00:00
+@aria-label Connexion admin
+
+### tiroir d'hôte : nas (agent injoignable)
+Inconnu
+nas
+VM 102 · PVE main · prod
+Agent injoignable : pas de réponse en 10 s · dernier rapport il y a 3 h
+Historique Proxmox
+24 h
+7 j
+@aria-label Fermer
+@aria-label Détail de l'hôte nas
+@aria-label Inconnu
+@aria-label Fermer le détail
+@title 10/11/2026 07:00:00
+@aria-label Période
+@aria-label Connexion admin
+
+### tiroir d'appareil : imprimante (admin)
+hors ligne, vu il y a 9 j
+imprimante
+Imprimante · 192.0.2.105 · 00:00:5e:00:53:05
+hors ligne, vu il y a 9 j · à revoir
+Modifier
+✅ Connu…
+Fusionner avec…
+Supprimer…
+Voir sur la carte
+Parent sur la carte
+box 192.0.2.1 (lien saisi) · wifi · répéteur du salon
+Changer de parent…
+Retirer le lien saisi…
+Présence
+hors ligne, vu il y a 9 j · dernière réponse 01/11/26 10:00 alerte hors ligne
+24 h
+29/10/26 10:00 → 01/11/26 10:00 72 h 00
+Fraîcheur (Pi-hole, voisins)
+État inconnu
+Dernière vue 01/11/26 10:00 ( il y a 9 j )
+Première vue 11/10/26 11:00
+balayage ARP il y a 9 j 192.0.2.105
+Information secondaire : Pi-hole « voit » aussi les entrées ARP périmées ; seule la sonde décide de la présence.
+Identité et provenance
+Nom (saisi) imprimante
+Emplacement (saisi) bureau
+expectedIp (saisi) 192.0.2.105
+alertDown (saisi) true
+alertSeverity (saisi) warning
+Notes (saisi) au fond du couloir
+Nom PRN-01 bail DHCP
+mdns_name imprimante.local mDNS · retenu
+Constructeur Exemple constructeur · retenu
+Emplacement bureau
+MAC et adresses 1 MAC
+00:00:5e:00:53:05 locale (peut changer) 192.0.2.105
+192.0.2.105 11/10/26 11:00 → 01/11/26 10:00 balayage ARP
+Services hébergés
+PH Photos
+En ligne
+Ports et services dernier passage 31/10 10:00 · sonde du dimanche
+Impression (IPP) tcp/631 sûr
+Page web tcp/80 possible service de la config
+tcp/631 · ipp tcp/9100
+Ports non attribués : tcp/9100
+Fermés : tcp/22
+Sonder
+Événements
+01/11/26 10:00 Port fermé tcp/9100
+31/10/26 10:00 Sondé (services) 2 services admin
+21/10/26 11:00 Modifié nom : imprimante admin
+11/10/26 11:00 Nouvel appareil
+@aria-label Fermer
+@aria-label Détail de l'appareil imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Fermer le détail
+@aria-label Actions sur l'appareil
+@aria-label Modifier « imprimante »
+@aria-label Valider « imprimante »
+@aria-label Supprimer « imprimante »
+@aria-label Fusionner dans « imprimante »
+@aria-label Retirer le lien saisi
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 11:00 — indisponible
+@title 12:00 — indisponible
+@title 13:00 — indisponible
+@title 14:00 — indisponible
+@title 15:00 — indisponible
+@title 16:00 — indisponible
+@title 17:00 — indisponible
+@title 18:00 — indisponible
+@title 19:00 — indisponible
+@title 20:00 — indisponible
+@title 21:00 — indisponible
+@title 22:00 — indisponible
+@title 23:00 — indisponible
+@title 00:00 — indisponible
+@title 01:00 — indisponible
+@title 02:00 — indisponible
+@title 03:00 — indisponible
+@title 04:00 — indisponible
+@title 05:00 — indisponible
+@title 06:00 — indisponible
+@title 07:00 — indisponible
+@title 08:00 — indisponible
+@title 09:00 — indisponible
+@title 10:00 — indisponible
+@aria-label Sessions (30 jours)
+@title 01/11/2026 10:00:00
+@aria-label Confirmer 00:00:5e:00:53:05
+@aria-label Détacher 00:00:5e:00:53:05
+@aria-label En ligne
+@title vu depuis 11/10 11:00, dernier 31/10 10:00
+@aria-label Sonder un objet, une caméra ou un appareil en veille
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Connexion admin
+
+### tiroir d'appareil : imprimante (lecture anonyme)
+hors ligne, vu il y a 9 j
+imprimante
+Imprimante · 192.0.2.105 · 00:00:5e:00:53:05
+hors ligne, vu il y a 9 j · à revoir
+Voir sur la carte
+Parent sur la carte
+box 192.0.2.1 (lien saisi) · wifi · répéteur du salon
+Présence
+hors ligne, vu il y a 9 j · dernière réponse 01/11/26 10:00 alerte hors ligne
+24 h
+29/10/26 10:00 → 01/11/26 10:00 72 h 00
+Fraîcheur (Pi-hole, voisins)
+État inconnu
+Dernière vue 01/11/26 10:00 ( il y a 9 j )
+Première vue 11/10/26 11:00
+balayage ARP il y a 9 j 192.0.2.105
+Information secondaire : Pi-hole « voit » aussi les entrées ARP périmées ; seule la sonde décide de la présence.
+Identité et provenance
+Nom (saisi) imprimante
+Emplacement (saisi) bureau
+expectedIp (saisi) 192.0.2.105
+alertDown (saisi) true
+alertSeverity (saisi) warning
+Notes (saisi) au fond du couloir
+Nom PRN-01 bail DHCP
+mdns_name imprimante.local mDNS · retenu
+Constructeur Exemple constructeur · retenu
+Emplacement bureau
+MAC et adresses 1 MAC
+00:00:5e:00:53:05 locale (peut changer) 192.0.2.105
+192.0.2.105 11/10/26 11:00 → 01/11/26 10:00 balayage ARP
+Services hébergés
+PH Photos
+En ligne
+Ports et services dernier passage 31/10 10:00 · sonde du dimanche
+Impression (IPP) sûr
+Page web possible service de la config
+Événements
+01/11/26 10:00 Port fermé tcp/9100
+31/10/26 10:00 Sondé (services) 2 services admin
+21/10/26 11:00 Modifié nom : imprimante admin
+11/10/26 11:00 Nouvel appareil
+@aria-label Fermer
+@aria-label Détail de l'appareil imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Fermer le détail
+@aria-label Retirer le lien saisi
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 11:00 — indisponible
+@title 12:00 — indisponible
+@title 13:00 — indisponible
+@title 14:00 — indisponible
+@title 15:00 — indisponible
+@title 16:00 — indisponible
+@title 17:00 — indisponible
+@title 18:00 — indisponible
+@title 19:00 — indisponible
+@title 20:00 — indisponible
+@title 21:00 — indisponible
+@title 22:00 — indisponible
+@title 23:00 — indisponible
+@title 00:00 — indisponible
+@title 01:00 — indisponible
+@title 02:00 — indisponible
+@title 03:00 — indisponible
+@title 04:00 — indisponible
+@title 05:00 — indisponible
+@title 06:00 — indisponible
+@title 07:00 — indisponible
+@title 08:00 — indisponible
+@title 09:00 — indisponible
+@title 10:00 — indisponible
+@aria-label Sessions (30 jours)
+@title 01/11/2026 10:00:00
+@aria-label En ligne
+@aria-label Sonder un objet, une caméra ou un appareil en veille
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Connexion admin
+
+### tiroir d'appareil : suppression impossible
+hors ligne, vu il y a 9 j
+imprimante
+Imprimante · 192.0.2.105 · 00:00:5e:00:53:05
+hors ligne, vu il y a 9 j · à revoir
+Modifier
+✅ Connu…
+Fusionner avec…
+Suppression impossible : MAC d'identité de l'hôte « web » (Proxmox)
+Voir sur la carte
+Parent sur la carte
+box 192.0.2.1 (lien saisi) · wifi · répéteur du salon
+Changer de parent…
+Retirer le lien saisi…
+Présence
+hors ligne, vu il y a 9 j · dernière réponse 01/11/26 10:00 alerte hors ligne
+24 h
+29/10/26 10:00 → 01/11/26 10:00 72 h 00
+Fraîcheur (Pi-hole, voisins)
+État inconnu
+Dernière vue 01/11/26 10:00 ( il y a 9 j )
+Première vue 11/10/26 11:00
+balayage ARP il y a 9 j 192.0.2.105
+Information secondaire : Pi-hole « voit » aussi les entrées ARP périmées ; seule la sonde décide de la présence.
+Identité et provenance
+Nom (saisi) imprimante
+Emplacement (saisi) bureau
+expectedIp (saisi) 192.0.2.105
+alertDown (saisi) true
+alertSeverity (saisi) warning
+Notes (saisi) au fond du couloir
+Nom PRN-01 bail DHCP
+mdns_name imprimante.local mDNS · retenu
+Constructeur Exemple constructeur · retenu
+Emplacement bureau
+MAC et adresses 1 MAC
+00:00:5e:00:53:05 locale (peut changer) 192.0.2.105
+192.0.2.105 11/10/26 11:00 → 01/11/26 10:00 balayage ARP
+Services hébergés
+PH Photos
+En ligne
+Ports et services dernier passage 31/10 10:00 · sonde du dimanche
+Impression (IPP) tcp/631 sûr
+Page web tcp/80 possible service de la config
+tcp/631 · ipp tcp/9100
+Ports non attribués : tcp/9100
+Fermés : tcp/22
+Sonder
+Ports en écoute (agent)
+tcp/22 sshd · 192.0.2.21 connu
+tcp/443 nginx · 192.0.2.21, :: connu
+tcp/8080 java · 192.0.2.21 nouveau
+udp/323 — · 127.0.0.1 local
+Événements
+01/11/26 10:00 Port fermé tcp/9100
+31/10/26 10:00 Sondé (services) 2 services admin
+21/10/26 11:00 Modifié nom : imprimante admin
+11/10/26 11:00 Nouvel appareil
+@aria-label Fermer
+@aria-label Détail de l'appareil imprimante
+@aria-label hors ligne, vu il y a 9 j
+@aria-label Fermer le détail
+@aria-label Actions sur l'appareil
+@aria-label Modifier « imprimante »
+@aria-label Valider « imprimante »
+@aria-label Supprimer « imprimante »
+@aria-label Fusionner dans « imprimante »
+@aria-label Retirer le lien saisi
+@aria-label Présence 24 h : 0 tranches ok, 0 dégradées, 24 indisponibles
+@title 11:00 — indisponible
+@title 12:00 — indisponible
+@title 13:00 — indisponible
+@title 14:00 — indisponible
+@title 15:00 — indisponible
+@title 16:00 — indisponible
+@title 17:00 — indisponible
+@title 18:00 — indisponible
+@title 19:00 — indisponible
+@title 20:00 — indisponible
+@title 21:00 — indisponible
+@title 22:00 — indisponible
+@title 23:00 — indisponible
+@title 00:00 — indisponible
+@title 01:00 — indisponible
+@title 02:00 — indisponible
+@title 03:00 — indisponible
+@title 04:00 — indisponible
+@title 05:00 — indisponible
+@title 06:00 — indisponible
+@title 07:00 — indisponible
+@title 08:00 — indisponible
+@title 09:00 — indisponible
+@title 10:00 — indisponible
+@aria-label Sessions (30 jours)
+@title 01/11/2026 10:00:00
+@aria-label Confirmer 00:00:5e:00:53:05
+@aria-label Détacher 00:00:5e:00:53:05
+@aria-label En ligne
+@title vu depuis 11/10 11:00, dernier 31/10 10:00
+@aria-label Sonder un objet, une caméra ou un appareil en veille
+@title 192.0.2.21
+@title 192.0.2.21, ::
+@title connu, admin : site public
+@title 127.0.0.1
+@title tcp/9100
+@title 2 services
+@title nom : imprimante
+@aria-label Connexion admin
+
+### formulaire d'appareil
+Modifier « imprimante »
+Nom
+Type
+— deviné : Imprimante —
+Ordinateur
+Téléphone
+TV
+NAS
+Imprimante
+Routeur
+Emplacement
+Notes
+au fond du couloir
+Cet appareil est l'hôte… (identité)
+— aucun —
+pve-a (pve-a)
+web (web) — déjà : fiche 2 (web)
+nas (nas)
+lab (lab)
+À choisir seulement si cette fiche est la machine elle-même (sa carte réseau). Pour placer l'appareil sous un hôte sur la carte, utilisez « Parent sur la carte ».
+Présence
+Profil (délai avant « hors ligne »)
+— deviné —
+fixe : 5 min
+normal : 10 min
+veille : 45 min (téléphone, objet)
+IP attendue (alerte « IP changée »)
+Alerter quand l'appareil passe hors ligne
+Sévérité
+— avertissement (par défaut) —
+information
+avertissement
+critique
+Annuler
+Enregistrer
+@aria-label Modifier « imprimante »
+@aria-label Fermer
+@placeholder imprimante
+@placeholder 192.0.2.105
+@aria-label Connexion admin

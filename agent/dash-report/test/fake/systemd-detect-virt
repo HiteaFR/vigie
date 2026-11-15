@@ -1,0 +1,3 @@
+#!/bin/sh
+# fake systemd-detect-virt of the dash-report bench: VM (kvm), no container
+case "${1:-}" in -c) echo none ;; *) echo kvm ;; esac

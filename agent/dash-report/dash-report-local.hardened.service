@@ -1,0 +1,22 @@
+[Unit]
+Description=Local dash-report report for Vigie (proposed hardened variant)
+# PROPOSED variant of dash-report-local.service, to try on a test machine before replacing
+# the regular unit. The report runs as root (docker, systemctl, apt, /proc): the settings below
+# should not take away anything it reads, which remains to be checked by a real run (not done).
+# See agent/README.md (audit "Root timer").
+
+[Service]
+Type=oneshot
+# atomic write: the dashboard never reads a half-written file
+ExecStart=/bin/sh -c '/usr/local/sbin/dash-report fast > /run/dash-report/fast.json.tmp && mv /run/dash-report/fast.json.tmp /run/dash-report/fast.json'
+ExecStart=/bin/sh -c 'f=/run/dash-report/slow.json; [ -n "$(find $f -mmin -60 2>/dev/null)" ] || { /usr/local/sbin/dash-report slow > $f.tmp && mv $f.tmp $f; }'
+RuntimeDirectory=dash-report
+RuntimeDirectoryMode=0755
+RuntimeDirectoryPreserve=yes
+# read-only system, except the report folder
+ProtectSystem=strict
+ReadWritePaths=/run/dash-report
+# /home readable (df of the mounts) but never writable; "yes" would hide it from the report
+ProtectHome=read-only
+PrivateTmp=yes
+NoNewPrivileges=yes

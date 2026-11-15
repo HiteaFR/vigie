@@ -1,0 +1,93 @@
+# Vigie in a container. Image built here (no published image yet). Docker Compose 2.24 or later.
+# Step by step: docs/docker.md.
+#
+#   docker compose build
+#   docker compose run --rm init               # wizard (terminal); or --non-interactive …
+#   docker compose up -d                       # the service
+#   docker compose --profile arp up -d         # + ARP companion (net-scan), see "Network under Docker"
+#
+# network_mode: host BY DEFAULT: the Network module works fully (ip neigh, mDNS, gateway from
+# /proc/net/route) and the safe defaults keep their meaning (127.0.0.1 = this machine, admin
+# login over loopback). Bridge variant, with its limits: docker-compose.bridge.yml.
+#
+# Volumes: vigie-state (/var/lib/vigie: SQLite database, icons, ssh/ key and known_hosts) read
+# and write; vigie-config (/etc/vigie: config.json, vigie.env 0600, pki/) READ ONLY for the
+# service, writable only for the init service ("init" profile, never started by up);
+# net-scan (/run/net-scan) written by the companion, read by the service.
+
+# project name (prefix of the volumes: vigie_vigie-state…); -p or COMPOSE_PROJECT_NAME overrides it
+name: vigie
+
+x-vigie-build: &vigie-build
+  context: .
+  args:
+    REVISION: ${VIGIE_REVISION:-}
+
+x-vigie-hardening: &vigie-hardening
+  init: true                       # tini: signals and ssh processes (ControlMaster) reaped
+  read_only: true
+  tmpfs: [/tmp]
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+
+services:
+  vigie:
+    build: *vigie-build
+    image: ${VIGIE_IMAGE:-vigie:local}
+    <<: *vigie-hardening
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      PORT: ${VIGIE_PORT:-8088}
+    volumes:
+      - vigie-state:/var/lib/vigie
+      - vigie-config:/etc/vigie:ro
+      - net-scan:/run/net-scan:ro
+      # "local" agent (dash-report-local on this machine, LOCAL=1 ./agent/dash-report/install.sh):
+      # - /run/dash-report:/run/dash-report:ro
+
+  # setup wizard: the only one writing to /etc/vigie. docker compose run --rm init [options]
+  init:
+    build: *vigie-build
+    image: ${VIGIE_IMAGE:-vigie:local}
+    <<: *vigie-hardening
+    profiles: [init]
+    network_mode: host               # connection tests (Proxmox, Gitea) from the same place
+    restart: "no"
+    # entry point + "init" as ENTRYPOINT (not command): the arguments of
+    # "docker compose run --rm init <options>" are APPENDED after init instead of replacing it
+    entrypoint: [/usr/local/bin/vigie-entrypoint, init]
+    volumes:
+      - vigie-state:/var/lib/vigie
+      - vigie-config:/etc/vigie
+
+  # ARP companion ("arp" profile): net-scan from agent/net-scan, CAP_NET_RAW only, conf
+  # ./net-scan.conf (template: docker/net-scan.conf.example). Scan only a network you are
+  # responsible for
+  net-scan:
+    build:
+      context: .
+      dockerfile: docker/net-scan/Dockerfile
+    image: ${VIGIE_NET_SCAN_IMAGE:-vigie-net-scan:local}
+    profiles: [arp]
+    network_mode: host
+    init: true
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    cap_add: [NET_RAW]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+    volumes:
+      - net-scan:/run/net-scan
+      - type: bind
+        source: ./net-scan.conf
+        target: /etc/net-scan.conf
+        read_only: true
+        bind:
+          create_host_path: false    # missing file: a clear error, never an empty directory created
+
+volumes:
+  vigie-state:
+  vigie-config:
+  net-scan:

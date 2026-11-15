@@ -1,0 +1,11 @@
+{
+ "nav.label": "Exemple",
+ "tile.label": "File",
+ "tile.max": "alerte au-delà de {max}",
+ "tile.unknown": "inconnue",
+ "view.title": "File d'exemple",
+ "view.waiting": {
+  "one": "tâche en attente (alerte au-delà de {max})",
+  "other": "tâches en attente (alerte au-delà de {max})"
+ }
+}

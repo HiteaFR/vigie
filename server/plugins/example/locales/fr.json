@@ -1,0 +1,13 @@
+{
+ "digest.line": "🧪 File d'exemple : {depth}",
+ "digest.unknown": "inconnue",
+ "label.queue": "File trop longue",
+ "queue.detail": {
+  "one": "{count} tâche en attente",
+  "other": "{count} tâches en attente"
+ },
+ "queue.title": "File d'exemple",
+ "source.http": "file : HTTP {status}",
+ "source.no_depth": "file : aucune profondeur dans la réponse",
+ "source.title": "File d'exemple illisible"
+}

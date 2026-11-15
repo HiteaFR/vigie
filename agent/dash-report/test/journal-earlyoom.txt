@@ -1,0 +1,8 @@
+1767225600.000001 host earlyoom[512]: earlyoom v1.7
+1767225601.250000 host earlyoom[512]: mem avail:   120 of  7945 MiB ( 1.51%), swap free:    0 of    0 MiB ( 0.00%)
+1767225601.300000 host earlyoom[512]: low memory! at or below SIGTERM limits: mem 10.00%, swap 10.00%
+1767225601.300100 host earlyoom[512]: sending SIGTERM to process 4242 uid 1000 "h\"o,]st<img>": oom_score 900, VmRSS 3000 MiB, cmdline ""
+1767225601.800000 host earlyoom[512]: escalating to SIGKILL after 0.5 seconds
+1767225601.800100 host earlyoom[512]: sending SIGKILL to process 4242 uid 1000 "h\"o,]st<img>": oom_score 900, VmRSS 3000 MiB
+1767225900.123456 host earlyoom[512]: sending SIGTERM to process 5151 uid 0 "stress-ng-vm": badness 800, VmRSS 2048 MiB
+1767225900.200000 host earlyoom[512]: process exited after 0.1 seconds

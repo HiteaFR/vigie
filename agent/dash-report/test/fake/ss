@@ -1,0 +1,19 @@
+#!/bin/sh
+# fake ss of the dash-report bench (v8): scope, brackets, "*", duplicate, hostile process name,
+# out-of-range ports, socket without a process, then 140 ports for the limit of 128
+[ "$*" = "-H -lntup" ] || { echo "fake ss: unexpected options: $*" >&2; exit 2; }
+[ "${FAKE_SS:-}" != failing ] || exit 1
+cat <<'X'
+tcp LISTEN 0 128 0.0.0.0:22 0.0.0.0:* users:(("sshd",pid=10,fd=3))
+tcp LISTEN 0 128 0.0.0.0:22 0.0.0.0:* users:(("sshd",pid=10,fd=3))
+tcp LISTEN 0 4096 *:2222 *:* users:(("sshd",pid=10,fd=4),("systemd",pid=1,fd=50))
+udp UNCONN 0 0 127.0.0.53%lo:53 0.0.0.0:* users:(("systemd-resolve",pid=20,fd=11))
+udp UNCONN 0 0 [fe80::1]%eth0:546 [::]:* users:(("systemd-network",pid=21,fd=33))
+tcp LISTEN 0 511 [::]:80 [::]:* users:(("h\"o,]st<img>",pid=30,fd=6))
+tcp LISTEN 0 511 [::]:81 [::]:* users:(("Web Content",pid=31,fd=6))
+udp UNCONN 0 0 0.0.0.0:51820 0.0.0.0:*
+tcp LISTEN 0 10 0.0.0.0:0 0.0.0.0:* users:(("zero",pid=40,fd=1))
+tcp LISTEN 0 10 0.0.0.0:70000 0.0.0.0:* users:(("trop",pid=41,fd=1))
+X
+i=1000
+while [ $i -lt 1140 ]; do echo "tcp LISTEN 0 10 192.0.2.10:$i 0.0.0.0:* users:((\"svc\",pid=$i,fd=3))"; i=$((i + 1)); done

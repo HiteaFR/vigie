@@ -1,0 +1,91 @@
+# fichier livré : 32 définitions
+attribution : Format and approach inspired by Scanopy (AGPL-3.0). No code was copied.
+ports : 22 53 80 443 1025 3000 5001 5055 5678 7878 8000 8006 8025 8080 8086 8123 8191 8989 9090 9100 9113 9115 9116 9443 9696 32400
+
+# ordre (rang · catégorie · ports · empreinte de la définition ; noms non recopiés)
+1 · generic · 22 · 933645c2bd17
+2 · generic · 53 · c08cb7ef0080
+3 · generic · 80 · 10bcb2ad1616
+4 · generic · 443 · d59b7fc40b4c
+5 · hypervisor · 8006 · 3cbd7249b467
+6 · dev · 3000 · 6cdc1b3cb134
+7 · dashboard · 3000 · cc0799a25c43
+8 · monitoring · 3000 · 30d3cc84282d
+9 · containers · 9443 · 37a949f28966
+10 · nas · 5001 · aa0f0ca9d7e1
+11 · dns · 53 80 · 123785d7ec10
+12 · security · 80 443 9113 · 29538afff679
+13 · monitoring · 9113 · 8f5b45c0ea2a
+14 · monitoring · 80 · 9b362c975b5e
+15 · network · 80 · ee410c6b4d8e
+16 · home · 8123 · a2e8f7b57cf3
+17 · automation · 5678 · d526c271b0e8
+18 · media · 32400 · 52f7f7040074
+19 · media · 5055 · c27a198dcd77
+20 · media · 8989 · 4199eaee7638
+21 · media · 7878 · 6c37e85e7c38
+22 · media · 9696 · d5e70be56a01
+23 · media · 8080 · a7d343302e48
+24 · network · 8000 · 027d56ffbbde
+25 · web · 8191 · 4dd6f5d98c2f
+26 · monitoring · 9090 · 09c18b4fc4d3
+27 · monitoring · 8086 · 32769b92f752
+28 · monitoring · 9115 · 214f22151cfc
+29 · monitoring · 9116 · 252992a28c7f
+30 · monitoring · 9100 · ec1b374b4579
+31 · containers · 8080 · c1e3fcd02b21
+32 · mail · 8025 1025 · 63f87c9b974c
+
+# statuts attendus (port chemin : statuts)
+80 /api/healthcheck : 200
+5678 /healthz : 200
+5055 /api/v1/status : 200
+8989 /ping : 200
+7878 /ping : 200
+9696 /ping : 200
+8000 /v1/publicip/ip : 200
+9115 /-/healthy : 200
+8080 /v1/metrics : 401
+8080 / : 404
+8025 /livez : 200
+
+# couples HTTP (tous les ports)
+80 /api/healthcheck
+5678 /healthz
+5055 /api/v1/status
+8989 /ping
+7878 /ping
+9696 /ping
+8000 /v1/publicip/ip
+9115 /-/healthy
+8025 /livez
+3000 /api/healthz
+3000 /
+3000 /api/health
+80 /admin/
+80 /
+8123 /manifest.json
+32400 /identity
+8080 /
+8191 /
+9090 /-/healthy
+8086 /health
+9116 /
+8080 /v1/metrics
+
+# résolution (port → service, confiance)
+ports nus 22 80 443 → 22:ssh/low 80:http/low 443:https/low
+port 8006 seul → 8006:proxmox-ve/low
+port 3000 sans réponse → (rien)
+port 3000, /api/healthz « pass » → 3000:gitea/high
+port 3000, / « homepage » → 3000:homepage/high
+port 3000, /api/health « database » → 3000:grafana/high
+tous les ports, aucune réponse → 22:ssh/low 53:dns/low 80:bunkerweb/high 443:bunkerweb/high 8006:proxmox-ve/low 9443:portainer/low 9113:bunkerweb/high 9100:node-exporter/low
+
+# fichiers refusés
+JSON invalide → definitions: invalid JSON
+sans attribution → definitions: attribution: Invalid input: expected string, received undefined
+id en double → definitions: duplicate id (a)
+preuve http sur port TLS → definitions: a: http proof on TLS port 443
+sous-chaîne en majuscules → definitions: defs.0.match.http.contains: lowercase substring
+motif inconnu → definitions: defs.0.match: Invalid input

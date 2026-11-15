@@ -1,0 +1,7 @@
+# Conf of the ARP companion (docker-compose.yml, "arp" profile): copy it to ./net-scan.conf, next
+# to docker-compose.yml, and adapt it. Read by net-scan without ever being executed: only these two
+# keys, once each. IFACE: host interface on the network to scan; CIDR: private IPv4 (10/8,
+# 172.16/12, 192.168/16), prefix from 16 to 30, no leading zero.
+# Scan only a network you are responsible for (docs/docker.md, "Network under Docker").
+IFACE=eth0
+CIDR=192.168.10.0/24
