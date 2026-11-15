@@ -424,7 +424,10 @@ export function createRules(cfg, monitor, agents = null, updates = null, network
         const cb = { ...base, entity: `${h.id}/${c.name}`, parents, link: `/infra?h=${h.id}` }
         out.push({
           ...cb, key: `container_unhealthy:${h.id}/${c.name}`, rule: 'container_unhealthy', title: tr('rules.container.title', { name: c.name, host: h.name }),
-          cond: c.health === 'unhealthy', forSec: 120,
+          // health only counts while the container runs: Docker keeps the last status after a stop
+          // (an unhealthy container stopped on purpose would otherwise alert until restarted);
+          // a stopped declared container is container_down's job
+          cond: c.state === 'running' && c.health === 'unhealthy', forSec: 120,
           severity: severity(byEnv(h.env), h.env, h), detail: tr('rules.container.unhealthy'),
         })
         out.push({

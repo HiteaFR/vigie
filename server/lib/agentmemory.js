@@ -51,6 +51,12 @@ export function postureOf(posture) {
 // loopback: 127.0.0.0/8, ::1, and mapped IPv4 ::ffff:127.0.0.0/104
 const LOCAL = /^(127\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[?::1\]?|\[?::ffff:127\.\d{1,3}\.\d{1,3}\.\d{1,3}\]?)$/i
 export const isLocalAddr = addr => LOCAL.test(String(addr))
+// Tailscale peerapi: tailscaled listens in TCP on its tailnet addresses only (100.64.0.0/10,
+// fd7a:115c:a1e0::/48), on a port drawn at random at each start; it would raise a new port_new
+// after every restart. Such a listen is shown and never alerts, like loopback; the same port on any
+// other address, or another process on a tailnet address, still counts
+const TAILNET = /^\[?(100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.\d{1,3}\.\d{1,3}|fd7a:115c:a1e0:[0-9a-f:]*)\]?$/i
+export const isTailscalePeerapi = p => p.proto === 'tcp' && p.process === 'tailscaled' && TAILNET.test(String(p.addr))
 // non-local ports of the report: Map 'tcp/22' → { proto, port, addrs, processes }
 export function exposedPorts(listening) {
   const out = new Map()
@@ -59,7 +65,7 @@ export function exposedPorts(listening) {
     const e = out.get(k) ?? { proto: p.proto, port: p.port, addrs: [], processes: [], exposed: false }
     if (!e.addrs.includes(p.addr)) e.addrs.push(p.addr)
     if (p.process && !e.processes.includes(p.process)) e.processes.push(p.process)
-    if (!isLocalAddr(p.addr)) e.exposed = true
+    if (!isLocalAddr(p.addr) && !isTailscalePeerapi(p)) e.exposed = true
     out.set(k, e)
   }
   return new Map([...out].filter(([, e]) => e.exposed))
