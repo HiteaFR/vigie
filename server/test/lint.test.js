@@ -48,7 +48,7 @@ test('lint: all of client/ passes without error or warning; no unused eslint-dis
 test('static: npm lint script, flat config (recommended, rules-of-hooks and exhaustive-deps as errors, browser globals), CI step between the client install and the tests', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(CLIENT, 'package.json'), 'utf8'))
   assert.equal(pkg.scripts.lint, 'eslint . --max-warnings 0')
-  for (const [name, v] of Object.entries({ eslint: '10.12.0', 'eslint-plugin-react-hooks': '7.1.1', '@eslint/js': '10.0.1', globals: '17.13.0' })) {
+  for (const [name, v] of Object.entries({ eslint: '10.14.0', 'eslint-plugin-react-hooks': '7.1.1', '@eslint/js': '10.0.1', globals: '17.14.0' })) {
     assert.equal(pkg.devDependencies[name], v, name)
   }
   const conf = fs.readFileSync(path.join(CLIENT, 'eslint.config.js'), 'utf8')

@@ -1,7 +1,8 @@
 // Client size, two criteria. Real Vite build in memory (write: false, repository
 // configuration); skipped only if the client is not installed (npm ci in client/), like the
 // client rendering.
-// - main bundle ≤ MAIN_LIMIT (432,521 bytes when the views were split, i.e. about 10 % of margin);
+// - main bundle ≤ MAIN_LIMIT (432,521 bytes when the views were split, i.e. about 10 % of margin;
+//   raised for react-dom 19.3, which alone adds 29 KB: 488,684 bytes, app code unchanged);
 // - no view chunk > VIEW_LIMIT; every view except the Cockpit in its own chunk.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
@@ -12,7 +13,7 @@ import { tmpDir } from './tmpdir.js'
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 const CLIENT = path.join(ROOT, 'client')
-const MAIN_LIMIT = 476_000
+const MAIN_LIMIT = 512_000
 const VIEW_LIMIT = 200_000
 // the CI view belongs to the gitea plugin (client/src/plugins/gitea/Ci.jsx); Integrations added
 const LAZY_VIEWS = ['Alerts', 'Backups', 'Infra', 'Integrations', 'Mural', 'Network', 'Services', 'Updates']
