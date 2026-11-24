@@ -9,55 +9,55 @@ TCP 22 : refusé
 Hôte : vps
 Depuis 08:00 · <a href="https://vigie.example.net/services?q=fail-3">Ouvrir</a>
 
-🔴 <b>cert-6 — certificat</b> — certificat
+🔴 <b>cert-6 — certificat</b>
 expire dans 6 j (16/11/2026)
 Hôte : vps
 Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-6">Ouvrir</a>
 
-🔴 <b>Disque / · ct-disque-95</b> — disque
+🔴 <b>Disque / · ct-disque-95</b>
 95 % utilisés (d'après Proxmox)
 Hôte : CT 236 ct-disque-95 · pve-a
 Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d95">Ouvrir</a>
 
-🔴 <b>Stockage local (pve-a)</b> — stockage
+🔴 <b>Stockage local (pve-a)</b>
 95 % utilisés
 Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
 
-🟠 <b>Site public — certificat</b> — certificat
+🟠 <b>Site public — certificat</b>
 expire dans 9 j (19/11/2026)
 Hôte : vps
 Depuis 08:00 · <a href="https://vigie.example.net/services?q=Site%20public">Ouvrir</a>
 
-🟠 <b>cert-20 — certificat</b> — certificat
+🟠 <b>cert-20 — certificat</b>
 expire dans 20 j (30/11/2026)
 Hôte : vps
 Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-20">Ouvrir</a>
 
-🟠 <b>cert-7 — certificat</b> — certificat
+🟠 <b>cert-7 — certificat</b>
 expire dans 7 j (17/11/2026)
 Hôte : vps
 Depuis 08:00 · <a href="https://vigie.example.net/services?q=cert-7">Ouvrir</a>
 
-🟠 <b>Disque / · ct-disque-85</b> — disque
+🟠 <b>Disque / · ct-disque-85</b>
 85 % utilisés (d'après Proxmox)
 Hôte : CT 234 ct-disque-85 · pve-a
 Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d85">Ouvrir</a>
 
-🟠 <b>Disque / · ct-disque-94.9</b> — disque
+🟠 <b>Disque / · ct-disque-94.9</b>
 95 % utilisés (d'après Proxmox)
 Hôte : CT 235 ct-disque-94.9 · pve-a
 Depuis 08:00 · <a href="https://vigie.example.net/infra?h=ct-d949">Ouvrir</a>
 
-🟠 <b>Stockage st-80 (pve-a)</b> — stockage
+🟠 <b>Stockage st-80 (pve-a)</b>
 80 % utilisés
 Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
 
-🟠 <b>Stockage st-89.9 (pve-a)</b> — stockage
+🟠 <b>Stockage st-89.9 (pve-a)</b>
 90 % utilisés
 Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
 
 --- message 2 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Stockage st-90 (pve-a)","callback_data":"s:14"},{"text":"✅ Ack","callback_data":"a:14"}],[{"text":"🔕 1 h · SMART HDD de banc (/d…","callback_data":"s:15"},{"text":"✅ Ack","callback_data":"a:15"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:20"},{"text":"✅ Ack","callback_data":"a:20"}],[{"text":"🔕 1 h · Usure SSD borne (/dev…","callback_data":"s:16"},{"text":"✅ Ack","callback_data":"a:16"}],[{"text":"🔕 1 h · Usure SSD borne (/dev…","callback_data":"s:17"},{"text":"✅ Ack","callback_data":"a:17"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:18"},{"text":"✅ Ack","callback_data":"a:18"}],[{"text":"🔕 1 h · Température SSD borne…","callback_data":"s:19"},{"text":"✅ Ack","callback_data":"a:19"}],[{"text":"🔕 1 h · Sauvegarde VM 200 lab","callback_data":"s:21"},{"text":"✅ Ack","callback_data":"a:21"}]]})
-🔴 <b>Stockage st-90 (pve-a)</b> — stockage
+🔴 <b>Stockage st-90 (pve-a)</b>
 90 % utilisés
 Depuis 08:00 · <a href="https://vigie.example.net/infra">Ouvrir</a>
 

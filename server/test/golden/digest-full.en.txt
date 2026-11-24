@@ -1,29 +1,47 @@
 ☀️ <b>Infra — digest for 10/11</b>
+
 🚨 <b>2 active alerts</b> (including 1 masked)
-  🔴 Service X — HTTP 502 (for 3 h)
-     ✅ acknowledged by admin (‹ip›): je regarde &lt;ça&gt;
-🔕 <b>3 silences</b> : host vps — migration &lt;de&gt; banc (until 13/11 10:00) · rule apt_stale — listes gelées (no end) · service dns — résolveur de test (until 10/11 12:00)
-📋 24 h: 2 incidents resolved — Unités systemd · w 1 h, Disque / · z 2 h
+
+🔴 <b>Service X</b> · for 3 h
+HTTP 502
+✅ acknowledged by admin (‹ip›): je regarde &lt;ça&gt;
+
+🔕 <b>3 silences</b>
+• host vps — migration &lt;de&gt; banc (until 13/11 10:00)
+• rule apt_stale — listes gelées (no end)
+• service dns — résolveur de test (until 10/11 12:00)
+
+📋 24 h: 2 incidents resolved
+• Unités systemd · w (1 h)
+• Disque / · z (2 h)
+
 💾 Backups up to date: pve-a unreadable
 🔐 Certificates &lt; 21 d: none
-🆕 2 new versions: App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡 · Debian (VM 200 · pve-a) 11 → 12 ▲
-⏳ End of life: Debian 11 (VM 200 · pve-a)
+
+🆕 2 new versions
+<blockquote>App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+Debian (VM 200 · pve-a) 11 → 12 ▲</blockquote>
+⏳ 1 component past end of life
+<blockquote>Debian 11 (VM 200 · pve-a)</blockquote>
 🛡 1 security fix applied last night on 1 host
-  lab : openssl
-  1 host without a recent report: vps
-🔁 Services to restart on 1 host: lab (nginx, php-fpm, cron +1)
+<blockquote>lab : openssl
+1 host without a recent report: vps</blockquote>
+🔁 Services to restart on 1 host
+<blockquote>lab : nginx, php-fpm, cron +1</blockquote>
+
 🌐 Network: 45 devices, 43 online, 2 offline · 1 new (unnamed device (device 45)) · 22 to review · sources OK
-   appeared before alerts were enabled: Invite-R1-1, Invite-R1-2 (to confirm on /network)
-   MAC added by rule (24 h): fe:00:00:00:53:77 to poste-4
-   3 archived devices deleted (legacy states purge)
-   linked to a container afterwards (24 h, to confirm): poste-1 → docker-a/web/lan
-   Ports (24 h): invite-g1: +tcp/22 (ssh), −tcp/80 (http)
-   Names (mDNS): 2 devices named: poste-1, poste-2
-   1 device deleted (24 h)
-   3 devices seen by the ARP probe, 2 to review (poste-3, poste-4)
-   ARP conflicts (24 h): 00:00:5e:00:53:01: Ethernet header 00:00:5e:00:53:02 ; IP ‹ip›: 2 MACs (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP ‹ip›: 2 MACs (speedtest, speedtest)
-   returned after deletion (24 h): poste-2
-<a href="https://vigie.example.net/alerts">Open the cockpit</a>
+<blockquote expandable>appeared before alerts were enabled: Invite-R1-1, Invite-R1-2 (to confirm on /network)
+MAC added by rule (24 h): fe:00:00:00:53:77 to poste-4
+3 archived devices deleted (legacy states purge)
+linked to a container afterwards (24 h, to confirm): poste-1 → docker-a/web/lan
+Ports (24 h): invite-g1: +tcp/22 (ssh), −tcp/80 (http)
+Names (mDNS): 2 devices named: poste-1, poste-2
+1 device deleted (24 h)
+3 devices seen by the ARP probe, 2 to review (poste-3, poste-4)
+ARP conflicts (24 h): 00:00:5e:00:53:01: Ethernet header 00:00:5e:00:53:02 ; IP ‹ip›: 2 MACs (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP ‹ip›: 2 MACs (speedtest, speedtest)
+returned after deletion (24 h): poste-2</blockquote>
+
+👉 <a href="https://vigie.example.net/alerts">Open the cockpit</a>
 
 # signaux des MAJ
 🟠 <b>App</b> — security fix released <i>(dev)</i>
@@ -38,10 +56,13 @@ Since 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Open</a>
 
 # digest calme
 ☀️ <b>Infra — digest for 10/11</b>
+
 ✅ No active alerts
+
 📋 24 h: no incidents resolved
 🔐 Certificates &lt; 21 d: none
-<a href="https://vigie.example.net/alerts">Open the cockpit</a>
+
+👉 <a href="https://vigie.example.net/alerts">Open the cockpit</a>
 
 # MAJ : fin de vie proche, MAJ auto sans rapport frais
 ℹ️ <b>Debian 11</b> — end of life <i>(dev)</i>
@@ -52,7 +73,8 @@ Since 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Open</a>
 end of life on 01/12/2026
 Host: vps
 Since 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Open</a>
-🆕 1 new version: App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+🆕 1 new version
+  App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
 🛡 Auto updates: 2 hosts without a recent report: lab, vps
 
 # MAJ : fin de vie dépassée sans date, nuit sans correctif
@@ -64,6 +86,11 @@ Since 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Open</a>
 end of life passed · 12 available
 Host: vps
 Since 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Open</a>
-🆕 3 new versions: App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡 · Debian (VM 200 · pve-a) 11 → 12 ▲ · Debian (vps) 11 → 12 ▲
-⏳ End of life: Debian 11 (VM 200 · pve-a) · Debian 11 (vps)
+🆕 3 new versions
+  App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+  Debian (VM 200 · pve-a) 11 → 12 ▲
+  Debian (vps) 11 → 12 ▲
+⏳ 2 components past end of life
+  Debian 11 (VM 200 · pve-a)
+  Debian 11 (vps)
 🛡 No security fix applied last night (2 hosts on auto updates)

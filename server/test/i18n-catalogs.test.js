@@ -22,7 +22,7 @@ const SAME = {
     // proper nouns, acronyms, units and templates without words
     'net.source.pihole', 'net.source.pve', 'rules.label.guest_inodes', 'time.hours', 'time.hours_minutes', 'time.minutes', 'bot.net.sources_ok', 'net.digest.sources_ok',
     // words identical in both languages
-    'alerts.maintenance', 'alerts.maintenance_reason', 'audit.silence', 'digest.silences', 'errors.arp.perms', 'modules.updates', 'plugins.kind.module', 'plugins.kind.plugin', 'silences.target.service',
+    'alerts.maintenance', 'alerts.maintenance_reason', 'audit.silence', 'digest.silences', 'status.infra', 'errors.arp.perms', 'modules.updates', 'plugins.kind.module', 'plugins.kind.plugin', 'silences.target.service',
     // log action codes and Telegram buttons, in English in both languages
     'audit.ack', 'audit.unack', 'buttons.ack', 'buttons.mute',
   ],

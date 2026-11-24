@@ -82,7 +82,7 @@ test('unauthorized account ignored and logged; forged data ignored', async () =>
 test('/reseau, /appareil (hostile input), /connu', async () => {
   const b = bench()
   await b.say('/reseau')
-  assert.match(b.telegram.sent.at(-1).text, /Réseau<\/b> — 43 appareils · \d+ actifs · 1 nouveau · 22 à revoir/)
+  assert.match(b.telegram.sent.at(-1).text, /Réseau<\/b>\n43 appareils · \d+ actifs\n1 nouveau · 22 à revoir/)
   assert.match(b.telegram.sent.at(-1).text, new RegExp(`#${b.newDevice.id} Invite-R1-1`))
   for (const q of ['.*(', '[', '\\', '<b>']) {
     await b.say(`/appareil ${q}`)

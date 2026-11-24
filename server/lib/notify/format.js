@@ -25,6 +25,9 @@ export const safe = html => new SafeHtml(html)
 export const tHtml = (key, params = {}, translate = tr) => translate(key, Object.fromEntries(Object.entries(params).map(([k, v]) => [k, v instanceof SafeHtml ? v.html : t(v)])))
 
 const ICON = { critical: '🔴', warning: '🟠', info: 'ℹ️' }
+// the title already contains the rule label, as whole words, whatever the case
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+export const says = (title, label) => !!label && new RegExp(`(^|[^\\p{L}\\p{N}])${reEsc(String(label))}($|[^\\p{L}\\p{N}])`, 'iu').test(String(title ?? ''))
 
 export function createFormatter({ dashboardUrl, clock }) {
   const link = (path, label = tr('notify.link.open')) => (dashboardUrl
@@ -48,7 +51,8 @@ export function createFormatter({ dashboardUrl, clock }) {
       switch (kind) {
         case 'open':
           return lines(
-            head(ICON[st.severity], st, t(rule.toLowerCase())),
+            // rule label left out when the title already says it ("cert-6 — certificate")
+            head(ICON[st.severity], st, says(st.title, rule) ? null : t(rule.toLowerCase())),
             st.detail && t(st.detail),
             st.host && tHtml('notify.host', { host: st.host }),
             st.rule === 'pve_unreachable' && impactLine(st),

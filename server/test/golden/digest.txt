@@ -1,22 +1,47 @@
 ☀️ <b>Infra — digest du 10/11</b>
+
 🚨 <b>50 alertes actives</b>
-  🔴 DNS — résolution locale : NXDOMAIN (depuis 2 h)
-  🔴 fail-3 — TCP 22 : refusé (depuis 2 h)
-  🔴 cert-6 — certificat — expire dans 6 j (16/11/2026) (depuis 2 h)
-  🔴 Disque / · ct-disque-95 — 95 % utilisés (d'après Proxmox) (depuis 2 h)
-  🔴 Stockage local (pve-a) — 95 % utilisés (depuis 2 h)
-  🔴 Stockage st-90 (pve-a) — 90 % utilisés (depuis 2 h)
-  🔴 Mémoire pve-a — 97 % de la RAM prise (hors cache) (depuis 2 h)
-  🔴 Mémoire mem-95 — 95 % de la RAM prise (hors cache) (depuis 2 h)
-  🔴 SMART HDD de banc (/dev/sdb · pve-a) — état SMART : FAILED (depuis 2 h)
-  🔴 Température SSD borne (/dev/nvme5n1 · pve-a) — 80 °C (seuils 75 / 80 °C) (depuis 2 h)
+
+🔴 <b>Service hors ligne</b> · 2
+• DNS — résolution locale : NXDOMAIN · depuis 2 h
+• fail-3 — TCP 22 : refusé · depuis 2 h
+
+🔴 <b>cert-6 — certificat</b> · depuis 2 h
+expire dans 6 j (16/11/2026)
+
+🔴 <b>Disque</b> · 2
+• Disque / · ct-disque-95 — 95 % utilisés (d'après Proxmox) · depuis 2 h
+• Disque /disque-95 · docker-a — 95 % utilisés · depuis 2 h
+
+🔴 <b>Stockage</b> · 2
+• Stockage local — 95 % utilisés · depuis 2 h
+• Stockage st-90 — 90 % utilisés · depuis 2 h
+
+🔴 <b>Mémoire du nœud</b> · 2
+• Mémoire pve-a — 97 % de la RAM prise (hors cache) · depuis 2 h
+• Mémoire mem-95 — 95 % de la RAM prise (hors cache) · depuis 2 h
+
+🔴 <b>SMART HDD de banc (/dev/sdb · pve-a)</b> · depuis 2 h
+état SMART : FAILED
+
+🔴 <b>Température SSD borne (/dev/nvme5n1 · pve-a)</b> · depuis 2 h
+80 °C (seuils 75 / 80 °C)
+
+🔴 <b>Inodes /inodes-95 · docker-a</b> · depuis 2 h
+95 % des inodes utilisés
+
+… et 38 autres sur le cockpit
+
 📋 24 h : aucun incident résolu
 💾 Sauvegardes à jour : pve-a 2/9 ⚠️
 📦 Stockages : local 95 % ⚠️ · st-89.9 90 % ⚠️ · st-90 90 % ⚠️
 🔐 Certificats &lt; 21 j : Site public 9 j, cert-20 20 j, cert-6 6 j, cert-7 7 j
 ⚙️ CI : runners 1/2 en ligne · en échec : app
 🔖 témoin (créneau ci)
+
 🛡 2 correctifs de sécurité appliqués cette nuit sur 1 hôte
-  lab : openssl, tzdata
+<blockquote>lab : openssl, tzdata</blockquote>
+
 🌐 Réseau : 12 appareils, 1 nouveau
-<a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>
+
+👉 <a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>

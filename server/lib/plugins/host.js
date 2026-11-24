@@ -266,6 +266,24 @@ export function createHost({ cfg, env = {}, store = null, log = console, now = (
   const active = () => list.filter(m => m.configured)
   const display = m => tr(m.kind === 'plugin' ? 'plugins.kind.plugin' : 'plugins.kind.module', { label: labelOf(m) })
 
+  // lines of the slot, one block per module (the digest separates the blocks with a blank line)
+  function digestBlocks(slot, opts) {
+    const out = []
+    for (const m of active()) {
+      if (m.hooks.digest?.slot !== slot) continue
+      try {
+        const l = m.hooks.digest.lines(opts)
+        if (!Array.isArray(l)) throw new PluginError(tr('plugins.err.digest_array'))
+        ok(m.id, 'digest')
+        if (l.length) out.push(l)
+      } catch (e) {
+        fail(m.id, 'digest', e)
+        out.push([tr('plugins.unavailable', { label: labelOf(m) })])
+      }
+    }
+    return out
+  }
+
   return {
     get ids() { return list.map(m => m.id) },
     // core module created after the host (it depends on the collector, which depends on the
@@ -464,21 +482,10 @@ export function createHost({ cfg, env = {}, store = null, log = console, now = (
       }
     },
 
+    digestBlocks,
+
     digestLines(slot, opts) {
-      const out = []
-      for (const m of active()) {
-        if (m.hooks.digest?.slot !== slot) continue
-        try {
-          const l = m.hooks.digest.lines(opts)
-          if (!Array.isArray(l)) throw new PluginError(tr('plugins.err.digest_array'))
-          ok(m.id, 'digest')
-          out.push(...l)
-        } catch (e) {
-          fail(m.id, 'digest', e)
-          out.push(tr('plugins.unavailable', { label: labelOf(m) }))
-        }
-      }
-      return out
+      return digestBlocks(slot, opts).flat()
     },
 
     summaries(opts) {

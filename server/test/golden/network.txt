@@ -1,15 +1,15 @@
 ## net_new:1 · cond false · warning
-🟠 <b>Nouvel appareil : appareil sans nom (fiche 1)</b> — nouvel appareil
+🟠 <b>Nouvel appareil : appareil sans nom (fiche 1)</b>
 00:00:5e:00:53:01 (privée) · déjà vu par Pi-hole le 07/11/2026
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
 
 ## net_new:2 · cond false · warning
-🟠 <b>Nouvel appareil : poste &lt;b&gt;</b> — nouvel appareil
+🟠 <b>Nouvel appareil : poste &lt;b&gt;</b>
 00:00:5e:00:53:0c
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 
 ## net_new:3 · cond false · warning
-🟠 <b>Nouvel appareil : Fabricant SA (fiche 3)</b> — nouvel appareil
+🟠 <b>Nouvel appareil : Fabricant SA (fiche 3)</b>
 00:00:5e:00:53:0b · Fabricant SA
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
 
@@ -34,17 +34,17 @@ Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 
 ## net_agent_conflict:2 · cond true · warning
-🟠 <b>poste &lt;b&gt; : conflit d'identité de conteneur</b> — conflit d'identité de conteneur
+🟠 <b>poste &lt;b&gt; : conflit d'identité de conteneur</b>
 conteneur docker-a/web/lan : déjà associé à la fiche 1
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 
 ## net_agent_conflict:3 · cond true · warning
-🟠 <b>Fabricant SA (fiche 3) : conflit d'identité de conteneur</b> — conflit d'identité de conteneur
+🟠 <b>Fabricant SA (fiche 3) : conflit d'identité de conteneur</b>
 conteneur docker-a/db/lan : fiche déjà associée à docker-b/db/lan
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
 
 ## net_new_flood:lan · cond true · warning
-🟠 <b>Afflux d'appareils sur le LAN</b> — afflux d'appareils
+🟠 <b>Afflux d'appareils sur le LAN</b>
 3 MAC refusées, créations suspendues jusqu'à 11:00
 Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
 
@@ -54,7 +54,7 @@ vu pour la dernière fois il y a 2 h
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
 
 ## net_ip_changed:1 · cond false · warning
-🟠 <b>appareil sans nom (fiche 1) : IP changée</b> — ip changée
+🟠 <b>appareil sans nom (fiche 1) : IP changée</b>
 IP attendue différente de l'IP vue
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
 
@@ -63,7 +63,7 @@ Depuis 09:50 · <a href="https://vigie.example.net/network?d=1">Ouvrir</a>
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 
 ## net_ip_changed:2 · cond true · warning
-🟠 <b>poste &lt;b&gt; : IP changée</b> — ip changée
+🟠 <b>poste &lt;b&gt; : IP changée</b>
 IP attendue différente de l'IP vue
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 
@@ -72,7 +72,7 @@ Depuis 09:50 · <a href="https://vigie.example.net/network?d=2">Ouvrir</a>
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
 
 ## net_ip_changed:3 · cond false · warning
-🟠 <b>Fabricant SA (fiche 3) : IP changée</b> — ip changée
+🟠 <b>Fabricant SA (fiche 3) : IP changée</b>
 IP attendue différente de l'IP vue
 Depuis 09:50 · <a href="https://vigie.example.net/network?d=3">Ouvrir</a>
 
@@ -119,11 +119,15 @@ Depuis 09:50 · <a href="https://vigie.example.net/network">Ouvrir</a>
 
 # bot
 ## /reseau
-🌐 <b>Réseau</b> — 45 appareils · 43 en ligne · 2 hors ligne · 3 nouveaux · 22 à revoir · sources en erreur
-<b>Nouveaux</b>
+🌐 <b>Réseau</b>
+45 appareils · 43 en ligne · 2 hors ligne
+3 nouveaux · 22 à revoir · sources en erreur
+
+🆕 <b>Nouveaux</b>
 #43 Invite-R1-1 · hors ligne
 #44 Invite-R1-2 · hors ligne
 #45 00:00:5e:00:53:e7 · en ligne
+
 ⚠️ mdns : périmée
 
 ## /appareil
@@ -151,5 +155,8 @@ en ligne · IP ‹ip›
 MAC 00:00:5e:00:53:e7
 
 ## /reseau
-🌐 <b>Réseau</b> — 45 appareils · 43 en ligne · 2 hors ligne · 0 nouveau · 22 à revoir · sources en erreur
+🌐 <b>Réseau</b>
+45 appareils · 43 en ligne · 2 hors ligne
+0 nouveau · 22 à revoir · sources en erreur
+
 ⚠️ mdns : périmée

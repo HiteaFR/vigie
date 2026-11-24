@@ -149,7 +149,7 @@ Secrets never go in `config.json`: declare them in `secrets` and read them with 
 | `signals(snap, now, helpers)` | every evaluation (15 s) | alert signals (see [Rules](#rules)) |
 | `signalsAt` | — | `'end'` (default) or `'ci'`: where the signals go among the core ones |
 | `labels` | at load time | `{ <rule>: <label> \| { en, fr } }` for Telegram and the bot; an object is read in the instance locale |
-| `digest` | when the daily digest is built | `{ slot: 'end' \| 'ci', lines({ snap, mark, now }) → string[] }` (plain text, escaped by the host) |
+| `digest` | when the daily digest is built | `{ slot: 'end' \| 'ci', lines({ snap, mark, now }) → string[] }` (plain text, escaped by the host; in the `end` slot, the lines of a module form their own section and indented lines go into a quote under the line above, folded beyond 3) |
 | `summary` | `/api/summary` | `{ key, value({ snap, env, now }) }`; must return a value, not a promise |
 | `routes(router, helpers)` | at startup | an `express.Router` mounted by the host; wrap handlers with `helpers.wrap` |
 | `routesAt` | — | `'modules'` (default) or `'sources'` (with the source read routes; only `wrap` is given) |

@@ -18,7 +18,7 @@ const exists = f => fs.existsSync(path.join(ROOT, f))
 export const DOCS = ['installation', 'configuration', 'docker', 'security', 'features', 'icons', 'agent', 'network', 'updates', 'alerts', 'proxmox', 'deployment', 'development', 'plugins']
   .map(d => `docs/${d}.md`)
 export const PUBLIC = ['README.md', 'LICENSE', 'NOTICE', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md',
-  '.github/workflows/ci.yml', '.github/dependabot.yml', '.github/pull_request_template.md',
+  '.github/workflows/ci.yml', '.github/workflows/release.yml', 'scripts/release.mjs', '.github/dependabot.yml', '.github/pull_request_template.md',
   '.github/ISSUE_TEMPLATE/bug_report.yml', '.github/ISSUE_TEMPLATE/feature_request.yml', '.github/ISSUE_TEMPLATE/config.yml', ...DOCS,
   'agent/README.md', 'agent/dash-report/README.md', 'agent/net-scan/README.md', 'NOTICE']
 test('public files present', () => {
@@ -119,13 +119,27 @@ test('Dependabot: npm (client and server), actions, Docker; delay of at least 14
   }
 })
 
-test('public changelog (snapshot, and its template in the Gitea tree): English, a single "[Unreleased]" entry, no version number, valid links', () => {
+test('public changelog (snapshot, and its template in the Gitea tree): English, Keep a Changelog ("[Unreleased]", then dated versions, newest first, with their links), valid links', () => {
   const pub = changelogs().filter(l => l.isPublic)
   assert.ok(pub.length >= 1, 'public changelog or its template present')
   for (const { file, text } of pub) {
     assert.match(text, /^# Changelog\n/, file)
-    assert.deepEqual(text.match(/^## .*$/gm), ['## [Unreleased]'], file)
-    assert.doesNotMatch(text, /^#+ .*\bv?\d+\.\d+\.\d+/m, `${file}: no version number`)
+    const heads = text.match(/^## .*$/gm)
+    assert.equal(heads[0], '## [Unreleased]', file)
+    assert.ok(heads.length >= 2, `${file}: at least one release`)
+    const versions = heads.slice(1).map(h => {
+      const m = h.match(/^## \[(\d+)\.(\d+)\.(\d+)\] - (\d{4}-\d{2}-\d{2})$/)
+      assert.ok(m, `${file}: heading ${h}`)
+      assert.ok(!Number.isNaN(Date.parse(m[4])), `${file}: date ${m[4]}`)
+      return { v: m.slice(1, 4).map(Number), name: m.slice(1, 4).join('.'), date: m[4] }
+    })
+    for (let i = 1; i < versions.length; i++) {
+      const [a, b] = [versions[i - 1], versions[i]]
+      assert.ok(a.v[0] > b.v[0] || (a.v[0] === b.v[0] && (a.v[1] > b.v[1] || (a.v[1] === b.v[1] && a.v[2] > b.v[2]))), `${file}: ${a.name} after ${b.name}`)
+      assert.ok(a.date >= b.date, `${file}: dates of ${a.name} and ${b.name}`)
+    }
+    assert.ok(text.includes(`\n[Unreleased]: https://github.com/HiteaFR/vigie/compare/v${versions[0].name}...HEAD\n`), `${file}: [Unreleased] link`)
+    for (const { name } of versions) assert.ok(text.includes(`\n[${name}]: https://github.com/HiteaFR/vigie/`), `${file}: [${name}] link`)
     assert.doesNotMatch(text, /[àâéèêîôûç«»]/, `${file}: in English`)
     // relative links read from the root (the template becomes CHANGELOG.md at the snapshot root)
     for (const m of text.matchAll(/\]\(([^)#\s]+)(#[^)]*)?\)/g)) if (!/^[a-z]+:/i.test(m[1])) assert.ok(exists(m[1]), `${file} → ${m[1]}`)

@@ -10,66 +10,86 @@ audit : refus · tg:9@u9 · chat 42
 
 ## /help
 envoi : <b>Commandes</b>
+
+📊 <b>État</b>
 /status — état global
 /down — alertes en cours (avec leur n°)
-/ack &lt;n°|clé&gt; &lt;motif&gt; — acquitter (coupe les rappels)
-/mute &lt;cible&gt; &lt;durée&gt; &lt;motif&gt; — silence, ex. <code>/mute web-1 2h migration</code>
-   cible : n° d'alerte (#12), hôte, service, règle ou clé ; durée : 30m, 2h, 3j (30 j au plus)
-/unmute &lt;n°&gt; — lever un silence
-/silences — silences actifs
 /digest — digest maintenant
 /refresh — relancer tous les relevés
+
+🔕 <b>Alertes</b>
+/ack &lt;n°|clé&gt; &lt;motif&gt; — acquitter (coupe les rappels)
+/mute &lt;cible&gt; &lt;durée&gt; &lt;motif&gt; — silence, ex. <code>/mute web-1 2h migration</code>
+<i>cible : n° d'alerte (#12), hôte, service, règle ou clé ; durée : 30m, 2h, 3j (30 j au plus)</i>
+/unmute &lt;n°&gt; — lever un silence
+/silences — silences actifs
+
+🌐 <b>Réseau</b>
 /network — appareils du LAN, nouveaux, MAC à confirmer (supprimer un appareil : sur /network, avec un motif)
 /device &lt;texte&gt; — chercher un appareil (nom, MAC, constructeur, IP exacte)
 /known &lt;id&gt; &lt;motif&gt; — valider un appareil nouveau ou à revoir
-(anciens noms acceptés : /reseau, /appareil, /connu)
+
+<i>Anciens noms acceptés : /reseau, /appareil, /connu</i>
 
 ## /start
 envoi : <b>Commandes</b>
+
+📊 <b>État</b>
 /status — état global
 /down — alertes en cours (avec leur n°)
-/ack &lt;n°|clé&gt; &lt;motif&gt; — acquitter (coupe les rappels)
-/mute &lt;cible&gt; &lt;durée&gt; &lt;motif&gt; — silence, ex. <code>/mute web-1 2h migration</code>
-   cible : n° d'alerte (#12), hôte, service, règle ou clé ; durée : 30m, 2h, 3j (30 j au plus)
-/unmute &lt;n°&gt; — lever un silence
-/silences — silences actifs
 /digest — digest maintenant
 /refresh — relancer tous les relevés
+
+🔕 <b>Alertes</b>
+/ack &lt;n°|clé&gt; &lt;motif&gt; — acquitter (coupe les rappels)
+/mute &lt;cible&gt; &lt;durée&gt; &lt;motif&gt; — silence, ex. <code>/mute web-1 2h migration</code>
+<i>cible : n° d'alerte (#12), hôte, service, règle ou clé ; durée : 30m, 2h, 3j (30 j au plus)</i>
+/unmute &lt;n°&gt; — lever un silence
+/silences — silences actifs
+
+🌐 <b>Réseau</b>
 /network — appareils du LAN, nouveaux, MAC à confirmer (supprimer un appareil : sur /network, avec un motif)
 /device &lt;texte&gt; — chercher un appareil (nom, MAC, constructeur, IP exacte)
 /known &lt;id&gt; &lt;motif&gt; — valider un appareil nouveau ou à revoir
-(anciens noms acceptés : /reseau, /appareil, /connu)
+
+<i>Anciens noms acceptés : /reseau, /appareil, /connu</i>
 
 ## /status
 envoi : 🟢 état de banc
 
 ## /down
 envoi : 🚨 <b>50 alertes en cours</b>
-#1 🔴 DNS — résolution locale : NXDOMAIN
-#3 🔴 fail-3 — TCP 22 : refusé
-#5 🔴 cert-6 — certificat — expire dans 6 j (16/11/2026)
-#10 🔴 Disque / · ct-disque-95 — 95 % utilisés (d'après Proxmox)
-#11 🔴 Stockage local (pve-a) — 95 % utilisés
-#14 🔴 Stockage st-90 (pve-a) — 90 % utilisés
-#40 🔴 Mémoire pve-a — 97 % de la RAM prise (hors cache)
-#43 🔴 Mémoire mem-95 — 95 % de la RAM prise (hors cache)
-#15 🔴 SMART HDD de banc (/dev/sdb · pve-a) — état SMART : FAILED
-#20 🔴 Température SSD borne (/dev/nvme5n1 · pve-a) — 80 °C (seuils 75 / 80 °C)
-#32 🔴 Disque /disque-95 · docker-a — 95 % utilisés
-#35 🔴 Inodes /inodes-95 · docker-a — 95 % des inodes utilisés
-#44 🔴 Conteneur web · docker-a — healthcheck Docker en échec
-#36 🔴 Conteneur worker · docker-a — redémarre en boucle (9 redémarrages)
-#39 🟠 VM 200 lab — état Proxmox : stopped
-#2 🟠 Site public — certificat — expire dans 9 j (19/11/2026)
-#4 🟠 cert-20 — certificat — expire dans 20 j (30/11/2026)
-#6 🟠 cert-7 — certificat — expire dans 7 j (17/11/2026)
-#8 🟠 Disque / · ct-disque-85 — 85 % utilisés (d'après Proxmox)
-#9 🟠 Disque / · ct-disque-94.9 — 95 % utilisés (d'après Proxmox)
-#12 🟠 Stockage st-80 (pve-a) — 80 % utilisés
-#13 🟠 Stockage st-89.9 (pve-a) — 90 % utilisés
-#47 🟠 Swap pve-a — 75 % du swap utilisé
-#41 🟠 Mémoire mem-90 — 90 % de la RAM prise (hors cache)
-#48 🟠 Swap mem-90 — 50 % du swap utilisé
+
+🔴 <b>Critiques</b> · 14
+#1 <b>DNS</b> — résolution locale : NXDOMAIN
+#3 <b>fail-3</b> — TCP 22 : refusé
+#5 <b>cert-6 — certificat</b> — expire dans 6 j (16/11/2026)
+#10 <b>Disque / · ct-disque-95</b> — 95 % utilisés (d'après Proxmox)
+#11 <b>Stockage local (pve-a)</b> — 95 % utilisés
+#14 <b>Stockage st-90 (pve-a)</b> — 90 % utilisés
+#40 <b>Mémoire pve-a</b> — 97 % de la RAM prise (hors cache)
+#43 <b>Mémoire mem-95</b> — 95 % de la RAM prise (hors cache)
+#15 <b>SMART HDD de banc (/dev/sdb · pve-a)</b> — état SMART : FAILED
+#20 <b>Température SSD borne (/dev/nvme5n1 · pve-a)</b> — 80 °C (seuils 75 / 80 °C)
+#32 <b>Disque /disque-95 · docker-a</b> — 95 % utilisés
+#35 <b>Inodes /inodes-95 · docker-a</b> — 95 % des inodes utilisés
+#44 <b>Conteneur web · docker-a</b> — healthcheck Docker en échec
+#36 <b>Conteneur worker · docker-a</b> — redémarre en boucle (9 redémarrages)
+
+🟠 <b>Avertissements</b> · 11
+#39 <b>VM 200 lab</b> — état Proxmox : stopped
+#2 <b>Site public — certificat</b> — expire dans 9 j (19/11/2026)
+#4 <b>cert-20 — certificat</b> — expire dans 20 j (30/11/2026)
+#6 <b>cert-7 — certificat</b> — expire dans 7 j (17/11/2026)
+#8 <b>Disque / · ct-disque-85</b> — 85 % utilisés (d'après Proxmox)
+#9 <b>Disque / · ct-disque-94.9</b> — 95 % utilisés (d'après Proxmox)
+#12 <b>Stockage st-80 (pve-a)</b> — 80 % utilisés
+#13 <b>Stockage st-89.9 (pve-a)</b> — 90 % utilisés
+#47 <b>Swap pve-a</b> — 75 % du swap utilisé
+#41 <b>Mémoire mem-90</b> — 90 % de la RAM prise (hors cache)
+#48 <b>Swap mem-90</b> — 50 % du swap utilisé
+
+… et 25 autres sur le cockpit
 
 ## /silences
 envoi : 🔕 Aucun silence actif

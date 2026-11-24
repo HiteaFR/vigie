@@ -113,3 +113,24 @@ node scripts/screenshots/demo-server.mjs --port 8099   # browse the demo at http
 
 When a view or an API answer changes shape, update `demo-data.mjs` with it (copy the shape, never
 real data), take the screenshots again and check them by eye.
+
+## Releasing a version
+
+A release is a `vX.Y.Z` tag on `main`; `.github/workflows/release.yml` does the rest. Before the
+tag, in one pull request:
+
+1. `npm version X.Y.Z --no-git-tag-version` in `server/` and in `client/`;
+2. the image of `docker-compose.yml` (`ghcr.io/hiteafr/vigie:X.Y.Z`, two lines) and the
+   `git clone --branch vX.Y.Z` line of the README;
+3. in `CHANGELOG.md`, the `[Unreleased]` items move under `## [X.Y.Z] - YYYY-MM-DD`, and the links at
+   the end get the new version;
+4. `node scripts/release.mjs check X.Y.Z` must say that the version agrees everywhere (the release
+   workflow runs it first and stops otherwise).
+
+Pull requests that touch the image or this tooling run the same chain as a dry run (build and
+proof of both platforms, nothing pushed). On the tag, the workflow pushes the image by digest,
+proves each platform of that digest with `scripts/docker-proof.sh`, then sets the tags `X.Y.Z`,
+`X.Y`, `X` and `latest`, attaches a signed provenance and creates the release with the notes of
+the changelog entry, the agents archive and `SHA256SUMS`. A run that fails before the tag step
+leaves only an untagged digest in the registry: fix, delete the Git tag and push it again. A run
+that fails after it can be re-run: it builds, proves and tags again before the release.

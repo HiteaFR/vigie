@@ -603,17 +603,17 @@ export function createUpdates({ cfg, store, agents, sources, collector, upstream
     ]
   }
 
-  // services to restart (agent v8, slow report less than 2 h old): one line,
-  // host by host (3 units at most per host); none: nothing
+  // services to restart (agent v8, slow report less than 2 h old): a headline, then one
+  // indented line per host (3 units at most per host); none: nothing
   function restartLines(now) {
     const hosts = []
     for (const h of agents?.hosts || []) {
       const st = agents.get(h.id)
       const r = st?.slow?.version >= 8 ? st.slow.restart : null
       if (!r?.units.length || st.slowAt == null || now - st.slowAt > SLOW_REPORT_MAX_AGE_MS) continue
-      hosts.push(`${h.name} (${r.units.slice(0, 3).map(u => u.replace(/\.service$/, '')).join(', ')}${r.units.length > 3 ? ` +${r.units.length - 3}` : ''})`)
+      hosts.push(`  ${h.name} : ${r.units.slice(0, 3).map(u => u.replace(/\.service$/, '')).join(', ')}${r.units.length > 3 ? ` +${r.units.length - 3}` : ''}`)
     }
-    return hosts.length ? [tr('updates.digest.restart', { hosts: tr('updates.digest.hosts', { count: hosts.length }), list: hosts.join(' · ') })] : []
+    return hosts.length ? [tr('updates.digest.restart', { hosts: tr('updates.digest.hosts', { count: hosts.length }) }), ...hosts] : []
   }
 
   // digest section: new versions never announced, then end of life; fixes
@@ -624,11 +624,17 @@ export function createUpdates({ cfg, store, agents, sources, collector, upstream
       .sort((a, b) => (GAP_RANK[a.security ? 'security' : a.gap] ?? 9) - (GAP_RANK[b.security ? 'security' : b.gap] ?? 9))
     const lines = []
     if (fresh.length) {
-      const items = fresh.slice(0, 8).map(c => `${label(c)} ${c.gap === 'digest' ? tr('updates.digest.new_image', { current: c.current }) : `${c.current} → ${c.latest}`}${c.gap === 'major' ? ' ▲' : ''}${c.security ? ' 🛡' : ''}`)
-      lines.push(`${tr('updates.digest.new', { count: fresh.length, items: items.join(' · ') })}${fresh.length > 8 ? ` · +${fresh.length - 8}` : ''}`)
+      // headline, then one indented line per version (the digest puts them in a quote)
+      lines.push(tr('updates.digest.new', { count: fresh.length }))
+      lines.push(...fresh.slice(0, 8).map(c => `  ${label(c)} ${c.gap === 'digest' ? tr('updates.digest.new_image', { current: c.current }) : `${c.current} → ${c.latest}`}${c.gap === 'major' ? ' ▲' : ''}${c.security ? ' 🛡' : ''}`))
+      if (fresh.length > 8) lines.push(`  +${fresh.length - 8}`)
     }
     const eol = components.filter(c => !c.ignored && c.eol?.passed)
-    if (eol.length) lines.push(`${tr('updates.digest.eol', { list: eol.slice(0, 6).map(c => `${c.name} ${c.eol.cycle} (${c.where || '?'})`).join(' · ') })}${eol.length > 6 ? ` · +${eol.length - 6}` : ''}`)
+    if (eol.length) {
+      lines.push(tr('updates.digest.eol', { count: eol.length }))
+      lines.push(...eol.slice(0, 6).map(c => `  ${c.name} ${c.eol.cycle} (${c.where || '?'})`))
+      if (eol.length > 6) lines.push(`  +${eol.length - 6}`)
+    }
     if (mark) for (const c of fresh) q.notified.run(c.latest, c.id)
     lines.push(...autoUpdateLines(now))
     lines.push(...restartLines(now))

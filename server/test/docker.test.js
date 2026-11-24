@@ -29,10 +29,17 @@ const code = text => text.split('\n').filter(l => !l.trim().startsWith('#')).joi
 
 // --- Dockerfile ------------------------------------------------------------------------------------
 
-test('Dockerfile: each FROM pinned by exact version AND sha256 digest; Node 22, the same image in all three stages', () => {
-  const froms = instructions(DOCKERFILE).filter(l => /^FROM\s/i.test(l)).map(l => l.split(/\s+/)[1])
+// image of a FROM line (options such as --platform skipped)
+const fromImage = l => l.split(/\s+/).slice(1).find(w => !w.startsWith('--'))
+
+test('Dockerfile: each FROM pinned by exact version AND sha256 digest; Node 22, the same image in all three stages; only the client stage on $BUILDPLATFORM', () => {
+  const fromLines = instructions(DOCKERFILE).filter(l => /^FROM\s/i.test(l))
+  const froms = fromLines.map(fromImage)
   assert.equal(froms.length, 3)
-  for (const f of [...froms, ...instructions(NS_DOCKERFILE).filter(l => /^FROM\s/i.test(l)).map(l => l.split(/\s+/)[1])]) {
+  // the client stage (static files) runs on the build machine; server dependencies and runtime on the target platform
+  assert.deepEqual(fromLines.map(l => (l.match(/--platform=(\S+)/) ?? [])[1] ?? null), ['$BUILDPLATFORM', null, null])
+  assert.match(fromLines[0], / AS client$/)
+  for (const f of [...froms, ...instructions(NS_DOCKERFILE).filter(l => /^FROM\s/i.test(l)).map(fromImage)]) {
     assert.match(f, /^[a-z0-9.-]+:[A-Za-z0-9._-]*\d[A-Za-z0-9._-]*@sha256:[0-9a-f]{64}$/, `FROM not pinned: ${f}`)
     assert.doesNotMatch(f, /:(latest|lts|current|22|22-[a-z-]+|bookworm(-slim)?|stable(-slim)?)@/, `floating tag: ${f}`)
   }
@@ -530,7 +537,7 @@ test('each "run" of the proof script and of the Docker doc (docs/docker.md) reac
   assert.ok(execs.length >= 4)
   for (const { svc, args } of execs) {
     assert.equal(svc, 'vigie')
-    assert.ok(['ls', 'sh', 'id', 'test', 'stat'].includes(args[0]), `exec ${args[0]}`)
+    assert.ok(['ls', 'sh', 'id', 'test', 'stat', 'uname'].includes(args[0]), `exec ${args[0]}`)
   }
 })
 
@@ -661,7 +668,7 @@ test('doc (docs/docker.md, in English): Docker and network under Docker, same pa
   assert.match(docker, /^# Docker/m)
   assert.match(docker, /^## Network under Docker$/m)
   assert.match(read('README.md'), /\(docs\/docker\.md\)/)
-  for (const s of ['docker compose build', 'docker compose run --rm init', 'docker compose up -d', 'docker compose --profile arp up -d', 'docker-compose.bridge.yml',
+  for (const s of ['docker compose build', 'docker compose pull', 'VIGIE_IMAGE=vigie:local', 'ghcr.io/hiteafr/vigie', 'linux/arm64', 'gh attestation verify', 'docker compose run --rm init', 'docker compose up -d', 'docker compose --profile arp up -d', 'docker-compose.bridge.yml',
     '/etc/vigie', '/var/lib/vigie', '/run/net-scan', 'net-scan.conf', 'NET_RAW', '--listen 0.0.0.0 --admin-cidrs 172.31.88.1/32 --http-login', 'GPL',
     'network.probe.enabled', 'docker compose run --rm vigie icons', 'Backup', 'git pull']) {
     assert.ok(docker.includes(s), s)
@@ -671,12 +678,15 @@ test('doc (docs/docker.md, in English): Docker and network under Docker, same pa
   assert.match(docker, /\*\*Proven on 2026-11-11\*\* on a test Docker machine \(amd64, Docker 29\.9, Compose v5\.7\)/)
   const pending = docker.slice(docker.indexOf('**Not proven yet**'))
   assert.ok(docker.includes('**Not proven yet**'))
-  for (const s of ['bridge variant', 'ARP companion', 'arp.json', '`ssh` to a host', '`icons`', 'arm64', '`read_only`', '`cap_drop: [ALL]`', 'mDNS']) assert.ok(pending.includes(s), s)
+  for (const s of ['bridge variant', 'ARP companion', 'arp.json', '`ssh` to a host', '`icons`', 'arm64 image on real arm64 hardware', '`read_only`', '`cap_drop: [ALL]`', 'mDNS']) assert.ok(pending.includes(s), s)
+  // each release: proof of the pushed digest, per platform, before the tags
+  assert.match(docker, /pushes the image by digest only, pulls that digest\s+back for each platform and runs the same `scripts\/docker-proof\.sh`/)
+  assert.match(docker, /The companion image is never published/)
   // Gitea changelog (French) while it is in the tree, public changelog (English) and its template
   for (const log of changelogs()) {
     if (log.isPublic) {
       assert.match(log.text, /\*\*Docker\*\*: image and Compose file, see \[docs\/docker\.md\]\(docs\/docker\.md\)\. Proven on 2026-11-11/, log.file)
-      assert.match(log.text, /Not proven yet: the bridge variant, the ARP companion\s+running and `arp\.json` read, the agent over `ssh` to a host, `icons`, arm64/, log.file)
+      assert.match(log.text, /Not proven yet: the bridge variant, the ARP companion\s+running and `arp\.json` read, the agent over `ssh` to a host, `icons`, arm64 on real hardware/, log.file)
     } else {
       assert.match(log.text, /\*\*Docker \(P3d\)\.\*\* Prouvé le 2026-11-11/)
       assert.match(log.text, /Pas encore prouvé : variante pont, compagnon ARP lancé et `arp\.json` lu, agent\s+`ssh` vers un hôte, `icons`, arm64/)

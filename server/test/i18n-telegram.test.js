@@ -64,7 +64,7 @@ test('bot in English: menu, help, replies and buttons via the catalog; command n
     assert.deepEqual(commands.slice(0, 3).map(c => [c.command, c.description]), [['status', 'Global status'], ['down', 'Ongoing alerts'], ['ack', 'Acknowledge: /ack #number reason']])
     const msg = text => bot.handle({ update_id: 1, message: { message_id: 9, text, from: { id: 7 }, chat: { id: 42 } } })
     for (const c of ['/help', '/down', '/silences', '/mute', '/inconnue', 'bonjour']) await msg(c)
-    assert.match(sent[0], /^<b>Commands<\/b>\n\/status — global status/)
+    assert.match(sent[0], /^<b>Commands<\/b>\n\n📊 <b>Status<\/b>\n\/status — global status/)
     assert.deepEqual(sent.slice(1), ['✅ No ongoing alerts', '🔕 No active silences', 'Unknown target: alert number (#12), host, service, rule or key.', 'Unknown command. /help', 'Command expected. /help'])
   } finally {
     setLocale('fr')
@@ -216,43 +216,44 @@ test('update signals (end of life, security fix) in French and in English', asyn
   await updates.refresh()
   const view = () => updates.signals().filter(s => s.cond).map(s => `${s.title} | ${s.detail}`).sort()
   assert.deepEqual(view(), ['App | 1.0.0 → 1.2.0 : correctif de sécurité (CVE-2026-9999)', 'Debian 11 | fin de vie depuis le 31/08/2026 · 12 disponible'])
-  assert.deepEqual(updates.digestLines(), ['🆕 2 nouvelles versions : App (CT 1 · prod) 1.0.0 → 1.2.0 🛡 · Debian (CT 1 · prod) 11 → 12 ▲', '⏳ Fin de vie : Debian 11 (CT 1 · prod)'])
+  assert.deepEqual(updates.digestLines(), ['🆕 2 nouvelles versions', '  App (CT 1 · prod) 1.0.0 → 1.2.0 🛡', '  Debian (CT 1 · prod) 11 → 12 ▲', '⏳ 1 composant en fin de vie', '  Debian 11 (CT 1 · prod)'])
   setLocale('en')
   try {
     assert.deepEqual(view(), ['App | 1.0.0 → 1.2.0: security fix (CVE-2026-9999)', 'Debian 11 | end of life since 31/08/2026 · 12 available'])
-    assert.deepEqual(updates.digestLines(), ['🆕 2 new versions: App (CT 1 · prod) 1.0.0 → 1.2.0 🛡 · Debian (CT 1 · prod) 11 → 12 ▲', '⏳ End of life: Debian 11 (CT 1 · prod)'])
+    assert.deepEqual(updates.digestLines(), ['🆕 2 new versions', '  App (CT 1 · prod) 1.0.0 → 1.2.0 🛡', '  Debian (CT 1 · prod) 11 → 12 ▲', '⏳ 1 component past end of life', '  Debian 11 (CT 1 · prod)'])
   } finally {
     setLocale('fr')
   }
 })
 
-test('/status and ack from the dashboard: French byte for byte (former template), English via the catalog', async () => {
+test('/status and ack from the dashboard: French and English via the catalog (headline, blank line, one line per area)', async () => {
   const { statusLines } = await import('../lib/notify/status.js')
   const { ackMessage } = await import('../lib/alerts/bulk.js')
-  const { t: tg } = await import('../lib/notify/format.js')
   const { setLocale } = await import('../lib/i18n.js')
-  // template from before the extraction (index.js, statusText), kept here as the French reference
-  const before = (s, u, n) => {
-    const icon = { ok: '🟢', warn: '🟠', crit: '🔴', unknown: '⚪' }[s.state]
-    return [
-      `${icon} <b>Infra</b> — ${s.alerts.critical} critique(s), ${s.alerts.warning} avertissement(s)${s.alerts.masked ? `, ${s.alerts.masked} masquée(s)` : ''}`,
-      `🌐 Services : ${s.services.ok}/${s.services.total} en ligne${s.services.crit ? ` · ${s.services.crit} en panne` : ''}`,
-      `🖥️ Invités : ${s.guests.running}/${s.guests.total} en marche${s.guests.stoppedDeclared.length ? ` · arrêtés : ${tg(s.guests.stoppedDeclared.join(', '))}` : ''}`,
-      `💾 Sauvegardes : ${s.backups.map(b => (b.error ? `${tg(b.node)} illisible` : `${tg(b.node)} ${b.ok}/${b.total}`)).join(' · ')}`,
-      `📦 MAJ : ${u.total} en attente${u.security ? `, dont ${u.security} de sécurité` : ''}`,
-      `🔕 Silences : ${n}`,
-      ...(s.sourcesDown.length ? [`⚠️ Sources : ${tg(s.sourcesDown.join(', '))}`] : []),
-    ].join('\n')
-  }
   const full = { state: 'crit', alerts: { critical: 2, warning: 1, masked: 3 }, services: { ok: 4, total: 5, crit: 1 }, guests: { running: 6, total: 8, stoppedDeclared: ['ct-<a>', 'vm-b'] }, backups: [{ node: 'n1', ok: 3, total: 4 }, { node: 'n<2>', error: 'x' }], sourcesDown: ['pve', 'pihole'] }
   const calm = { state: 'ok', alerts: { critical: 0, warning: 0, masked: 0 }, services: { ok: 5, total: 5, crit: 0 }, guests: { running: 8, total: 8, stoppedDeclared: [] }, backups: [], sourcesDown: [] }
-  for (const [s, u, n] of [[full, { total: 7, security: 2 }, 1], [calm, { total: 0, security: 0 }, 0]]) assert.equal(statusLines({ s, u, silences: n }), before(s, u, n))
+  assert.equal(statusLines({ s: full, u: { total: 7, security: 2 }, silences: 1 }), [
+    '🔴 <b>Infra</b> · 2 critiques · 1 avertissement · 3 masquées',
+    '',
+    '🌐 Services : 4/5 en ligne · 1 en panne',
+    '🖥️ Invités : 6/8 en marche',
+    '<blockquote>arrêtés : ct-&lt;a&gt;, vm-b</blockquote>',
+    '💾 Sauvegardes : n1 3/4 · n&lt;2&gt; illisible',
+    '📦 MAJ : 7 en attente, dont 2 de sécurité',
+    '🔕 Silences : 1',
+    '⚠️ Sources : pve, pihole',
+  ].join('\n'))
+  assert.equal(statusLines({ s: calm, u: { total: 0, security: 0 }, silences: 0 }), [
+    '🟢 <b>Infra</b> · 0 critique · 0 avertissement', '', '🌐 Services : 5/5 en ligne', '🖥️ Invités : 8/8 en marche', '📦 MAJ : 0 en attente', '🔕 Silences : 0',
+  ].join('\n'))
   setLocale('en')
   try {
     assert.equal(statusLines({ s: full, u: { total: 7, security: 2 }, silences: 1 }), [
-      '🔴 <b>Infra</b> — 2 critical, 1 warning(s), 3 masked',
+      '🔴 <b>Infra</b> · 2 critical · 1 warning · 3 masked',
+      '',
       '🌐 Services: 4/5 up · 1 down',
-      '🖥️ Guests: 6/8 running · stopped: ct-&lt;a&gt;, vm-b',
+      '🖥️ Guests: 6/8 running',
+      '<blockquote>stopped: ct-&lt;a&gt;, vm-b</blockquote>',
       '💾 Backups: n1 3/4 · n&lt;2&gt; unreadable',
       '📦 Updates: 7 pending, 2 of them security',
       '🔕 Silences: 1',
@@ -316,6 +317,6 @@ test('/reseau: "0 nouveau" in the plural at 0, in French and in English', async 
   } finally {
     setLocale('fr')
   }
-  assert.equal(sent[0], '🌐 <b>Réseau</b> — 5 appareils · 4 en ligne · 1 hors ligne · 0 nouveau · 0 à revoir · sources OK')
-  assert.equal(sent[1], '🌐 <b>Network</b> — 5 devices · 4 online · 1 offline · 0 new · 0 to review · sources OK')
+  assert.equal(sent[0], '🌐 <b>Réseau</b>\n5 appareils · 4 en ligne · 1 hors ligne\n0 nouveau · 0 à revoir · sources OK')
+  assert.equal(sent[1], '🌐 <b>Network</b>\n5 devices · 4 online · 1 offline\n0 new · 0 to review · sources OK')
 })

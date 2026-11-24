@@ -1,10 +1,13 @@
-# Vigie in a container. Image built here (no published image yet). Docker Compose 2.24 or later.
-# Step by step: docs/docker.md.
+# Vigie in a container. Docker Compose 2.24 or later. Step by step: docs/docker.md.
+# Published image ghcr.io/hiteafr/vigie (linux/amd64, linux/arm64), version pinned below:
 #
-#   docker compose build
+#   docker compose pull                        # the image of this version
 #   docker compose run --rm init               # wizard (terminal); or --non-interactive …
 #   docker compose up -d                       # the service
-#   docker compose --profile arp up -d         # + ARP companion (net-scan), see "Network under Docker"
+#   docker compose --profile arp up -d         # + ARP companion (net-scan, built here), see "Network under Docker"
+#
+# From source instead: VIGIE_IMAGE=vigie:local docker compose build (then the same commands with
+# VIGIE_IMAGE=vigie:local, or that line in a .env file next to this one).
 #
 # network_mode: host BY DEFAULT: the Network module works fully (ip neigh, mDNS, gateway from
 # /proc/net/route) and the safe defaults keep their meaning (127.0.0.1 = this machine, admin
@@ -33,7 +36,7 @@ x-vigie-hardening: &vigie-hardening
 services:
   vigie:
     build: *vigie-build
-    image: ${VIGIE_IMAGE:-vigie:local}
+    image: ${VIGIE_IMAGE:-ghcr.io/hiteafr/vigie:1.2.0}
     <<: *vigie-hardening
     network_mode: host
     restart: unless-stopped
@@ -49,7 +52,7 @@ services:
   # setup wizard: the only one writing to /etc/vigie. docker compose run --rm init [options]
   init:
     build: *vigie-build
-    image: ${VIGIE_IMAGE:-vigie:local}
+    image: ${VIGIE_IMAGE:-ghcr.io/hiteafr/vigie:1.2.0}
     <<: *vigie-hardening
     profiles: [init]
     network_mode: host               # connection tests (Proxmox, Gitea) from the same place

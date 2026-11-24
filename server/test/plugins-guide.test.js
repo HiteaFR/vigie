@@ -7,7 +7,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { changelogs, unreleased } from './changelog.js'
+import { changelogs, versionEntry } from './changelog.js'
 import example from '../plugins/example/index.js'
 import { validatePluginConfig, CHANNEL_TIMEOUT_MS } from '../lib/plugins/host.js'
 import { EXTENSION_KINDS } from '../lib/plugins/extensions.js'
@@ -74,7 +74,7 @@ test('guide: the hooks table cites exactly the host hooks; the six kinds of exte
   assert.match(read('server/package.json'), /"check-config": /)
 })
 
-test('README and CHANGELOG: link to the guide (valid link), Integrations page and ntfy in the README; Plugins entry of the changelog, unreleased (Gitea: "Non publié"; public: "[Unreleased]")', () => {
+test('README and CHANGELOG: link to the guide (valid link), Integrations page and ntfy in the README; Plugins entry in the 1.2.0 entry of the changelog (first release with plugins)', () => {
   const readme = read('README.md')
   assert.match(readme, /\[docs\/plugins\.md\]\(docs\/plugins\.md\)/)
   assert.ok(fs.existsSync(path.join(ROOT, 'docs/plugins.md')))
@@ -86,8 +86,8 @@ test('README and CHANGELOG: link to the guide (valid link), Integrations page an
   assert.match(read('docs/alerts.md'), /"plugins": \{ "ntfy": \{/)
   // Gitea changelog (French) while it is in the tree, public changelog (English) and its template
   for (const log of changelogs()) {
-    const entry = unreleased(log)
-    assert.ok(entry, `${log.file}: unreleased entry`)
+    const entry = versionEntry(log, '1.2.0')
+    assert.ok(entry, `${log.file}: 1.2.0 entry`)
     if (log.isPublic) {
       assert.match(entry, /\*\*Plugins\*\*: an internal plugin interface, version 0 and unstable \(`apiVersion: 0`, static list,\s+no external loading\)/, log.file)
       assert.ok(entry.includes('[docs/plugins.md](docs/plugins.md)'), log.file)
