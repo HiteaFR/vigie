@@ -1,15 +1,17 @@
 # /status
-🔴 <b>Infra</b> — 2 critical, 1 warning(s), 3 masked
+🔴 <b>Infra</b> · 2 critical · 1 warning · 3 masked
+
 🌐 Services: 4/5 up · 1 down
-🖥️ Guests: 6/8 running · stopped: ct-&lt;a&gt;, vm-b
+🖥️ Guests: 6/8 running
+<blockquote>stopped: ct-&lt;a&gt;, vm-b</blockquote>
 💾 Backups: n1 3/4 · n&lt;2&gt; unreadable
 📦 Updates: 7 pending, 2 of them security
 🔕 Silences: 1
 ⚠️ Sources: pve, pihole
-🟢 <b>Infra</b> — 0 critical, 0 warning(s)
+🟢 <b>Infra</b> · 0 critical · 0 warnings
+
 🌐 Services: 5/5 up
 🖥️ Guests: 8/8 running
-💾 Backups: 
 📦 Updates: 0 pending
 🔕 Silences: 0
 
@@ -62,8 +64,11 @@ Alert not found or not acknowledged.
 ## /mute vps 2h migration
 🔕 Silence no. 1 on host vps until 12:00: migration
 ## /silences
-🔕 <b>Active silences</b>
-no. 1 · host vps — migration (until 12:00, tg:u7)
+🔕 <b>1 active silence</b>
+
+<b>no. 1 · host vps</b>
+migration
+<i>until 12:00 · tg:u7</i>
 ## /unmute 1
 🔔 Silence no. 1 lifted (host vps).
 
@@ -82,14 +87,22 @@ no. 1 · host vps — migration (until 12:00, tg:u7)
 /help — Help
 ## /down
 🚨 <b>1 ongoing alert</b>
-#3 🔴 Service X — HTTP 502
-     ✅ acknowledged: je regarde
+
+🔴 <b>Critical</b> · 1
+#3 <b>Service X</b> — HTTP 502
+   <i>✅ acknowledged: je regarde</i>
 ## /silences
-🔕 <b>Active silences</b>
-no. 1 · rule apt_stale — listes gelées (no end, admin)
+🔕 <b>1 active silence</b>
+
+<b>no. 1 · rule apt_stale</b>
+listes gelées
+<i>no end · admin</i>
 ## /reseau
-🌐 <b>Network</b> — 30 devices · 20 active · 12 new · 2 to review · sources OK
-<b>New</b>
+🌐 <b>Network</b>
+30 devices · 20 active
+12 new · 2 to review · sources OK
+
+🆕 <b>New</b>
 #100 device 100 · seen 3 h ago
 #101 appareil-1 · active
 #102 appareil-2 · seen by DHCP
@@ -101,7 +114,8 @@ no. 1 · rule apt_stale — listes gelées (no end, admin)
 #108 appareil-8 · stale
 #109 appareil-9 · ?
 … and 2 more
-<b>MACs to confirm</b>
+
+🔗 <b>MACs to confirm</b>
 #101 appareil-1: 2 MAC
 ## /appareil poste
 2 devices:
@@ -134,7 +148,10 @@ Reason required: <code>/mute web-1 2h migration</code>
 ## motif pour a:3
 The alert has already recovered.
 ## /reseau (sonde ARP)
-🌐 <b>Network</b> — 30 devices · 1 online · 1 offline · 12 new · 2 to review · sources OK
-<b>New</b>
+🌐 <b>Network</b>
+30 devices · 1 online · 1 offline
+12 new · 2 to review · sources OK
+
+🆕 <b>New</b>
 #1 a · offline (seen 2 h ago)
 #2 b · presence unknown

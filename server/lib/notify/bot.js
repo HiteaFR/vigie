@@ -20,6 +20,8 @@ import { AUDIT, AUDIT_DETAIL, NET_VERB, netAction, silenceDetail } from '../code
 
 const ICON = { critical: '🔴', warning: '🟠', info: 'ℹ️' }
 const PROMPT_MS = 10 * 60_000
+// /down: alerts listed (beyond: "+N on the cockpit")
+const MAX_DOWN = 25
 const MAX_MUTE_MS = 30 * 86400_000
 
 export function parseDuration(s) {
@@ -89,17 +91,26 @@ export function createBot({ telegram, store, cfg, engine, silences, refresher, a
     // new devices and MACs to confirm: /network (they would drown the failures)
     const list = engine.active().filter(a => a.state === 'firing' && !NETWORK_TODO.has(a.rule))
     if (!list.length) return tr('bot.no_alerts')
-    return [tr('bot.alerts', { count: list.length }), ...list.slice(0, 25).map(a => {
-      const flags = [a.ack ? tHtml('bot.acked_flag', { reason: a.ack.reason }) : null, a.suppressed ? `🔕 ${t(a.suppressed)}` : null].filter(Boolean)
-      return `#${a.incidentId} ${ICON[a.severity]} ${t(a.title)}${a.detail ? ` — ${t(a.detail)}` : ''}${flags.length ? `\n     ${flags.join(' · ')}` : ''}`
-    })].join('\n')
+    // one section per severity (title and count), one line per alert: number, title in bold, detail
+    const shown = list.slice(0, MAX_DOWN)
+    const sections = [tr('bot.alerts', { count: list.length })]
+    for (const sev of ['critical', 'warning', 'info']) {
+      const of = shown.filter(a => a.severity === sev)
+      if (!of.length) continue
+      sections.push([`${tr(`bot.sev.${sev}`)} · ${of.length}`, ...of.map(a => {
+        const flags = [a.ack ? tHtml('bot.acked_flag', { reason: a.ack.reason }) : null, a.suppressed ? `🔕 ${t(a.suppressed)}` : null].filter(Boolean)
+        return `#${a.incidentId} <b>${t(a.title)}</b>${a.detail ? ` — ${t(a.detail)}` : ''}${flags.length ? `\n   <i>${flags.join(' · ')}</i>` : ''}`
+      })].join('\n'))
+    }
+    if (list.length > shown.length) sections.push(tr('digest.more', { count: list.length - shown.length }))
+    return sections.join('\n\n')
   }
 
   function silencesText() {
     const list = silences.active()
     if (!list.length) return tr('bot.no_silences')
-    return [tr('bot.silences_title'), ...list.map(s =>
-      tHtml('bot.silence_line', { id: s.id, target: describeMatcher(s.matcher), reason: s.reason, until: s.endsAt ? safe(tHtml('bot.until', { time: when(s.endsAt) })) : safe(tr('bot.forever')), by: s.createdBy }))].join('\n')
+    return [tr('bot.silences_title', { count: list.length }), ...list.map(s =>
+      tHtml('bot.silence_line', { id: s.id, target: describeMatcher(s.matcher), reason: s.reason, until: s.endsAt ? safe(tHtml('bot.until', { time: when(s.endsAt) })) : safe(tr('bot.forever')), by: s.createdBy }))].join('\n\n')
   }
 
   function doAck(key, reason, from) {
@@ -131,11 +142,12 @@ export function createBot({ telegram, store, cfg, engine, silences, refresher, a
     const presence = v.presence === 'arp' ? tr('bot.net.presence_arp', { online: c.online, offline: c.offline }) : tr('bot.net.presence_active', { active: c.active })
     const out = [tr('bot.net.header', { total: c.total, presence, news: tr('bot.net.news', { count: c.new }), review: c.review, sources: tr(down.length ? 'bot.net.sources_error' : 'bot.net.sources_ok') })]
     const fresh = v.devices.filter(d => d.state === 'new')
-    if (fresh.length) out.push(tr('bot.net.new_title'), ...fresh.slice(0, 10).map(d => `#${d.id} ${t(devName(d))} · ${stateText(d, v.presence)}`), ...(fresh.length > 10 ? [tr('bot.and_more', { count: fresh.length - 10 })] : []))
+    // sections separated by a blank line: figures, new devices, MACs to confirm, failing sources
+    if (fresh.length) out.push([tr('bot.net.new_title'), ...fresh.slice(0, 10).map(d => `#${d.id} ${t(devName(d))} · ${stateText(d, v.presence)}`), ...(fresh.length > 10 ? [tr('bot.and_more', { count: fresh.length - 10 })] : [])].join('\n'))
     const pend = v.devices.filter(d => d.pending)
-    if (pend.length) out.push(tr('bot.net.pending_title'), ...pend.slice(0, 10).map(d => tHtml('bot.net.pending_line', { id: d.id, name: devName(d), count: d.pending })))
-    for (const [n, x] of down) out.push(tHtml('bot.net.source_down', { source: n, error: x.error || safe(tr('bot.net.source_stale')) }))
-    return out.join('\n')
+    if (pend.length) out.push([tr('bot.net.pending_title'), ...pend.slice(0, 10).map(d => tHtml('bot.net.pending_line', { id: d.id, name: devName(d), count: d.pending })), ...(pend.length > 10 ? [tr('bot.and_more', { count: pend.length - 10 })] : [])].join('\n'))
+    if (down.length) out.push(down.map(([n, x]) => tHtml('bot.net.source_down', { source: n, error: x.error || safe(tr('bot.net.source_stale')) })).join('\n'))
+    return out.join('\n\n')
   }
 
   function deviceText(q) {

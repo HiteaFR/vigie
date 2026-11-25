@@ -202,7 +202,7 @@
  "bot.fresh.active": "active",
  "bot.fresh.dhcp": "seen by DHCP",
  "bot.fresh.stale": "stale",
- "bot.help": "<b>Commands</b>\n/status — global status\n/down — ongoing alerts (with their number)\n/ack &lt;number|key&gt; &lt;reason&gt; — acknowledge (stops reminders)\n/mute &lt;target&gt; &lt;duration&gt; &lt;reason&gt; — silence, e.g. <code>/mute web-1 2h migration</code>\n   target: alert number (#12), host, service, rule or key; duration: 30m, 2h, 3d (30 d at most)\n/unmute &lt;number&gt; — lift a silence\n/silences — active silences\n/digest — digest now\n/refresh — run all checks again\n/network — LAN devices, new ones, MACs to confirm (to delete a device: on /network, with a reason)\n/device &lt;text&gt; — find a device (name, MAC, vendor, exact IP)\n/known &lt;id&gt; &lt;reason&gt; — confirm a new device or one to review\n(old names still accepted: /reseau, /appareil, /connu)",
+ "bot.help": "<b>Commands</b>\n\n📊 <b>Status</b>\n/status — global status\n/down — ongoing alerts (with their number)\n/digest — digest now\n/refresh — run all checks again\n\n🔕 <b>Alerts</b>\n/ack &lt;number|key&gt; &lt;reason&gt; — acknowledge (stops reminders)\n/mute &lt;target&gt; &lt;duration&gt; &lt;reason&gt; — silence, e.g. <code>/mute web-1 2h migration</code>\n<i>target: alert number (#12), host, service, rule or key; duration: 30m, 2h, 3d (30 d at most)</i>\n/unmute &lt;number&gt; — lift a silence\n/silences — active silences\n\n🌐 <b>Network</b>\n/network — LAN devices, new ones, MACs to confirm (to delete a device: on /network, with a reason)\n/device &lt;text&gt; — find a device (name, MAC, vendor, exact IP)\n/known &lt;id&gt; &lt;reason&gt; — confirm a new device or one to review\n\n<i>Old names still accepted: /reseau, /appareil, /connu</i>",
  "bot.known.done": "✅ Device #{id} confirmed: {reason}",
  "bot.known.usage": "Usage: <code>/known 12 guest phone</code>",
  "bot.mute.duration_invalid": "Invalid duration: 30m, 2h, 3d (30 days at most).",
@@ -214,16 +214,16 @@
  "bot.net.d.done": "detached into a new device",
  "bot.net.d.prompt": "✂️ Detach the MAC",
  "bot.net.done_line": "{icon} {done}: {reason}",
- "bot.net.header": "🌐 <b>Network</b> — {total} devices · {presence} · {news} · {review} to review · sources {sources}",
+ "bot.net.header": "🌐 <b>Network</b>\n{total} devices · {presence}\n{news} · {review} to review · sources {sources}",
  "bot.net.n.done": "confirmed (known)",
  "bot.net.n.prompt": "✅ Confirm the device",
- "bot.net.new_title": "<b>New</b>",
+ "bot.net.new_title": "🆕 <b>New</b>",
  "bot.net.news": {
   "one": "{count} new",
   "other": "{count} new"
  },
  "bot.net.pending_line": "#{id} {name}: {count} MAC",
- "bot.net.pending_title": "<b>MACs to confirm</b>",
+ "bot.net.pending_title": "🔗 <b>MACs to confirm</b>",
  "bot.net.presence_active": "{active} active",
  "bot.net.presence_arp": "{online} online · {offline} offline",
  "bot.net.source_down": "⚠️ {source}: {error}",
@@ -246,8 +246,14 @@
  "bot.refresh.running": "⏳ A run is already in progress…",
  "bot.refresh.started": "⏳ Checks started (agents, probes, Proxmox, versions)…",
  "bot.seen_ago": "seen {duration} ago",
- "bot.silence_line": "no. {id} · {target} — {reason} ({until}, {by})",
- "bot.silences_title": "🔕 <b>Active silences</b>",
+ "bot.sev.critical": "🔴 <b>Critical</b>",
+ "bot.sev.info": "ℹ️ <b>Info</b>",
+ "bot.sev.warning": "🟠 <b>Warnings</b>",
+ "bot.silence_line": "<b>no. {id} · {target}</b>\n{reason}\n<i>{until} · {by}</i>",
+ "bot.silences_title": {
+  "one": "🔕 <b>{count} active silence</b>",
+  "other": "🔕 <b>{count} active silences</b>"
+ },
  "bot.too_short": "Reason too short (at least 3 characters): start again from the button.",
  "bot.unack.done": "Ack removed: reminders resume.",
  "bot.unack.not_found": "Alert not found or not acknowledged.",
@@ -275,6 +281,10 @@
  "digest.incidents": {
   "one": "📋 24 h: {count} incident resolved",
   "other": "📋 24 h: {count} incidents resolved"
+ },
+ "digest.more": {
+  "one": "… and {count} more on the cockpit",
+  "other": "… and {count} more on the cockpit"
  },
  "digest.no_alerts": "✅ No active alerts",
  "digest.no_incidents": "📋 24 h: no incidents resolved",
@@ -666,16 +676,27 @@
  "silences.target.service": "service {v}",
  "status.backup_unreadable": "{node} unreadable",
  "status.backups": "💾 Backups: {list}",
- "status.guests": "🖥️ Guests: {running}/{total} running{stopped}",
- "status.infra": "{icon} <b>Infra</b> — {critical} critical, {warning} warning(s){masked}",
- "status.masked": ", {count} masked",
+ "status.critical": {
+  "one": "{count} critical",
+  "other": "{count} critical"
+ },
+ "status.guests": "🖥️ Guests: {running}/{total} running",
+ "status.infra": "{icon} <b>Infra</b> · {alerts}{masked}",
+ "status.masked": {
+  "one": " · {count} masked",
+  "other": " · {count} masked"
+ },
  "status.services": "🌐 Services: {ok}/{total} up{down}",
  "status.services_down": " · {count} down",
  "status.silences": "🔕 Silences: {count}",
  "status.sources": "⚠️ Sources: {list}",
- "status.stopped": " · stopped: {list}",
+ "status.stopped": "stopped: {list}",
  "status.updates": "📦 Updates: {total} pending{security}",
  "status.updates_security": ", {count} of them security",
+ "status.warning": {
+  "one": "{count} warning",
+  "other": "{count} warnings"
+ },
  "time.days": "{d} d",
  "time.hours": "{h} h",
  "time.hours_minutes": "{h} h {mm}",
@@ -698,7 +719,10 @@
  "updates.auto.v6": "agent without auto-update tracking (v6)",
  "updates.digest.applied": "🛡 {fixes} last night on {hosts}",
  "updates.digest.auto_stale": "🛡 Auto updates: {line}",
- "updates.digest.eol": "⏳ End of life: {list}",
+ "updates.digest.eol": {
+  "one": "⏳ {count} component past end of life",
+  "other": "⏳ {count} components past end of life"
+ },
  "updates.digest.fixes": {
   "one": "{count} security fix applied",
   "other": "{count} security fixes applied"
@@ -708,12 +732,12 @@
   "other": "{count} hosts"
  },
  "updates.digest.new": {
-  "one": "🆕 {count} new version: {items}",
-  "other": "🆕 {count} new versions: {items}"
+  "one": "🆕 {count} new version",
+  "other": "🆕 {count} new versions"
  },
  "updates.digest.new_image": "{current} (new image)",
  "updates.digest.none_applied": "🛡 No security fix applied last night ({hosts} on auto updates)",
- "updates.digest.restart": "🔁 Services to restart on {hosts}: {list}",
+ "updates.digest.restart": "🔁 Services to restart on {hosts}",
  "updates.digest.stale": {
   "one": "{count} host without a recent report: {list}",
   "other": "{count} hosts without a recent report: {list}"

@@ -48,9 +48,10 @@ function updatesWith(t, states) {
   return createUpdates({ cfg: CFG, store: tmpStore('dash-l12-', t), agents: { hosts: CFG.hosts, get: id => states[id] ?? { ok: null } }, sources: { pveVersions: async () => [] }, collector: { snap: {} }, upstream, log: { error() {} } })
 }
 
-test('digest: one "services to restart" line, host by host; report older than 2 h or v7: not counted; none: nothing', t => {
+test('digest: a "services to restart" headline, then one line per host; report older than 2 h or v7: not counted; none: nothing', t => {
   const u = updatesWith(t, { alpha: live(slow(8, ['nginx.service', 'php8.4-fpm.service', 'cron.service', 'ssh.service'])), bravo: live(slow(8, ['unbound.service'])), charlie: live(slow(8, ['x.service']), 3) })
-  assert.deepEqual(u.digestLines({ now: NOW }).filter(l => l.startsWith('🔁')), ['🔁 Services à redémarrer sur 2 hôtes : alpha (nginx, php8.4-fpm, cron +1) · bravo (unbound)'])
+  const all = u.digestLines({ now: NOW })
+  assert.deepEqual(all.slice(all.findIndex(l => l.startsWith('🔁'))), ['🔁 Services à redémarrer sur 2 hôtes', '  alpha : nginx, php8.4-fpm, cron +1', '  bravo : unbound'])
   const none = updatesWith(t, { alpha: live(slow(8, [])), bravo: live(slow(7, ['x.service'])) })
   assert.deepEqual(none.digestLines({ now: NOW }).filter(l => l.startsWith('🔁')), [])
 })
@@ -66,7 +67,7 @@ test('full digest: restart_required on its own line, not in the active alerts li
   engine.evaluate({}, NOW + 1000)
   assert.ok(engine.active().some(a => a.key === 'restart_required:alpha' && a.state === 'firing'))
   const d = buildDigest({ cfg: CFG, engine, snap: {}, monitor: { checks: [] }, formatter: createFormatter({ dashboardUrl: null, clock }), clock, updates: u, now: NOW })
-  assert.match(d, /🔁 Services à redémarrer sur 1 hôte : alpha \(nginx\)/)
+  assert.match(d, /🔁 Services à redémarrer sur 1 hôte\n<blockquote>alpha : nginx<\/blockquote>/)
   assert.doesNotMatch(d, /Services à redémarrer · alpha/)
   assert.match(d, /✅ Aucune alerte active/)
 })

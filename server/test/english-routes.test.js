@@ -125,7 +125,7 @@ test('bot: each former French command, same arguments, same reply as the English
 })
 
 test('bot: menu in English (names), descriptions in the instance locale; help with the new names and the former ones accepted', async () => {
-  for (const [l, desc, help] of [['fr', 'Appareils du LAN', /anciens noms acceptés : \/reseau, \/appareil, \/connu/], ['en', 'LAN devices', /old names still accepted: \/reseau, \/appareil, \/connu/]]) {
+  for (const [l, desc, help] of [['fr', 'Appareils du LAN', /anciens noms acceptés : \/reseau, \/appareil, \/connu/i], ['en', 'LAN devices', /old names still accepted: \/reseau, \/appareil, \/connu/i]]) {
     setLocale(l)
     try {
       const b = bench()

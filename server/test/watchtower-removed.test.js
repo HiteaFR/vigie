@@ -59,6 +59,6 @@ test('updates: the generic "auto" of the config stays (displayed, not announced,
   const off = bench(t, { services: [svc(false)] })
   await off.refresh()
   assert.equal(off.view().components.find(x => x.id === 'svc:app').auto, false)
-  assert.match(off.digestLines()[0], /1 nouvelle version : App/)
+  assert.match(off.digestLines().join('\n'), /1 nouvelle version\n {2}App/)
 })
 

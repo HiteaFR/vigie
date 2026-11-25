@@ -60,7 +60,7 @@ test('updates.containers false → no docker component for the host, OS, apt and
   assert.equal(updates.counts().major, 1)
   assert.equal(updates.counts('dev').major, 1)
   const lines = updates.digestLines()
-  assert.match(lines[0], /dev-pg \(VM 3 · prod\) 16-alpine → 18-alpine/)
+  assert.match(lines.join('\n'), /\n {2}dev-pg \(VM 3 · prod\) 16-alpine → 18-alpine/)
   assert.equal(lines.join('\n').match(/16-alpine → 18-alpine/g).length, 1, lines.join('\n'))
   assert.ok(!lines.join('\n').includes('VM 4 · prod) 16-alpine'), 'nothing from devbox (VM 4) on the container side')
 })

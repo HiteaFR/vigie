@@ -78,13 +78,14 @@ Every relaxation is an explicit setting. Details: [docs/security.md](docs/securi
 ### With Docker Compose
 
 ```bash
-git clone https://github.com/HiteaFR/vigie.git && cd vigie
-docker compose build
+git clone --branch v1.2.0 https://github.com/HiteaFR/vigie.git && cd vigie
+docker compose pull               # ghcr.io/hiteafr/vigie:1.2.0 (amd64, arm64)
 docker compose run --rm init      # setup wizard: title, language, admin password, Proxmox, Gitea
 docker compose up -d
 ```
 
-Then open `http://127.0.0.1:8088` on the Docker host. Without a configuration the service still
+Then open `http://127.0.0.1:8088` on the Docker host. Releases and their notes:
+[GitHub releases](https://github.com/HiteaFR/vigie/releases). Without a configuration the service still
 starts, in a "setup needed" mode, and its log tells you to run `init`. More: [docs/docker.md](docs/docker.md).
 
 ### Manually (Node 22, systemd)

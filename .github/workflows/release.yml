@@ -1,0 +1,247 @@
+name: Release
+
+# Release of a version tag vX.Y.Z, and a dry run of the same chain on the pull requests that touch
+# the image or the release tooling (nothing published, read-only token).
+#
+# On a tag:
+#  1. scripts/release.mjs check: the tag, package.json and package-lock.json (server, client), the
+#     image of docker-compose.yml, the README and the CHANGELOG entry agree on the version;
+#  2. the image is built ONCE for linux/amd64 and linux/arm64 and pushed to ghcr.io/hiteafr/vigie
+#     BY DIGEST only: no tag points to it yet;
+#  3. each platform of THAT digest is pulled back and goes through scripts/docker-proof.sh (start
+#     without a config, init, healthcheck, commit and version, admin login, permissions, restart),
+#     linux/arm64 under QEMU;
+#  4. only then the tags X.Y.Z, X.Y, X and latest are set on the same digest (nothing rebuilt), a
+#     signed build provenance is attached, and the GitHub release is created: notes from the
+#     CHANGELOG entry, archive of agent/ and SHA256SUMS.
+# The ARP companion image (docker/net-scan, arp-scan under the GPL) is never published.
+# Actions and helper images are pinned by digest (the version is in the comment).
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+  pull_request:
+    paths:
+      - .github/workflows/release.yml
+      - Dockerfile
+      - .dockerignore
+      - docker/**
+      - docker-compose.yml
+      - scripts/docker-proof.sh
+      - scripts/release.mjs
+      - server/package.json
+      - server/package-lock.json
+      - client/package.json
+      - client/package-lock.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/hiteafr/vigie
+  BINFMT_IMAGE: docker.io/tonistiigi/binfmt:qemu-v10.2.3@sha256:400a4873b838d1b89194d982c45e5fb3cda4593fbfd7e08a02e76b03b21166f0
+  BUILDKIT_IMAGE: moby/buildkit:v0.34.2@sha256:c5f8862f52499773af85bc07695b2379ef08e8002352b0df2c4864c91d78dabe
+
+jobs:
+  dry-run:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Version agrees everywhere, notes render
+        id: version
+        run: |
+          v=$(node -p "require('./server/package.json').version")
+          node scripts/release.mjs check "$v"
+          node scripts/release.mjs notes "$v" > "$RUNNER_TEMP/notes.md"
+          git archive --format=tar.gz --prefix="vigie-agents-$v/" -o "$RUNNER_TEMP/vigie-agents-$v.tar.gz" HEAD agent
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: QEMU
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
+        with:
+          image: ${{ env.BINFMT_IMAGE }}
+          platforms: arm64
+
+      - name: Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+        with:
+          driver-opts: image=${{ env.BUILDKIT_IMAGE }}
+
+      - name: Build linux/amd64 (loaded, not pushed)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          pull: true
+          platforms: linux/amd64
+          build-args: REVISION=${{ github.sha }}
+          load: true
+          tags: vigie-candidate:amd64
+
+      - name: Proof linux/amd64
+        env:
+          VIGIE_PROOF_IMAGE: vigie-candidate:amd64
+          VIGIE_PROOF_PLATFORM: linux/amd64
+          VIGIE_PROOF_VERSION: ${{ steps.version.outputs.version }}
+        run: sh scripts/docker-proof.sh
+
+      - name: Build linux/arm64 (loaded, not pushed)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          platforms: linux/arm64
+          build-args: REVISION=${{ github.sha }}
+          load: true
+          tags: vigie-candidate:arm64
+
+      - name: Proof linux/arm64 (QEMU)
+        env:
+          VIGIE_PROOF_IMAGE: vigie-candidate:arm64
+          VIGIE_PROOF_PLATFORM: linux/arm64
+          VIGIE_PROOF_VERSION: ${{ steps.version.outputs.version }}
+          VIGIE_PROOF_WAIT: 600
+        run: sh scripts/docker-proof.sh
+
+  publish:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write      # GitHub release and its files
+      packages: write      # ghcr.io/hiteafr/vigie
+      id-token: write      # signed build provenance (Sigstore)
+      attestations: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Version of the tag agrees everywhere
+        id: version
+        run: |
+          v=${GITHUB_REF_NAME#v}
+          node scripts/release.mjs check "$v"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
+      - name: QEMU
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 # v4.4.0
+        with:
+          image: ${{ env.BINFMT_IMAGE }}
+          platforms: arm64
+
+      - name: Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+        with:
+          driver-opts: image=${{ env.BUILDKIT_IMAGE }}
+
+      - name: Log in to ghcr.io
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build linux/amd64 and linux/arm64, push by digest only (no tag)
+        id: build
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          pull: true
+          platforms: linux/amd64,linux/arm64
+          build-args: REVISION=${{ github.sha }}
+          labels: |
+            org.opencontainers.image.title=Vigie
+            org.opencontainers.image.description=Self-hosted dashboard for a homelab: services, Proxmox, hosts, network, updates and alerts
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.licenses=Apache-2.0
+            org.opencontainers.image.version=${{ steps.version.outputs.version }}
+          annotations: |
+            index:org.opencontainers.image.description=Self-hosted dashboard for a homelab: services, Proxmox, hosts, network, updates and alerts
+            index:org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            index:org.opencontainers.image.licenses=Apache-2.0
+            index:org.opencontainers.image.version=${{ steps.version.outputs.version }}
+          outputs: type=image,name=${{ env.IMAGE }},push-by-digest=true,name-canonical=true,push=true
+          provenance: mode=max
+          sbom: true
+
+      - name: Pull the digest back for each platform
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          case $DIGEST in sha256:*) ;; *) echo "✗ no digest from the build"; exit 1 ;; esac
+          for arch in amd64 arm64; do
+            docker pull -q --platform "linux/$arch" "$IMAGE@$DIGEST"
+            docker tag "$IMAGE@$DIGEST" "vigie-candidate:$arch"
+          done
+
+      - name: Proof linux/amd64
+        env:
+          VIGIE_PROOF_IMAGE: vigie-candidate:amd64
+          VIGIE_PROOF_PLATFORM: linux/amd64
+          VIGIE_PROOF_VERSION: ${{ steps.version.outputs.version }}
+        run: sh scripts/docker-proof.sh
+
+      - name: Proof linux/arm64 (QEMU)
+        env:
+          VIGIE_PROOF_IMAGE: vigie-candidate:arm64
+          VIGIE_PROOF_PLATFORM: linux/arm64
+          VIGIE_PROOF_VERSION: ${{ steps.version.outputs.version }}
+          VIGIE_PROOF_WAIT: 600
+        run: sh scripts/docker-proof.sh
+
+      - name: Tags on the proven digest
+        env:
+          DIGEST: ${{ steps.build.outputs.digest }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          minor=${VERSION%.*}
+          major=${VERSION%%.*}
+          docker buildx imagetools create \
+            --tag "$IMAGE:$VERSION" --tag "$IMAGE:$minor" --tag "$IMAGE:$major" --tag "$IMAGE:latest" \
+            "$IMAGE@$DIGEST"
+          for t in "$VERSION" "$minor" "$major" latest; do
+            got=$(docker buildx imagetools inspect "$IMAGE:$t" --format '{{json .Manifest}}' | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>process.stdout.write(JSON.parse(s).digest))')
+            [ "$got" = "$DIGEST" ] || { echo "✗ $IMAGE:$t is $got, $DIGEST expected"; exit 1; }
+            echo "✓ $IMAGE:$t = $DIGEST"
+          done
+
+      - name: Build provenance of the image
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-name: ${{ env.IMAGE }}
+          subject-digest: ${{ steps.build.outputs.digest }}
+          push-to-registry: true
+
+      - name: Agents archive and checksums
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          mkdir dist
+          git archive --format=tar.gz --prefix="vigie-agents-$VERSION/" -o "dist/vigie-agents-$VERSION.tar.gz" HEAD agent
+          (cd dist && sha256sum "vigie-agents-$VERSION.tar.gz" > SHA256SUMS && cat SHA256SUMS)
+
+      - name: Build provenance of the agents archive
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: dist/vigie-agents-*.tar.gz
+
+      - name: GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DIGEST: ${{ steps.build.outputs.digest }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          node scripts/release.mjs notes "$VERSION" --digest "$DIGEST" > "$RUNNER_TEMP/notes.md"
+          gh release create "v$VERSION" "dist/vigie-agents-$VERSION.tar.gz" dist/SHA256SUMS \
+            --verify-tag --title "Vigie $VERSION" --notes-file "$RUNNER_TEMP/notes.md"

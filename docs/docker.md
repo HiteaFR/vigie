@@ -1,6 +1,9 @@
 # Docker
 
-The image is built **locally** from this repository; no image is published yet.
+Each release publishes the image **`ghcr.io/hiteafr/vigie`** for `linux/amd64` and `linux/arm64`,
+tagged `x.y.z`, `x.y`, `x` and `latest`, with a signed build provenance. `docker-compose.yml` pins
+the version of its release. The image can also be built locally from the repository (see
+[From source](#from-source)).
 
 - `Dockerfile` in three stages: client (`npm ci`, then `vite build`), server (`npm ci --omit=dev`),
   runtime.
@@ -18,16 +21,25 @@ start without a config in the "setup needed" mode, non-interactive `init`, healt
 database, `vigie.env` in mode 0600, `/etc/vigie` read-only for the service, restart with the
 database kept, stop and cleanup.
 
+**Each release** (`.github/workflows/release.yml`) pushes the image by digest only, pulls that digest
+back for each platform and runs the same `scripts/docker-proof.sh` on it, `linux/arm64` under QEMU
+emulation; the version tags are set on that digest only when both proofs pass, and the release is
+created after.
+
 **Not proven yet**: the bridge variant; the ARP companion started and its `arp.json` read by the
-service; an agent over `ssh` to a host; the `icons` command; an arm64 image; the hardening
-(`read_only`, `cap_drop: [ALL]`) under real conditions with `ssh` and mDNS.
+service; an agent over `ssh` to a host; the `icons` command; the arm64 image on real arm64 hardware
+(proven under emulation only); the hardening (`read_only`, `cap_drop: [ALL]`) under real
+conditions with `ssh` and mDNS.
+
+To check an image: `gh attestation verify oci://ghcr.io/hiteafr/vigie:<version> --repo HiteaFR/vigie`.
 
 ## Installation
 
-From a copy of the repository:
+From a copy of the repository, at a release tag (`git checkout v<version>`): the compose file uses
+the published image of that version.
 
 ```bash
-docker compose build                       # VIGIE_REVISION="$(git rev-parse HEAD)" for /api/healthz
+docker compose pull
 docker compose run --rm init               # interactive wizard (terminal)
 docker compose up -d
 ```
@@ -38,6 +50,18 @@ creates a password or any other secret.
 
 The wizard's questions and options are described in [Installation](installation.md#setup-wizard-init),
 and the keys it writes in [Configuration](configuration.md).
+
+### From source
+
+Build the image yourself under another name, and use that name everywhere (`VIGIE_IMAGE`, in the
+shell or in a `.env` file next to `docker-compose.yml`):
+
+```bash
+export VIGIE_IMAGE=vigie:local VIGIE_REVISION="$(git rev-parse HEAD)"   # commit shown by /api/healthz
+docker compose build
+docker compose run --rm init
+docker compose up -d
+```
 
 ## `init` in a container
 
@@ -81,8 +105,10 @@ The service is hardened: read-only file system (`/tmp` in a tmpfs), no capabilit
 
 ## Update
 
-`git pull`, then `docker compose build` and `docker compose up -d`. The service restarts on the new
-image; the database, icons and config stay in the volumes.
+`git pull` (or `git checkout v<new version>`), then `docker compose pull` and `docker compose up -d`
+(from source: `docker compose build` instead of `pull`). The service restarts on the new image; the
+database, icons and config stay in the volumes. Read the release notes first: they say when a
+config key changes.
 
 ## Backup
 
@@ -173,8 +199,9 @@ service probe (TCP ports, then HTTP) stays disabled until `network.probe.enabled
 
 ### `arp-scan` license
 
-`arp-scan` is under the GPL (version 3 or later). The companion image is only built locally; a
-published image would have to provide its sources.
+`arp-scan` is under the GPL (version 3 or later). The companion image is never published, only built
+locally (`docker compose --profile arp up -d` builds it); a published image would have to provide
+its sources.
 
 ### Proof script
 

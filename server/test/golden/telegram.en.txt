@@ -14,12 +14,12 @@ expires in 6 d (16/11/2026)
 Host: vps
 Since 08:00 · <a href="https://vigie.example.net/services?q=cert-6">Open</a>
 
-🔴 <b>Disk / · ct-disque-95</b> — disk
+🔴 <b>Disk / · ct-disque-95</b>
 95 % used (per Proxmox)
 Host: CT 236 ct-disque-95 · pve-a
 Since 08:00 · <a href="https://vigie.example.net/infra?h=ct-d95">Open</a>
 
-🔴 <b>Storage local (pve-a)</b> — storage
+🔴 <b>Storage local (pve-a)</b>
 95 % used
 Since 08:00 · <a href="https://vigie.example.net/infra">Open</a>
 
@@ -38,26 +38,26 @@ expires in 7 d (17/11/2026)
 Host: vps
 Since 08:00 · <a href="https://vigie.example.net/services?q=cert-7">Open</a>
 
-🟠 <b>Disk / · ct-disque-85</b> — disk
+🟠 <b>Disk / · ct-disque-85</b>
 85 % used (per Proxmox)
 Host: CT 234 ct-disque-85 · pve-a
 Since 08:00 · <a href="https://vigie.example.net/infra?h=ct-d85">Open</a>
 
-🟠 <b>Disk / · ct-disque-94.9</b> — disk
+🟠 <b>Disk / · ct-disque-94.9</b>
 95 % used (per Proxmox)
 Host: CT 235 ct-disque-94.9 · pve-a
 Since 08:00 · <a href="https://vigie.example.net/infra?h=ct-d949">Open</a>
 
-🟠 <b>Storage st-80 (pve-a)</b> — storage
+🟠 <b>Storage st-80 (pve-a)</b>
 80 % used
 Since 08:00 · <a href="https://vigie.example.net/infra">Open</a>
 
-🟠 <b>Storage st-89.9 (pve-a)</b> — storage
+🟠 <b>Storage st-89.9 (pve-a)</b>
 90 % used
 Since 08:00 · <a href="https://vigie.example.net/infra">Open</a>
 
 --- message 2 (silencieux : false, boutons : {"inline_keyboard":[[{"text":"🔕 1 h · Storage st-90 (pve-a)","callback_data":"s:14"},{"text":"✅ Ack","callback_data":"a:14"}],[{"text":"🔕 1 h · SMART HDD de banc (/d…","callback_data":"s:15"},{"text":"✅ Ack","callback_data":"a:15"}],[{"text":"🔕 1 h · Temperature SSD borne…","callback_data":"s:20"},{"text":"✅ Ack","callback_data":"a:20"}],[{"text":"🔕 1 h · Wear SSD borne (/dev/…","callback_data":"s:16"},{"text":"✅ Ack","callback_data":"a:16"}],[{"text":"🔕 1 h · Wear SSD borne (/dev/…","callback_data":"s:17"},{"text":"✅ Ack","callback_data":"a:17"}],[{"text":"🔕 1 h · Temperature SSD borne…","callback_data":"s:18"},{"text":"✅ Ack","callback_data":"a:18"}],[{"text":"🔕 1 h · Temperature SSD borne…","callback_data":"s:19"},{"text":"✅ Ack","callback_data":"a:19"}],[{"text":"🔕 1 h · Backup VM 200 lab","callback_data":"s:21"},{"text":"✅ Ack","callback_data":"a:21"}]]})
-🔴 <b>Storage st-90 (pve-a)</b> — storage
+🔴 <b>Storage st-90 (pve-a)</b>
 90 % used
 Since 08:00 · <a href="https://vigie.example.net/infra">Open</a>
 

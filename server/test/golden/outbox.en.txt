@@ -8,7 +8,7 @@
 10:03 · html · son · html · [s:5+a:5 s:10+a:10 s:11+a:11 s:14+a:14 s:15+a:15 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 <b>cert-6 — certificat</b> — certificate · 12
 10:03 · ok · son · brut · [s:5+a:5 s:10+a:10 s:11+a:11 s:14+a:14 s:15+a:15 s:2+a:2 s:4+a:4 s:6+a:6] · 🔴 cert-6 — certificat — certificate · 12
 10:04 · ok · son · html · [s:20+a:20 s:16+a:16 s:17+a:17 s:18+a:18 s:19+a:19 s:21+a:21 s:22+a:22 s:23+a:23] · 🔴 <b>Temperature SSD borne (/dev/nvme5n1 · pve-a)</b> — disk temperature · 12
-10:05 · ok · son · html · [s:32+a:32 s:35+a:35 s:36+a:36 s:40+a:40 s:28+a:28 s:29+a:29 s:30+a:30 s:31+a:31] · 🔴 <b>Disk /disque-95 · docker-a</b> — disk · 12
+10:05 · ok · son · html · [s:32+a:32 s:35+a:35 s:36+a:36 s:40+a:40 s:28+a:28 s:29+a:29 s:30+a:30 s:31+a:31] · 🔴 <b>Disk /disque-95 · docker-a</b> · 12
 10:06 · ok · son · html · [s:43+a:43 s:44+a:44 s:41+a:41 s:42+a:42 s:45+a:45 s:46+a:46 s:47+a:47 s:48+a:48] · 🔴 <b>Memory mem-95</b> — node memory · 12
 
 # file (id · clé · type · gravité · voie · muet · envoyé · essais · prochain essai · abandon · erreur)

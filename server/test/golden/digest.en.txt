@@ -1,22 +1,47 @@
 ☀️ <b>Infra — digest for 10/11</b>
+
 🚨 <b>50 active alerts</b>
-  🔴 DNS — résolution locale: NXDOMAIN (for 2 h)
-  🔴 fail-3 — TCP 22: refusé (for 2 h)
-  🔴 cert-6 — certificat — expires in 6 d (16/11/2026) (for 2 h)
-  🔴 Disk / · ct-disque-95 — 95 % used (per Proxmox) (for 2 h)
-  🔴 Storage local (pve-a) — 95 % used (for 2 h)
-  🔴 Storage st-90 (pve-a) — 90 % used (for 2 h)
-  🔴 Memory pve-a — 97 % of RAM used (excluding cache) (for 2 h)
-  🔴 Memory mem-95 — 95 % of RAM used (excluding cache) (for 2 h)
-  🔴 SMART HDD de banc (/dev/sdb · pve-a) — SMART state: FAILED (for 2 h)
-  🔴 Temperature SSD borne (/dev/nvme5n1 · pve-a) — 80 °C (thresholds 75 / 80 °C) (for 2 h)
+
+🔴 <b>Service down</b> · 2
+• DNS — résolution locale: NXDOMAIN · for 2 h
+• fail-3 — TCP 22: refusé · for 2 h
+
+🔴 <b>cert-6 — certificat</b> · for 2 h
+expires in 6 d (16/11/2026)
+
+🔴 <b>Disk</b> · 2
+• Disk / · ct-disque-95 — 95 % used (per Proxmox) · for 2 h
+• Disk /disque-95 · docker-a — 95 % used · for 2 h
+
+🔴 <b>Storage</b> · 2
+• Storage local — 95 % used · for 2 h
+• Storage st-90 — 90 % used · for 2 h
+
+🔴 <b>Node memory</b> · 2
+• Memory pve-a — 97 % of RAM used (excluding cache) · for 2 h
+• Memory mem-95 — 95 % of RAM used (excluding cache) · for 2 h
+
+🔴 <b>SMART HDD de banc (/dev/sdb · pve-a)</b> · for 2 h
+SMART state: FAILED
+
+🔴 <b>Temperature SSD borne (/dev/nvme5n1 · pve-a)</b> · for 2 h
+80 °C (thresholds 75 / 80 °C)
+
+🔴 <b>Inodes /inodes-95 · docker-a</b> · for 2 h
+95 % of inodes used
+
+… and 38 more on the cockpit
+
 📋 24 h: no incidents resolved
 💾 Backups up to date: pve-a 2/9 ⚠️
 📦 Storage: local 95 % ⚠️ · st-89.9 90 % ⚠️ · st-90 90 % ⚠️
 🔐 Certificates &lt; 21 d: Site public 9 d, cert-20 20 d, cert-6 6 d, cert-7 7 d
 ⚙️ CI: runners 1/2 online · failing: app
 🔖 témoin (créneau ci)
+
 🛡 2 security fixes applied last night on 1 host
-  lab : openssl, tzdata
+<blockquote>lab : openssl, tzdata</blockquote>
+
 🌐 Réseau : 12 appareils, 1 nouveau
-<a href="https://vigie.example.net/alerts">Open the cockpit</a>
+
+👉 <a href="https://vigie.example.net/alerts">Open the cockpit</a>

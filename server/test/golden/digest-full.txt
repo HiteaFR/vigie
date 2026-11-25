@@ -1,29 +1,47 @@
 ☀️ <b>Infra — digest du 10/11</b>
+
 🚨 <b>2 alertes actives</b> (dont 1 masquée)
-  🔴 Service X — HTTP 502 (depuis 3 h)
-     ✅ acquittée par admin (‹ip›) : je regarde &lt;ça&gt;
-🔕 <b>3 silences</b> : hôte vps — migration &lt;de&gt; banc (jusqu'à 13/11 10:00) · règle apt_stale — listes gelées (sans fin) · service dns — résolveur de test (jusqu'à 10/11 12:00)
-📋 24 h : 2 incidents résolus — Unités systemd · w 1 h, Disque / · z 2 h
+
+🔴 <b>Service X</b> · depuis 3 h
+HTTP 502
+✅ acquittée par admin (‹ip›) : je regarde &lt;ça&gt;
+
+🔕 <b>3 silences</b>
+• hôte vps — migration &lt;de&gt; banc (jusqu'à 13/11 10:00)
+• règle apt_stale — listes gelées (sans fin)
+• service dns — résolveur de test (jusqu'à 10/11 12:00)
+
+📋 24 h : 2 incidents résolus
+• Unités systemd · w (1 h)
+• Disque / · z (2 h)
+
 💾 Sauvegardes à jour : pve-a illisible
 🔐 Certificats &lt; 21 j : aucun
-🆕 2 nouvelles versions : App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡 · Debian (VM 200 · pve-a) 11 → 12 ▲
-⏳ Fin de vie : Debian 11 (VM 200 · pve-a)
+
+🆕 2 nouvelles versions
+<blockquote>App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+Debian (VM 200 · pve-a) 11 → 12 ▲</blockquote>
+⏳ 1 composant en fin de vie
+<blockquote>Debian 11 (VM 200 · pve-a)</blockquote>
 🛡 1 correctif de sécurité appliqué cette nuit sur 1 hôte
-  lab : openssl
-  1 hôte sans rapport récent : vps
-🔁 Services à redémarrer sur 1 hôte : lab (nginx, php-fpm, cron +1)
+<blockquote>lab : openssl
+1 hôte sans rapport récent : vps</blockquote>
+🔁 Services à redémarrer sur 1 hôte
+<blockquote>lab : nginx, php-fpm, cron +1</blockquote>
+
 🌐 Réseau : 45 appareils, 43 en ligne, 2 hors ligne · 1 nouveau (appareil sans nom (fiche 45)) · 22 à revoir · sources OK
-   apparus avant l'activation des alertes : Invite-R1-1, Invite-R1-2 (à valider sur /network)
-   MAC ajoutée par règle (24 h) : fe:00:00:00:53:77 à poste-4
-   3 fiches archivées supprimées (purge R4)
-   associée à un conteneur après coup (24 h, à confirmer) : poste-1 → docker-a/web/lan
-   Ports (24 h) : invite-g1 : +tcp/22 (ssh), −tcp/80 (http)
-   Noms (mDNS) : 2 fiches nommées : poste-1, poste-2
-   1 fiche supprimée (24 h)
-   3 appareils vus par la sonde ARP, 2 à revoir (poste-3, poste-4)
-   conflits ARP (24 h) : 00:00:5e:00:53:01 : en-tête Ethernet 00:00:5e:00:53:02 ; IP ‹ip› : 2 MAC (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP ‹ip› : 2 MAC (speedtest, speedtest)
-   revenus après suppression (24 h) : poste-2
-<a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>
+<blockquote expandable>apparus avant l'activation des alertes : Invite-R1-1, Invite-R1-2 (à valider sur /network)
+MAC ajoutée par règle (24 h) : fe:00:00:00:53:77 à poste-4
+3 fiches archivées supprimées (purge R4)
+associée à un conteneur après coup (24 h, à confirmer) : poste-1 → docker-a/web/lan
+Ports (24 h) : invite-g1 : +tcp/22 (ssh), −tcp/80 (http)
+Noms (mDNS) : 2 fiches nommées : poste-1, poste-2
+1 fiche supprimée (24 h)
+3 appareils vus par la sonde ARP, 2 à revoir (poste-3, poste-4)
+conflits ARP (24 h) : 00:00:5e:00:53:01 : en-tête Ethernet 00:00:5e:00:53:02 ; IP ‹ip› : 2 MAC (00:00:5e:00:53:03, 00:00:5e:00:53:04) ; IP ‹ip› : 2 MAC (speedtest, speedtest)
+revenus après suppression (24 h) : poste-2</blockquote>
+
+👉 <a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>
 
 # signaux des MAJ
 🟠 <b>App</b> — correctif de sécurité publié <i>(dev)</i>
@@ -38,10 +56,13 @@ Depuis 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Ouvrir</a>
 
 # digest calme
 ☀️ <b>Infra — digest du 10/11</b>
+
 ✅ Aucune alerte active
+
 📋 24 h : aucun incident résolu
 🔐 Certificats &lt; 21 j : aucun
-<a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>
+
+👉 <a href="https://vigie.example.net/alerts">Ouvrir le cockpit</a>
 
 # MAJ : fin de vie proche, MAJ auto sans rapport frais
 ℹ️ <b>Debian 11</b> — fin de vie <i>(dev)</i>
@@ -52,7 +73,8 @@ Depuis 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Ouvrir</a>
 fin de vie le 01/12/2026
 Hôte : vps
 Depuis 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Ouvrir</a>
-🆕 1 nouvelle version : App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+🆕 1 nouvelle version
+  App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
 🛡 MAJ auto : 2 hôtes sans rapport récent : lab, vps
 
 # MAJ : fin de vie dépassée sans date, nuit sans correctif
@@ -64,6 +86,11 @@ Depuis 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Ouvrir</a>
 fin de vie dépassée · 12 disponible
 Hôte : vps
 Depuis 09:00 · <a href="https://vigie.example.net/updates?q=Debian">Ouvrir</a>
-🆕 3 nouvelles versions : App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡 · Debian (VM 200 · pve-a) 11 → 12 ▲ · Debian (vps) 11 → 12 ▲
-⏳ Fin de vie : Debian 11 (VM 200 · pve-a) · Debian 11 (vps)
+🆕 3 nouvelles versions
+  App (VM 200 · pve-a) 1.0.0 → 1.2.0 🛡
+  Debian (VM 200 · pve-a) 11 → 12 ▲
+  Debian (vps) 11 → 12 ▲
+⏳ 2 composants en fin de vie
+  Debian 11 (VM 200 · pve-a)
+  Debian 11 (vps)
 🛡 Aucun correctif de sécurité appliqué cette nuit (2 hôtes en MAJ auto)

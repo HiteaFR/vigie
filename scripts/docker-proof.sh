@@ -4,6 +4,17 @@
 #
 #   sh scripts/docker-proof.sh            # or VIGIE_PROOF_PORT=18188 sh scripts/docker-proof.sh
 #
+# Variables (all optional):
+#   VIGIE_PROOF_PORT      test port (default 18088), must be free
+#   VIGIE_PROOF_IMAGE     image already built or pulled (for instance a release candidate pulled by
+#                         digest): it is tagged with the unique name of the run instead of being
+#                         built; it must carry the commit of this copy (REVISION)
+#   VIGIE_PROOF_PLATFORM  linux/amd64 or linux/arm64: platform the containers run on (another
+#                         architecture needs QEMU on the machine), checked inside the running
+#                         container (uname -m)
+#   VIGIE_PROOF_WAIT      seconds allowed for each healthy state (default 90; more under QEMU)
+#   VIGIE_PROOF_VERSION   version that /api/healthz must report (x.y.z)
+#
 # Touches NO existing container, volume, network or image: compose project with a unique name
 # (vigie-proof-<date>-<pid>), image with a unique tag, refusal if any of them already exists,
 # free test port required; everything is created in a throw-away directory (mktemp) from
@@ -13,7 +24,7 @@
 # stay on the machine: the cache size is reported at the end, nothing is pruned.
 #
 # Steps (each one shown "ok" or "FAILED", stop at the first failure):
-#   1. image build (REVISION = commit);
+#   1. image build (REVISION = commit), or the given image tagged with the unique name;
 #   2. start WITHOUT a config: "docker compose run --rm init" message in the log, "setup needed"
 #      mode (/api/healthz: unconfigured true), no file created in /etc/vigie;
 #   3. non-interactive init (random test password, through a variable, never as an argument);
@@ -30,11 +41,19 @@ set -eu
 unset COMPOSE_FILE COMPOSE_PROFILES COMPOSE_PROJECT_NAME
 WITH_NET_SCAN=0
 [ "${1:-}" = --with-net-scan ] && { WITH_NET_SCAN=1; shift; }
-[ $# -eq 0 ] || { sed -n 2,26p "$0"; exit 2; }
+[ $# -eq 0 ] || { sed -n 2,37p "$0"; exit 2; }
 
 SRC=$(cd "$(dirname "$0")/.." && pwd)
 PORT=${VIGIE_PROOF_PORT:-18088}
 case $PORT in '' | *[!0-9]*) echo "VIGIE_PROOF_PORT: number expected" >&2; exit 2 ;; esac
+WAIT=${VIGIE_PROOF_WAIT:-90}
+case $WAIT in '' | *[!0-9]*) echo "VIGIE_PROOF_WAIT: number of seconds expected" >&2; exit 2 ;; esac
+[ "$WAIT" -ge 30 ] || { echo "VIGIE_PROOF_WAIT: 30 seconds at least (first healthcheck after 30 s)" >&2; exit 2; }
+GIVEN=${VIGIE_PROOF_IMAGE:-}
+PLATFORM=${VIGIE_PROOF_PLATFORM:-}
+case $PLATFORM in '' | linux/amd64 | linux/arm64) ;; *) echo "VIGIE_PROOF_PLATFORM: linux/amd64 or linux/arm64 expected" >&2; exit 2 ;; esac
+VERSION=${VIGIE_PROOF_VERSION:-}
+case $VERSION in '') ;; *[!0-9.]* | .* | *. | *..*) echo "VIGIE_PROOF_VERSION: x.y.z expected" >&2; exit 2 ;; esac
 PROJECT=vigie-proof-$(date +%Y%m%d%H%M%S)-$$
 IMAGE=$PROJECT:local
 NS_IMAGE=$PROJECT-net-scan:local
@@ -52,10 +71,13 @@ docker compose version >/dev/null 2>&1 || ko "docker compose (v2) missing"
 [ -z "$(docker network ls -q --filter "label=com.docker.compose.project=$PROJECT")" ] || ko "networks of project $PROJECT already exist"
 ! docker image inspect "$IMAGE" >/dev/null 2>&1 || ko "image $IMAGE already exists"
 ! docker image inspect "$NS_IMAGE" >/dev/null 2>&1 || ko "image $NS_IMAGE already exists"
+[ -z "$GIVEN" ] || docker image inspect "$GIVEN" >/dev/null 2>&1 || ko "image $GIVEN (VIGIE_PROOF_IMAGE) not found on this machine"
 ! ss -Hltn "sport = :$PORT" | grep -q . || ko "port $PORT already open on this machine (VIGIE_PROOF_PORT)"
 
 # unique names exported BEFORE any extraction: the compose file is never read with its default names
 export VIGIE_IMAGE="$IMAGE" VIGIE_NET_SCAN_IMAGE="$NS_IMAGE" VIGIE_REVISION="$REV" VIGIE_PORT="$PORT"
+# containers (and a build) of the requested platform
+[ -z "$PLATFORM" ] || export DOCKER_DEFAULT_PLATFORM="$PLATFORM"
 WORK=$(mktemp -d)
 cleanup() {
   rc=$?
@@ -79,10 +101,10 @@ cd "$WORK/src"
 dc() { docker compose -f "$WORK/src/docker-compose.yml" -p "$PROJECT" "$@"; }
 url=http://127.0.0.1:$PORT
 
-# bounded wait for a Docker health state (90 s: first check after 30 s)
+# bounded wait for a Docker health state (VIGIE_PROOF_WAIT, 90 s by default: first check after 30 s)
 wait_health() {
   i=0
-  while [ $i -lt 45 ]; do
+  while [ $i -lt $((WAIT / 2)) ]; do
     st=$(docker inspect --format '{{.State.Health.Status}}' "$(dc ps -q vigie)" 2>/dev/null || echo absent)
     [ "$st" = healthy ] && return 0
     i=$((i + 1))
@@ -92,9 +114,14 @@ wait_health() {
   return 1
 }
 
-# 1. build
-dc build vigie >/dev/null || ko "image build"
-ok "1. image built ($IMAGE, REVISION $REV)"
+# 1. build, or the given image under the unique name (removed with the project at cleanup)
+if [ -n "$GIVEN" ]; then
+  docker tag "$GIVEN" "$IMAGE" || ko "1. tag of $GIVEN"
+  ok "1. image given ($GIVEN), tagged $IMAGE"
+else
+  dc build vigie >/dev/null || ko "image build"
+  ok "1. image built ($IMAGE, REVISION $REV)"
+fi
 if [ "$WITH_NET_SCAN" = 1 ]; then
   dc --profile arp build net-scan >/dev/null || ko "build of the ARP companion"
   ok "1b. ARP companion built ($NS_IMAGE), not started"
@@ -121,7 +148,15 @@ h=$(curl -fsS -o /dev/null -w '%{http_code}' "$url/api/healthz") || true
 [ "$h" = 200 ] || ko "4. /api/healthz answered $h"
 curl -fsS "$url/api/healthz" | grep -q "\"commit\":\"$REV\"" || ko "4. expected commit missing from /api/healthz"
 ! curl -fsS "$url/api/healthz" | grep -q '"unconfigured"' || ko "4. still in setup-needed mode"
-ok "4. healthy, /api/healthz 200, commit $REV"
+[ -z "$VERSION" ] || curl -fsS "$url/api/healthz" | grep -q "\"version\":\"$VERSION\"" || ko "4. version $VERSION missing from /api/healthz"
+ok "4. healthy, /api/healthz 200, commit $REV${VERSION:+, version $VERSION}"
+if [ -n "$PLATFORM" ]; then
+  # architecture seen INSIDE the running container (not only what the image claims)
+  case $PLATFORM in linux/amd64) want=x86_64 ;; linux/arm64) want=aarch64 ;; esac
+  got=$(dc exec -T vigie uname -m | tr -d '\r')
+  [ "$got" = "$want" ] || ko "4. container runs on $got, $want expected ($PLATFORM)"
+  ok "4. container on $PLATFORM ($got)"
+fi
 
 # 5. admin login over loopback (password on curl's standard input, never as an argument)
 jar=$WORK/cookies
